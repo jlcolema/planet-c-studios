@@ -1,11 +1,11 @@
 <?php
 /**
  * The template file for displaying the comments and comment form for the
- * Twenty Twenty theme.
+ * Planet C Studios theme.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @subpackage Planet_C_Studios
+ * @since Planet C Studios 1.0
  */
 
 /*
@@ -31,10 +31,10 @@ if ( $comments ) {
 			<h2 class="comment-reply-title">
 			<?php
 			if ( ! have_comments() ) {
-				_e( 'Leave a comment', 'twentytwenty' );
+				_e( 'Leave a comment', 'planetcstudios' );
 			} elseif ( 1 === $comments_number ) {
 				/* translators: %s: Post title. */
-				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'twentytwenty' ), get_the_title() );
+				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'planetcstudios' ), get_the_title() );
 			} else {
 				printf(
 					/* translators: 1: Number of comments, 2: Post title. */
@@ -43,7 +43,7 @@ if ( $comments ) {
 						'%1$s replies on &ldquo;%2$s&rdquo;',
 						$comments_number,
 						'comments title',
-						'twentytwenty'
+						'planetcstudios'
 					),
 					number_format_i18n( $comments_number ),
 					get_the_title()
@@ -60,7 +60,7 @@ if ( $comments ) {
 			<?php
 			wp_list_comments(
 				array(
-					'walker'      => new TwentyTwenty_Walker_Comment(),
+					'walker'      => new PlanetCStudios_Walker_Comment(),
 					'avatar_size' => 120,
 					'style'       => 'div',
 				)
@@ -71,8 +71,8 @@ if ( $comments ) {
 					'echo'      => false,
 					'end_size'  => 0,
 					'mid_size'  => 0,
-					'next_text' => __( 'Newer Comments', 'twentytwenty' ) . ' <span aria-hidden="true">&rarr;</span>',
-					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'twentytwenty' ),
+					'next_text' => __( 'Newer Comments', 'planetcstudios' ) . ' <span aria-hidden="true">&rarr;</span>',
+					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'planetcstudios' ),
 				)
 			);
 
@@ -85,7 +85,7 @@ if ( $comments ) {
 				}
 				?>
 
-				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'twentytwenty' ); ?>">
+				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'planetcstudios' ); ?>">
 					<?php echo wp_kses_post( $comment_pagination ); ?>
 				</nav>
 
@@ -124,7 +124,7 @@ if ( comments_open() || pings_open() ) {
 
 	<div class="comment-respond" id="respond">
 
-		<p class="comments-closed"><?php _e( 'Comments are closed.', 'twentytwenty' ); ?></p>
+		<p class="comments-closed"><?php _e( 'Comments are closed.', 'planetcstudios' ); ?></p>
 
 	</div><!-- #respond -->
 

@@ -1,12 +1,12 @@
 <?php
 /**
- * A template partial to output pagination for the Twenty Twenty default theme.
+ * A template partial to output pagination for the Planet C Studios default theme.
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @subpackage Planet_C_Studios
+ * @since Planet C Studios 1.0
  */
 
 /**
@@ -18,11 +18,11 @@
 $prev_text = sprintf(
 	'%s <span class="nav-prev-text">%s</span>',
 	'<span aria-hidden="true">&larr;</span>',
-	__( 'Newer <span class="nav-short">Posts</span>', 'twentytwenty' )
+	__( 'Newer <span class="nav-short">Posts</span>', 'planetcstudios' )
 );
 $next_text = sprintf(
 	'<span class="nav-next-text">%s</span> %s',
-	__( 'Older <span class="nav-short">Posts</span>', 'twentytwenty' ),
+	__( 'Older <span class="nav-short">Posts</span>', 'planetcstudios' ),
 	'<span aria-hidden="true">&rarr;</span>'
 );
 

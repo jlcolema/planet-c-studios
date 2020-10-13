@@ -5,8 +5,8 @@
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @subpackage Planet_C_Studios
+ * @since Planet C Studios 1.0
  */
 
 get_header();
