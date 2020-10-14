@@ -754,3 +754,203 @@ function planetcstudios_get_elements_array() {
 	*/
 	return apply_filters( 'planetcstudios_get_elements_array', $elements );
 }
+
+/* Need to Organize */
+
+/*----------------------------------------*\
+   Title
+\*----------------------------------------*/
+
+// Notes...
+
+/*----------------------------------------*\
+   Support for SVG
+\*----------------------------------------*/
+
+// Notes...
+
+// function cc_mime_types( $mimes ) {
+
+	// $mimes['svg'] = 'image/svg+xml';
+
+	// return $mimes;
+
+// }
+
+/*----------------------------------------*\
+   Remove Block Library CSS
+\*----------------------------------------*/
+
+// Notes...
+
+// function planetcstudios_remove_wp_block_library_css() {
+
+	// wp_dequeue_style( 'wp-block-library' );
+
+	// wp_dequeue_style( 'wp-block-library-theme' );
+
+	// wp_dequeue_style( 'wc-block-style' ); // for WooCommerce
+
+// }
+
+// add_action( 'wp_enqueue_scripts', 'planetcstudios_remove_wp_block_library_css', 100);
+
+/*----------------------------------------*\
+   Deregister Features
+\*----------------------------------------*/
+
+// Notes...
+
+// function deregister_features() {
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// wp_deregister_script( 'wp-embed' );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+
+	// remove_action( 'wp_print_styles', 'print_emoji_styles' );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// global $wp_widget_factory;
+
+	// remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'wp_generator' );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'wlwmanifest_link' );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'rsd_link' );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+
+	// remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'rel_canonical' );
+
+	/* Title
+	------------------------------------------*/
+
+	// Notes...
+
+	// remove_action( 'wp_head', 'wp_resource_hints', 2 );
+
+// }
+
+// add_action( 'init', 'deregister_features' );
+
+/*----------------------------------------*\
+   SVG
+\*----------------------------------------*/
+
+// Notes...
+
+// function add_file_types_to_uploads($file_types) {
+
+	// $new_filetypes = array();
+	// $new_filetypes['svg'] = 'image/svg+xml';
+	// $file_types = array_merge($file_types, $new_filetypes);
+
+	// return $file_types;
+
+// }
+
+// add_action('upload_mimes', 'add_file_types_to_uploads');
+
+/*----------------------------------------*\
+   Contact Form 7
+\*----------------------------------------*/
+
+// Disable initial loading of stylesheet and script.
+
+// add_filter( 'wpcf7_load_css', '__return_false' );
+
+// add_filter( 'wpcf7_load_js', '__return_false' );
+
+/*----------------------------------------*\
+   Advanced Custom Fields
+\*----------------------------------------*/
+
+// Notes...
+
+if ( function_exists( 'acf_add_options_page' ) ) {
+
+	acf_add_options_page( array(
+
+		'page_title'	=> 'Globals',
+		'menu_title'	=> 'Globals',
+		'menu_slug'		=> 'globals',
+		'capability'	=> 'edit_posts',
+		// 'redirect'		=> false
+
+	) );
+
+	acf_add_options_sub_page( array(
+
+		'page_title'		=> 'About',
+		'menu_title'		=> 'About',
+		'parent_slug'	=> 'globals'
+
+	) );
+	
+	acf_add_options_sub_page( array(
+
+		'page_title'		=> 'Contact Information',
+		'menu_title'		=> 'Contact Information',
+		'parent_slug'	=> 'globals'
+
+	) );
+
+	acf_add_options_sub_page( array(
+
+		'page_title'		=> 'Social Media',
+		'menu_title'		=> 'Social Media',
+		'parent_slug'	=> 'globals'
+
+	) );
+
+}
