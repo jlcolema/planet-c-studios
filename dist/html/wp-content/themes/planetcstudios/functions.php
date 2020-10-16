@@ -250,16 +250,12 @@ function planetcstudios_non_latin_languages() {
 add_action( 'wp_enqueue_scripts', 'planetcstudios_non_latin_languages' );
 
 /**
- * Register navigation menus uses wp_nav_menu in five places.
+ * Register navigation menus uses wp_nav_menu in one place.
  */
 function planetcstudios_menus() {
 
 	$locations = array(
-		'primary'  => __( 'Desktop Horizontal Menu', 'planetcstudios' ),
-		'expanded' => __( 'Desktop Expanded Menu', 'planetcstudios' ),
-		'mobile'   => __( 'Mobile Menu', 'planetcstudios' ),
-		'footer'   => __( 'Footer Menu', 'planetcstudios' ),
-		'social'   => __( 'Social Menu', 'planetcstudios' ),
+		'primary'  => __( 'Primary Navigation', 'planetcstudios' )
 	);
 
 	register_nav_menus( $locations );
