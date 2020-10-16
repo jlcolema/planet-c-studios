@@ -23,7 +23,7 @@
 
 			<div class="logo logo--secondary">
 
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo__link">
+				<a href="#top" title="Return to the top of the page." class="logo__link">
 
 					<?php bloginfo( 'name' ); ?>
 
