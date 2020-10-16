@@ -45,6 +45,64 @@
 
 <body <?php body_class(); ?>>
 
+	<header role="banner" class="">
+
+		<div class="wrap">
+
+			<div class="logo">
+
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo__link">
+
+					<?php bloginfo( 'name' ); ?>
+
+				</a>
+
+			</div>
+
+			<nav role="navigation" class="nav nav--primary">
+
+				<div class="nav__toggle">
+
+					<span class="nav__label">Menu</span>
+
+				</div>
+
+				<?php
+
+					wp_nav_menu(
+			
+						array(
+			
+							'menu'					=> 'Primary Navigation',
+							'menu_class'			=> '',
+							'menu_id'				=> '',
+							'container'				=> '',
+							// 'container_class'	=> '',
+							// 'container_id'		=> '',
+							// 'fallback_cb'		=> '',
+							// 'before'				=> '',
+							// 'after'				=> '',
+							// 'link_before'		=> '',
+							// 'link_after'			=> '',
+							// 'echo'				=> true,
+							'depth'					=> 1,
+							// 'walker'				=> '',
+							'theme_location'		=> 'primary',
+							'items_wrap'			=> '<ol class="nav__list %2$s">%3$s</ol>',
+							// 'item_spacing'		=> 'preserve'
+							
+						)
+						
+					);
+
+				?>
+
+			</nav>
+
+		</div>
+
+	</header>
+
 	<?php
 	wp_body_open();
 	?>
