@@ -53,6 +53,8 @@
 
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo__link">
 
+					<!-- If possible, use embedded SVG markup. -->
+
 					<?php bloginfo( 'name' ); ?>
 
 				</a>
