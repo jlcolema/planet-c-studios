@@ -35,6 +35,14 @@
 
 			<p class="copyright">Copyright &copy; 2001-<?php echo date_i18n( _x( 'Y', 'copyright date format', 'planetcstudios' ) ); ?> <?php bloginfo( 'name' ); ?> &ndash; All Rights Reserved</p>
 
+			<!-- Background -->
+
+			<div class="footer__background">
+
+				<img src="https://via.placeholder.com/300x200.png?text=Background+(300x200)" alt="A photo of a rising planet moon" class="footer__img" />
+
+			</div>
+
 		</div>
 
 	</footer>
