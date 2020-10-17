@@ -21,9 +21,11 @@
 
 		<div class="wrap footer__wrap">
 
-			<div class="logo logo--secondary">
+			<div class="secondary-logo">
 
-				<a href="#top" title="Return to the top of the page." class="logo__link">
+				<a href="#top" title="Return to the top of the page." class="secondary-logo__link">
+
+					<!-- If possible, use embedded SVG markup. -->
 
 					<?php bloginfo( 'name' ); ?>
 
