@@ -331,15 +331,15 @@
 
 				<li class="project__item">
 
-					<a href="/work/aquaman-museum-exhibit/" class="project__link">
+					<a href="/work/project-01/" class="project__link">
 
 						<div class="project__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Aquaman Museum Exhibit" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
 		
 						</div>
 
-						<h3 class="project__title">Aquaman Museum Exhibit</h3>
+						<h3 class="project__title">Title of Project</h3>
 
 					</a>
 
@@ -347,15 +347,15 @@
 
 				<li class="project__item">
 
-					<a href="/work/project-warner-bros-world-abu-dhabi/" class="project__link">
+					<a href="/work/project-01/" class="project__link">
 
 						<div class="project__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Warner Bros. World Cinema Spectacular" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
 		
 						</div>
 
-						<h3 class="project__title">Warner Bros. World Cinema Spectacular</h3>
+						<h3 class="project__title">Title of Project</h3>
 			
 					</a>
 
@@ -363,15 +363,15 @@
 
 				<li class="project__item">
 
-					<a href="/work/horror-made-here-2018/" class="project__link">
+					<a href="/work/project-01/" class="project__link">
 
 						<div class="project__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Horror Made Here: A Festival of Frights 2018" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
 		
 						</div>
 
-						<h3 class="project__title">Horror Made Here: A Festival of Frights 2018</h3>
+						<h3 class="project__title">Title of Project</h3>
 
 					</a>
 
@@ -379,15 +379,15 @@
 
 				<li class="project__item">
 			
-					<a href="/work/a-lunch-at-lorelais/" class="project__link">
+					<a href="/work/project-01/" class="project__link">
 
 						<div class="project__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Holiday Lunch at Lorelai's" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
 		
 						</div>
 
-						<h3 class="project__title">Holiday Lunch at Lorelai's</h3>
+						<h3 class="project__title">Title of Project</h3>
 
 					</a>
 
