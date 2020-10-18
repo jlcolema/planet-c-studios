@@ -55,33 +55,37 @@
 
 		<div class="project__samples">
 
-			<ul class="samples__list">
+			<div class="samples__title">
 
-				<!-- Example still image -->
+				<ul class="samples__list">
 
-				<li class="sample__item sample__item--still">
+					<!-- Example still image -->
 
-					<img src="https://via.placeholder.com/600x400.png?text=Still+(600x400)" alt="A project sample image still" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+					<li class="sample__item sample__item--still">
 
-				</li>
+						<img src="https://via.placeholder.com/600x400.png?text=Still+(600x400)" alt="A project sample image still" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-				<!-- Example YouTube video. -->
+					</li>
 
-				<li class="sample__item sample__item--video">
+					<!-- Example YouTube video. -->
 
-					<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+					<li class="sample__item sample__item--video">
 
-				</li>
+						<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-				<!-- Example Vimeo video. -->
+					</li>
 
-				<li class="sample__item sample__item--video">
+					<!-- Example Vimeo video. -->
 
-					<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+					<li class="sample__item sample__item--video">
 
-				</li>
+						<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-			</ul>
+					</li>
+
+				</ul>
+
+			</div>
 
 			<div class="samples__nav">
 
