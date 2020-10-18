@@ -15,6 +15,235 @@
 
 <?php get_header(); ?>
 
-	<h1>Work</h1>
+	<div class="projects">
+
+		<div class="projects__nav">
+
+			<h1 class="projects__header">Projects</h1>
+
+			<select name="projects-filter" id="" class="projects__filter">
+
+				<option value="">See All</option>
+				<option value="animation">Animation</option>
+				<option value="branding">Branding</option>
+				<option value="comedy">Comedy</option>
+				<option value="concept">Concept</option>
+				<option value="documentary">Documentary</option>
+				<option value="educational">Educational</option>
+				<option value="graphics">Graphics</option>
+				<option value="horror">Horror</option>
+				<option value="montage">Montage</option>
+				<option value="music-video">Music Video</option>
+				<option value="production">Production</option>
+				<option value="projection-mapping">Projection Mapping</option>
+				<option value="promo">Promo</option>
+				<option value="scripted">Scripted</option>
+				<option value="short">Short</option>
+				<option value="special-venue">Special Venue</option>
+				<option value="star-talent">Star Talent</option>
+				<option value="television">Television</option>
+				<option value="visual-effects">Visual Effects</option>
+
+			</select>
+
+		</div>
+
+		<ul class="projects__list">
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/warner-bros-world-abu-dhabi/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Warner Bros. World Cinema Spectaculr" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Warner Bros. World Cinema Spectaculr</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/aquaman-museum-exhibit/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Aquaman Museum Exhibit" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Aquaman Museum Exhibit</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/warner-brothers-studio-tours/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Wanrer Bros. Studio Tour - Hollywood" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Wanrer Bros. Studio Tour - Hollywood</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/jimmy-fallon-studio-tour/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Jimmy Fallon Studio Tour" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Jimmy Fallon Studio Tour</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/stage-48-sound-design/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for A Star is Born & Crazy Rich Asians Stage 48 Sound Design" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">A Star is Born & Crazy Rich Asians Stage 48 Sound Design</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/horror-made-here-2018/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Horror Made Here A Festival of Frights 2018"width="200" height="300" decoding="async" loading="lazy"  class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Horror Made Here A Festival of Frights 2018</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/halloween-horror-nights/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Halloween Horror Nights" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Halloween Horror Nights</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/wonder-woman-museum-exhibit/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Wonder Woman Museum Exhibit" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Wonder Woman Museum Exhibit</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/nightmare-on-camp-crystal-lake/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Nightmare on Camp Crystal Lake" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Nightmare on Camp Crystal Lake</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/the-exorcist-sensory-experience/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for The Exorcist Forbidden Screening" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">The Exorcist Forbidden Screening</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/conjuring-universe/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Conjuring Universe" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Conjuring Universe</h3>
+
+				</a>
+
+			</li>
+
+			<li class="project__item project__item--category-animation">
+
+				<a href="/work/insidious-vip-projection-show/" class="project__link">
+
+					<div class="project__cover">
+
+						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Insidious VIP Experience" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+
+					</div>
+
+					<h3 class="project__title">Insidious VIP Experience</h3>
+
+				</a>
+
+			</li>
+
+		</ul>
+
+	</div>
 
 <?php get_footer(); ?>
