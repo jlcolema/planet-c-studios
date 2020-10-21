@@ -92,6 +92,7 @@ function planetcstudios_theme_support() {
 	 * If you're building a theme based on Planet C Studios, use a find and replace
 	 * to change 'planetcstudios' to the name of your theme in all the template files.
 	 */
+
 	load_theme_textdomain( 'planetcstudios' );
 
 	// Add support for full and wide align images.
