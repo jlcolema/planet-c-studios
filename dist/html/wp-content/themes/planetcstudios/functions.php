@@ -165,13 +165,17 @@ add_action( 'wp_enqueue_scripts', 'planetcstudios_register_scripts' );
 /**
  * Register navigation menus uses wp_nav_menu in one place.
  */
+
 function planetcstudios_menus() {
 
 	$locations = array(
+
 		'primary'  => __( 'Primary Navigation', 'planetcstudios' )
+
 	);
 
 	register_nav_menus( $locations );
+
 }
 
 add_action( 'init', 'planetcstudios_menus' );
