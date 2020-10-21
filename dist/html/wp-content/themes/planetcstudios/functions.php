@@ -103,15 +103,6 @@ function planetcstudios_theme_support() {
 
 	// add_theme_support( 'customize-selective-refresh-widgets' );
 
-	/*
-	 * Adds `async` and `defer` support for scripts registered or enqueued
-	 * by the theme.
-	 */
-
-	$loader = new PlanetCStudios_Script_Loader();
-
-	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
-
 }
 
 add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
