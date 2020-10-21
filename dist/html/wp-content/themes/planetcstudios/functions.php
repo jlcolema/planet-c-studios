@@ -326,17 +326,17 @@ add_action( 'init', 'planetcstudios_menus' );
  * Remove Block Library CSS
  */
 
-// function planetcstudios_remove_wp_block_library_css() {
+function planetcstudios_remove_wp_block_library_css() {
 
-	// wp_dequeue_style( 'wp-block-library' );
+	wp_dequeue_style( 'wp-block-library' );
 
-	// wp_dequeue_style( 'wp-block-library-theme' );
+	wp_dequeue_style( 'wp-block-library-theme' );
 
 	// wp_dequeue_style( 'wc-block-style' ); // for WooCommerce
 
-// }
+}
 
-// add_action( 'wp_enqueue_scripts', 'planetcstudios_remove_wp_block_library_css', 100);
+add_action( 'wp_enqueue_scripts', 'planetcstudios_remove_wp_block_library_css', 100);
 
 /**
  * Deregister Features
