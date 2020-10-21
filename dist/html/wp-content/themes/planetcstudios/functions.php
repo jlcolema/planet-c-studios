@@ -129,7 +129,7 @@ add_action( 'wp_enqueue_scripts', 'planetcstudios_register_styles' );
 
 function planetcstudios_register_scripts() {
 
-	$theme_version = wp_get_theme()->get( 'Version' );
+	// $theme_version = wp_get_theme()->get( 'Version' );
 
 	// if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
