@@ -128,10 +128,6 @@ function planetcstudios_register_styles() {
 
 	wp_style_add_data( 'planetcstudios-style', 'rtl', 'replace' );
 
-	// Add print CSS.
-
-	wp_enqueue_style( 'planetcstudios-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
-
 }
 
 add_action( 'wp_enqueue_scripts', 'planetcstudios_register_styles' );
