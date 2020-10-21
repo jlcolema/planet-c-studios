@@ -117,7 +117,7 @@ function planetcstudios_register_styles() {
 
 	wp_enqueue_style( 'planetcstudios-style', get_stylesheet_uri(), array(), $theme_version );
 
-	wp_style_add_data( 'planetcstudios-style', 'rtl', 'replace' );
+	// wp_style_add_data( 'planetcstudios-style', 'rtl', 'replace' );
 
 }
 
