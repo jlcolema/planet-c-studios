@@ -241,7 +241,7 @@ add_action( 'init', 'planetcstudios_menus' );
 
 // }
 
-add_action( 'widgets_init', 'planetcstudios_sidebar_registration' );
+// add_action( 'widgets_init', 'planetcstudios_sidebar_registration' );
 
 /**
  * Enqueue supplemental block editor styles.
