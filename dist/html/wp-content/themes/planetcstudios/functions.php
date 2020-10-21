@@ -244,27 +244,6 @@ add_action( 'init', 'planetcstudios_menus' );
 // add_action( 'widgets_init', 'planetcstudios_sidebar_registration' );
 
 /**
- * Enqueue supplemental block editor styles.
- */
-function planetcstudios_block_editor_styles() {
-
-	// Enqueue the editor styles.
-	wp_enqueue_style( 'planetcstudios-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), array(), wp_get_theme()->get( 'Version' ), 'all' );
-	wp_style_add_data( 'planetcstudios-block-editor-styles', 'rtl', 'replace' );
-
-	// Add inline style from the Customizer.
-	wp_add_inline_style( 'planetcstudios-block-editor-styles', planetcstudios_get_customizer_css( 'block-editor' ) );
-
-	// Add inline style for non-latin fonts.
-	wp_add_inline_style( 'planetcstudios-block-editor-styles', PlanetCStudios_Non_Latin_Languages::get_non_latin_css( 'block-editor' ) );
-
-	// Enqueue the editor script.
-	wp_enqueue_script( 'planetcstudios-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
-}
-
-add_action( 'enqueue_block_editor_assets', 'planetcstudios_block_editor_styles', 1, 1 );
-
-/**
  * Enqueue classic editor styles.
  */
 function planetcstudios_classic_editor_styles() {
