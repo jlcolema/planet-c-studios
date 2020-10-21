@@ -117,11 +117,6 @@ function planetcstudios_theme_support() {
 add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
 
 /**
- * REQUIRED FILES
- * Include required files.
- */
-
-/**
  * Register and Enqueue Styles.
  */
 function planetcstudios_register_styles() {
