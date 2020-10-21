@@ -326,18 +326,6 @@ add_action( 'init', 'planetcstudios_menus' );
 // add_filter( 'tiny_mce_before_init', 'planetcstudios_add_classic_editor_non_latin_styles' );
 
 /**
- * Overwrite default more tag with styling and screen reader markup.
- *
- * @param string $html The default output HTML for the more tag.
- * @return string
- */
-function planetcstudios_read_more_tag( $html ) {
-	return preg_replace( '/<a(.*)>(.*)<\/a>/iU', sprintf( '<div class="read-more-button-wrap"><a$1><span class="faux-button">$2</span> <span class="screen-reader-text">"%1$s"</span></a></div>', get_the_title( get_the_ID() ) ), $html );
-}
-
-add_filter( 'the_content_more_link', 'planetcstudios_read_more_tag' );
-
-/**
  * Enqueues scripts for customizer controls & settings.
  *
  * @since Planet C Studios 1.0
