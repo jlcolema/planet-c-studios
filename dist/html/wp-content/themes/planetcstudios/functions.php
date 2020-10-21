@@ -121,9 +121,6 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
  * Include required files.
  */
 
-// Require Separator Control class.
-require get_template_directory() . '/classes/class-planetcstudios-separator-control.php';
-
 // Custom comment walker.
 require get_template_directory() . '/classes/class-planetcstudios-walker-comment.php';
 
