@@ -101,7 +101,7 @@ function planetcstudios_theme_support() {
 
 	// Add theme support for selective refresh for widgets.
 
-	add_theme_support( 'customize-selective-refresh-widgets' );
+	// add_theme_support( 'customize-selective-refresh-widgets' );
 
 	/*
 	 * Adds `async` and `defer` support for scripts registered or enqueued
