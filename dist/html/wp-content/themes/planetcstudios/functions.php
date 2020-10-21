@@ -120,7 +120,6 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
  * REQUIRED FILES
  * Include required files.
  */
-require get_template_directory() . '/inc/template-tags.php';
 
 // Handle SVG icons.
 require get_template_directory() . '/classes/class-planetcstudios-svg-icons.php';
