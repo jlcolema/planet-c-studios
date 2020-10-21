@@ -342,87 +342,87 @@ add_action( 'wp_enqueue_scripts', 'planetcstudios_remove_wp_block_library_css', 
  * Deregister Features
  */
 
-// function deregister_features() {
+function deregister_features() {
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// wp_deregister_script( 'wp-embed' );
+	wp_deregister_script( 'wp-embed' );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 
-	// remove_action( 'wp_print_styles', 'print_emoji_styles' );
-
-	/* Title
-	------------------------------------------*/
-
-	// Notes...
-
-	// global $wp_widget_factory;
-
-	// remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'wp_generator' );
+	global $wp_widget_factory;
+
+	remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'wlwmanifest_link' );
+	remove_action( 'wp_head', 'wp_generator' );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'rsd_link' );
+	remove_action( 'wp_head', 'wlwmanifest_link' );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+	remove_action( 'wp_head', 'rsd_link' );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-
-	// remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
+	remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'rel_canonical' );
+	remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
+
+	remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
 
 	/* Title
 	------------------------------------------*/
 
 	// Notes...
 
-	// remove_action( 'wp_head', 'wp_resource_hints', 2 );
+	remove_action( 'wp_head', 'rel_canonical' );
 
-// }
+	/* Title
+	------------------------------------------*/
 
-// add_action( 'init', 'deregister_features' );
+	// Notes...
+
+	remove_action( 'wp_head', 'wp_resource_hints', 2 );
+
+}
+
+add_action( 'init', 'deregister_features' );
 
 /**
  * SVG
