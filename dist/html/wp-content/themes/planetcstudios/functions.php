@@ -38,12 +38,6 @@ function planetcstudios_theme_support() {
 
 	// add_theme_support( 'automatic-feed-links' );
 
-	// Set content-width.
-	global $content_width;
-	if ( ! isset( $content_width ) ) {
-		$content_width = 580;
-	}
-
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
