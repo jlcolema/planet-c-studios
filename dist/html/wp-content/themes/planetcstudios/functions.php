@@ -121,9 +121,6 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
  * Include required files.
  */
 
-// Custom page walker.
-require get_template_directory() . '/classes/class-planetcstudios-walker-page.php';
-
 // Custom script loader class.
 require get_template_directory() . '/classes/class-planetcstudios-script-loader.php';
 
