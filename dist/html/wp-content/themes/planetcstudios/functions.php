@@ -265,21 +265,26 @@ add_action( 'init', 'planetcstudios_classic_editor_styles' );
  * @param array $mce_init TinyMCE styles.
  * @return array TinyMCE styles.
  */
-function planetcstudios_add_classic_editor_customizer_styles( $mce_init ) {
 
-	$styles = planetcstudios_get_customizer_css( 'classic-editor' );
+// function planetcstudios_add_classic_editor_customizer_styles( $mce_init ) {
 
-	if ( ! isset( $mce_init['content_style'] ) ) {
-		$mce_init['content_style'] = $styles . ' ';
-	} else {
-		$mce_init['content_style'] .= ' ' . $styles . ' ';
-	}
+	// $styles = planetcstudios_get_customizer_css( 'classic-editor' );
 
-	return $mce_init;
+	// if ( ! isset( $mce_init['content_style'] ) ) {
 
-}
+		// $mce_init['content_style'] = $styles . ' ';
 
-add_filter( 'tiny_mce_before_init', 'planetcstudios_add_classic_editor_customizer_styles' );
+	// } else {
+
+		// $mce_init['content_style'] .= ' ' . $styles . ' ';
+
+	// }
+
+	// return $mce_init;
+
+// }
+
+// add_filter( 'tiny_mce_before_init', 'planetcstudios_add_classic_editor_customizer_styles' );
 
 /**
  * Output non-latin font styles in the classic editor.
