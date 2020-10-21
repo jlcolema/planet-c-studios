@@ -121,9 +121,6 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
  * Include required files.
  */
 
-// Non-latin language handling.
-require get_template_directory() . '/classes/class-planetcstudios-non-latin-languages.php';
-
 // Custom CSS.
 require get_template_directory() . '/inc/custom-css.php';
 
