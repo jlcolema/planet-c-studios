@@ -8,12 +8,12 @@ A very nice overview.
 
 1. Home
 2. Work
-3. Proposal
-4. 404
+3. 404
 
 ### Entries
 
 1. Project
+2. Proposal
 
 ## Plugins
 
