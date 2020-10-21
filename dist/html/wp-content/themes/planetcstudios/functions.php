@@ -51,7 +51,8 @@ function planetcstudios_theme_support() {
 	// set_post_thumbnail_size( 1200, 9999 );
 
 	// Add custom image size used in Cover Template.
-	add_image_size( 'planetcstudios-fullscreen', 1980, 9999 );
+
+	// add_image_size( 'planetcstudios-fullscreen', 1980, 9999 );
 
 	// Custom logo.
 	$logo_width  = 120;
