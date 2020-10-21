@@ -326,32 +326,6 @@ add_action( 'init', 'planetcstudios_menus' );
 // add_filter( 'tiny_mce_before_init', 'planetcstudios_add_classic_editor_non_latin_styles' );
 
 /**
- * Enqueue scripts for the customizer preview.
- *
- * @since Planet C Studios 1.0
- *
- * @return void
- */
-function planetcstudios_customize_preview_init() {
-	$theme_version = wp_get_theme()->get( 'Version' );
-
-	wp_enqueue_script( 'planetcstudios-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview', 'customize-selective-refresh', 'jquery' ), $theme_version, true );
-	wp_localize_script( 'planetcstudios-customize-preview', 'planetCStudiosBgColors', planetcstudios_get_customizer_color_vars() );
-	wp_localize_script( 'planetcstudios-customize-preview', 'planetCStudiosPreviewEls', planetcstudios_get_elements_array() );
-
-	wp_add_inline_script(
-		'planetcstudios-customize-preview',
-		sprintf(
-			'wp.customize.selectiveRefresh.partialConstructor[ %1$s ].prototype.attrs = %2$s;',
-			wp_json_encode( 'cover_opacity' ),
-			wp_json_encode( planetcstudios_customize_opacity_range() )
-		)
-	);
-}
-
-add_action( 'customize_preview_init', 'planetcstudios_customize_preview_init' );
-
-/**
  * Get accessible color for an area.
  *
  * @since Planet C Studios 1.0
