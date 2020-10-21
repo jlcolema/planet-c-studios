@@ -113,7 +113,7 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
 
 function planetcstudios_register_styles() {
 
-	$theme_version = wp_get_theme()->get( 'Version' );
+	// $theme_version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_style( 'planetcstudios-style', get_stylesheet_uri(), array(), $theme_version );
 
