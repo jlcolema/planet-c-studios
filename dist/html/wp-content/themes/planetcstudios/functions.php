@@ -121,9 +121,6 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
  * Include required files.
  */
 
-// Custom CSS.
-require get_template_directory() . '/inc/custom-css.php';
-
 /**
  * Register and Enqueue Styles.
  */
