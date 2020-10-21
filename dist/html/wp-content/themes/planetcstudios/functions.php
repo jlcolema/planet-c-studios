@@ -115,9 +115,9 @@ function planetcstudios_register_styles() {
 
 	// $theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'planetcstudios-styles', get_template_directory_uri() . '/assets/css/styles.css', array(), $theme_version );
+	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css', array(), $theme_version );
 
-	// wp_style_add_data( 'planetcstudios-style', 'rtl', 'replace' );
+	// wp_style_add_data( 'styles-rtl', 'rtl', 'replace' );
 
 }
 
@@ -141,9 +141,9 @@ function planetcstudios_register_scripts() {
 
 	/* Figure out why this moves the `head` element below the `body` element. */
 
-	// wp_enqueue_script( 'modernizr-js', get_template_directory_uri() . '/assets/js/vendor/modernizr.3.6.0.js', array(), $theme_version, true );
+	// wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.3.6.0.js', array(), $theme_version, true );
 
-	// wp_script_add_data( 'modernizr-js', 'async', true );
+	// wp_script_add_data( 'modernizr', 'async', true );
 
 	/* Remove WordPress default jQuery and upgrade to latest version */
 
