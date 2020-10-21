@@ -119,17 +119,21 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
 /**
  * Register and Enqueue Styles.
  */
+
 function planetcstudios_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_style( 'planetcstudios-style', get_stylesheet_uri(), array(), $theme_version );
+
 	wp_style_add_data( 'planetcstudios-style', 'rtl', 'replace' );
 
 	// Add output of Customizer settings as inline style.
+
 	wp_add_inline_style( 'planetcstudios-style', planetcstudios_get_customizer_css( 'front-end' ) );
 
 	// Add print CSS.
+
 	wp_enqueue_style( 'planetcstudios-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
 
 }
@@ -139,15 +143,19 @@ add_action( 'wp_enqueue_scripts', 'planetcstudios_register_styles' );
 /**
  * Register and Enqueue Scripts.
  */
+
 function planetcstudios_register_scripts() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
 	if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+
 		wp_enqueue_script( 'comment-reply' );
+
 	}
 
 	wp_enqueue_script( 'planetcstudios-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
+
 	wp_script_add_data( 'planetcstudios-js', 'async', true );
 
 }
