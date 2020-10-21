@@ -181,15 +181,6 @@ function planetcstudios_menus() {
 add_action( 'init', 'planetcstudios_menus' );
 
 /**
- * Include a skip to content link at the top of the page so that users can bypass the menu.
- */
-function planetcstudios_skip_link() {
-	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'planetcstudios' ) . '</a>';
-}
-
-add_action( 'wp_body_open', 'planetcstudios_skip_link', 5 );
-
-/**
  * Register widget areas.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
