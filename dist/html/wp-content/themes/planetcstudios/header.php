@@ -37,7 +37,7 @@
 	<!-- <link rel="stylesheet" href="css/normalize.css"> -->
 	<!-- <link rel="stylesheet" href="css/styles.css"> -->
 
-	<meta name="theme-color" content="#fafafa">
+	<meta name="theme-color" content="#000000">
 
 	<?php wp_head(); ?>
 
