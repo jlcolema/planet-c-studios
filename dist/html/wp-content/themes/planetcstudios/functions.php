@@ -43,10 +43,12 @@ function planetcstudios_theme_support() {
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
-	add_theme_support( 'post-thumbnails' );
+
+	// add_theme_support( 'post-thumbnails' );
 
 	// Set post thumbnail size.
-	set_post_thumbnail_size( 1200, 9999 );
+
+	// set_post_thumbnail_size( 1200, 9999 );
 
 	// Add custom image size used in Cover Template.
 	add_image_size( 'planetcstudios-fullscreen', 1980, 9999 );
