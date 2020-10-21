@@ -30,8 +30,8 @@ var browsersync = require('browser-sync');
 var basePaths = {
 
 	dev:    'src/',
-	dist:   'dist/html/wp-content/themes/rtggolf/',
-	assets: 'dist/html/wp-content/themes/rtggolf/assets/'
+	dist:   'dist/html/wp-content/themes/planetcstudios/',
+	assets: 'dist/html/wp-content/themes/planetcstudios/assets/'
 
 };
 
@@ -74,7 +74,7 @@ gulp.task('js', function() {
 	return gulp.src([
 
 		// basePaths.dev + 'js/modernizr.js',
-		basePaths.dev + 'js/libraries/jquery-3.5.1.js',
+		// basePaths.dev + 'js/libraries/jquery-3.5.1.js',
 		// basePaths.dev + 'js/flexslider.js',
 		// basePaths.dev + 'js/scroll.js',
 		// basePaths.dev + 'js/holder.js',
@@ -82,7 +82,7 @@ gulp.task('js', function() {
 
 	])
 
-	.pipe(concat('global.js'))
+	.pipe(concat('functions.js'))
 
 	// .pipe(rename({
 
