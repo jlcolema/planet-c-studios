@@ -308,17 +308,9 @@ add_action( 'init', 'planetcstudios_menus' );
 
 // add_filter( 'tiny_mce_before_init', 'planetcstudios_add_classic_editor_non_latin_styles' );
 
-/* Need to Organize */
-
-/*----------------------------------------*\
-   Title
-\*----------------------------------------*/
-
-// Notes...
-
-/*----------------------------------------*\
-   Support for SVG
-\*----------------------------------------*/
+/**
+ * Support for SVG
+ */
 
 // Notes...
 
@@ -330,11 +322,9 @@ add_action( 'init', 'planetcstudios_menus' );
 
 // }
 
-/*----------------------------------------*\
-   Remove Block Library CSS
-\*----------------------------------------*/
-
-// Notes...
+/**
+ * Remove Block Library CSS
+ */
 
 // function planetcstudios_remove_wp_block_library_css() {
 
@@ -348,11 +338,9 @@ add_action( 'init', 'planetcstudios_menus' );
 
 // add_action( 'wp_enqueue_scripts', 'planetcstudios_remove_wp_block_library_css', 100);
 
-/*----------------------------------------*\
-   Deregister Features
-\*----------------------------------------*/
-
-// Notes...
+/**
+ * Deregister Features
+ */
 
 // function deregister_features() {
 
@@ -436,9 +424,9 @@ add_action( 'init', 'planetcstudios_menus' );
 
 // add_action( 'init', 'deregister_features' );
 
-/*----------------------------------------*\
-   SVG
-\*----------------------------------------*/
+/**
+ * SVG
+ */
 
 // Notes...
 
@@ -454,9 +442,9 @@ add_action( 'init', 'planetcstudios_menus' );
 
 // add_action('upload_mimes', 'add_file_types_to_uploads');
 
-/*----------------------------------------*\
-   Contact Form 7
-\*----------------------------------------*/
+/**
+ * Contact Form 7
+ */
 
 // Disable initial loading of stylesheet and script.
 
@@ -464,11 +452,9 @@ add_action( 'init', 'planetcstudios_menus' );
 
 // add_filter( 'wpcf7_load_js', '__return_false' );
 
-/*----------------------------------------*\
-   Advanced Custom Fields
-\*----------------------------------------*/
-
-// Notes...
+/**
+ * Advanced Custom Fields
+ */
 
 if ( function_exists( 'acf_add_options_page' ) ) {
 
