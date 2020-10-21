@@ -180,16 +180,6 @@ function planetcstudios_menus() {
 
 add_action( 'init', 'planetcstudios_menus' );
 
-if ( ! function_exists( 'wp_body_open' ) ) {
-
-	/**
-	 * Shim for wp_body_open, ensuring backward compatibility with versions of WordPress older than 5.2.
-	 */
-	function wp_body_open() {
-		do_action( 'wp_body_open' );
-	}
-}
-
 /**
  * Include a skip to content link at the top of the page so that users can bypass the menu.
  */
