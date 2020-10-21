@@ -246,17 +246,20 @@ add_action( 'init', 'planetcstudios_menus' );
 /**
  * Enqueue classic editor styles.
  */
-function planetcstudios_classic_editor_styles() {
 
-	$classic_editor_styles = array(
-		'/assets/css/editor-style-classic.css',
-	);
+// function planetcstudios_classic_editor_styles() {
 
-	add_editor_style( $classic_editor_styles );
+	// $classic_editor_styles = array(
 
-}
+		// '/assets/css/editor-style-classic.css',
 
-add_action( 'init', 'planetcstudios_classic_editor_styles' );
+	// );
+
+	// add_editor_style( $classic_editor_styles );
+
+// }
+
+// add_action( 'init', 'planetcstudios_classic_editor_styles' );
 
 /**
  * Output Customizer settings in the classic editor.
