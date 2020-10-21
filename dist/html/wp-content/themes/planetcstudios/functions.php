@@ -121,10 +121,6 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
  * Include required files.
  */
 
-// Handle SVG icons.
-require get_template_directory() . '/classes/class-planetcstudios-svg-icons.php';
-require get_template_directory() . '/inc/svg-icons.php';
-
 // Handle Customizer settings.
 require get_template_directory() . '/classes/class-planetcstudios-customize.php';
 
