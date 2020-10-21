@@ -38,14 +38,6 @@ function planetcstudios_theme_support() {
 
 	// add_theme_support( 'automatic-feed-links' );
 
-	// Custom background color.
-	add_theme_support(
-		'custom-background',
-		array(
-			'default-color' => 'f5efe0',
-		)
-	);
-
 	// Set content-width.
 	global $content_width;
 	if ( ! isset( $content_width ) ) {
