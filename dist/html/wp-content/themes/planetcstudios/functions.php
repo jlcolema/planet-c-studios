@@ -137,9 +137,31 @@ function planetcstudios_register_scripts() {
 
 	// }
 
-	wp_enqueue_script( 'planetcstudios-js', get_template_directory_uri() . '/assets/js/functions.js', array(), $theme_version, false );
+	/* Add Modernizr for feature detection */
 
-	wp_script_add_data( 'planetcstudios-js', 'async', true );
+	/* Figure out why this moves the `head` element below the `body` element. */
+
+	// wp_enqueue_script( 'modernizr-js', get_template_directory_uri() . '/assets/js/vendor/modernizr.3.6.0.js', array(), $theme_version, true );
+
+	// wp_script_add_data( 'modernizr-js', 'async', true );
+
+	/* Remove WordPress default jQuery and upgrade to latest version */
+
+	if ( ! is_admin() ) {
+
+		wp_deregister_script( 'jquery' );
+
+		wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/vendor/jquery.3.5.1.js', array(), $theme_version, true );
+
+		wp_enqueue_script( 'jquery' );
+
+		wp_script_add_data( 'jquery', 'async', true );
+
+	}
+
+	wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/js/functions.js', array(), $theme_version, true );
+
+	wp_script_add_data( 'functions', 'async', true );
 
 }
 
@@ -343,6 +365,9 @@ add_action( 'wp_enqueue_scripts', 'planetcstudios_remove_wp_block_library_css', 
  */
 
 function deregister_features() {
+
+	/* Title
+	------------------------------------------*/
 
 	/* Title
 	------------------------------------------*/
