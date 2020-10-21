@@ -326,25 +326,6 @@ add_action( 'init', 'planetcstudios_menus' );
 // add_filter( 'tiny_mce_before_init', 'planetcstudios_add_classic_editor_non_latin_styles' );
 
 /**
- * Returns an array of variables for the customizer preview.
- *
- * @since Planet C Studios 1.0
- *
- * @return array
- */
-function planetcstudios_get_customizer_color_vars() {
-	$colors = array(
-		'content'       => array(
-			'setting' => 'background_color',
-		),
-		'header-footer' => array(
-			'setting' => 'header_footer_background_color',
-		),
-	);
-	return $colors;
-}
-
-/**
  * Get an array of elements.
  *
  * @since Planet C Studios 1.0
