@@ -50,11 +50,11 @@
 
 			</div>
 
-			<nav role="navigation" class="nav nav--primary">
+			<nav role="navigation" class="navigation navigation--primary">
 
-				<div class="nav__toggle">
+				<div class="navigation__toggle">
 
-					<span class="nav__label">Menu</span>
+					<span class="navigation__label">Menu</span>
 
 				</div>
 
@@ -79,7 +79,7 @@
 							'depth'					=> 1,
 							// 'walker'				=> '',
 							'theme_location'		=> 'primary',
-							'items_wrap'			=> '<ol class="nav__list %2$s">%3$s</ol>',
+							'items_wrap'			=> '<ol class="navigation__list %2$s">%3$s</ol>',
 							// 'item_spacing'		=> 'preserve'
 							
 						)
