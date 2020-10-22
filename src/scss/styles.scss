@@ -32,32 +32,32 @@ with others.
 
 @charset 'utf-8';
 
-// 1. Configuration and Helpers
+// 1. Configuration, Utilities, and Helpers
 
 @import 'common/_normalize';
 @import 'common/_variables';
 @import 'common/_mixins';
 @import 'common/_fonts';
 
-// 2. Vendor
-
-// @import 'vendor/_contact-form-7';
-
-// 3. Baseline
+// 2. Baseline
 
 @import 'common/_baseline';
 @import 'common/miscellaneous';
 
-// 4. Layouts
+// 3. Layouts
 
 @import 'layouts/_header';
 @import 'layouts/_main';
 @import 'layouts/_footer';
 
-// 5. Components
+// 4. Components
 
 @import 'components/_carousel';
 @import 'components/_form';
+
+// 5. Vendor
+
+// @import 'vendor/_contact-form-7';
 
 // 6. Page-specific
 
