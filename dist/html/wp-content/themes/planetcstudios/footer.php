@@ -35,6 +35,32 @@
 
 			<p class="copyright">Copyright &copy; 2001-<?php echo date_i18n( _x( 'Y', 'copyright date format', 'planetcstudios' ) ); ?> <?php bloginfo( 'name' ); ?> &ndash; All Rights Reserved</p>
 
+			<div class="social">
+
+				<ul class="social__list">
+
+					<li class="social__item social__item--facebook">
+
+						<a href="#" class="social__link">Facebook</a>
+
+					</li>
+
+					<li class="social__item social__item--twitter">
+
+						<a href="#" class="social__link">Twitter</a>
+
+					</li>
+
+					<li class="social__item social__item--youtube">
+
+						<a href="#" class="social__link">YouTube</a>
+
+					</li>
+
+				</ul>
+
+			</div>
+
 			<!-- Background -->
 
 			<div class="footer__background">
