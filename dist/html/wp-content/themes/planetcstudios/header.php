@@ -36,7 +36,7 @@
 
 	<header role="banner" class="header">
 
-		<div class="wrap heaer__wrap">
+		<div class="wrap header__wrap">
 
 			<div class="logo">
 
