@@ -54,6 +54,14 @@ function planetcstudios_theme_support() {
 
 	// add_image_size( 'planetcstudios-fullscreen', 1980, 9999 );
 
+
+	// Add custom image sizes for project covers.
+
+	add_image_size( 'cover-large', 380, 560, true );
+
+	add_image_size( 'cover-small', 180, 270, true );
+
+
 	/*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
