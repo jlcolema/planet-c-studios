@@ -23,9 +23,18 @@
 
 			<div class="project__meta">
 
+				<!-- 
+					
+					Two sizes are available:
+						
+					1. cover-large, 380 x 560, for higher density screens.
+					2. cover-small, 190 x 288, the default output.
+
+				-->
+
 				<div class="project__cover">
 
-					<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" width="200" height="300" decoding="async" loading="lazy" class="project__img" />
+					<img src="https://via.placeholder.com/190x280.png?text=Cover+(190x280)" alt="The cover image for Title of Project" srcset="https://via.placeholder.com/380x560.png?text=Cover+(380x560) 2x" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
 
 				</div>
 
