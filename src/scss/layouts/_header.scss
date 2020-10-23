@@ -4,7 +4,12 @@ Header
 
 .header {}
 
-	.header__wrap {}
+	.header__wrap {
+
+		padding: 1.25em;
+		background: pink;
+
+	}
 
 		/* Logo */
 
@@ -20,7 +25,17 @@ Header
 
 			.navigation__toggle {}
 
-				.navigation__label {}
+				.navigation__label {
+
+					display: block;
+					width: 40px;
+					height: 40px;
+					background: darken(pink, 10%);
+					border-radius: 10px;
+					cursor: pointer;
+					@include hide-text;
+
+				}
 
 			.navigation__list {}
 
