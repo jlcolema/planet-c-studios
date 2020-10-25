@@ -1,3 +1,98 @@
 /*------------------------------
 Page: Work
 ------------------------------*/
+
+/* RESET RULES
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+:root {
+	--black: #3a3a3a;
+	--white: #fff;
+	--green: #49b293;
+  }
+  
+//   input[type="radio"] {
+// 	position: absolute;
+// 	left: -9999px;
+//   }
+  
+  
+  /* projects__filter
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  .projects__filter {
+	text-align: center;
+	margin-bottom: 2rem;
+  }
+  
+  .projects__filter * {
+	display: inline-block;
+  }
+  
+  .projects__filter label {
+	padding: 0.5rem 1rem;
+	margin-bottom: 0.25rem;
+	border-radius: 2rem;
+	min-width: 50px;
+	line-height: normal;
+	cursor: pointer;
+	transition: all 0.1s;
+  }
+  
+  .projects__filter label:hover {
+	background: var(--green);
+	color: var(--white);
+  }
+
+  /* FILTERING RULES
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+  [value="See All"]:checked ~ .projects__filter [for="all"],
+  [value="Animation"]:checked ~ .projects__filter [for="animation"],
+  [value="Branding"]:checked ~ .projects__filter [for="branding"],
+  [value="Comedy"]:checked ~ .projects__filter [for="comedy"],
+  [value="Concept"]:checked ~ .projects__filter [for="concept"],
+  [value="Documentary"]:checked ~ .projects__filter [for="documentary"],
+  [value="Educational"]:checked ~ .projects__filter [for="educational"],
+  [value="Graphics"]:checked ~ .projects__filter [for="graphics"],
+  [value="Horror"]:checked ~ .projects__filter [for="horror"],
+  [value="Montage"]:checked ~ .projects__filter [for="montage"],
+  [value="Music Video"]:checked ~ .projects__filter [for="music-video"],
+  [value="Production"]:checked ~ .projects__filter [for="production"],
+  [value="Projection Mapping"]:checked ~ .projects__filter [for="projection-mapping"],
+  [value="Promo"]:checked ~ .projects__filter [for="promo"],
+  [value="Scripted"]:checked ~ .projects__filter [for="scripted"],
+  [value="Short"]:checked ~ .projects__filter [for="short"],
+  [value="Special Venue"]:checked ~ .projects__filter [for="special-venue"],
+  [value="Star Talent"]:checked ~ .projects__filter [for="star-talent"],
+  [value="Television"]:checked ~ .projects__filter [for="television"],
+  [value="Visual Effects"]:checked ~ .projects__filter [for="visual-effects"] {
+
+	background: var(--green);
+	color: var(--white);
+ 
+}
+  
+  [value="See All"]:checked ~ .projects__list [data-category] {
+	display: block;
+  }
+  
+  [value="Animation"]:checked ~ .projects__list .project__item:not([data-category~="animation"]),
+  [value="Branding"]:checked ~ .projects__list .project__item:not([data-category~="branding"]),
+  [value="Comedy"]:checked ~ .projects__list .project__item:not([data-category~="comedy"]),
+  [value="Concept"]:checked ~ .projects__list .project__item:not([data-category~="concept"]),
+  [value="Documentary"]:checked ~ .projects__list .project__item:not([data-category~="documentary"]),
+  [value="Educational"]:checked ~ .projects__list .project__item:not([data-category~="educational"]),
+  [value="Graphics"]:checked ~ .projects__list .project__item:not([data-category~="graphics"]),
+  [value="Horror"]:checked ~ .projects__list .project__item:not([data-category~="horror"]),
+  [value="Montage"]:checked ~ .projects__list .project__item:not([data-category~="montage"]),
+  [value="Music Video"]:checked ~ .projects__list .project__item:not([data-category~="music-video"]),
+  [value="Production"]:checked ~ .projects__list .project__item:not([data-category~="production"]),
+  [value="Projection Mapping"]:checked ~ .projects__list .project__item:not([data-category~="projection-mapping"]),
+  [value="Promo"]:checked ~ .projects__list .project__item:not([data-category~="promo"]),
+  [value="Scripted"]:checked ~ .projects__list .project__item:not([data-category~="scripted"]),
+  [value="Short"]:checked ~ .projects__list .project__item:not([data-category~="short"]),
+  [value="Special Venue"]:checked ~ .projects__list .project__item:not([data-category~="special-venue"]),
+  [value="Star Talent"]:checked ~ .projects__list .project__item:not([data-category~="star-talent"]),
+  [value="Television"]:checked ~ .projects__list .project__item:not([data-category~="television"]),
+  [value="Visual Effects"]:checked ~ .projects__list .project__item:not([data-category~="visual-effects"]) {
+	display: none;
+  }
+  
