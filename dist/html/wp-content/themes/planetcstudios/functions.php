@@ -59,7 +59,7 @@ function planetcstudios_theme_support() {
 
 	add_image_size( 'cover-large', 380, 560, true );
 
-	add_image_size( 'cover-small', 180, 270, true );
+	add_image_size( 'cover-small', 190, 280, true );
 
 
 	/*
