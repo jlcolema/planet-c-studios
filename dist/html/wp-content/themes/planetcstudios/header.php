@@ -21,10 +21,9 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<!-- <link rel="manifest" href="site.webmanifest"> -->
-	<!-- <link rel="apple-touch-icon" href="icon.png"> -->
+	<link rel="manifest" href="site.webmanifest">
 
-	<meta name="theme-color" content="#000000">
+	<link rel="apple-touch-icon" href="icon.png">
 
 	<?php wp_head(); ?>
 
