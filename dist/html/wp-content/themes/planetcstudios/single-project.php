@@ -15,11 +15,33 @@
 
 <?php get_header(); ?>
 
+	<?php
+
+		// Cover
+
+		$project_cover_attachment_id = get_field( 'project_cover', $project->ID );
+
+		// Size Labels
+
+		$project_cover_size_large = 'cover-large';
+		$project_cover_size_small = 'cover-small';
+
+		// Image Sizes
+
+		$project_cover_large = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_large );
+		$project_cover_small = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_small );
+
+		// Clients
+
+		$project_clients = get_field( 'project_client' );
+
+	?>
+
 	<div class="project">
 
 		<div class="project__overview">
 
-			<h1 class="project__title">Title of Project</h1>
+			<h1 class="project__title"><?php the_title(); ?></h1>
 
 			<div class="project__meta">
 
@@ -34,27 +56,65 @@
 
 				<div class="project__cover">
 
-					<img src="https://via.placeholder.com/190x280.png?text=Cover+(190x280)" alt="The cover image for Title of Project" srcset="https://via.placeholder.com/380x560.png?text=Cover+(380x560) 2x" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
+					<?php if ( ! $project_cover_small ) : ?>
+
+						<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img project__img--is-placeholder" />
+
+					<?php else : ?>
+
+						<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
+
+					<?php endif; ?>
 
 				</div>
 
 				<div class="project__details">
 
-					<div class="project__description">
+					<?php if ( get_field( 'project_description' ) ) : ?>
 
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A voluptate, ducimus nemo sint minus alias laboriosam itaque tenetur fugit rerum ut minima in ab quam inventore fuga blanditiis. Sed, optio!</p>
+						<div class="project__description">
 
-					</div>
+							<?php the_field( 'project_description' ); ?>
 
-					<div class="project__date">May 2015</div>
+						</div>
 
-					<div class="project__location">Universal Studios Tour</div>
+					<?php endif; ?>
 
-					<div class="project__client">
+					<?php if ( get_field( 'project_date' ) ) : ?>
 
-						<span class="project__label">Client:</span> Universal Studios Hollywood
+						<div class="project__date"><?php the_field( 'project_date' ); ?></div>
 
-					</div>
+					<?php endif; ?>
+
+					<?php if ( get_field( 'project_location' ) ) : ?>
+
+						<div class="project__location"><?php the_field( 'project_location' ); ?></div>
+
+					<?php endif; ?>
+
+					<?php if ( $project_clients ) : ?>
+
+						<div class="project__client">
+
+							<span class="project__label">Client:</span>
+							
+							<?php foreach ( $project_clients as $project_client ) : ?>
+							
+								<?php
+
+									// Title
+
+									$client_title = get_the_title( $project_client->ID );
+
+								?>
+
+								<?php echo esc_html( $client_title ); ?>
+
+							<?php endforeach; ?>
+
+						</div>
+
+					<?php endif; ?>
 
 				</div>
 
