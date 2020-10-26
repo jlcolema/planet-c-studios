@@ -2,6 +2,8 @@
 
 A very nice overview.
 
+## Installation Instructions
+
 ## Templates
 
 ### Pages
@@ -15,7 +17,11 @@ A very nice overview.
 1. Project
 2. Proposal
 
-## Plugins
+## WordPress
+
+### Title Needed (for Navigating the System)
+
+### Plugins
 
 1. Admin Menu Editor
 2. Advanced Custom Fields Pro
