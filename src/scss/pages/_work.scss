@@ -4,37 +4,47 @@ Page: Work
 
 .projects {}
 
-	.projects__nav {}
+	.projects__inner-wrap {}
 
-    	.projects__header {}
+		.projects__nav {}
 
-		.projects__categories {}
-		
-	.filter__input {}
+		.projects__header {}
 
-	.filter__input--radio {}
+			.projects__categories {}
+			
+		.filter__input {}
 
-	.filter__list {}
+		.filter__input--radio {}
 
-		.filter__item {}
+		.filter__list {}
 
-			.filter__label {}
+			.filter__item {}
 
-	.projects__list {}
+				.filter__label {}
 
-		.project__item {}
+		.projects__list {
 
-			.project__link {
+			background: pink;
 
-				&:hover {}
+		}
 
-			}
+			.project__item {}
 
-				.project__cover {}
+				.project__link {
 
-					.project__img {}
+					&:hover {}
 
-				.project__title {}
+				}
+
+					.project__cover {}
+
+						.project__img {}
+
+					.project__title {
+
+						display: none; // Temporarily hidden.
+
+					}
 
     
 
