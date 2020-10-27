@@ -325,69 +325,69 @@
 
 			</div>
 
-			<!-- List of Projects -->
+			<!-- Featured Work -->
 
-			<ul class="projects__list">
+			<ul class="work__list">
 
-				<li class="project__item">
+				<li class="work__item">
 
-					<a href="/work/project-01/" class="project__link">
+					<a href="/work/project-01/" class="work__link">
 
-						<div class="project__cover">
+						<div class="work__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
 		
 						</div>
 
-						<h3 class="project__title">Title of Project</h3>
+						<h3 class="work__title">Title of Project</h3>
 
 					</a>
 
 				</li>
 
-				<li class="project__item">
+				<li class="work__item">
 
-					<a href="/work/project-01/" class="project__link">
+					<a href="/work/project-01/" class="work__link">
 
-						<div class="project__cover">
+						<div class="work__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
 		
 						</div>
 
-						<h3 class="project__title">Title of Project</h3>
+						<h3 class="work__title">Title of Project</h3>
 			
 					</a>
 
 				</li>
 
-				<li class="project__item">
+				<li class="work__item">
 
-					<a href="/work/project-01/" class="project__link">
+					<a href="/work/project-01/" class="work__link">
 
-						<div class="project__cover">
+						<div class="work__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
 		
 						</div>
 
-						<h3 class="project__title">Title of Project</h3>
+						<h3 class="work__title">Title of Project</h3>
 
 					</a>
 
 				</li>
 
-				<li class="project__item">
+				<li class="work__item">
 			
-					<a href="/work/project-01/" class="project__link">
+					<a href="/work/project-01/" class="work__link">
 
-						<div class="project__cover">
+						<div class="work__cover">
 
-							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="project__img" />
+							<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
 		
 						</div>
 
-						<h3 class="project__title">Title of Project</h3>
+						<h3 class="work__title">Title of Project</h3>
 
 					</a>
 
