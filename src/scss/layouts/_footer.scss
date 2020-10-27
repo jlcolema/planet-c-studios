@@ -15,7 +15,13 @@ Footer
 		width: 100%;
 		max-width: 1160px;
 		margin: 0 auto;
-		padding: 3.75em 0 2.5em 0;
+		padding: 3.75em 0 11em 0;
+
+		@media screen and (min-width: 900px) {
+
+			padding: 3.75em 0 2.5em 0;
+
+		}
 
 	}
 
@@ -24,7 +30,7 @@ Footer
 			position: relative;
 			width: 120px;
 			margin: 0 auto;
-			z-index: 5;
+			z-index: 5; // Makes sure this appears above the background image.
 
 		}
 
@@ -44,15 +50,15 @@ Footer
 			font-size: 0.875rem;
 			text-transform: uppercase;
 			text-align: center;
-			z-index: 5;
+			z-index: 5; // Makes sure this appears above the background image.
 
 		}
 
 		.social {
 
 			position: relative;
-			margin: 1.25em 0 0 0;
-			z-index: 5;
+			// margin: 1.25em 0 0 0;
+			z-index: 5; // Makes sure this appears above the background image.
 
 		}
 
@@ -74,7 +80,7 @@ Footer
 				.social__item {
 
 					width: 100px; // Temporary until images are added.
-					margin: 0 0.625em;
+					margin: 1.25em 0.625em 0 0.625em;
 
 				}
 
@@ -130,9 +136,17 @@ Footer
 		.footer__background {
 
 			position: absolute;
-			left: 0;
+			left: 50%;
 			bottom: 0;
+			margin-left: -180px;
 			z-index: 1;
+
+			@media screen and (min-width: 900px) {
+
+				left: 0;
+				margin: 0;
+
+			}
 
 		}
 
