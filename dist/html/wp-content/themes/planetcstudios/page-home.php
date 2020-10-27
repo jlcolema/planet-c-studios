@@ -647,11 +647,11 @@
 
 			<div class="contact__contact-information contact__h-card h-card">
 
-				<div class="p-tel">323-822-1945</div>
+				<div class="p-tel contact__tel">323-822-1945</div>
 
-				<div class="u-email">
+				<div class="u-email contact__email">
 
-					<a href="mailto:info@planetcstudios.com" class="u-email__link">info@planetcstudios.com</a>
+					<a href="mailto:info@planetcstudios.com" class="u-email__link contact__link">info@planetcstudios.com</a>
 
 				</div>
 
@@ -665,25 +665,25 @@
 
 					<li class="location__item location__h-card h-card">
 
-						<h3 class="p-name">Hollywood</h3>
+						<h3 class="p-name location__name">Hollywood</h3>
 
-						<div class="p-org">Planet C Studios</div>
+						<div class="p-org location__org">Planet C Studios</div>
 
-						<div class="p-adr h-adr">
+						<div class="p-adr h-adr location__adr">
 
-							<div class="p-street-address">1945 Weepoh Way</div>
+							<div class="p-street-address location__street-address">1945 Weepoh Way</div>
 
-							<div class="">
+							<div class="location__div">
 							
-								<span class="p-locality">Los Angeles</span>, <span title="California" class="p-region">CA</span> <span class="p-postal-code">90046</span>
+								<span class="p-locality location__locality">Los Angeles</span>, <span title="California" class="p-region location__region">CA</span> <span class="p-postal-code location__postal-code">90046</span>
 
 							</div>
 
 						</div>
 
-						<div class="p-tel">
+						<div class="p-tel location__tel">
 
-							<span class="p-label">(tel)</span> 323-822-1985
+							<span class="p-label location__label">(tel)</span> 323-822-1985
 
 						</div>
 
@@ -691,25 +691,27 @@
 
 					<li class="location__item location__h-card h-card">
 
-						<h3 class="p-name">Burbank</h3>
+						<h3 class="p-name location__name">Burbank</h3>
 
-						<div class="p-adr h-adr">
+						<div class="p-adr h-adr location__adr">
 
-							<div class="p-street-address">3500 West Olive Ave.</div>
+							<div class="p-street-address location__street-address">3500 West Olive Ave.</div>
 							
-							<div class="p-extended-address">Suite 300</div>
+							<div class="p-extended-address location__extended-address">Suite 300</div>
 							
-							<div class="p-extended-address">Office 347</div>
+							<div class="p-extended-address location__extended-address">Office 347</div>
 							
-							<div class="">
+							<div class="location__div">
 
-								<span class="p-locality">Burbank</span>, <span title="California" class="p-region">CA</span> <span class="p-postal-code">91505</span>
+								<span class="p-locality location__locality">Burbank</span>, <span title="California" class="p-region location__region">CA</span> <span class="p-postal-code location__postal-code">91505</span>
+
+							</div>
 
 						</div>
 
-						<div class="p-tel">
+						<div class="p-tel location__tel">
 
-							<span class="p-label">(tel)</span> 323-822-1985
+							<span class="p-label location__label">(tel)</span> 323-822-1985
 
 						</div>
 
