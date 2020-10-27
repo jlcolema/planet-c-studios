@@ -117,3 +117,67 @@ Page: Home
 				&:hover {}
 
 			}
+
+/* Section: About */
+
+.section__about {}
+
+	.about__inner-wrap {}
+
+		.about__header {}
+
+		.about__overview {}
+
+			.about__mission-statement {
+
+				p {
+
+					&:last-of-type {}
+
+				}
+
+			}
+
+			.about__founded {
+
+				span {}
+
+			}
+
+		.members__list {}
+
+		.members__list--core-team {}
+
+		.member__list--key-collaborators {}
+
+			.member__item {}
+
+			.member__item--core-team {}
+
+			.member__item--key-collaborators {}
+
+			.member__item--founder {}
+
+				.member__photo {}
+
+					.member__img {}
+
+				.member__name {}
+
+				.member__role {}
+
+				.member__bio {
+
+					p {
+
+						&:last-of-type {}
+
+					}
+
+						a {
+
+							&:hover {}
+
+						}
+
+				}
