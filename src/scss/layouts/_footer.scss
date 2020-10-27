@@ -1,3 +1,138 @@
 /*------------------------------
 Footer
 ------------------------------*/
+
+.footer {
+
+	background: pink;
+
+}
+
+	.footer__wrap {
+
+		position: relative;
+		width: 100%;
+		max-width: 1160px;
+		margin: 0 auto;
+		padding: 3.75em 0 2.5em 0;
+
+	}
+
+		.secondary-logo {
+
+			position: relative;
+			width: 120px;
+			margin: 0 auto;
+			z-index: 5;
+
+		}
+
+			.secondary-logo__link {
+
+				display: block;
+				height: 70px;
+				background: darken(pink, 5%);
+				@include hide-text;
+
+			}
+
+		.copyright {
+
+			position: relative;
+			margin: 2.5em 0 0 0;
+			font-size: 0.875rem;
+			text-transform: uppercase;
+			text-align: center;
+			z-index: 5;
+
+		}
+
+		.social {
+
+			position: relative;
+			margin: 1.25em 0 0 0;
+			z-index: 5;
+
+		}
+
+			.social__list {
+
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: flex-start;
+				align-content: flex-start;
+
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+			}
+
+				.social__item {
+
+					width: 100px; // Temporary until images are added.
+					margin: 0 0.625em;
+
+				}
+
+					.social__link {
+
+						display: block;
+						height: 30px;
+						background: darken(pink, 5%);
+						@include hide-text;
+
+					}
+
+				// Facebook
+
+				.social__item--facebook {
+
+					.social__link {}
+
+				}
+
+				// Instagram
+
+				.social__item--instagram {
+
+					.social__link {}
+
+				}
+
+				// Twitter
+
+				.social__item--twitter {
+
+					.social__link {}
+
+				}
+
+				// YouTube
+
+				.social__item--youtube {
+
+					.social__link {}
+
+				}
+
+				// Vimeo
+
+				.social__item--vimeo {
+
+					.social__link {}
+
+				}
+		
+		.footer__background {
+
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			z-index: 1;
+
+		}
+
+			.footer__img {}
