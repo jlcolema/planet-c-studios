@@ -5,6 +5,11 @@ Footer
 .footer {
 
 	padding: 0 1.25em;
+	color: $color-base-white;
+	background: $color-base-black;
+
+	// For local development.
+
 	background: pink;
 
 }
