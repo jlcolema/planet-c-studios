@@ -303,6 +303,12 @@
 
 				<?php endforeach; ?>
 				
+				<li class="project__item project__item--gap"></li>
+
+				<li class="project__item project__item--gap"></li>
+
+				<li class="project__item project__item--gap"></li>
+
 			</ul>
 
 		</div>

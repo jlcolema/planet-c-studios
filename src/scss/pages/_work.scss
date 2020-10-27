@@ -2,9 +2,22 @@
 Page: Work
 ------------------------------*/
 
-.projects {}
+.projects {
 
-	.projects__inner-wrap {}
+	padding: 0 0.875em; // Accounts for left and right margins for project items.
+
+	background: pink;
+
+}
+
+	.projects__inner-wrap {
+
+		width: 100%;
+		max-width: 808px;
+		margin: 0 auto;
+		background: darken(pink, 5%);
+
+	}
 
 		.projects__nav {}
 
@@ -24,13 +37,41 @@ Page: Work
 
 		.projects__list {
 
-			background: pink;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-start;
+			align-content: flex-start;
+
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			background: darken(pink, 10%);
 
 		}
 
-			.project__item {}
+			.project__item {
+
+				width: 190px;
+				margin: 0.75em 0.375em 0 0.375em;
+
+			}
+
+			.project__item--gap {
+
+				margin-top: 0;
+
+			}
+
+			.project__item--gap {}
 
 				.project__link {
+
+					position: relative;
+					display: block;
+					overflow: hidden; // This is temporary until long title names are figured out.
 
 					&:hover {}
 
@@ -38,11 +79,25 @@ Page: Work
 
 					.project__cover {}
 
-						.project__img {}
+						.project__img {
+
+							height: auto !important;
+
+						}
 
 					.project__title {
 
-						display: none; // Temporarily hidden.
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						width: 100%;
+						margin: 0;
+						padding: 1em;
+						color: $color-base-white;
+						background: rgba($color-base-black, 0.70);
+						z-index: 1;
+
+						.project__link:hover & {}
 
 					}
 
@@ -56,10 +111,12 @@ Page: Work
 	--green: #49b293;
   }
   
-//   input[type="radio"] {
-// 	position: absolute;
-// 	left: -9999px;
-//   }
+input[type="radio"] {
+
+	position: absolute;
+	left: -9999px;
+
+}
   
   
   /* projects__filter
@@ -76,7 +133,7 @@ Page: Work
   .projects__filter label {
 	padding: 0.5rem 1rem;
 	margin-bottom: 0.25rem;
-	border-radius: 2rem;
+	// border-radius: 2rem;
 	min-width: 50px;
 	line-height: normal;
 	cursor: pointer;
@@ -84,7 +141,7 @@ Page: Work
   }
   
   .projects__filter label:hover {
-	background: var(--green);
+	background: darken(pink, 10%);
 	color: var(--white);
   }
 
@@ -111,7 +168,7 @@ Page: Work
   [value="Television"]:checked ~ .projects__filter [for="television"],
   [value="Visual Effects"]:checked ~ .projects__filter [for="visual-effects"] {
 
-	background: var(--green);
+	background: darken(pink, 10%);
 	color: var(--white);
  
 }
