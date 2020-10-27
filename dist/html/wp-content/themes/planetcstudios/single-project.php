@@ -98,19 +98,23 @@
 
 							<span class="project__label">Client:</span>
 							
-							<?php foreach ( $project_clients as $project_client ) : ?>
-							
-								<?php
+							<ul class="client__list">
 
-									// Title
+								<?php foreach ( $project_clients as $project_client ) : ?>
+								
+									<?php
 
-									$client_title = get_the_title( $project_client->ID );
+										// Title
 
-								?>
+										$client_title = get_the_title( $project_client->ID );
 
-								<?php echo esc_html( $client_title ); ?>
+									?>
 
-							<?php endforeach; ?>
+									<li class="client__item"><?php echo esc_html( $client_title ); ?></li>
+
+								<?php endforeach; ?>
+
+							</ul>
 
 						</div>
 
