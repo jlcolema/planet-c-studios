@@ -2,6 +2,42 @@
 Page: Work
 ------------------------------*/
 
+.projects {}
+
+	.projects__nav {}
+
+    	.projects__header {}
+
+		.projects__categories {}
+		
+	.filter__input {}
+
+	.filter__input--radio {}
+
+	.filter__list {}
+
+		.filter__item {}
+
+			.filter__label {}
+
+	.projects__list {}
+
+		.project__item {}
+
+			.project__link {
+
+				&:hover {}
+
+			}
+
+				.project__cover {}
+
+					.project__img {}
+
+				.project__title {}
+
+    
+
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 :root {
