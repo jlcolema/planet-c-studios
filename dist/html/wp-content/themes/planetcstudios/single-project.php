@@ -162,23 +162,23 @@
 
 			<div class="samples__nav">
 
-				<ul class="samples__thumbnails">
+				<ul class="thumbnails__list">
 
-					<li class="sample__thumbnail">
+					<li class="thumbnail__item">
 
-						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample image still" width="100" height="50" decoding="async" loading="lazy" class="sample__img" />
-
-					</li>
-
-					<li class="sample__thumbnail">
-
-						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample YouTube video" width="100" height="50" decoding="async" loading="lazy" class="sample__img" />
+						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample image still" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
 
 					</li>
 
-					<li class="sample__thumbnail">
+					<li class="thumbnail__item">
 
-						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample Vimeo video" width="100" height="50" decoding="async" loading="lazy" class="sample__img" />
+						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample YouTube video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
+
+					</li>
+
+					<li class="thumbnail__item">
+
+						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample Vimeo video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
 
 					</li>
 

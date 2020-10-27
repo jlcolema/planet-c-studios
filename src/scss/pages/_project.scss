@@ -1,3 +1,71 @@
 /*------------------------------
 Entry: Project
 ------------------------------*/
+
+.project {}
+
+	.project__overview {}
+
+		.project__title {}
+
+		.project__meta {}
+
+			.project__cover {}
+
+				.project__img {}
+
+			.project__details {}
+
+				.project__description {
+
+					p {
+
+						&:last-of-type {}
+
+					}
+
+						a {
+
+							&:hover {}
+
+						}
+
+				}
+
+				.project__date {}
+
+				.project__location {}
+
+				.project__client {}
+
+					.client__label {}
+
+					.client__list {}
+
+						.client__item {
+
+							&:last-of-type {}
+
+						}
+
+	.project__samples {}
+
+		.samples__title {} // Need to name better.
+
+			.samples__list {}
+
+				.sample__item {}
+
+				.sample__item--still {}
+
+				.sample__item--video {}
+
+					.sample__img {}
+
+		.samples__nav {}
+
+			.thumbnails__list {}
+
+				.thumbnail__item {}
+
+					.thumbnail__img {}
