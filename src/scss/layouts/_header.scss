@@ -52,7 +52,7 @@ Header
 					display: block;
 					width: 40px;
 					height: 40px;
-					background: darken(pink, 5%);
+					// background: darken(pink, 5%);
 					border-radius: 8px;
 					cursor: pointer;
 					@include hide-text;
@@ -61,17 +61,18 @@ Header
 
 			.navigation__list {
 
-				display: none; // Temporarily hidden.
+				// display: none; // Temporarily hidden.
 
 				position: absolute;
 				right: 0;
 				top: 0;
 
 				margin: 0;
-				padding: 0;
+				padding: 40px 0 0 0;
 				list-style: none;
 
 				background: darken(pink, 5%);
+				border-radius: 8px;
 
 				z-index: 1;
 
@@ -83,7 +84,18 @@ Header
 					text-transform: uppercase;
 					text-align: right;
 
-					a {}
+					a {
+
+						padding: 0 1em;
+						color: $color-base-white;
+
+						&:hover {
+
+							text-decoration: none;
+
+						}
+
+					}
 
 				}
 
