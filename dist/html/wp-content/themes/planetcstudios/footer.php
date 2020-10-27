@@ -65,7 +65,7 @@
 
 			<div class="footer__background">
 
-				<img src="https://via.placeholder.com/300x200.png?text=Background+(300x200)" alt="A photo of a rising planet moon" class="footer__img" />
+				<img src="https://via.placeholder.com/360x140.png?text=Moonrise+(360x140)" srcset="https://via.placeholder.com/720x280.png?text=Moonrise+(720x280) 2x" width="360" height="140" alt="A photo of a rising planet moon" decoding="async" loading="lazy" class="footer__img" />
 
 			</div>
 
