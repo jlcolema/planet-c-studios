@@ -8,6 +8,14 @@ Entry: Project
 
 		.project__title {}
 
+		.project__return {}
+
+			.project__return-link {
+
+				&:hover {}
+
+			}
+
 		.project__meta {}
 
 			.project__cover {}

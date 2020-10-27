@@ -43,6 +43,12 @@
 
 			<h1 class="project__title"><?php the_title(); ?></h1>
 
+			<div class="project__return">
+
+				<a href="/work/" title="Return to all Projects" class="project__return-link">&larr; Return to Work</a>
+
+			</div>
+
 			<div class="project__meta">
 
 				<!-- 
