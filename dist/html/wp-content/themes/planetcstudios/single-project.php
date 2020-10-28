@@ -43,11 +43,11 @@
 
 			<div class="project__overview">
 
-				<h1 class="project__title"><?php the_title(); ?></h1>
+				<h1 class="project__s-title"><?php the_title(); ?></h1>
 
 				<div class="project__return">
 
-					<a href="/work/" title="Return to all Projects" class="project__return-link">&larr; Return to Work</a>
+					<a href="<?php echo esc_url( home_url( '/work', 'relative' ) ); ?>" title="Return to all Projects" class="project__return-link">&larr; Return to Work</a>
 
 				</div>
 
@@ -62,15 +62,15 @@
 
 					-->
 
-					<div class="project__cover">
+					<div class="project__s-cover">
 
 						<?php if ( ! $project_cover_small ) : ?>
 
-							<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img project__img--is-placeholder" />
+							<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img project__s-img--is-placeholder" />
 
 						<?php else : ?>
 
-							<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
+							<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img" />
 
 						<?php endif; ?>
 
@@ -88,45 +88,49 @@
 
 						<?php endif; ?>
 
-						<?php if ( get_field( 'project_date' ) ) : ?>
+						<div class="project__extra">
 
-							<div class="project__date"><?php the_field( 'project_date' ); ?></div>
+							<?php if ( get_field( 'project_date' ) ) : ?>
 
-						<?php endif; ?>
+								<div class="project__date"><?php the_field( 'project_date' ); ?></div>
 
-						<?php if ( get_field( 'project_location' ) ) : ?>
+							<?php endif; ?>
 
-							<div class="project__location"><?php the_field( 'project_location' ); ?></div>
+							<?php if ( get_field( 'project_location' ) ) : ?>
 
-						<?php endif; ?>
+								<div class="project__location"><?php the_field( 'project_location' ); ?></div>
 
-						<?php if ( $project_clients ) : ?>
+							<?php endif; ?>
 
-							<div class="project__client">
+							<?php if ( $project_clients ) : ?>
 
-								<span class="project__label">Client:</span>
-								
-								<ul class="client__list">
+								<div class="project__client">
 
-									<?php foreach ( $project_clients as $project_client ) : ?>
+									<span class="client__label">Client:</span>
 									
-										<?php
+									<ul class="client__list">
 
-											// Title
+										<?php foreach ( $project_clients as $project_client ) : ?>
+										
+											<?php
 
-											$client_title = get_the_title( $project_client->ID );
+												// Title
 
-										?>
+												$client_title = get_the_title( $project_client->ID );
 
-										<li class="client__item"><?php echo esc_html( $client_title ); ?></li>
+											?>
 
-									<?php endforeach; ?>
+											<li class="client__item"><?php echo esc_html( $client_title ); ?></li>
 
-								</ul>
+										<?php endforeach; ?>
 
-							</div>
+									</ul>
 
-						<?php endif; ?>
+								</div>
+
+							<?php endif; ?>
+
+						</div>
 
 					</div>
 
