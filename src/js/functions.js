@@ -71,6 +71,12 @@
 
 		// Notes...
 
+		$('.navigation__toggle').click( function() {
+
+			$(this).parent().toggleClass('navigation--is-open');
+
+		});
+
 		// $('.nav__label').click( function() {
 
 			// $(this).parent().next().toggleClass('nav__list--is-open');
