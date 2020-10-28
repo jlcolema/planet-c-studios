@@ -149,7 +149,7 @@ function planetcstudios_register_scripts() {
 
 	/* Figure out why this moves the `head` element below the `body` element. */
 
-	// wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/vendor/modernizr.3.6.0.js', array(), $theme_version, true );
+	// wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/libraries/modernizr.3.6.0.js', array(), $theme_version, true );
 
 	// wp_script_add_data( 'modernizr', 'async', true );
 
@@ -159,7 +159,7 @@ function planetcstudios_register_scripts() {
 
 		wp_deregister_script( 'jquery' );
 
-		wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/vendor/jquery.3.5.1.js', array(), $theme_version, true );
+		wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/libraries/jquery.3.5.1.js', array(), $theme_version, true );
 
 		wp_enqueue_script( 'jquery' );
 
