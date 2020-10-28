@@ -122,8 +122,6 @@ input[type="radio"] {
   /* projects__filter
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
   .projects__filter {
-	text-align: center;
-	margin-bottom: 2rem;
   }
   
   .projects__filter * {
@@ -132,7 +130,6 @@ input[type="radio"] {
   
   .projects__filter label {
 	padding: 0.5rem 1rem;
-	margin-bottom: 0.25rem;
 	// border-radius: 2rem;
 	min-width: 50px;
 	line-height: normal;
