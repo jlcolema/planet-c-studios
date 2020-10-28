@@ -39,7 +39,7 @@
 
 				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo__link">
 
-					<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo_2x.png 2x" width="120" height="70" alt="<?php bloginfo( 'name' ); ?>" class="logo__img" />
+					<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo_2x.png 2x" width="120" height="65" alt="<?php bloginfo( 'name' ); ?>" class="logo__img" />
 
 				</a>
 
