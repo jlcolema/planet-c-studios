@@ -39,161 +39,165 @@
 
 	<div class="project">
 
-		<div class="project__overview">
+		<div class="project__inner-wrap">
 
-			<h1 class="project__title"><?php the_title(); ?></h1>
+			<div class="project__overview">
 
-			<div class="project__return">
+				<h1 class="project__title"><?php the_title(); ?></h1>
 
-				<a href="/work/" title="Return to all Projects" class="project__return-link">&larr; Return to Work</a>
+				<div class="project__return">
 
-			</div>
+					<a href="/work/" title="Return to all Projects" class="project__return-link">&larr; Return to Work</a>
 
-			<div class="project__meta">
+				</div>
 
-				<!-- 
-					
-					Two sizes are available:
+				<div class="project__meta">
+
+					<!-- 
 						
-					1. cover-large, 380 x 560, for higher density screens.
-					2. cover-small, 190 x 288, the default output.
-
-				-->
-
-				<div class="project__cover">
-
-					<?php if ( ! $project_cover_small ) : ?>
-
-						<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img project__img--is-placeholder" />
-
-					<?php else : ?>
-
-						<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
-
-					<?php endif; ?>
-
-				</div>
-
-				<div class="project__details">
-
-					<?php if ( get_field( 'project_description' ) ) : ?>
-
-						<div class="project__description">
-
-							<?php the_field( 'project_description' ); ?>
-
-						</div>
-
-					<?php endif; ?>
-
-					<?php if ( get_field( 'project_date' ) ) : ?>
-
-						<div class="project__date"><?php the_field( 'project_date' ); ?></div>
-
-					<?php endif; ?>
-
-					<?php if ( get_field( 'project_location' ) ) : ?>
-
-						<div class="project__location"><?php the_field( 'project_location' ); ?></div>
-
-					<?php endif; ?>
-
-					<?php if ( $project_clients ) : ?>
-
-						<div class="project__client">
-
-							<span class="project__label">Client:</span>
+						Two sizes are available:
 							
-							<ul class="client__list">
+						1. cover-large, 380 x 560, for higher density screens.
+						2. cover-small, 190 x 288, the default output.
 
-								<?php foreach ( $project_clients as $project_client ) : ?>
+					-->
+
+					<div class="project__cover">
+
+						<?php if ( ! $project_cover_small ) : ?>
+
+							<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img project__img--is-placeholder" />
+
+						<?php else : ?>
+
+							<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
+
+						<?php endif; ?>
+
+					</div>
+
+					<div class="project__details">
+
+						<?php if ( get_field( 'project_description' ) ) : ?>
+
+							<div class="project__description">
+
+								<?php the_field( 'project_description' ); ?>
+
+							</div>
+
+						<?php endif; ?>
+
+						<?php if ( get_field( 'project_date' ) ) : ?>
+
+							<div class="project__date"><?php the_field( 'project_date' ); ?></div>
+
+						<?php endif; ?>
+
+						<?php if ( get_field( 'project_location' ) ) : ?>
+
+							<div class="project__location"><?php the_field( 'project_location' ); ?></div>
+
+						<?php endif; ?>
+
+						<?php if ( $project_clients ) : ?>
+
+							<div class="project__client">
+
+								<span class="project__label">Client:</span>
 								
-									<?php
+								<ul class="client__list">
 
-										// Title
+									<?php foreach ( $project_clients as $project_client ) : ?>
+									
+										<?php
 
-										$client_title = get_the_title( $project_client->ID );
+											// Title
 
-									?>
+											$client_title = get_the_title( $project_client->ID );
 
-									<li class="client__item"><?php echo esc_html( $client_title ); ?></li>
+										?>
 
-								<?php endforeach; ?>
+										<li class="client__item"><?php echo esc_html( $client_title ); ?></li>
 
-							</ul>
+									<?php endforeach; ?>
 
-						</div>
+								</ul>
 
-					<?php endif; ?>
+							</div>
+
+						<?php endif; ?>
+
+					</div>
 
 				</div>
 
 			</div>
 
-		</div>
+			<div class="project__samples">
 
-		<div class="project__samples">
+				<div class="samples__title">
 
-			<div class="samples__title">
+					<ul class="samples__list">
 
-				<ul class="samples__list">
+						<!-- Example still image -->
 
-					<!-- Example still image -->
+						<li class="sample__item sample__item--still">
 
-					<li class="sample__item sample__item--still">
+							<img src="https://via.placeholder.com/600x400.png?text=Still+(600x400)" alt="A project sample image still" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-						<img src="https://via.placeholder.com/600x400.png?text=Still+(600x400)" alt="A project sample image still" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+						</li>
 
-					</li>
+						<!-- Example YouTube video. -->
 
-					<!-- Example YouTube video. -->
+						<li class="sample__item sample__item--video">
 
-					<li class="sample__item sample__item--video">
+							<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-						<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+						</li>
 
-					</li>
+						<!-- Example Vimeo video. -->
 
-					<!-- Example Vimeo video. -->
+						<li class="sample__item sample__item--video">
 
-					<li class="sample__item sample__item--video">
+							<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-						<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+						</li>
 
-					</li>
+					</ul>
 
-				</ul>
+				</div>
+
+				<div class="samples__nav">
+
+					<ul class="thumbnails__list">
+
+						<li class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample image still" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</li>
+
+						<li class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample YouTube video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</li>
+
+						<li class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample Vimeo video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</li>
+
+					</ul>
+
+				</div>
 
 			</div>
-
-			<div class="samples__nav">
-
-				<ul class="thumbnails__list">
-
-					<li class="thumbnail__item">
-
-						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample image still" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
-
-					</li>
-
-					<li class="thumbnail__item">
-
-						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample YouTube video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
-
-					</li>
-
-					<li class="thumbnail__item">
-
-						<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample Vimeo video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
-
-					</li>
-
-				</ul>
-
-			</div>
-
-		</div>
 	
+		</div>
+
 	</div>
 
 <?php get_footer(); ?>

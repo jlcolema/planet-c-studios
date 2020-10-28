@@ -4,76 +4,78 @@ Entry: Project
 
 .project {}
 
-	.project__overview {}
+	.project__inner-wrap {}
 
-		.project__title {}
+		.project__overview {}
 
-		.project__return {}
+			.project__title {}
 
-			.project__return-link {
+			.project__return {}
 
-				&:hover {}
+				.project__return-link {
 
-			}
-
-		.project__meta {}
-
-			.project__cover {}
-
-				.project__img {}
-
-			.project__details {}
-
-				.project__description {
-
-					p {
-
-						&:last-of-type {}
-
-					}
-
-						a {
-
-							&:hover {}
-
-						}
+					&:hover {}
 
 				}
 
-				.project__date {}
+			.project__meta {}
 
-				.project__location {}
+				.project__cover {}
 
-				.project__client {}
+					.project__img {}
 
-					.client__label {}
+				.project__details {}
 
-					.client__list {}
+					.project__description {
 
-						.client__item {
+						p {
 
 							&:last-of-type {}
 
 						}
 
-	.project__samples {}
+							a {
 
-		.samples__title {} // Need to name better.
+								&:hover {}
 
-			.samples__list {}
+							}
 
-				.sample__item {}
+					}
 
-				.sample__item--still {}
+					.project__date {}
 
-				.sample__item--video {}
+					.project__location {}
 
-					.sample__img {}
+					.project__client {}
 
-		.samples__nav {}
+						.client__label {}
 
-			.thumbnails__list {}
+						.client__list {}
 
-				.thumbnail__item {}
+							.client__item {
 
-					.thumbnail__img {}
+								&:last-of-type {}
+
+							}
+
+		.project__samples {}
+
+			.samples__title {} // Need to name better.
+
+				.samples__list {}
+
+					.sample__item {}
+
+					.sample__item--still {}
+
+					.sample__item--video {}
+
+						.sample__img {}
+
+			.samples__nav {}
+
+				.thumbnails__list {}
+
+					.thumbnail__item {}
+
+						.thumbnail__img {}
