@@ -8,8 +8,6 @@ Page: Work
 
 	background: pink;
 
-	background: $color-base-black;
-
 }
 
 	.projects__inner-wrap {
@@ -17,7 +15,7 @@ Page: Work
 		width: 100%;
 		max-width: 808px;
 		margin: 0 auto;
-		// background: darken(pink, 5%);
+		background: darken(pink, 5%);
 
 	}
 
