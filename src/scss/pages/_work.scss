@@ -8,6 +8,8 @@ Page: Work
 
 	background: pink;
 
+	background: $color-base-black;
+
 }
 
 	.projects__inner-wrap {
@@ -15,7 +17,7 @@ Page: Work
 		width: 100%;
 		max-width: 808px;
 		margin: 0 auto;
-		background: darken(pink, 5%);
+		// background: darken(pink, 5%);
 
 	}
 
@@ -48,7 +50,23 @@ Page: Work
 			padding: 0;
 			list-style: none;
 
-			background: darken(pink, 10%);
+			// background: darken(pink, 10%);
+
+			&:hover {
+
+				.project__item {
+
+					opacity: 0.35;
+
+					&:hover {
+
+						opacity: 1;
+
+					}
+
+				}
+
+			}
 
 		}
 
@@ -56,6 +74,16 @@ Page: Work
 
 				width: 190px;
 				margin: 0.75em 0.375em 0 0.375em;
+				transition: all 0.35s ease-in-out;
+
+				&:hover {
+
+					position: relative;
+					outline: 3px solid $color-base-white;
+					box-shadow: 0 0 25px 5px rgba($color-base-white, 0.75);
+					z-index: 5;
+
+				}
 
 			}
 
@@ -101,7 +129,9 @@ Page: Work
 
 					}
 
-    
+
+
+// Need to organize Category Filter
 
 /* RESET RULES
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
