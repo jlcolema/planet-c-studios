@@ -73,6 +73,10 @@ gulp.task('js', function() {
 
 	return gulp.src([
 
+		// basePaths.dev + 'js/libraries/file.js',
+
+		basePaths.dev + 'js/plugins/slick-1.8.0.js',
+
 		// basePaths.dev + 'js/modernizr.js',
 		// basePaths.dev + 'js/libraries/jquery-3.5.1.js',
 		// basePaths.dev + 'js/flexslider.js',
