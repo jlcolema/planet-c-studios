@@ -2,35 +2,98 @@
 Entry: Project
 ------------------------------*/
 
-.project {}
+.project {
 
-	.project__inner-wrap {}
+	padding: 0 1.25em;
 
-		.project__overview {}
+	background: pink;
 
-			.project__title {}
+}
 
-			.project__return {}
+	.project__inner-wrap {
+
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 190px 0 0 0;
+		background: darken(pink, 5%);
+
+	}
+
+		.project__overview {
+
+			position: relative;
+
+		}
+
+			.project__s-title {
+
+				font-size: 2rem;
+				color: $color-base-white;
+
+			}
+
+			.project__return {
+
+				position: absolute;
+				left: -54px; // Allows for a 20px gap.
+				top: -5px; // To align with first line of project title.
+				z-index: 1;
+
+			}
 
 				.project__return-link {
+
+					display: block;
+					width: 40px;
+					height: 40px;
+					background: darken(pink, 10%) url(../img/return-to-work-arrow.svg) center center no-repeat;
+					background-size: 40px 40px;
+					@include hide-text;
 
 					&:hover {}
 
 				}
 
-			.project__meta {}
+			.project__meta {
 
-				.project__cover {}
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				justify-content: space-between;
+				align-items: flex-start;
+				align-content: flex-start;
 
-					.project__img {}
+				background: darken(pink, 10%);
 
-				.project__details {}
+			}
+
+				.project__s-cover {
+
+					width: 190px;
+
+				}
+
+					.project__s-img {}
+
+				.project__details {
+
+					width: calc(100% - 190px);
+					padding: 0 0 0 2em;
+
+				}
 
 					.project__description {
 
+						color: $color-base-white;
+
 						p {
 
-							&:last-of-type {}
+							&:last-of-type {
+
+								margin: 0;
+
+							}
 
 						}
 
@@ -42,23 +105,75 @@ Entry: Project
 
 					}
 
-					.project__date {}
+					.project__extra {
 
-					.project__location {}
+						margin: 4rem 0 0 0;
 
-					.project__client {}
+					}
 
-						.client__label {}
+						.project__date {
 
-						.client__list {}
+							color: $color-base-white;
 
-							.client__item {
+						}
 
-								&:last-of-type {}
+						.project__location {
+
+							color: $color-base-white;
+
+						}
+
+						.project__client {
+
+							margin: 1.25em 0 0 0;
+
+						}
+
+							.client__label {
+
+								color: $color-base-white;
 
 							}
 
-		.project__samples {}
+							.client__list {
+
+								margin: 0;
+								padding: 0;
+								list-style: none;
+
+							}
+
+								.client__item {
+
+									display: inline-block;
+									margin: 0;
+									color: $color-base-white;
+
+									&:after {
+
+										content: "\2c"; // Adds a comma after each client name.
+
+									}
+
+									&:last-of-type {
+
+										&:after {
+
+											content: none; // Removes comma from last client name in the list.
+
+										}
+
+									}
+
+								}
+
+		.project__samples {
+
+			margin: 120px 0 0 0;
+			padding: 80px 0 0 0;
+			background: darken(pink, 15%);
+
+		}
 
 			.samples__title {} // Need to name better.
 
