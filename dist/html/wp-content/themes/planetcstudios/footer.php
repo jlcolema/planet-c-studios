@@ -25,7 +25,7 @@
 
 				<a href="#top" title="Return to the top of the page." class="secondary-logo__link">
 
-					<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo_2x.png 2x" width="120" height="65" alt="<?php bloginfo( 'name' ); ?>" class="secondary-logo__img" />
+					<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/logo_2x.png 2x" width="120" height="65" alt="<?php bloginfo( 'name' ); ?>" decoding="async" loading="lazy" class="secondary-logo__img" />
 
 				</a>
 
@@ -63,7 +63,7 @@
 
 			<div class="footer__background">
 
-				<img src="https://via.placeholder.com/360x140.png?text=Moonrise+(360x140)" srcset="https://via.placeholder.com/720x280.png?text=Moonrise+(720x280) 2x" width="360" height="140" alt="A photo of a rising planet moon" decoding="async" loading="lazy" class="footer__img" />
+				<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/moonrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/moonrise_2x.png 2x" width="360" height="140" alt="<?php bloginfo( 'name' ); ?>" decoding="async" loading="lazy" class="footer__img" />
 
 			</div>
 
