@@ -86,7 +86,7 @@ Footer
 
 				.social__item {
 
-					width: 100px; // Temporary until images are added.
+					// width: 100px; // Temporary until images are added.
 					margin: 1.25em 0.625em 0 0.625em;
 
 				}
@@ -95,7 +95,6 @@ Footer
 
 						display: block;
 						height: 30px;
-						background: darken(pink, 5%);
 						@include hide-text;
 
 					}
@@ -104,7 +103,13 @@ Footer
 
 				.social__item--facebook {
 
-					.social__link {}
+					.social__link {
+
+						width: 30px;
+						background: url(../img/social-media-facebook.svg) 0 0 no-repeat;
+						background-size: 30px 30px;
+
+					}
 
 				}
 
@@ -112,7 +117,13 @@ Footer
 
 				.social__item--instagram {
 
-					.social__link {}
+					.social__link {
+
+						width: 32px;
+						background: url(../img/social-media-instagram.svg) 0 0 no-repeat;
+						background-size: 32px 30px;
+
+					}
 
 				}
 
@@ -120,7 +131,13 @@ Footer
 
 				.social__item--twitter {
 
-					.social__link {}
+					.social__link {
+
+						width: 34px;
+						background: url(../img/social-media-twitter.svg) 0 0 no-repeat;
+						background-size: 34px 30px;
+
+					}
 
 				}
 
@@ -128,7 +145,13 @@ Footer
 
 				.social__item--youtube {
 
-					.social__link {}
+					.social__link {
+
+						width: 34px;
+						background: url(../img/social-media-youtube.svg) 0 0 no-repeat;
+						background-size: 34px 30px;
+
+					}
 
 				}
 
@@ -136,7 +159,13 @@ Footer
 
 				.social__item--vimeo {
 
-					.social__link {}
+					.social__link {
+
+						width: 30px;
+						background: url(../img/social-media-vimeo.svg) 0 0 no-repeat;
+						background-size: 30px 30px;
+
+					}
 
 				}
 		
