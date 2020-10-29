@@ -142,59 +142,147 @@
 
 				<div class="samples__title">
 
-					<ul class="samples__list">
+					<div class="samples__list">
 
 						<!-- Example still image -->
 
-						<li class="sample__item sample__item--still">
+						<div class="sample__item sample__item--still">
 
-							<img src="https://via.placeholder.com/600x400.png?text=Still+(600x400)" alt="A project sample image still" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+							<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-						</li>
+						</div>
 
 						<!-- Example YouTube video. -->
 
-						<li class="sample__item sample__item--video">
+						<div class="sample__item sample__item--video">
 
-							<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-						</li>
+						</div>
 
 						<!-- Example Vimeo video. -->
 
-						<li class="sample__item sample__item--video">
+						<div class="sample__item sample__item--video">
 
-							<img src="https://via.placeholder.com/600x400.png?text=Video+(600x400)" alt="A project sample video" width="600" height="400" decoding="async" loading="lazy" class="sample__img" />
+							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-						</li>
+						</div>
 
-					</ul>
+						<!-- Example still image -->
+
+						<div class="sample__item sample__item--still">
+
+							<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+
+						</div>
+
+						<!-- Example YouTube video. -->
+
+						<div class="sample__item sample__item--video">
+
+							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+
+						</div>
+
+						<!-- Example Vimeo video. -->
+
+						<div class="sample__item sample__item--video">
+
+							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+
+						</div>
+
+						<!-- Example still image -->
+
+						<div class="sample__item sample__item--still">
+
+							<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+
+						</div>
+
+						<!-- Example YouTube video. -->
+
+						<div class="sample__item sample__item--video">
+
+							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+
+						</div>
+
+						<!-- Example Vimeo video. -->
+
+						<div class="sample__item sample__item--video">
+
+							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+
+						</div>
+
+					</div>
+
+					<div class="sample__previous">&larr; Previous Sample</div>
+
+					<div class="sample__next">Next Sample &rarr;</div>
 
 				</div>
 
 				<div class="samples__nav">
 
-					<ul class="thumbnails__list">
+					<div class="thumbnails__list">
 
-						<li class="thumbnail__item">
+						<div class="thumbnail__item">
 
-							<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample image still" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample image still" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
 
-						</li>
+						</div>
 
-						<li class="thumbnail__item">
+						<div class="thumbnail__item">
 
-							<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample YouTube video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample YouTube video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
 
-						</li>
+						</div>
 
-						<li class="thumbnail__item">
+						<div class="thumbnail__item">
 
-							<img src="https://via.placeholder.com/100x50.png?text=Thumbnail+(100x50)" alt="The thumbnail image for sample Vimeo video" width="100" height="50" decoding="async" loading="lazy" class="thumbnail__img" />
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample Vimeo video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
 
-						</li>
+						</div>
 
-					</ul>
+						<div class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample image still" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</div>
+
+						<div class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample YouTube video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</div>
+
+						<div class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample Vimeo video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</div>
+
+						<div class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample image still" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</div>
+
+						<div class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample YouTube video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</div>
+
+						<div class="thumbnail__item">
+
+							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample Vimeo video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+						</div>
+
+					</div>
 
 				</div>
 
