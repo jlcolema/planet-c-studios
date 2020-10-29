@@ -6,7 +6,7 @@ Entry: Project
 
 	padding: 0 1.25em;
 
-	background: pink;
+	// background: pink;
 
 }
 
@@ -16,7 +16,7 @@ Entry: Project
 		max-width: 720px;
 		margin: 0 auto;
 		padding: 190px 0 0 0;
-		background: darken(pink, 5%);
+		// background: darken(pink, 5%);
 
 	}
 
@@ -47,7 +47,7 @@ Entry: Project
 					display: block;
 					width: 40px;
 					height: 40px;
-					background: darken(pink, 10%) url(../img/return-to-work-arrow.svg) center center no-repeat;
+					background: url(../img/return-to-work-arrow.svg) center center no-repeat;
 					background-size: 40px 40px;
 					@include hide-text;
 
@@ -64,7 +64,7 @@ Entry: Project
 				align-items: flex-start;
 				align-content: flex-start;
 
-				background: darken(pink, 10%);
+				// background: darken(pink, 10%);
 
 			}
 
@@ -171,7 +171,7 @@ Entry: Project
 
 			margin: 120px 0 0 0;
 			padding: 80px 0 0 0;
-			background: darken(pink, 15%);
+			// background: darken(pink, 15%);
 
 		}
 
