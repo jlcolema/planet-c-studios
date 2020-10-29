@@ -29,6 +29,9 @@ class Media_Library_Organizer_Admin {
         // Store base class
         $this->base = $base;
 
+        // Maybe request review
+        add_action( 'wp_loaded', array( $this, 'maybe_request_review' ) );
+
         // Admin CSS, JS and Menu
         add_filter( 'wpzinc_admin_body_class', array( $this, 'admin_body_class' ) ); // WordPress Admin
         add_filter( 'body_class', array( $this, 'body_class' ) ); // Frontend Editors
@@ -48,6 +51,25 @@ class Media_Library_Organizer_Admin {
         add_action( 'media_library_organizer_admin_output_settings_panel_general', array( $this, 'output_addon_settings_panel_general' ) );
         add_action( 'media_library_organizer_admin_output_settings_panels', array( $this, 'output_addon_panels' ) );
         
+
+    }
+
+    /**
+     * Maybe request a review
+     *
+     * Won't do this if Pro with Whitelabelling is enabled
+     *
+     * The review notice will display 3 days after this request
+     *
+     * @since   1.2.4
+     */
+    public function maybe_request_review() {
+
+        if ( ! function_exists( 'Media_Library_Organizer_Pro' ) ) {
+            Media_Library_Organizer()->dashboard->request_review();
+        } elseif ( ! Media_Library_Organizer_Pro()->licensing->has_feature( 'whitelabelling' ) ) {
+            Media_Library_Organizer()->dashboard->request_review();
+        }
 
     }
 
@@ -113,7 +135,7 @@ class Media_Library_Organizer_Admin {
         }
 
         // JS: Register
-        wp_register_script( $this->base->plugin->name . '-selectize', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'selectize' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'wpzinc-admin-selectize', 'jquery', 'jquery-ui-sortable' ), false, true );
+        wp_register_script( $this->base->plugin->name . '-selectize', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'selectize' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'wpzinc-admin-selectize', 'jquery', 'jquery-ui-sortable' ), $this->base->plugin->version, true );
         
         // Define the selectize DOM selectors
         $selectize_selectors = array(
@@ -307,27 +329,60 @@ class Media_Library_Organizer_Admin {
      */
     public function admin_menu() {
 
+        // Bail if we cannot access any menus
+        if ( function_exists( 'Media_Library_Organizer_Access' ) && ! Media_Library_Organizer_Access()->can_access( 'show_menu' ) ) {
+            return;
+        }
+
         // Get the registered screens
         $screens = $this->get_screens();
 
+        // Define the minimum capability required to access the Media Library Organizer Menu and Sub Menus
+        $minimum_capability = 'manage_options';
+
+        /**
+         * Defines the minimum capability required to access the Media Library Organizer
+         * Menu and Sub Menus
+         *
+         * @since   1.2.4
+         *
+         * @param   string  $capability     Minimum Required Capability
+         * @return  string                  Minimum Required Capability
+         */
+        $minimum_capability = apply_filters( 'media_library_organizer_admin_admin_menu_minimum_capability', $minimum_capability );
+
         // Create the top level screen
-        add_menu_page( $this->base->plugin->displayName, $this->base->plugin->displayName, 'manage_options', $this->base->plugin->name, array( $this, 'admin_screen' ), 'dashicons-admin-media' );
+        add_menu_page( $this->base->plugin->displayName, $this->base->plugin->displayName, $minimum_capability, $this->base->plugin->name, array( $this, 'admin_screen' ), 'dashicons-admin-media' );
        
         // Iterate through screens, adding as submenu items
         foreach ( (array) $screens as $screen ) {
             // The settings screen doesn't need to append the page slug
             $slug = ( ( $screen['name'] == 'settings' ) ? $this->base->plugin->name : $this->base->plugin->name . '-' . $screen['name'] );
+            
+            // Define ACL name
+            $access = str_replace( '-', '_', str_replace( $this->base->plugin->name, '', $slug ) );
+            if ( empty( $access ) ) {
+                $access = 'settings';
+            }
+
+            // Skip if access isn't permitted, but always allow licensing
+            if ( function_exists( 'Media_Library_Organizer_Access' ) && $access != '_pro' && ! Media_Library_Organizer_Access()->can_access( 'show_menu_' . $access ) ) {
+                continue;
+            }
 
             // Add submenu page
-            add_submenu_page( $this->base->plugin->name, $screen['label'], $screen['label'], 'manage_options', $slug, array( $this, 'admin_screen' ) );
+            add_submenu_page( $this->base->plugin->name, $screen['label'], $screen['label'], $minimum_capability, $slug, array( $this, 'admin_screen' ) );
         }
 
-        /**
-         * Register Menu or Submenu Pages relative to this Plugin
-         *
-         * @since   1.0.7
-         */
-        do_action( str_replace( '-', '_', $this->base->plugin->name ) . '_admin_menu' );
+        // Import and Export
+        if ( ! function_exists( 'Media_Library_Organizer_Access' ) || Media_Library_Organizer_Access()->can_access( 'show_menu_import_export' ) ) {
+            do_action( 'media_library_organizer_admin_menu_import_export' );
+        }
+
+        // Support
+        if ( ! function_exists( 'Media_Library_Organizer_Access' ) || Media_Library_Organizer_Access()->can_access( 'show_menu_support' ) ) {
+            do_action( 'media_library_organizer_admin_menu_support' );
+        }
 
     }
 

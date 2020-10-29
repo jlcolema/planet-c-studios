@@ -229,7 +229,7 @@ class Media_Library_Organizer_Media {
         }
 
         // JS: Enqueue
-        wp_enqueue_script( $this->base->plugin->name . '-media', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'media' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'media-editor', 'media-views' ), false, true );
+        wp_enqueue_script( $this->base->plugin->name . '-media', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'media' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'media-editor', 'media-views' ), $this->base->plugin->version, true );
         wp_localize_script( $this->base->plugin->name . '-media', 'media_library_organizer_media', array(
             'order'         => $this->base->get_class( 'common' )->get_order_options(),
             'orderby'       => $this->base->get_class( 'common' )->get_orderby_options(),
@@ -252,7 +252,7 @@ class Media_Library_Organizer_Media {
         ) );
 
         // JS: Register
-        wp_register_script( $this->base->plugin->name . '-modal', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'modal' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'media-editor', 'media-views' ), false, true );
+        wp_register_script( $this->base->plugin->name . '-modal', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'modal' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'media-editor', 'media-views' ), $this->base->plugin->version, true );
 
         // CSS
         wp_enqueue_style( $this->base->plugin->name . '-media', $this->base->plugin->url . 'assets/css/media.css' );
@@ -307,16 +307,20 @@ class Media_Library_Organizer_Media {
      */
     public function define_list_view_columns_output( $column_name, $id ) {
 
+        // Assume there's nothing to output
+        $output = '';
+
         /**
          * Defines the data to display in the List View WP_List_Table Column, for the given column
          * and Attachment
          *
          * @since   1.1.4
          *
+         * @param   string  $output         Output
          * @param   int     $id             Attachment ID
          * @return  array                   Columns
          */
-        $output = apply_filters( 'media_library_organizer_media_define_list_view_columns_output_' . $column_name, $id );
+        $output = apply_filters( 'media_library_organizer_media_define_list_view_columns_output_' . $column_name, $output, $id );
 
         // Output
         echo $output;

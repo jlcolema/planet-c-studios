@@ -338,7 +338,10 @@ class WPZincDashboardWidget {
         // Otherwise use the plugin's name
         $slug = ( ! empty( $parent_slug ) ? $parent_slug : $this->plugin->name );
 
-        add_submenu_page( $slug, __( 'Import & Export', $this->plugin->name ), __( 'Import & Export', $this->plugin->name ), 'manage_options', $this->plugin->name . '-import-export', array( $this, 'import_export_screen' ) ); 
+        // Define minimum capability for accessing Import and Export Sub Menu
+        $minimum_capability = apply_filters( str_replace( '-', '_', $this->plugin->name ) . '_admin_admin_menu_minimum_capability', 'manage_options' );
+
+        add_submenu_page( $slug, __( 'Import & Export', $this->plugin->name ), __( 'Import & Export', $this->plugin->name ), $minimum_capability, $this->plugin->name . '-import-export', array( $this, 'import_export_screen' ) ); 
         
     }
 
@@ -360,7 +363,10 @@ class WPZincDashboardWidget {
         // Otherwise use the plugin's name
         $slug = ( ! empty( $parent_slug ) ? $parent_slug : $this->plugin->name );
 
-        add_submenu_page( $slug, __( 'Support', $this->plugin->name ), __( 'Support', $this->plugin->name ), 'manage_options', $this->plugin->name . '-support', array( $this, 'support_screen' ) );
+        // Define minimum capability for accessing Support Menu
+        $minimum_capability = apply_filters( str_replace( '-', '_', $this->plugin->name ) . '_admin_admin_menu_minimum_capability', 'manage_options' );
+
+        add_submenu_page( $slug, __( 'Support', $this->plugin->name ), __( 'Support', $this->plugin->name ), $minimum_capability, $this->plugin->name . '-support', array( $this, 'support_screen' ) );
     
     }
 
@@ -382,7 +388,10 @@ class WPZincDashboardWidget {
         // Otherwise use the plugin's name
         $slug = ( ! empty( $parent_slug ) ? $parent_slug : $this->plugin->name );
 
-        add_submenu_page( $slug, __( 'Upgrade', $this->plugin->name ), __( 'Upgrade', $this->plugin->name ), 'manage_options', $this->plugin->name . '-upgrade', array( $this, 'upgrade_screen' ) );
+        // Define minimum capability for accessing Upgrade Menu
+        $minimum_capability = apply_filters( str_replace( '-', '_', $this->plugin->name ) . '_admin_admin_menu_minimum_capability', 'manage_options' );
+
+        add_submenu_page( $slug, __( 'Upgrade', $this->plugin->name ), __( 'Upgrade', $this->plugin->name ), $minimum_capability, $this->plugin->name . '-upgrade', array( $this, 'upgrade_screen' ) );
     
     }
 

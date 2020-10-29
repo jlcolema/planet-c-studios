@@ -101,6 +101,17 @@ class Media_Library_Organizer_Import {
             );
         }
 
+        // WP Media Folder
+        $wp_media_folder_terms = $this->get_terms( 'wpmf-category' );
+        if ( $wp_media_folder_terms != false ) {
+            $import_sources['import_wp_media_folder'] = array(
+                'name'          => 'import_wp_media_folder',
+                'label'         => __( 'Import from WP Media Folder', 'media-library-organizer' ),
+                'view'          => $this->base->plugin->folder . 'views/admin/import-wp-media-folder.php',
+                'documentation' => $this->base->plugin->documentation_url . '/import-export/import-from-wp-media-folder/',
+            );
+        }
+
         // Wicked Folders
         $wicked_folders_terms = $this->get_terms( 'wf_attachment_folders' );
         if ( $wicked_folders_terms != false ) {
@@ -174,6 +185,10 @@ class Media_Library_Organizer_Import {
 
         if ( isset( $import['import_wicked_folders'] ) ) {
             return $this->import_third_party_taxonomy_terms( 'wf_attachment_folders' );
+        }
+
+        if ( isset( $import['import_wp_media_folder'] ) ) {
+            return $this->import_third_party_taxonomy_terms( 'wpmf-category' );
         }
 
     }

@@ -35,7 +35,7 @@ class Media_Library_Organizer_Tree_View_Media {
         
         // Output Move Column in List View
         add_filter( 'media_library_organizer_media_define_list_view_columns', array( $this, 'define_list_view_columns' ), 10, 2 );
-        add_filter( 'media_library_organizer_media_define_list_view_columns_output_tree-view-move', array( $this, 'define_list_view_columns_output_tree_view_move' ) );
+        add_filter( 'media_library_organizer_media_define_list_view_columns_output_tree-view-move', array( $this, 'define_list_view_columns_output_tree_view_move' ), 10, 2 );
         
         // Output HTML in the Upload List and Grid Views
         add_action( 'media_library_organizer_media_media_library_footer', array( $this, 'media_library_footer' ) );
@@ -179,9 +179,11 @@ class Media_Library_Organizer_Tree_View_Media {
      *
      * @since   1.1.4
      *
+     * @param   string  $output         Output
      * @param   int     $id             Attachment ID
+     * @return  string                  Output
      */
-    public function define_list_view_columns_output_tree_view_move(  $id ) {
+    public function define_list_view_columns_output_tree_view_move( $output, $id ) {
 
         // Bail if Tree View isn't enabled
         if ( ! Media_Library_Organizer()->get_class( 'settings' )->get_setting( 'tree-view', 'enabled' ) ) {

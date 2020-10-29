@@ -112,6 +112,7 @@ Media Library Organizer has in built importers, allowing you to migrate from oth
 * <a href="https://wpmedialibrary.com/documentation/import-export/import-from-folders-premio/" rel="friend" title="Import from Folders (Premio)">Folders (Premio)</a>
 * <a href="https://wpmedialibrary.com/documentation/import-export/import-from-happyfiles/" rel="friend" title="Import from HappyFiles">HappyFiles</a>
 * <a href="https://wpmedialibrary.com/documentation/import-export/import-from-wicked-folders/" rel="friend" title="Import from Wicked Folders">Wicked Folders</a>
+* <a href="https://wpmedialibrary.com/documentation/import-export/import-from-wp-media-folder/" rel="friend" title="Import from WP Media Folder by JoomUnited">WP Media Folder</a>
 
 = Support =
 
@@ -163,6 +164,13 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 4. Plugin-wide Settings
 
 == Changelog ==
+
+= 1.2.4 (2020-10-29) =
+* Added: Import & Export: Import from JoomUnited WP Media Folder.  See Docs: https://wpmedialibrary.com/documentation/import-export/import-from-wp-media-folder/
+* Added: Menus and Submenus: Filter to define minimum required capability for accessing Media Library Organizer Menu and Submenus.  See Docs: https://wpmedialibrary.com/documentation/media-library-organizer/actions-and-filters/#media_library_organizer_admin_admin_menu_minimum_capability
+* Fix: JS: Pass Plugin version number to all enqueued scripts to avoid aggressive caching
+* Fix: List View: Default Custom Column output to blank string instead of Attachment ID
+* Fix: Tree View: List categories below Categories title when Add/Edit/Delete Category options aren't displayed due to e.g. User Role
 
 = 1.2.3 (2020-10-22) =
 * Added: Grid View: Assign uploads to Category if filtering by Category
