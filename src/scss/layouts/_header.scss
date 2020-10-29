@@ -63,20 +63,27 @@ Header
 
 			.navigation__list {
 
-				// display: none; // Temporarily hidden.
+				display: none; // Temporarily hidden.
 
 				position: absolute;
 				right: 0;
 				top: 0;
-
+				// width: 40px;
+				// height: 40px;
 				margin: 0;
 				padding: 56px 0 0 0;
 				list-style: none;
-
 				background: rgba($color-base-black, 0.27);
 				border-radius: 8px;
-
+				overflow: hidden;
+				// transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
 				z-index: 1;
+
+				.navigation--is-open & {
+
+					display: block;
+
+				}
 
 			}
 
