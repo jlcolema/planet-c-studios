@@ -29,7 +29,7 @@ A very nice overview.
 4. Contact Form 7
 5. Custom Post Type UI
 6. Enable Media Replace
-7. Jetpack
+7. Media Library Organizer
 8. Post Duplicator
 9. Post Types Order
 10. Regenerate Thumbnails
