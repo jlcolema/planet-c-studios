@@ -142,147 +142,77 @@
 
 				<div class="samples__title">
 
-					<div class="samples__list">
+					<?php if ( have_rows( 'project_samples' ) ) : ?>
 
-						<!-- Example still image -->
+						<div class="samples__list">
 
-						<div class="sample__item sample__item--still">
+							<?php while ( have_rows ( 'project_samples' ) ) : the_row(); ?>
 
-							<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+								<div class="sample__item sample__item--<?php the_sub_field( 'sample_type' ); ?>">
 
-						</div>
+									<?php if ( get_sub_field( 'sample_type' ) == 'still' ) : ?>
 
-						<!-- Example YouTube video. -->
+										<!-- Example still image -->
 
-						<div class="sample__item sample__item--video">
+										<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+									<?php else : ?>
 
-						</div>
+										<!-- Example video -->
 
-						<!-- Example Vimeo video. -->
+										<!-- <img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample image video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" /> -->
 
-						<div class="sample__item sample__item--video">
+										<?php the_sub_field( 'sample_video' ); ?>
 
-							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+									<?php endif; ?>
 
-						</div>
+								</div>
 
-						<!-- Example still image -->
-
-						<div class="sample__item sample__item--still">
-
-							<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+							<?php endwhile; ?>
 
 						</div>
 
-						<!-- Example YouTube video. -->
+						<div class="sample__previous">&larr; Previous Sample</div>
 
-						<div class="sample__item sample__item--video">
+						<div class="sample__next">Next Sample &rarr;</div>
 
-							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
-
-						</div>
-
-						<!-- Example Vimeo video. -->
-
-						<div class="sample__item sample__item--video">
-
-							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
-
-						</div>
-
-						<!-- Example still image -->
-
-						<div class="sample__item sample__item--still">
-
-							<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
-
-						</div>
-
-						<!-- Example YouTube video. -->
-
-						<div class="sample__item sample__item--video">
-
-							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
-
-						</div>
-
-						<!-- Example Vimeo video. -->
-
-						<div class="sample__item sample__item--video">
-
-							<img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
-
-						</div>
-
-					</div>
-
-					<div class="sample__previous">&larr; Previous Sample</div>
-
-					<div class="sample__next">Next Sample &rarr;</div>
+					<?php endif; ?>
 
 				</div>
 
 				<div class="samples__nav">
 
-					<div class="thumbnails__list">
+					<?php if ( have_rows( 'project_samples' ) ) : ?>
 
-						<div class="thumbnail__item">
+						<div class="thumbnails__list">
 
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample image still" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+							<?php while ( have_rows ( 'project_samples' ) ) : the_row(); ?>
 
-						</div>
+								<div class="thumbnail__item thumbnail__item--<?php the_sub_field( 'sample_type' ); ?>">
 
-						<div class="thumbnail__item">
+									<?php
 
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample YouTube video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+										/* If a thumbnail has been added to the sample, use it. Otherwise, use a fallback placeholder. */
 
-						</div>
+									?>
 
-						<div class="thumbnail__item">
+									<?php if ( get_sub_field( 'sample_thumbnail' ) ) : ?>
 
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample Vimeo video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+										<img src="https://via.placeholder.com/110x60.png" alt="The thumbnail image for <?php the_sub_field( 'sample_type' ); ?>" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
 
-						</div>
+									<?php else : ?>
 
-						<div class="thumbnail__item">
+										<img src="https://via.placeholder.com/110x60.png" alt="A placeholder thumbnail image for <?php the_sub_field( 'sample_type' ); ?>" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
 
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample image still" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+									<?php endif; ?>
 
-						</div>
+								</div>
 
-						<div class="thumbnail__item">
-
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample YouTube video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+							<?php endwhile; ?>
 
 						</div>
 
-						<div class="thumbnail__item">
-
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample Vimeo video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
-
-						</div>
-
-						<div class="thumbnail__item">
-
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample image still" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
-
-						</div>
-
-						<div class="thumbnail__item">
-
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample YouTube video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
-
-						</div>
-
-						<div class="thumbnail__item">
-
-							<img src="https://via.placeholder.com/110x60.png?text=Thumbnail+(110x60)" alt="The thumbnail image for sample Vimeo video" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
-
-						</div>
-
-					</div>
+					<?php endif; ?>
 
 				</div>
 
