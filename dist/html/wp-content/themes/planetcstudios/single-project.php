@@ -150,17 +150,17 @@
 
 								<div class="sample__item sample__item--<?php the_sub_field( 'sample_type' ); ?>">
 
-									<?php if ( get_sub_field( 'sample_type' ) == 'still' ) : ?>
+									<?php
 
-										<!-- Example still image -->
+										/* If the sample is a still, show an image. Otherwise, show a video. */
+
+									?>
+
+									<?php if ( get_sub_field( 'sample_type' ) == 'still' ) : ?>
 
 										<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
 
 									<?php else : ?>
-
-										<!-- Example video -->
-
-										<!-- <img src="https://via.placeholder.com/720x400.png?text=Video+(720x400)" alt="A project sample image video" width="720" height="400" decoding="async" loading="lazy" class="sample__img" /> -->
 
 										<?php the_sub_field( 'sample_video' ); ?>
 
