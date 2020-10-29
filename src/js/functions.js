@@ -77,6 +77,35 @@
 
 		});
 
+		/* Carousel
+		--------------------------------------*/
+
+		// Notes...
+
+		$('.samples__list').slick({
+
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			arrows: true,
+			fade: true,
+			asNavFor: '.thumbnails__list',
+			prevArrow: '.sample__previous',
+			nextArrow: '.sample__next'
+
+		});
+
+		$('.thumbnails__list').slick({
+
+			slidesToShow: 5,
+			slidesToScroll: 1,
+			asNavFor: '.samples__list',
+			arrows: false,
+			dots: false,
+			centerMode: false,
+			focusOnSelect: true
+
+		});
+
 		// $('.nav__label').click( function() {
 
 			// $(this).parent().next().toggleClass('nav__list--is-open');
