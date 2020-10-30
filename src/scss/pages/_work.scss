@@ -6,7 +6,7 @@ Page: Work
 
 	padding: 0 0.875em; // Accounts for left and right margins for project items.
 
-	background: pink;
+	// background: pink;
 
 }
 
@@ -15,7 +15,8 @@ Page: Work
 		width: 100%;
 		max-width: 808px;
 		margin: 0 auto;
-		background: darken(pink, 5%);
+		padding: 0 0 220px 0;
+		// background: darken(pink, 5%);
 
 	}
 
