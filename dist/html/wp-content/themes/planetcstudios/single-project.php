@@ -138,11 +138,11 @@
 
 			</div>
 
-			<div class="project__samples">
+			<?php if ( have_rows( 'project_samples' ) ) : ?>
 
-				<div class="samples__title">
+				<div class="project__samples">
 
-					<?php if ( have_rows( 'project_samples' ) ) : ?>
+					<div class="samples__title">
 
 						<div class="samples__list">
 
@@ -176,48 +176,48 @@
 
 						<div class="sample__next">Next Sample &rarr;</div>
 
-					<?php endif; ?>
+					</div>
+
+					<div class="samples__nav">
+
+						<?php if ( have_rows( 'project_samples' ) ) : ?>
+
+							<div class="thumbnails__list">
+
+								<?php while ( have_rows ( 'project_samples' ) ) : the_row(); ?>
+
+									<div class="thumbnail__item thumbnail__item--<?php the_sub_field( 'sample_type' ); ?>">
+
+										<?php
+
+											/* If a thumbnail has been added to the sample, use it. Otherwise, use a fallback placeholder. */
+
+										?>
+
+										<?php if ( get_sub_field( 'sample_thumbnail' ) ) : ?>
+
+											<img src="https://via.placeholder.com/110x60.png" alt="The thumbnail image for <?php the_sub_field( 'sample_type' ); ?>" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+										<?php else : ?>
+
+											<img src="https://via.placeholder.com/110x60.png" alt="A placeholder thumbnail image for <?php the_sub_field( 'sample_type' ); ?>" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
+
+										<?php endif; ?>
+
+									</div>
+
+								<?php endwhile; ?>
+
+							</div>
+
+						<?php endif; ?>
+
+					</div>
 
 				</div>
-
-				<div class="samples__nav">
-
-					<?php if ( have_rows( 'project_samples' ) ) : ?>
-
-						<div class="thumbnails__list">
-
-							<?php while ( have_rows ( 'project_samples' ) ) : the_row(); ?>
-
-								<div class="thumbnail__item thumbnail__item--<?php the_sub_field( 'sample_type' ); ?>">
-
-									<?php
-
-										/* If a thumbnail has been added to the sample, use it. Otherwise, use a fallback placeholder. */
-
-									?>
-
-									<?php if ( get_sub_field( 'sample_thumbnail' ) ) : ?>
-
-										<img src="https://via.placeholder.com/110x60.png" alt="The thumbnail image for <?php the_sub_field( 'sample_type' ); ?>" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
-
-									<?php else : ?>
-
-										<img src="https://via.placeholder.com/110x60.png" alt="A placeholder thumbnail image for <?php the_sub_field( 'sample_type' ); ?>" width="110" height="60" decoding="async" loading="lazy" class="thumbnail__img" />
-
-									<?php endif; ?>
-
-								</div>
-
-							<?php endwhile; ?>
-
-						</div>
-
-					<?php endif; ?>
-
-				</div>
-
-			</div>
 	
+			<?php endif; ?>
+
 		</div>
 
 	</div>
