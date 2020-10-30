@@ -13,16 +13,17 @@ Entry: Project
 	.project__inner-wrap {
 
 		width: 100%;
-		max-width: 720px;
+		max-width: 820px;
 		margin: 0 auto;
-		padding: 190px 0 0 0;
-		// background: darken(pink, 5%);
+		padding: 190px 50px 0 50px; // Left and right padding gives some room for the navigation arrows.
+		background: darken(pink, 5%);
 
 	}
 
 		.project__overview {
 
 			position: relative;
+			background: pink;
 
 		}
 
