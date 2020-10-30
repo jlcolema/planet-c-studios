@@ -121,9 +121,15 @@ Page: Work
 						padding: 1em;
 						color: $color-base-white;
 						background: rgba($color-base-black, 0.70);
+						opacity: 0;
+						transition: opacity 0.35s ease-in-out;
 						z-index: 1;
 
-						.project__link:hover & {}
+						.project__link:hover & {
+
+							opacity: 1;
+
+						}
 
 					}
 
