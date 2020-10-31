@@ -175,21 +175,13 @@
 
 			<!-- Header -->
 
-			<h2 class="header section__header clients__header">Clients</h2>
-
-			<!-- Overview -->
-
-			<div class="clients__overview">
-
-				<p>Through our creative process we have been successful time and time again with our world-renowned trusted partners.</p>
-
-			</div>
+			<h2 class="header section__header clients__header">Through our creative process we have been successful time and time again with our world-renowned trusted partners.</h2>
 
 			<!-- List of Clients -->
 
 			<ul class="clients__list">
 
-				<li class="client__item client__item--wb">
+				<li class="client__item client__item--warner-bros">
 
 					<div class="client__logo">
 
@@ -203,17 +195,17 @@
 
 				</li>
 
-				<li class="client__item client__item--universal">
+				<li class="client__item client__item--universal-music-group">
 			
 					<div class="client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/118x66.png?text=Logo+(118x66)" alt="Logo for Universal" class="client__img" />
+						<img src="https://via.placeholder.com/118x66.png?text=Logo+(118x66)" alt="Logo for Universal Music Group" class="client__img" />
 
 					</div>
 
-					<h3 class="client__name">Universal</h3>
+					<h3 class="client__name">Universal Music Group</h3>
 
 				</li>
 
@@ -223,7 +215,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for AT&T" class="client__img" />
+						<img src="https://via.placeholder.com/144x50.png?text=Logo+(144x50)" alt="Logo for AT&T" class="client__img" />
 
 					</div>
 
@@ -231,13 +223,13 @@
 
 				</li>
 
-				<li class="client__item client__item--illumination">
+				<li class="client__item client__item--illumination-entertainment">
 			
 					<div class="client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for Illumination Entertainment" class="client__img" />
+						<img src="https://via.placeholder.com/114x30.png?text=Logo+(114x30)" alt="Logo for Illumination Entertainment" class="client__img" />
 
 					</div>
 
@@ -245,7 +237,7 @@
 
 				</li>
 
-				<li class="client__item client__item--hbomax">
+				<li class="client__item client__item--hbo-max">
 
 					<div class="client__logo">
 
@@ -259,13 +251,13 @@
 
 				</li>
 
-				<li class="client__item client__item--newlinecinema">
+				<li class="client__item client__item--new-line-cinema">
 			
 					<div class="client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for New Line Cinema" class="client__img" />
+						<img src="https://via.placeholder.com/106x60.png?text=Logo+(106x60)" alt="Logo for New Line Cinema" class="client__img" />
 
 					</div>
 
@@ -279,7 +271,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for DC" class="client__img" />
+						<img src="https://via.placeholder.com/60x60.png?text=Logo+(60x60)" alt="Logo for DC" class="client__img" />
 
 					</div>
 
@@ -287,17 +279,17 @@
 
 				</li>
 
-				<li class="client__item client__item--mrc">
+				<li class="client__item client__item--media-rights-capital">
 			
 					<div class="client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for MRC" class="client__img" />
+						<img src="https://via.placeholder.com/90x40.png?text=Logo+(90x40)" alt="Logo for Media Rights Capital" class="client__img" />
 
 					</div>
 
-					<h3 class="client__name">MRC</h3>
+					<h3 class="client__name">Media Rights Capital</h3>
 
 				</li>
 
