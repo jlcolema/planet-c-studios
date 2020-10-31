@@ -101,9 +101,45 @@ Section: Clients
 
 				}
 
-				// AT&T: 144px W x 50px H
+				// HBO Max: 140px W x 24px H
 
 				&:nth-child(3) {
+
+					right: 0;
+					top: 118px;
+
+				}
+
+				// DC: 60px W x 60px H
+
+				&:nth-child(4) {
+
+					left: 239px;
+					bottom: 29px;
+
+				}
+
+				// New Line Cinema: 106px W x 60px H
+
+				&:nth-child(5) {
+
+					left: 91px;
+					bottom: 0;
+
+				}
+
+				// MRC: 90px W x 40px H
+
+				&:nth-child(6) {
+
+					right: 82px;
+					bottom: 15px;
+
+				}
+
+				// AT&T: 144px W x 50px H
+
+				&:nth-child(7) {
 
 					right: 40px;
 					top: 16px;
@@ -112,48 +148,18 @@ Section: Clients
 
 				// Illumination Entertainment: 114px W x 30px H
 
-				&:nth-child(4) {
+				&:nth-child(8) {
 
 					left: 0;
 					top: 120px;
 
 				}
 
-				// HBO Max: 140px W x 24px H
 
-				&:nth-child(5) {
 
-					right: 0;
-					top: 118px;
 
-				}
 
-				// New Line Cinema: 106px W x 60px H
 
-				&:nth-child(6) {
-
-					left: 91px;
-					bottom: 0;
-
-				}
-
-				// DC: 60px W x 60px H
-
-				&:nth-child(7) {
-
-					left: 239px;
-					bottom: 29px;
-
-				}
-
-				// MRC: 90px W x 40px H
-
-				&:nth-child(8) {
-
-					right: 82px;
-					bottom: 15px;
-
-				}
 
 			}
 

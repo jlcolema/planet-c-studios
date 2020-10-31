@@ -209,6 +209,62 @@
 
 				</li>
 
+				<li class="client__item client__item--hbo-max">
+
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/140x24.png?text=Logo+(140x24)" alt="Logo for HBO Max" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">HBO Max</h3>
+
+				</li>
+
+				<li class="client__item client__item--dc">
+
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/60x60.png?text=Logo+(60x60)" alt="Logo for DC" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">DC</h3>
+
+				</li>
+
+				<li class="client__item client__item--new-line-cinema">
+			
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/106x60.png?text=Logo+(106x60)" alt="Logo for New Line Cinema" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">New Line Cinema</h3>
+
+				</li>
+
+				<li class="client__item client__item--media-rights-capital">
+			
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/90x40.png?text=Logo+(90x40)" alt="Logo for Media Rights Capital" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">Media Rights Capital</h3>
+
+				</li>
+
 				<li class="client__item client__item--att">
 			
 					<div class="client__logo">
@@ -234,62 +290,6 @@
 					</div>
 
 					<h3 class="client__name">Illumination Entertainment</h3>
-
-				</li>
-
-				<li class="client__item client__item--hbo-max">
-
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/140x24.png?text=Logo+(140x24)" alt="Logo for HBO Max" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">HBO Max</h3>
-
-				</li>
-
-				<li class="client__item client__item--new-line-cinema">
-			
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/106x60.png?text=Logo+(106x60)" alt="Logo for New Line Cinema" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">New Line Cinema</h3>
-
-				</li>
-
-				<li class="client__item client__item--dc">
-
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/60x60.png?text=Logo+(60x60)" alt="Logo for DC" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">DC</h3>
-
-				</li>
-
-				<li class="client__item client__item--media-rights-capital">
-			
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/90x40.png?text=Logo+(90x40)" alt="Logo for Media Rights Capital" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">Media Rights Capital</h3>
 
 				</li>
 
