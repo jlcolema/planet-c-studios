@@ -77,6 +77,17 @@
 
 		});
 
+		/* Form Toggle
+		--------------------------------------*/
+
+		// Notes...
+
+		$('.form__legend').click( function() {
+
+			$('.contact__form').addClass('contact__form--is-visible');
+
+		});
+
 		/* Carousel
 		--------------------------------------*/
 
