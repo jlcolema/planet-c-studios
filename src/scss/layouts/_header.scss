@@ -2,7 +2,12 @@
 Header
 ------------------------------*/
 
-.header {}
+.header {
+
+	height: 300px;
+	background: white;
+
+}
 
 	.header__wrap {}
 
@@ -54,34 +59,39 @@ Header
 					display: block;
 					width: 40px;
 					height: 40px;
-					background: darken(pink, 10%);
+					// background: rgba($color-base-black, 0.27);
 					border-radius: 8px;
 					cursor: pointer;
 					@include hide-text;
+
+					.navigation--is-open & {}
 
 				}
 
 			.navigation__list {
 
-				display: none; // Temporarily hidden.
+				// display: none; // Temporarily hidden.
 
 				position: absolute;
 				right: 0;
 				top: 0;
-				// width: 40px;
-				// height: 40px;
+				width: 40px;
+				height: 0;
 				margin: 0;
-				padding: 56px 0 0 0;
+				padding: 40px 0 0 0;
 				list-style: none;
 				background: rgba($color-base-black, 0.27);
+				// background: pink;
 				border-radius: 8px;
 				overflow: hidden;
-				// transition: width 0.35s ease-in-out, height 0.35s ease-in-out;
+				transition: width 0.35s ease-in-out, height 0.25s ease-in-out;
 				z-index: 1;
 
 				.navigation--is-open & {
 
-					display: block;
+					width: 100px;
+					height: 160px;
+					padding: 40px 0 0 0;
 
 				}
 
@@ -93,6 +103,14 @@ Header
 					margin: 0;
 					text-transform: uppercase;
 					text-align: right;
+					opacity: 0;
+					transition: opacity 0.70s ease-in-out;
+
+					.navigation--is-open & {
+
+						opacity: 1;
+
+					}
 
 					a {
 
