@@ -315,15 +315,7 @@
 
 			<!-- Header -->
 
-			<h2 class="header section__header work__header">Work</h2>
-
-			<!-- Overview -->
-
-			<div class="work__overview">
-
-				<p>Check out some of our work:</p>
-
-			</div>
+			<h2 class="header section__header work__header">Check out some of our work</h2>
 
 			<!-- Featured Work -->
 
@@ -399,7 +391,7 @@
 
 			<div class="work__cta">
 
-				<a href="/work/" title="View all of our work" class="work__link">Projects</a>
+				<a href="/work/" title="View all of our work" class="work-cta__link">Projects</a>
 
 			</div>
 

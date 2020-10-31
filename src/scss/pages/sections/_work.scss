@@ -7,29 +7,71 @@ Section: Work
 .section__work {
 
 	padding: 0 1.25em;
-	background: pink;
+	// background: pink;
 
 }
 
-	.work__inner-wrap {}
+	.work__inner-wrap {
 
-		.work__header {}
+		width: 100%;
+		max-width: 808px;
+		margin: 0 auto;
+		padding: 120px 0 280px 0;
+		// background: darken(pink, 5%);
 
-		.work__overview {
+	}
 
-			p {
+		.work__header {
 
-				&:last-of-type {}
-
-			}
+			margin: 0;
+			padding: 0 0.375em; // This helps match alignment on the left and right sides.
+			font-size: 1.125rem;
+			text-transform: none;
+			// text-align: center;
 
 		}
 
-		.work__list {}
+		.work__list {
 
-			.work__item {}
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: flex-start;
+			align-content: flex-start;
+
+			margin: 1em 0 0 0;
+			padding: 0;
+			list-style: none;
+
+			// background: darken(pink, 10%);
+
+		}
+
+			.work__item {
+
+				width: 190px;
+				margin: 0.75em 0.375em 0 0.375em;
+				transition: all 0.35s ease-in-out;
+
+				&:hover {
+
+					position: relative;
+					outline: 3px solid $color-base-white;
+					box-shadow: 0 0 25px 5px rgba($color-base-white, 0.75);
+					z-index: 5;
+
+				}
+
+			}
+
+			.work__item--gap {}
 
 				.work__link {
+
+					position: relative;
+					display: block;
+					overflow: hidden; // This is temporary until long title names are figured out.
 
 					&:hover {}
 
@@ -37,14 +79,77 @@ Section: Work
 
 					.work__cover {}
 
-						.work__img {}
+						.work__img {
 
-					.work__title {}
+							height: auto !important;
 
-		.work__cta {}
+						}
 
-			.cta__link {
+					.work__title {
 
-				&:hover {}
+						position: absolute;
+						left: 0;
+						bottom: 0;
+						width: 100%;
+						margin: 0;
+						padding: 0.75em;
+						font-size: 1.25rem;
+						color: $color-base-white;
+						background: rgba($color-base-black, 0.70);
+						opacity: 0;
+						transition: opacity 0.35s ease-in-out;
+						z-index: 1;
+
+						.work__link:hover & {
+
+							opacity: 1;
+
+						}
+
+					}
+
+		.work__cta {
+
+			margin: 2.5em 0 0 0;
+			font-size: 1.75rem;
+			text-transform: uppercase;
+			text-align: center;
+
+		}
+
+			.work-cta__link {
+
+				position: relative;
+				display: inline-block;
+				padding: 0.0625em 0.75em;
+				color: $color-base-black;
+				background: $color-base-white;
+				border-radius: 8px;
+
+				&:after {
+
+					content: "";
+					
+					position: absolute;
+					right: -48px;
+					top: 50%;
+					display: block;
+					width: 48px;
+					height: 40px;
+					margin-top: -20px;
+					padding: 0 0 0 8px;
+					background: url(../img/sample-navigation.svg) right center no-repeat;
+					background-size: 80px 40px;
+					overflow: hidden;
+					z-index: 1;
+
+
+				}
+
+				&:hover {
+
+					text-decoration: none;
+
+				}
 
 			}
