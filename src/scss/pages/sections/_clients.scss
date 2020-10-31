@@ -1,0 +1,31 @@
+/*------------------------------
+Section: Clients
+------------------------------*/
+
+// Notes...
+
+.section__clients {}
+
+	.clients__inner-wrap {}
+
+		.clients__header {}
+
+		.clients__overview {
+
+			p {
+
+				&:last-of-type {}
+
+			}
+
+		}
+
+		.clients__list {}
+
+			.client__item {}
+
+				.client__logo {}
+
+					.client__img {}
+
+				.client__name {}

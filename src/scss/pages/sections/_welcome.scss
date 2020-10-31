@@ -1,0 +1,43 @@
+/*------------------------------
+Section: Welcome
+------------------------------*/
+
+// Notes...
+
+.section__welcome {}
+
+	.welcome__inner-wrap {}
+
+		.welcome__header {}
+
+		.services__list {}
+
+			.service__item {}
+
+				.service__title {}
+
+				.service__description {
+
+					p {
+
+						&:last-of-type {}
+
+					}
+
+				}
+
+				.service__samples {}
+
+					.service__sample {}
+
+						.service__img {}
+
+				.service__samples--one-up {}
+
+				.service__samples--two-up {}
+
+				.service__samples--three-up {}
+
+		.welcome__background {}
+
+			.welcome__img {}

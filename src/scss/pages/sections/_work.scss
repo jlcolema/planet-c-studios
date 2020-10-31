@@ -1,0 +1,45 @@
+/*------------------------------
+Section: Work
+------------------------------*/
+
+// Notes...
+
+.section__work {}
+
+	.work__inner-wrap {}
+
+		.work__header {}
+
+		.work__overview {
+
+			p {
+
+				&:last-of-type {}
+
+			}
+
+		}
+
+		.work__list {}
+
+			.work__item {}
+
+				.work__link {
+
+					&:hover {}
+
+				}
+
+					.work__cover {}
+
+						.work__img {}
+
+					.work__title {}
+
+		.work__cta {}
+
+			.cta__link {
+
+				&:hover {}
+
+			}
