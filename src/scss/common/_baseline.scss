@@ -387,6 +387,34 @@ iframe {
 
 // ::selection {}
 
+::-webkit-input-placeholder {
+
+	color: $color-gray-50;
+	text-transform: uppercase;
+
+}
+
+::-moz-placeholder {
+
+	color: $color-gray-50;
+	text-transform: uppercase;
+
+}
+
+:-ms-input-placeholder {
+
+	color: $color-gray-50;
+	text-transform: uppercase;
+
+}
+
+:-moz-placeholder {
+
+	color: $color-gray-50;
+	text-transform: uppercase;
+
+}
+
 // input:-moz-placeholder {}
 
 // textarea:-moz-placeholder {}
@@ -443,10 +471,10 @@ form {}
 				padding: 1em;
 				// @include font-size(16);
 				// line-height: (20/16);
-				color: $color-base-black;
-				background: $color-base-white;
-				border: 2px solid $color-base-black;
-				border-radius: 10px;
+				color: $color-base-white;
+				background: $color-base-black;
+				border: 2px solid $color-base-white;
+				border-radius: 8px;
 				// outline: none;
 
 				&:active,
@@ -454,7 +482,7 @@ form {}
 
 					// border-color: $color-primary-blue;
 					// box-shadow: 0 0 5px 0 $color-primary-blue;
-					background: rgba($color-base-black, 0.10);
+					// background: rgba($color-base-black, 0.10);
 
 				}
 
@@ -490,10 +518,10 @@ form {}
 			padding: 1em;
 			// @include font-size(16);
 			// line-height: (20/16);
-			color: $color-base-black;
-			background: $color-base-white;
-			border: 2px solid $color-base-black;
-			border-radius: 10px;
+			color: $color-base-white;
+			background: $color-base-black;
+			border: 2px solid $color-base-white;
+			border-radius: 8px;
 			// outline: none;
 
 			&:active,
@@ -501,7 +529,7 @@ form {}
 
 				// border-color: $color-primary-blue;
 				// box-shadow: 0 0 5px 0 $color-primary-blue;
-				background: rgba($color-base-black, 0.10);
+				// background: rgba($color-base-black, 0.10);
 
 			}
 
@@ -522,7 +550,7 @@ form {}
 			color: $color-base-black;
 			background: $color-base-white;
 			border: 2px solid $color-base-black;
-			border-radius: 10px;
+			border-radius: 8px;
 			cursor: pointer;
 			// outline: none;
 
@@ -546,15 +574,15 @@ form {}
 
 			display: block;
 			width: 100%;
-			padding: 1em;
+			padding: 0.75em 0.5em;
 			// @include font-size(18);
 			// line-height: (24/18);
 			text-transform: uppercase;
 			text-align: center;
 			color: $color-base-black;
 			background: $color-base-white;
-			border: 2px solid $color-base-black;
-			border-radius: 10px;
+			border: none;
+			border-radius: 8px;
 			cursor: pointer;
 			// outline: none;
 
