@@ -179,117 +179,117 @@
 
 			<!-- List of Clients -->
 
-			<ul class="clients__list">
+			<ul class="featured-clients__list">
 
-				<li class="client__item client__item--warner-bros">
+				<li class="featured-client__item featured-client__item--warner-bros">
 
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/62x80.png?text=Logo+(62x80)" alt="Logo for Warner Bros." class="client__img" />
+						<img src="https://via.placeholder.com/62x80.png?text=Logo+(62x80)" alt="Logo for Warner Bros." class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">Warner Bros.</h3>
+					<h3 class="featured-client__name">Warner Bros.</h3>
 
 				</li>
 
-				<li class="client__item client__item--universal-music-group">
+				<li class="featured-client__item featured-client__item--universal-music-group">
 			
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/118x66.png?text=Logo+(118x66)" alt="Logo for Universal Music Group" class="client__img" />
+						<img src="https://via.placeholder.com/118x66.png?text=Logo+(118x66)" alt="Logo for Universal Music Group" class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">Universal Music Group</h3>
+					<h3 class="featured-client__name">Universal Music Group</h3>
 
 				</li>
 
-				<li class="client__item client__item--hbo-max">
+				<li class="featured-client__item featured-client__item--hbo-max">
 
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/140x24.png?text=Logo+(140x24)" alt="Logo for HBO Max" class="client__img" />
+						<img src="https://via.placeholder.com/140x24.png?text=Logo+(140x24)" alt="Logo for HBO Max" class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">HBO Max</h3>
+					<h3 class="featured-client__name">HBO Max</h3>
 
 				</li>
 
-				<li class="client__item client__item--dc">
+				<li class="featured-client__item featured-client__item--dc">
 
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/60x60.png?text=Logo+(60x60)" alt="Logo for DC" class="client__img" />
+						<img src="https://via.placeholder.com/60x60.png?text=Logo+(60x60)" alt="Logo for DC" class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">DC</h3>
+					<h3 class="featured-client__name">DC</h3>
 
 				</li>
 
-				<li class="client__item client__item--new-line-cinema">
+				<li class="featured-client__item featured-client__item--new-line-cinema">
 			
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/106x60.png?text=Logo+(106x60)" alt="Logo for New Line Cinema" class="client__img" />
+						<img src="https://via.placeholder.com/106x60.png?text=Logo+(106x60)" alt="Logo for New Line Cinema" class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">New Line Cinema</h3>
+					<h3 class="featured-client__name">New Line Cinema</h3>
 
 				</li>
 
-				<li class="client__item client__item--media-rights-capital">
+				<li class="featured-client__item featured-client__item--media-rights-capital">
 			
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/90x40.png?text=Logo+(90x40)" alt="Logo for Media Rights Capital" class="client__img" />
+						<img src="https://via.placeholder.com/90x40.png?text=Logo+(90x40)" alt="Logo for Media Rights Capital" class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">Media Rights Capital</h3>
+					<h3 class="featured-client__name">Media Rights Capital</h3>
 
 				</li>
 
-				<li class="client__item client__item--att">
+				<li class="featured-client__item featured-client__item--att">
 			
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/144x50.png?text=Logo+(144x50)" alt="Logo for AT&T" class="client__img" />
+						<img src="https://via.placeholder.com/144x50.png?text=Logo+(144x50)" alt="Logo for AT&T" class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">AT&T</h3>
+					<h3 class="featured-client__name">AT&T</h3>
 
 				</li>
 
-				<li class="client__item client__item--illumination-entertainment">
+				<li class="featured-client__item featured-client__item--illumination-entertainment">
 			
-					<div class="client__logo">
+					<div class="featured-client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/114x30.png?text=Logo+(114x30)" alt="Logo for Illumination Entertainment" class="client__img" />
+						<img src="https://via.placeholder.com/114x30.png?text=Logo+(114x30)" alt="Logo for Illumination Entertainment" class="featured-client__img" />
 
 					</div>
 
-					<h3 class="client__name">Illumination Entertainment</h3>
+					<h3 class="featured-client__name">Illumination Entertainment</h3>
 
 				</li>
 

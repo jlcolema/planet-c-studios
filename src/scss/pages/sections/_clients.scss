@@ -55,33 +55,59 @@ Section: Clients
 
 		}
 
-		.clients__list {
+		.featured-clients__list {
 
-			position: relative;
-			width: 530px;
-			height: 244px;
-			margin: 60px auto 0 auto;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+			align-content: flex-start;
+
+			width: 100%;
+			margin: 40px auto 0 auto;
 			padding: 0;
 			list-style: none;
 
 			background: darken(pink, 15%);
 
+			@media screen and (min-width: 600px) {
+
+				position: relative;
+				display: block;
+				width: 530px;
+				height: 244px;
+				margin: 60px auto 0 auto;
+
+			}
+
 		}
 
-			.client__item {
+			.featured-client__item {
 
-				position: absolute;
 				display: block;
-				margin: 0;
-				z-index: 1;
+				width: 100%;
+				// height: 80px;
+				background: blue;
+				margin: 1em 0 0 0;
 
-				&:after {
+				@media screen and (min-width: 400px) {
 
-					content: none;
+					width: 50%;
 
 				}
 
-				/* Positioning at largest screen size */
+				@media screen and (min-width: 600px) {
+
+					position: absolute;
+					display: block;
+					width: auto;
+					height: auto;
+					z-index: 1;
+
+				}
+
+				/* Custom positioning begins at 600px W. */
 
 				// WB: 62px W x 80px H
 
@@ -155,19 +181,25 @@ Section: Clients
 
 				}
 
-
-
-
-
-
+				&:last-of-type {}
 
 			}
 
-				.client__logo {}
+				.featured-client__logo {}
 
-					.client__img {}
+					.featured-client__img {
 
-				.client__name {
+						margin: 0 auto;
+
+						@media screen and (min-width: 600px) {
+
+							margin: 0;
+
+						}
+
+					}
+
+				.featured-client__name {
 
 					display: none;
 
