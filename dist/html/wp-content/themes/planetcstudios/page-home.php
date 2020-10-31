@@ -189,13 +189,13 @@
 
 			<ul class="clients__list">
 
-				<li class="client__item">
+				<li class="client__item client__item--wb">
 
 					<div class="client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for Warner Bros." class="client__img" />
+						<img src="https://via.placeholder.com/62x80.png?text=Logo+(62x80)" alt="Logo for Warner Bros." class="client__img" />
 
 					</div>
 
@@ -203,13 +203,13 @@
 
 				</li>
 
-				<li class="client__item">
+				<li class="client__item client__item--universal">
 			
 					<div class="client__logo">
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for Universal" class="client__img" />
+						<img src="https://via.placeholder.com/118x66.png?text=Logo+(118x66)" alt="Logo for Universal" class="client__img" />
 
 					</div>
 
@@ -217,63 +217,7 @@
 
 				</li>
 
-				<li class="client__item">
-
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for HBO Max" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">HBO Max</h3>
-
-				</li>
-
-				<li class="client__item">
-
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for DC" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">DC</h3>
-
-				</li>
-
-				<li class="client__item">
-			
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for New Line Cinema" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">New Line Cinema</h3>
-
-				</li>
-
-				<li class="client__item">
-			
-					<div class="client__logo">
-
-						<!-- If possible, use embedded SVG markup. -->
-
-						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for MRC" class="client__img" />
-
-					</div>
-
-					<h3 class="client__name">MRC</h3>
-
-				</li>
-
-				<li class="client__item">
+				<li class="client__item client__item--att">
 			
 					<div class="client__logo">
 
@@ -287,7 +231,7 @@
 
 				</li>
 
-				<li class="client__item">
+				<li class="client__item client__item--illumination">
 			
 					<div class="client__logo">
 
@@ -298,6 +242,62 @@
 					</div>
 
 					<h3 class="client__name">Illumination Entertainment</h3>
+
+				</li>
+
+				<li class="client__item client__item--hbomax">
+
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/140x24.png?text=Logo+(140x24)" alt="Logo for HBO Max" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">HBO Max</h3>
+
+				</li>
+
+				<li class="client__item client__item--newlinecinema">
+			
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for New Line Cinema" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">New Line Cinema</h3>
+
+				</li>
+
+				<li class="client__item client__item--dc">
+
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for DC" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">DC</h3>
+
+				</li>
+
+				<li class="client__item client__item--mrc">
+			
+					<div class="client__logo">
+
+						<!-- If possible, use embedded SVG markup. -->
+
+						<img src="https://via.placeholder.com/200x100.png?text=Logo+(200x100)" alt="Logo for MRC" class="client__img" />
+
+					</div>
+
+					<h3 class="client__name">MRC</h3>
 
 				</li>
 
