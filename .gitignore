@@ -20,6 +20,10 @@ dist/html/wp-content/plugins/hello.php
 dist/html/wp-content/themes/*
 !dist/html/wp-content/themes/planetcstudios/
 
+# Ignore theme assets directory.
+
+dist/html/wp-content/themes/planetcstudios/assets/*
+
 # Ignore node dependency directories.
 
 node_modules/
