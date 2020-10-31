@@ -629,11 +629,11 @@
 
 			<!-- Content -->
 
-			<h2 class="header section__header contact__header">Let's green light your next project!</h2>
+			<h2 class="header section__header contact__header">Let&rsquo;s green light your next project!</h2>
 
 			<!-- Form -->
 
-			<div class="contact__form contact__form--is-visible">
+			<div class="contact__form">
 
 				<form class="form">
 

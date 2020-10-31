@@ -16,16 +16,30 @@ Section: Contact
 		width: 100%;
 		max-width: 780px;
 		margin: 0 auto;
-		padding: 0 80px 100px 80px; // Gives space for send button when viewed on larger screen sizes.
-		background: darken(pink, 5%);
+		padding: 180px 80px 100px 80px; // Gives space for send button when viewed on larger screen sizes.
+		// background: darken(pink, 5%);
 
 	}
 
-		.contact__header {}
+		.contact__header {
 
-		.contact__form {}
+			margin: 0;
+			font-size: 1.5rem;
+			text-align: center;
 
-		.contact__form--is-visible {}
+		}
+
+		.contact__form {
+
+			margin: 6.25em 0 0 0;
+
+		}
+
+		.contact__form--is-visible {
+
+			margin: 2em 0 0 0;
+
+		}
 
 			.form {}
 
@@ -39,13 +53,38 @@ Section: Contact
 
 					.form__fieldset {}
 
-						.form__legend {}
+						.form__legend {
+
+							padding: 0.25em 0.50em;
+							font-size: 2rem;
+							text-transform: uppercase;
+							text-align: center;
+							color: $color-base-black;
+							background: $color-base-white;
+							border-radius: 8px;
+							cursor: pointer;
+
+							.contact__form--is-visible & {
+
+								display: none;
+
+							}
+
+						}
 
 						.form__list {
+
+							display: none;
 
 							margin: 0;
 							padding: 0;
 							list-style: none;
+
+							.contact__form--is-visible & {
+
+								display: block;
+
+							}
 
 						}
 
@@ -83,12 +122,20 @@ Section: Contact
 
 					.form__button {
 
+						display: none;
+
 						position: absolute;
 						right: -80px;
 						bottom: 0;
 						width: 60px;
 						margin: 1em 0 0 0;
 						z-index: 1;
+
+						.contact__form--is-visible & {
+
+							display: block;
+
+						}
 
 					}
 
