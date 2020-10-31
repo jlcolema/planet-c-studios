@@ -187,7 +187,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/62x80.png?text=Logo+(62x80)" alt="Logo for Warner Bros." class="featured-client__img" />
+						<img src="https://via.placeholder.com/64x80.png?text=Logo+(64x80)" alt="Logo for Warner Bros." class="featured-client__img" />
 
 					</div>
 
@@ -201,7 +201,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/118x66.png?text=Logo+(118x66)" alt="Logo for Universal Music Group" class="featured-client__img" />
+						<img src="https://via.placeholder.com/118x64.png?text=Logo+(118x64)" alt="Logo for Universal Music Group" class="featured-client__img" />
 
 					</div>
 
@@ -243,7 +243,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/106x60.png?text=Logo+(106x60)" alt="Logo for New Line Cinema" class="featured-client__img" />
+						<img src="https://via.placeholder.com/106x50.png?text=Logo+(106x50)" alt="Logo for New Line Cinema" class="featured-client__img" />
 
 					</div>
 
@@ -257,7 +257,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/90x40.png?text=Logo+(90x40)" alt="Logo for Media Rights Capital" class="featured-client__img" />
+						<img src="https://via.placeholder.com/98x40.png?text=Logo+(98x40)" alt="Logo for Media Rights Capital" class="featured-client__img" />
 
 					</div>
 
@@ -271,7 +271,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/144x50.png?text=Logo+(144x50)" alt="Logo for AT&T" class="featured-client__img" />
+						<img src="https://via.placeholder.com/124x50.png?text=Logo+(124x50)" alt="Logo for AT&T" class="featured-client__img" />
 
 					</div>
 
@@ -285,7 +285,7 @@
 
 						<!-- If possible, use embedded SVG markup. -->
 
-						<img src="https://via.placeholder.com/114x30.png?text=Logo+(114x30)" alt="Logo for Illumination Entertainment" class="featured-client__img" />
+						<img src="https://via.placeholder.com/114x24.png?text=Logo+(114x24)" alt="Logo for Illumination Entertainment" class="featured-client__img" />
 
 					</div>
 
