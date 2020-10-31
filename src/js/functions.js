@@ -125,7 +125,25 @@
 		/* Smooth Scroll
 		--------------------------------------*/
 
+		/* Navigation */
+
 		// Notes...
+
+		$('.menu-item a').smoothScroll({
+
+			offset: 0
+
+		});
+
+		/* To Top */
+
+		// Notes...
+
+		$('.secondary-logo__link').smoothScroll({
+
+			offset: 0
+
+		});
 
 		/* Move
 		--------------------------------------*/

@@ -76,6 +76,9 @@ gulp.task('js', function() {
 		// basePaths.dev + 'js/libraries/file.js',
 
 		basePaths.dev + 'js/plugins/slick-1.8.0.js',
+		basePaths.dev + 'js/plugins/smooth-scroll-2.2.0.js',
+
+		// basePaths.dev + 'js/plugins/selectboxit-3.8.1.js',
 
 		// basePaths.dev + 'js/modernizr.js',
 		// basePaths.dev + 'js/libraries/jquery-3.5.1.js',
