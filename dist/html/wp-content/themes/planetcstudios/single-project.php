@@ -160,6 +160,10 @@
 
 										<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
 
+									<?php elseif ( get_sub_field( 'sample_type' ) == 'video-self-hosted' ) : ?>
+
+										<!-- Content for a self-hosted video. -->
+									
 									<?php else : ?>
 
 										<?php the_sub_field( 'sample_video' ); ?>
