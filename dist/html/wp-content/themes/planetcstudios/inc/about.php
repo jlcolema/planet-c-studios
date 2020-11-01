@@ -24,189 +24,375 @@
 
 			<div class="about__founded">
 			
-				<span class="">Creative since</span> <?php the_field( 'about_founded', 'option' ); ?>
+				Creative since <span class=""><?php the_field( 'about_founded', 'option' ); ?></span>
 
 			</div>
 
 		</div>
 
-		<!-- List of Core Team -->
+		<!-- Members -->
 
-		<ul class="members__list members__list--core-team">
+		<div class="about__members">
 
-			<li class="member__item member__item--core-team member__item--founder">
+			<div class="member__type member__type--core-team">
 
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of Michael Carone" class="memimgphoto" />
+				<h3 class="member__subheader member__subheader--core-team">Core Team</h3>
 
-				</div>
+				<?php /* List of Core Team members. */ ?>
 
-				<h3 class="member__name">Michael Carone</h3>
+				<div class="members__scroll members__scroll--core-team">
 
-				<h4 class="member__role">Founder/Director</h4>
+					<ul class="members__list members__list--core-team">
 
-				<div class="member__bio">
+						<li class="member__item member__item--core-team member__item--founder">
 
-					<p>Carone was born in Milwaukee, Wisconsin and raised in Los Angeles, California. With a strong resume of practical production and post-production experience dating back to his teenage years, Carone was hired by Universal Studios immediately after graduating from the University of Southern California (USC) to work at Universal Creative in the media production group. In 2001, Carone founded Planet C Studios to further his career as a Director (DGA) and Producer. Carone recently directed and produced a half-hour comedy pilot, <a href="https://www.imdb.com/title/tt2887794/combined">Sensitive Men</a>, featuring Whoopi Goldberg, French Stewart and Metta World Peace, which is currently being considered for series at a premium cable network.</p>
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/120x120.png?text=Photo+(120x120)" alt="A photo of Michael Carone" class="member__img" />
 
-				</div>
+							</div>
 
-			</li>
+							<h4 class="member__name">Michael Carone</h4>
 
-			<li class="member__item member__item--core-team">
+							<h5 class="member__role">Founder/Director</h5>
 
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of Lucas Belkind" class="memimgphoto" />
+							<div class="member__bio">
 
-				</div>
+								<p>Carone was born in Milwaukee, Wisconsin and raised in Los Angeles, California. With a strong resume of practical production and post-production experience dating back to his teenage years, Carone was hired by Universal Studios immediately after graduating from the University of Southern California (USC) to work at Universal Creative in the media production group. In 2001, Carone founded Planet C Studios to further his career as a Director (DGA) and Producer. Carone recently directed and produced a half-hour comedy pilot, <a href="https://www.imdb.com/title/tt2887794/combined">Sensitive Men</a>, featuring Whoopi Goldberg, French Stewart and Metta World Peace, which is currently being considered for series at a premium cable network.</p>
 
-				<h3 class="member__name">Lucas Belkind</h3>
+							</div>
 
-				<h4 class="member__role">Creative Supervisor/Post Production</h4>
+						</li>
 
-				<div class="member__bio">
+						<li class="member__item member__item--core-team">
 
-					<p>Lucas Belkind grew up in Phoenix, Arizona where his passion for film, music, and performance began. In 2008, he graduated from the University of Southern California Magna Cum Laude with a Bachelor's in Visual Anthropology (Documentary Filmmaking). In 2010, he received a Masters with Distinction in Visual Anthropology from the University of Manchester, England. Lucas has had the privilege of working both behind and in front of the camera on a wide variety of projects ranging from reality and scripted television to music videos, short films, features, and theme park attractions.</p>
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Lucas Belkind" class="member__img" />
 
-				</div>
+							</div>
 
-			</li>
+							<h4 class="member__name">Lucas Belkind</h4>
 
-			<li class="member__item member__item--core-team">
+							<h5 class="member__role">Creative Supervisor/Post Production</h5>
 
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of Javier Vivas" class="member__img" />
-				
-				</div>
+							<div class="member__bio">
 
-				<h3 class="member__name">Javier Vivas</h3>
+								<p>Lucas Belkind grew up in Phoenix, Arizona where his passion for film, music, and performance began. In 2008, he graduated from the University of Southern California Magna Cum Laude with a Bachelor's in Visual Anthropology (Documentary Filmmaking). In 2010, he received a Masters with Distinction in Visual Anthropology from the University of Manchester, England. Lucas has had the privilege of working both behind and in front of the camera on a wide variety of projects ranging from reality and scripted television to music videos, short films, features, and theme park attractions.</p>
 
-				<h4 class="member__role">Development & Production Editor</h4>
+							</div>
 
-				<div class="member__bio">
+						</li>
 
-					<p>Javier Vivas was born and raised in Maracaibo, Venezuela. After receiving his Bachelor's degree in Mass Communication and Journalism from University of Rafael Belloso Chacin in Maracaibo, Venezuela, he moved to Los Angeles, California in 2009 to pursue his passion of making films. In 2010 he completed his Master's in Fine Arts in Filmmaking at the New York Film Academy (NYFA), where his thesis short film called "Jaybird" received many recognitions and was included in many different film festival all across the USA. <a href="/work/javier-vivas/">View Portfolio</a>.</p>
+						<li class="member__item member__item--core-team">
 
-				</div>
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Javier Vivas" class="member__img" />
+							
+							</div>
 
-			</li>
+							<h4 class="member__name">Javier Vivas</h4>
 
-			<li class="member__item member__item--core-team">
+							<h5 class="member__role">Development & Production Editor</h5>
 
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of James Mackin" class="memimgphoto" />
+							<div class="member__bio">
 
-				</div>
+								<p>Javier Vivas was born and raised in Maracaibo, Venezuela. After receiving his Bachelor's degree in Mass Communication and Journalism from University of Rafael Belloso Chacin in Maracaibo, Venezuela, he moved to Los Angeles, California in 2009 to pursue his passion of making films. In 2010 he completed his Master's in Fine Arts in Filmmaking at the New York Film Academy (NYFA), where his thesis short film called "Jaybird" received many recognitions and was included in many different film festival all across the USA. <a href="/work/javier-vivas/">View Portfolio</a>.</p>
 
-				<h3 class="member__name">James Mackin</h3>
+							</div>
 
-				<h4 class="member__role">Visual Development Artist</h4>
+						</li>
 
-				<div class="member__bio">
+						<li class="member__item member__item--core-team">
 
-					<p>James is one of the many Michigan colonists that have made the journey out to the sunshine state. Having graduated in 2017 from the University Of Michigan, he has a background in Illustration, Concept Design and Digital Art.</p>
-					
-					<p>Mackin joined Planet C via the exclusive intern opportunities program and quickly showed his talent in all areas of art and concept development. In just a short time, James has become an integral part of the Planet C Studios core team.</p>
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of James Mackin" class="member__img" />
 
-				</div>
+							</div>
 
-			</li>
+							<h4 class="member__name">James Mackin</h4>
 
-			<li class="member__item member__item--core-team">
+							<h5 class="member__role">Visual Development Artist</h5>
 
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of Elyse Katz" class="member__img" />
-				
-				</div>
+							<div class="member__bio">
 
-				<h3 class="member__name">Elyse Katz</h3>
+								<p>James is one of the many Michigan colonists that have made the journey out to the sunshine state. Having graduated in 2017 from the University Of Michigan, he has a background in Illustration, Concept Design and Digital Art.</p>
+								
+								<p>Mackin joined Planet C via the exclusive intern opportunities program and quickly showed his talent in all areas of art and concept development. In just a short time, James has become an integral part of the Planet C Studios core team.</p>
 
-				<h4 class="member__role">Line Producer/Project Manager</h4>
+							</div>
 
-				<div class="member__bio">
+						</li>
 
-					<p>Elyse has been working in film, documentaries, music, commercials, promotional content and live-events for over 25 years. Her work includes producing live music shows, PBS concerts, as well as project managing new Holocaust testimonies at the USC Shoah Foundation Institute for Visual History. Just some of Elyse’s credits include PRETTY WOMAN starring Julia Roberts, SINGLE WHITE FEMALE, THE UNIVERSAL STUDIO TOUR starring Jimmy Fallon, and the newly released documentary, PELL.</p>
+						<li class="member__item member__item--core-team">
 
-				</div>
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Elyse Katz" class="member__img" />
+							
+							</div>
 
-			</li>
+							<h4 class="member__name">Elyse Katz</h4>
 
-		</ul>
+							<h5 class="member__role">Line Producer/Project Manager</h5>
 
-		<!-- List of Key Collaborators -->
+							<div class="member__bio">
 
-		<ul class="members__list members__list--key-collaborators">
+								<p>Elyse has been working in film, documentaries, music, commercials, promotional content and live-events for over 25 years. Her work includes producing live music shows, PBS concerts, as well as project managing new Holocaust testimonies at the USC Shoah Foundation Institute for Visual History. Just some of Elyse’s credits include PRETTY WOMAN starring Julia Roberts, SINGLE WHITE FEMALE, THE UNIVERSAL STUDIO TOUR starring Jimmy Fallon, and the newly released documentary, PELL.</p>
 
-			<li class="member__item member__item--key-collaborators">
+							</div>
 
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of Tom Clancy" class="member__img" />
-				
-				</div>
+						</li>
 
-				<h3 class="member__name">Tom Clancy</h3>
-
-				<h4 class="member__role">Director of Photography</h4>
-
-				<div class="member__bio">
-
-					<p>Tom Clancey has been the Director of Photography for various projects with Planet C Studios including for the pilot episode of the original television comedy "Sensitive Men" featuring Whoopi Goldberg, Metta World Peace, and French Stewart and for Special Venue live action shoots for Universal Studios Hollywood, such as the Studio Backlot Tour, Transformers, Despicable Me, and Halloween Horror Nights.</p>
-					
-					<p>In addition, Clancey has an extensive list of feature film, television, commercial, special venue, documentary, and music video credits. Clancey's full credits and examples of his work can be found here: <a href="https://tomclancey.com">View Portfolio</a>.</p>
+					</ul>
 
 				</div>
 
-			</li>
+			</div>
 
-			<li class="member__item member__item--key-collaborators">
+			<div class="member__type member__type--key-collaborators">
 
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of Christopher Biggs" class="member__img" />
-				
+				<h3 class="member__subheader member__subheader--key-collaborators">Key Collaborators</h3>
+
+				<?php /* List of Key Collaborators */ ?>
+
+				<div class="members__scroll members__scroll--key-collaborators">
+
+					<ul class="members__list members__list--key-collaborators">
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Tom Clancy" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Tom Clancy</h4>
+
+							<h5 class="member__role">Director of Photography</h5>
+
+							<div class="member__bio">
+
+								<p>Tom Clancey has been the Director of Photography for various projects with Planet C Studios including for the pilot episode of the original television comedy "Sensitive Men" featuring Whoopi Goldberg, Metta World Peace, and French Stewart and for Special Venue live action shoots for Universal Studios Hollywood, such as the Studio Backlot Tour, Transformers, Despicable Me, and Halloween Horror Nights.</p>
+								
+								<p>In addition, Clancey has an extensive list of feature film, television, commercial, special venue, documentary, and music video credits. Clancey's full credits and examples of his work can be found here: <a href="https://tomclancey.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Christopher Biggs" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Christopher Biggs</h4>
+
+							<h5 class="member__role">SFX Supervisor/Digital Artist</h5>
+
+							<div class="member__bio">
+
+								<p>Christopher Biggs is a cross platform "Digital Ronin" with an emphasis in video production for theme parks. Most recently he's been working with Universal Studios Tours. His credits include multiple video projections for Imagineering at Tokyo Disneyland & Disney Seas, Euro Disney Paris, Disney World Florida, and Disneyland, Anaheim - including such favorite attractions as "The Pirates of the Caribbean", "The Haunted Mansion", "The Little Mermaid", and "Space Mountain."</p>
+								
+								<p>Chris and Planet C collaborate often on projection mapping projects including may effects seen in Warner Bros. Horror Made Here attractions.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+						<li class="member__item member__item--key-collaborators">
+
+							<div class="member__photo">
+							
+								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Casey Dodd" class="member__img" />
+							
+							</div>
+
+							<h4 class="member__name">Casey Dodd</h4>
+
+							<h5 class="member__role">Artist</h5>
+
+							<div class="member__bio">
+							
+								<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
+
+							</div>
+
+						</li>
+
+					</ul>
+
 				</div>
 
-				<h3 class="member__name">Christopher Biggs</h3>
+			</div>
 
-				<h4 class="member__role">SFX Supervisor/Digital Artist</h4>
-
-				<div class="member__bio">
-
-					<p>Christopher Biggs is a cross platform "Digital Ronin" with an emphasis in video production for theme parks. Most recently he's been working with Universal Studios Tours. His credits include multiple video projections for Imagineering at Tokyo Disneyland & Disney Seas, Euro Disney Paris, Disney World Florida, and Disneyland, Anaheim - including such favorite attractions as "The Pirates of the Caribbean", "The Haunted Mansion", "The Little Mermaid", and "Space Mountain."</p>
-					
-					<p>Chris and Planet C collaborate often on projection mapping projects including may effects seen in Warner Bros. Horror Made Here attractions.</p>
-
-				</div>
-
-			</li>
-
-			<li class="member__item member__item--key-collaborators">
-
-				<div class="member__photo">
-				
-					<img src="https://via.placeholder.com/200x200.png?text=Photo+(200x200)" alt="A photo of Casey Dodd" class="member__img" />
-				
-				</div>
-
-				<h3 class="member__name">Casey Dodd</h3>
-
-				<h4 class="member__role">Artist</h4>
-
-				<div class="member__bio">
-				
-					<p>Casey Dodd is an established artist that has created animation concepts, character designs, storyboards, attraction concepts and much more for well renown clients including Universal Studios, The Walt Disney Company, Nickelodeon, MTV Productions, and the Landmark Entertainment Group. His work with Planet C Studios spans original cartoon series development (<a href="/work/harry-hare/">Harry Hare</a>), Universal Studios Hollywood Halloween Horror Nights attraction / character conceptualization, and new theme park attraction designs. Some of his extensive work can be found here: <a href="https://www.caseydodd.com">View Portfolio</a>.</p>
-
-				</div>
-
-			</li>
-
-		</ul>
+		</div>
 
 	</div>
 

@@ -4,64 +4,223 @@ Section: About
 
 // Notes...
 
-.section__about {}
+.section__about {
 
-	.about__inner-wrap {}
+	padding: 0 1.25em;
 
-		.about__header {}
+	// background: pink;
 
-		.about__overview {}
+}
+
+	.about__inner-wrap {
+
+		width: 100%;
+		max-width: 880px;
+		margin: 0 auto;
+		padding: 140px 0 260px 0;
+
+		background: darken(pink, 5%);
+
+	}
+
+		.about__header {
+
+			display: none; // This is currently not in use.
+
+		}
+
+		.about__overview {
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: flex-end;
+			align-content: flex-start;
+
+			background: darken(pink, 10%);
+
+		}
 
 			.about__mission-statement {
 
+				width: calc(100% - 240px);
+				padding: 0 2.5em 0 0;
+
 				p {
 
-					&:last-of-type {}
+					&:last-of-type {
+
+						margin: 0;
+
+					}
 
 				}
+
+					b,
+					strong {
+
+						font-size: 1.50em;
+						line-height: 1.2;
+
+					}
 
 			}
 
 			.about__founded {
 
-				span {}
+				width: 240px;
+				text-align: right;
+				overflow: hidden;
+
+				span {
+
+					font-size: 4.0rem;
+					line-height: 0.75; // Adjustment to make sure this baseline aligns with the overview baseline.
+
+				}
 
 			}
 
-		.members__list {}
+		.about__members {
 
-		.members__list--core-team {}
+			display: flex;
+			flex-direction: row;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: flex-start;
+			align-content: flex-start;
 
-		.member__list--key-collaborators {}
+			margin: 130px 0 0 0;
+			background: darken(pink, 10%);
 
-			.member__item {}
+		}
 
-			.member__item--core-team {}
+			.member__type {}
 
-			.member__item--key-collaborators {}
+			.member__type--core-team {
 
-			.member__item--founder {}
+				width: 420px;
+				background: gray;
 
-				.member__photo {}
+			}
 
-					.member__img {}
+			.member__type--key-collaborators {
 
-				.member__name {}
+				width: calc(100% - 460px);
+				// background: darken(gray, 10%);
 
-				.member__role {}
+			}
 
-				.member__bio {
+				.member__subheader {
 
-					p {
+					display: inline-block;
+					font-size: 1.75rem;
+					border-bottom: 1px solid $color-base-white;
 
-						&:last-of-type {}
+				}
+
+				.members__scroll {}
+
+				.members__scroll--core-team {}
+
+				.members__scroll--key-collaborators {
+
+					margin: 40px 0 0 0;
+					padding: 0 0 60px 0;
+					overflow-x: auto;
+
+				}
+
+					.members__list {
+
+						margin: 0;
+						padding: 0;
+						list-style: none;
 
 					}
 
-						a {
+					.members__list--core-team {}
 
-							&:hover {}
+					.members__list--key-collaborators {
+
+						width: 1520px;
+
+						display: flex;
+						flex-direction: row;
+						flex-wrap: nowrap;
+						justify-content: flex-start;
+						align-items: flex-start;
+						align-content: flex-start;
+
+						// background: pink;
+
+					}
+
+						.member__item {}
+
+						.member__item--core-team {}
+
+						.member__item--key-collaborators {
+
+							width: 120px;
+							margin: 0 1.25em 0 0;
+							padding: 0;
+							// background: darken(gray, 20%);
+
+							&:last-of-type {
+
+								margin: 0;
+
+							}
 
 						}
 
-				}
+						.member__item--founder {}
+
+							.member__photo {}
+
+								.member__img {
+
+									margin: 0 auto;
+									border: 2px solid $color-base-white;
+									border-radius: 50%;
+
+								}
+
+							.member__name {
+
+								margin: 0.50em 0 0 0;
+								text-transform: none;
+								text-align: center;
+
+							}
+
+							.member__role {
+
+								margin: 0.50em 0 0 0;
+								text-align: center;
+
+							}
+
+							.member__bio {
+
+								display: none; // Temporarily hidden.
+
+								p {
+
+									&:last-of-type {
+
+										margin: 0;
+
+									}
+
+								}
+
+									a {
+
+										&:hover {}
+
+									}
+
+							}
