@@ -19,7 +19,7 @@ Section: About
 		margin: 0 auto;
 		padding: 140px 0 260px 0;
 
-		background: darken(pink, 5%);
+		// background: darken(pink, 5%);
 
 	}
 
@@ -38,7 +38,7 @@ Section: About
 			align-items: flex-end;
 			align-content: flex-start;
 
-			background: darken(pink, 10%);
+			// background: darken(pink, 10%);
 
 		}
 
@@ -92,7 +92,7 @@ Section: About
 			align-content: flex-start;
 
 			margin: 130px 0 0 0;
-			background: darken(pink, 10%);
+			// background: darken(pink, 10%);
 
 		}
 
@@ -100,8 +100,9 @@ Section: About
 
 			.member__type--core-team {
 
+				position: relative;
 				width: 420px;
-				background: gray;
+				// background: gray;
 
 			}
 
@@ -120,107 +121,175 @@ Section: About
 
 				}
 
-				.members__scroll {}
+				.member__subheader--core-team {
 
-				.members__scroll--core-team {}
-
-				.members__scroll--key-collaborators {
-
-					margin: 40px 0 0 0;
-					padding: 0 0 60px 0;
-					overflow-x: auto;
+					position: absolute;
+					left: 0;
+					top: 0;
+					z-index: 1;
 
 				}
 
-					.members__list {
+				.member__subheader--key-collaborators {}
 
-						margin: 0;
-						padding: 0;
-						list-style: none;
-
-					}
-
-					.members__list--core-team {}
-
-					.members__list--key-collaborators {
-
-						width: 1520px;
-
+					.core-team__containers {
+					
 						display: flex;
 						flex-direction: row;
 						flex-wrap: nowrap;
-						justify-content: flex-start;
+						justify-content: space-between;
 						align-items: flex-start;
 						align-content: flex-start;
+						
+					}		
 
-						// background: pink;
+						.core-team__container {}
 
-					}
+						.core-team__founder {
 
-						.member__item {}
-
-						.member__item--core-team {}
-
-						.member__item--key-collaborators {
-
-							width: 120px;
-							margin: 0 1.25em 0 0;
-							padding: 0;
-							// background: darken(gray, 20%);
-
-							&:last-of-type {
-
-								margin: 0;
-
-							}
+							width: 124px;
+							padding: 50px 0 0 0;
 
 						}
 
-						.member__item--founder {}
+						.core-team__core-team {
 
-							.member__photo {}
+							width: calc(100% - 164px);
 
-								.member__img {
+						}
 
-									margin: 0 auto;
-									border: 2px solid $color-base-white;
-									border-radius: 50%;
+							.members__scroll {}
+
+							.members__scroll--core-team {}
+
+							.members__scroll--key-collaborators {
+
+								margin: 40px 0 0 0;
+								padding: 0 0 60px 0;
+								overflow-x: auto;
+
+							}
+
+								.members__list {
+
+									margin: 0;
+									padding: 0;
+									list-style: none;
 
 								}
 
-							.member__name {
+								.members__list--core-team {
 
-								margin: 0.50em 0 0 0;
-								text-transform: none;
-								text-align: center;
+									display: flex;
+									flex-direction: row;
+									flex-wrap: wrap;
+									justify-content: space-between;
+									align-items: flex-start;
+									align-content: flex-start;
 
-							}
+								}
 
-							.member__role {
+								.members__list--key-collaborators {
 
-								margin: 0.50em 0 0 0;
-								text-align: center;
+									width: 1520px;
 
-							}
+									display: flex;
+									flex-direction: row;
+									flex-wrap: nowrap;
+									justify-content: flex-start;
+									align-items: flex-start;
+									align-content: flex-start;
 
-							.member__bio {
+									// background: pink;
 
-								display: none; // Temporarily hidden.
+								}
 
-								p {
+									.member__item {}
 
-									&:last-of-type {
+									.member__item--core-team {
+
+										width: 120px;
+										margin: 40px 0 0 0;
+										padding: 0;
+
+										&:first-of-type {
+
+											margin: 0;
+
+										}
+
+										&:nth-child(2) {
+
+											margin: 0;
+
+										}
+
+									}
+
+									.member__item--key-collaborators {
+
+										width: 120px;
+										margin: 0 1.25em 0 0;
+										padding: 0;
+										// background: darken(gray, 20%);
+
+										&:last-of-type {
+
+											margin: 0;
+
+										}
+
+									}
+
+									.member__item--founder {
 
 										margin: 0;
 
 									}
 
-								}
+										.member__photo {}
 
-									a {
+											.member__img {
 
-										&:hover {}
+												margin: 0 auto;
+												border: 2px solid $color-base-white;
+												border-radius: 50%;
 
-									}
+											}
 
-							}
+										.member__name {
+
+											margin: 0.50em 0 0 0;
+											text-transform: none;
+											text-align: center;
+
+										}
+
+										.member__role {
+
+											margin: 0.50em 0 0 0;
+											text-align: center;
+
+										}
+
+										.member__bio {
+
+											display: none; // Temporarily hidden.
+
+											p {
+
+												&:last-of-type {
+
+													margin: 0;
+
+												}
+
+											}
+
+												a {
+
+													&:hover {}
+
+												}
+
+										}

@@ -40,14 +40,14 @@
 
 				<?php /* List of Core Team members. */ ?>
 
-				<div class="members__scroll members__scroll--core-team">
+				<div class="core-team__containers">
 
-					<ul class="members__list members__list--core-team">
+					<div class="core-team__container core-team__founder">
 
-						<li class="member__item member__item--core-team member__item--founder">
+						<div class="member__item member__item--founder">
 
 							<div class="member__photo">
-							
+
 								<img src="https://via.placeholder.com/120x120.png?text=Photo+(120x120)" alt="A photo of Michael Carone" class="member__img" />
 
 							</div>
@@ -62,91 +62,103 @@
 
 							</div>
 
-						</li>
+						</div>						
 
-						<li class="member__item member__item--core-team">
+					</div>
 
-							<div class="member__photo">
-							
-								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Lucas Belkind" class="member__img" />
+					<div class="core-team__container core-team__core-team">
 
-							</div>
+						<div class="members__scroll members__scroll--core-team">
 
-							<h4 class="member__name">Lucas Belkind</h4>
+							<ul class="members__list members__list--core-team">
 
-							<h5 class="member__role">Creative Supervisor/Post Production</h5>
+								<li class="member__item member__item--core-team">
 
-							<div class="member__bio">
+									<div class="member__photo">
+									
+										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Lucas Belkind" class="member__img" />
 
-								<p>Lucas Belkind grew up in Phoenix, Arizona where his passion for film, music, and performance began. In 2008, he graduated from the University of Southern California Magna Cum Laude with a Bachelor's in Visual Anthropology (Documentary Filmmaking). In 2010, he received a Masters with Distinction in Visual Anthropology from the University of Manchester, England. Lucas has had the privilege of working both behind and in front of the camera on a wide variety of projects ranging from reality and scripted television to music videos, short films, features, and theme park attractions.</p>
+									</div>
 
-							</div>
+									<h4 class="member__name">Lucas Belkind</h4>
 
-						</li>
+									<h5 class="member__role">Creative Supervisor/Post Production</h5>
 
-						<li class="member__item member__item--core-team">
+									<div class="member__bio">
 
-							<div class="member__photo">
-							
-								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Javier Vivas" class="member__img" />
-							
-							</div>
+										<p>Lucas Belkind grew up in Phoenix, Arizona where his passion for film, music, and performance began. In 2008, he graduated from the University of Southern California Magna Cum Laude with a Bachelor's in Visual Anthropology (Documentary Filmmaking). In 2010, he received a Masters with Distinction in Visual Anthropology from the University of Manchester, England. Lucas has had the privilege of working both behind and in front of the camera on a wide variety of projects ranging from reality and scripted television to music videos, short films, features, and theme park attractions.</p>
 
-							<h4 class="member__name">Javier Vivas</h4>
+									</div>
 
-							<h5 class="member__role">Development & Production Editor</h5>
+								</li>
 
-							<div class="member__bio">
+								<li class="member__item member__item--core-team">
 
-								<p>Javier Vivas was born and raised in Maracaibo, Venezuela. After receiving his Bachelor's degree in Mass Communication and Journalism from University of Rafael Belloso Chacin in Maracaibo, Venezuela, he moved to Los Angeles, California in 2009 to pursue his passion of making films. In 2010 he completed his Master's in Fine Arts in Filmmaking at the New York Film Academy (NYFA), where his thesis short film called "Jaybird" received many recognitions and was included in many different film festival all across the USA. <a href="/work/javier-vivas/">View Portfolio</a>.</p>
+									<div class="member__photo">
+									
+										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Javier Vivas" class="member__img" />
+									
+									</div>
 
-							</div>
+									<h4 class="member__name">Javier Vivas</h4>
 
-						</li>
+									<h5 class="member__role">Development & Production Editor</h5>
 
-						<li class="member__item member__item--core-team">
+									<div class="member__bio">
 
-							<div class="member__photo">
-							
-								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of James Mackin" class="member__img" />
+										<p>Javier Vivas was born and raised in Maracaibo, Venezuela. After receiving his Bachelor's degree in Mass Communication and Journalism from University of Rafael Belloso Chacin in Maracaibo, Venezuela, he moved to Los Angeles, California in 2009 to pursue his passion of making films. In 2010 he completed his Master's in Fine Arts in Filmmaking at the New York Film Academy (NYFA), where his thesis short film called "Jaybird" received many recognitions and was included in many different film festival all across the USA. <a href="/work/javier-vivas/">View Portfolio</a>.</p>
 
-							</div>
+									</div>
 
-							<h4 class="member__name">James Mackin</h4>
+								</li>
 
-							<h5 class="member__role">Visual Development Artist</h5>
+								<li class="member__item member__item--core-team">
 
-							<div class="member__bio">
+									<div class="member__photo">
+									
+										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of James Mackin" class="member__img" />
 
-								<p>James is one of the many Michigan colonists that have made the journey out to the sunshine state. Having graduated in 2017 from the University Of Michigan, he has a background in Illustration, Concept Design and Digital Art.</p>
-								
-								<p>Mackin joined Planet C via the exclusive intern opportunities program and quickly showed his talent in all areas of art and concept development. In just a short time, James has become an integral part of the Planet C Studios core team.</p>
+									</div>
 
-							</div>
+									<h4 class="member__name">James Mackin</h4>
 
-						</li>
+									<h5 class="member__role">Visual Development Artist</h5>
 
-						<li class="member__item member__item--core-team">
+									<div class="member__bio">
 
-							<div class="member__photo">
-							
-								<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Elyse Katz" class="member__img" />
-							
-							</div>
+										<p>James is one of the many Michigan colonists that have made the journey out to the sunshine state. Having graduated in 2017 from the University Of Michigan, he has a background in Illustration, Concept Design and Digital Art.</p>
+										
+										<p>Mackin joined Planet C via the exclusive intern opportunities program and quickly showed his talent in all areas of art and concept development. In just a short time, James has become an integral part of the Planet C Studios core team.</p>
 
-							<h4 class="member__name">Elyse Katz</h4>
+									</div>
 
-							<h5 class="member__role">Line Producer/Project Manager</h5>
+								</li>
 
-							<div class="member__bio">
+								<li class="member__item member__item--core-team">
 
-								<p>Elyse has been working in film, documentaries, music, commercials, promotional content and live-events for over 25 years. Her work includes producing live music shows, PBS concerts, as well as project managing new Holocaust testimonies at the USC Shoah Foundation Institute for Visual History. Just some of Elyse’s credits include PRETTY WOMAN starring Julia Roberts, SINGLE WHITE FEMALE, THE UNIVERSAL STUDIO TOUR starring Jimmy Fallon, and the newly released documentary, PELL.</p>
+									<div class="member__photo">
+									
+										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Elyse Katz" class="member__img" />
+									
+									</div>
 
-							</div>
+									<h4 class="member__name">Elyse Katz</h4>
 
-						</li>
+									<h5 class="member__role">Line Producer/Project Manager</h5>
 
-					</ul>
+									<div class="member__bio">
+
+										<p>Elyse has been working in film, documentaries, music, commercials, promotional content and live-events for over 25 years. Her work includes producing live music shows, PBS concerts, as well as project managing new Holocaust testimonies at the USC Shoah Foundation Institute for Visual History. Just some of Elyse’s credits include PRETTY WOMAN starring Julia Roberts, SINGLE WHITE FEMALE, THE UNIVERSAL STUDIO TOUR starring Jimmy Fallon, and the newly released documentary, PELL.</p>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					</div>
 
 				</div>
 
