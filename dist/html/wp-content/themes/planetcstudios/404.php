@@ -12,11 +12,15 @@
 
 	<div class="error">
 
-		<h1 class="error__header">404</h1>
+		<div class="error__inner-wrap">
 
-		<div class="error__message">
+			<h1 class="error__header">404: Page not Found</h1>
 
-			<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus illo maiores autem voluptate dolores fuga corporis cumque repellat cum natus porro a eligendi debitis molestiae nemo, <a href="/work/" title="View all of our work" class="">our work</a> ad! Sit!</p>
+			<div class="error__message">
+
+				<?php the_field( '404_message', 'option' ); ?>
+
+			</div>
 
 		</div>
 

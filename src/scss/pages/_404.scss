@@ -1,3 +1,36 @@
 /*------------------------------
 Page: 404
 ------------------------------*/
+
+.error {
+
+	padding: 0 1.25em;
+
+	// background: pink;
+
+}
+
+	.error__inner-wrap {
+
+		width: 100%;
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 190px 0 220px 0;
+
+	}
+
+		.error__header {}
+
+		.error__message {
+
+			p {
+
+				&:last-of-type {
+
+					margin: 0;
+
+				}
+
+			}
+
+		}
