@@ -33,33 +33,41 @@
 
 			<p class="copyright">Copyright &copy; <?php the_field( 'about_founded', 'option' ); ?>-<?php echo date_i18n( _x( 'Y', 'copyright date format', 'planetcstudios' ) ); ?> <?php bloginfo( 'name' ); ?> &ndash; All Rights Reserved</p>
 
-			<div class="social">
+			<?php if ( have_rows( 'social_list', 'option' ) ) : ?>
 
-				<ul class="social__list">
+				<div class="social">
 
-					<li class="social__item social__item--facebook">
+					<ul class="social__list">
 
-						<a href="#" class="social__link">Facebook</a>
+						<?php while ( have_rows( 'social_list', 'option' ) ) : the_row(); ?>
 
-					</li>
+							<?php
 
-					<li class="social__item social__item--twitter">
+								// Output value and label for the service.
 
-						<a href="#" class="social__link">Twitter</a>
+								$social_service = get_sub_field( 'social_service', 'option' );
 
-					</li>
+							?>
 
-					<li class="social__item social__item--youtube">
+							<li class="social__item social__item--<?php echo esc_attr( $social_service['value'] ); ?>">
 
-						<a href="#" class="social__link">YouTube</a>
+								<a href="<?php the_sub_field( 'social_url', 'option' ); ?>" class="social__link"><?php echo esc_html( $social_service['label'] ); ?></a>
 
-					</li>
+							</li>
 
-				</ul>
+						<?php endwhile; ?>
 
-			</div>
+					</ul>
 
-			<!-- Background -->
+				</div>
+
+			<?php endif; ?>
+
+			<?php
+
+				/* The background image for this section is considered part of overall look and feel for the theme. This image can be found in the root theme directory at `assets/img/name.png`. */
+
+			?>
 
 			<div class="footer__background">
 
