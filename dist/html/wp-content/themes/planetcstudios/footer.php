@@ -31,7 +31,7 @@
 
 			</div>
 
-			<p class="copyright">Copyright &copy; 2001-<?php echo date_i18n( _x( 'Y', 'copyright date format', 'planetcstudios' ) ); ?> <?php bloginfo( 'name' ); ?> &ndash; All Rights Reserved</p>
+			<p class="copyright">Copyright &copy; <?php the_field( 'about_founded', 'option' ); ?>-<?php echo date_i18n( _x( 'Y', 'copyright date format', 'planetcstudios' ) ); ?> <?php bloginfo( 'name' ); ?> &ndash; All Rights Reserved</p>
 
 			<div class="social">
 
