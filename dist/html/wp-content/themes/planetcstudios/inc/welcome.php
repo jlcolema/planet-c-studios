@@ -6,137 +6,73 @@
 
 		<!-- Header -->
 
-		<h1 class="header section__header welcome__header">Original Entertainment Creation</h1>
+		<h1 class="header section__header welcome__header"><?php the_field( 'about_tagline', 'option' ); ?></h1>
 
 		<!-- List of Services -->
 
-		<ul class="services__list">
+		<?php
 
-			<li class="service__item">
+			$featured_services = get_field( 's_welcome_featured_services' );
 
-				<!-- Title -->
+		?>
 
-				<h2 class="service__title">Concept</h2>
+		<?php if ( $featured_services ) : ?>
 
-				<!-- Description -->
+			<ul class="services__list">
 
-				<div class="service__description">
+				<?php foreach ( $featured_services as $post ) : ?>
 
-					<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum aspernatur nihil tempore exercitationem sed accusamus rerum, veritatis ullam error cupiditate recusandae labore expedita aliquid saepe quisquam quas. Qui, maxime unde!</p>
+					<?php setup_postdata( $post ); ?>
 
-				</div>
+					<li class="service__item">
 
-				<!-- Samples -->
+						<!-- Title -->
 
-				<div class="service__samples service__samples--three-up">
+						<h2 class="service__title"><?php the_title(); ?></h2>
 
-					<div class="service__sample">
+						<!-- Description -->
 
-						<img src="https://via.placeholder.com/200x200.png?text=Sample+(200x200)" alt="A sample title image" class="service__img" />
+						<div class="service__description">
 
-					</div>
+							<?php the_field( 'service_description' ); ?>
 
-					<div class="service__sample">
+						</div>
 
-						<img src="https://via.placeholder.com/200x200.png?text=Sample+(200x200)" alt="A sample title image" class="service__img" />
+						<!-- Samples -->
 
-					</div>
+						<?php if ( have_rows( 'service_samples' ) ) : ?>
 
-					<div class="service__sample">
+							<?php
 
-						<img src="https://via.placeholder.com/200x200.png?text=Sample+(200x200)" alt="A sample title image" class="service__img" />
+								$number_of_samples = count( get_field( 'service_samples' ) );
 
-					</div>
+							?>
 
-				</div>
+							<div class="service__samples service__samples--<?php echo $number_of_samples; ?>-up">
 
-			</li>
+								<?php while ( have_rows( 'service_samples' ) ) : the_row(); ?>
 
-			<li class="service__item">
+									<div class="service__sample service__sample--<?php echo get_row_index(); ?>">
 
-				<!-- Title -->
+										<img src="<?php the_sub_field( 'sample_image' ); ?>" alt="A sample title image" class="service__img" />
 
-				<h2 class="service__title">Production</h2>
+									</div>
 
-				<!-- Description -->
+								<?php endwhile; ?>
 
-				<div class="service__description">
+							</div>
 
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore culpa, aliquid provident omnis dolor quam at eius ab. Consectetur rerum labore nulla impedit alias culpa ut natus eum corrupti quas.</p>
+						<?php endif; ?>
 
-				</div>
+					</li>
 
-				<!-- Samples -->
+				<?php endforeach; ?>
 
-				<div class="service__samples service__samples--one-up">
-				
-					<div class="service__sample">
+			</ul>
 
-						<img src="https://via.placeholder.com/200x200.png?text=Sample+(200x200)" alt="A sample title image" class="service__img" />
+			<?php wp_reset_postdata(); ?>
 
-					</div>
-
-				</div>
-
-			</li>
-
-			<li class="service__item">
-
-				<!-- Title -->
-
-				<h2 class="service__title">Digital Post</h2>
-
-				<!-- Description -->
-
-				<div class="service__description">
-
-					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae illo aspernatur eius nemo adipisci officiis ullam fugit commodi. Vitae iure quos beatae quis aperiam repellat, enim quam earum unde ab.</p>
-
-				</div>
-
-				<!-- Samples -->
-
-				<div class="service__samples service__samples--one-up">
-
-					<div class="service__sample">
-
-						<img src="https://via.placeholder.com/200x200.png?text=Sample+(200x200)" alt="A sample title image" class="service__img" />
-
-					</div>
-
-				</div>
-
-			</li>
-
-			<li class="service__item">
-
-				<!-- Title -->
-
-				<h2 class="service__title">Immersion</h2>
-
-				<!-- Description -->
-
-				<div class="service__description">
-
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem odio nostrum mollitia, sed nemo, ea quaerat tempore dolorum dolore voluptatibus distinctio libero fugit fuga! Blanditiis eligendi quam est ducimus suscipit.</p>
-
-				</div>
-
-				<!-- Samples -->
-
-				<div class="service__samples service__samples--one-up">
-
-					<div class="service__sample">
-
-						<img src="https://via.placeholder.com/200x200.png?text=Sample+(200x200)" alt="A sample title image" class="service__img" />
-
-					</div>
-
-				</div>
-
-			</li>
-
-		</ul>
+		<?php endif; ?>
 
 		<!-- Background -->
 
