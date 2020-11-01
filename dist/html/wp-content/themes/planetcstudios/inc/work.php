@@ -6,77 +6,82 @@
 
 		<!-- Header -->
 
-		<h2 class="header section__header work__header">Check out some of our work</h2>
+		<h2 class="header section__header work__header"><?php the_field( 's_work_header' ); ?></h2>
 
-		<!-- Featured Work -->
+		<!-- Featured Projects -->
 
-		<ul class="work__list">
+		<?php
 
-			<li class="work__item">
+			$featured_projects = get_field( 's_work_featured_projects' );
 
-				<a href="/work/project-01/" class="work__link">
+		?>
 
-					<div class="work__cover">
+		<?php if ( $featured_projects ) : ?>
 
-						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
-	
-					</div>
+			<ul class="work__list">
 
-					<h3 class="work__title">Title of Project</h3>
+				<?php foreach ( $featured_projects as $post ) : ?>
 
-				</a>
+					<?php setup_postdata( $post ); ?>
 
-			</li>
+					<?php
 
-			<li class="work__item">
+						// Cover
 
-				<a href="/work/project-01/" class="work__link">
+						$project_cover_attachment_id = get_field( 'project_cover', $project->ID );
 
-					<div class="work__cover">
+						// Size Labels
 
-						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
-	
-					</div>
+						$project_cover_size_large = 'cover-large';
+						$project_cover_size_small = 'cover-small';
 
-					<h3 class="work__title">Title of Project</h3>
-		
-				</a>
+						// Image Sizes
 
-			</li>
+						$project_cover_large = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_large );
+						$project_cover_small = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_small );
 
-			<li class="work__item">
+					?>
 
-				<a href="/work/project-01/" class="work__link">
+					<li class="work__item">
 
-					<div class="work__cover">
+						<a href="<?php the_permalink(); ?>" class="work__link">
 
-						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
-	
-					</div>
+							<!-- 
+								
+								Two sizes are available:
+									
+								1. cover-large, 380 x 560, for higher density screens.
+								2. cover-small, 190 x 288, the default output.
 
-					<h3 class="work__title">Title of Project</h3>
+							-->
 
-				</a>
+							<div class="work__cover">
 
-			</li>
+								<?php if ( ! $project_cover_small ) : ?>
 
-			<li class="work__item">
-		
-				<a href="/work/project-01/" class="work__link">
+									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img project__s-img--is-placeholder" />
 
-					<div class="work__cover">
+								<?php else : ?>
 
-						<img src="https://via.placeholder.com/200x300.png?text=Cover+(200x300)" alt="The cover image for Title of Project" class="work__img" />
-	
-					</div>
+									<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img" />
 
-					<h3 class="work__title">Title of Project</h3>
+								<?php endif; ?>
+			
+							</div>
 
-				</a>
+							<h3 class="work__title"><?php the_title(); ?></h3>
 
-			</li>
+						</a>
 
-		</ul>
+					</li>
+
+				<?php endforeach; ?>
+
+			</ul>
+
+			<?php wp_reset_postdata(); ?>
+
+		<?php endif; ?>
 
 		<!-- CTA -->
 
