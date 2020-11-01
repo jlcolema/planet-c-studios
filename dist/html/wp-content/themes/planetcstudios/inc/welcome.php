@@ -74,7 +74,11 @@
 
 		<?php endif; ?>
 
-		<!-- Background -->
+		<?php
+
+			/* The background image for this section is considered part of overall look and feel for the theme. This image can be found in the root theme directory at `assets/img/name.png`. */
+
+		?>
 
 		<div class="welcome__background">
 
