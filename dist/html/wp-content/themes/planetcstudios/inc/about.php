@@ -70,91 +70,74 @@
 
 						<div class="members__scroll members__scroll--core-team">
 
-							<ul class="members__list members__list--core-team">
+							<?php
 
-								<li class="member__item member__item--core-team">
+								$core_team = get_field( 's_about_core_team' );
 
-									<div class="member__photo">
-									
-										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Lucas Belkind" class="member__img" />
+							?>
 
-									</div>
+							<?php if ( $core_team ) : ?>
 
-									<h4 class="member__name">Lucas Belkind</h4>
+								<ul class="members__list members__list--core-team">
 
-									<h5 class="member__role">Creative Supervisor/Post Production</h5>
+									<?php foreach ( $core_team as $post ) : ?>
 
-									<div class="member__bio">
+										<?php setup_postdata( $post ); ?>
 
-										<p>Lucas Belkind grew up in Phoenix, Arizona where his passion for film, music, and performance began. In 2008, he graduated from the University of Southern California Magna Cum Laude with a Bachelor's in Visual Anthropology (Documentary Filmmaking). In 2010, he received a Masters with Distinction in Visual Anthropology from the University of Manchester, England. Lucas has had the privilege of working both behind and in front of the camera on a wide variety of projects ranging from reality and scripted television to music videos, short films, features, and theme park attractions.</p>
+										<?php
 
-									</div>
+											// Photo
 
-								</li>
+											$member_photo_attachment_id = get_field( 'member_photo', $project->ID );
 
-								<li class="member__item member__item--core-team">
+											// Size Labels
 
-									<div class="member__photo">
-									
-										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Javier Vivas" class="member__img" />
-									
-									</div>
+											$member_photo_size_large = 'photo-large';
+											$member_photo_size_small = 'photo-small';
 
-									<h4 class="member__name">Javier Vivas</h4>
+											// Image Sizes
 
-									<h5 class="member__role">Development & Production Editor</h5>
+											$member_photo_large = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_large );
+											$member_photo_small = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_small );
 
-									<div class="member__bio">
+										?>
 
-										<p>Javier Vivas was born and raised in Maracaibo, Venezuela. After receiving his Bachelor's degree in Mass Communication and Journalism from University of Rafael Belloso Chacin in Maracaibo, Venezuela, he moved to Los Angeles, California in 2009 to pursue his passion of making films. In 2010 he completed his Master's in Fine Arts in Filmmaking at the New York Film Academy (NYFA), where his thesis short film called "Jaybird" received many recognitions and was included in many different film festival all across the USA. <a href="/work/javier-vivas/">View Portfolio</a>.</p>
+										<li class="member__item member__item--core-team">
 
-									</div>
+											<div class="member__photo">
+											
+												<?php if ( ! $member_photo_small ) : ?>
 
-								</li>
+													<img src="https://via.placeholder.com/60x60.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img member__img--is-placeholder" />
 
-								<li class="member__item member__item--core-team">
+												<?php else : ?>
 
-									<div class="member__photo">
-									
-										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of James Mackin" class="member__img" />
+													<img src="<?php echo $member_photo_small[0]; ?>" srcset="<?php echo $member_photo_large[0]; ?> 2x" alt="A photo of <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img" />
 
-									</div>
 
-									<h4 class="member__name">James Mackin</h4>
+												<?php endif; ?>
 
-									<h5 class="member__role">Visual Development Artist</h5>
+											</div>
 
-									<div class="member__bio">
+											<h4 class="member__name"><?php the_title(); ?></h4>
 
-										<p>James is one of the many Michigan colonists that have made the journey out to the sunshine state. Having graduated in 2017 from the University Of Michigan, he has a background in Illustration, Concept Design and Digital Art.</p>
-										
-										<p>Mackin joined Planet C via the exclusive intern opportunities program and quickly showed his talent in all areas of art and concept development. In just a short time, James has become an integral part of the Planet C Studios core team.</p>
+											<h5 class="member__role"><?php the_field( 'member_role' ); ?></h5>
 
-									</div>
+											<div class="member__bio">
 
-								</li>
+												<?php the_field( 'member_bio' ); ?>
 
-								<li class="member__item member__item--core-team">
+											</div>
 
-									<div class="member__photo">
-									
-										<img src="https://via.placeholder.com/60x60.png?text=Photo+(60x60)" alt="A photo of Elyse Katz" class="member__img" />
-									
-									</div>
+										</li>
 
-									<h4 class="member__name">Elyse Katz</h4>
+									<?php endforeach; ?>
 
-									<h5 class="member__role">Line Producer/Project Manager</h5>
+								</ul>
 
-									<div class="member__bio">
+								<?php wp_reset_postdata(); ?>
 
-										<p>Elyse has been working in film, documentaries, music, commercials, promotional content and live-events for over 25 years. Her work includes producing live music shows, PBS concerts, as well as project managing new Holocaust testimonies at the USC Shoah Foundation Institute for Visual History. Just some of Elyse’s credits include PRETTY WOMAN starring Julia Roberts, SINGLE WHITE FEMALE, THE UNIVERSAL STUDIO TOUR starring Jimmy Fallon, and the newly released documentary, PELL.</p>
-
-									</div>
-
-								</li>
-
-							</ul>
+							<?php endif; ?>
 
 						</div>
 

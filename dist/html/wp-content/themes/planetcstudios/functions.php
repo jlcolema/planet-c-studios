@@ -62,6 +62,16 @@ function planetcstudios_theme_support() {
 	add_image_size( 'cover-small', 190, 280, true );
 
 
+	// Add custom image sizes for member photos.
+
+	add_image_size( 'photo-x-large', 240, 240, true );
+
+	add_image_size( 'photo-large', 120, 120, true );
+
+	add_image_size( 'photo-small', 60, 60, true );
+
+
+
 	/*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
