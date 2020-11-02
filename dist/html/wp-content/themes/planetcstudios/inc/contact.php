@@ -12,11 +12,7 @@
 
 		<div class="contact__form">
 
-			<form class="form">
-
-				<?php echo do_shortcode( '[contact-form-7 title="Contact" id="9"]' ); ?>
-
-			</form>
+			<?php echo do_shortcode( '[contact-form-7 id="9" title="Contact"]' ); ?>
 
 		</div>
 
