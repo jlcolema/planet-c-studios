@@ -58,12 +58,16 @@ Entry: Project
 
 			.project__meta {
 
-				display: flex;
-				flex-direction: row;
-				flex-wrap: nowrap;
-				justify-content: space-between;
-				align-items: flex-start;
-				align-content: flex-start;
+				@media screen and (min-width: 560px) {
+
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: space-between;
+					align-items: flex-start;
+					align-content: flex-start;
+
+				}
 
 				// background: darken(pink, 10%);
 
@@ -79,8 +83,15 @@ Entry: Project
 
 				.project__details {
 
-					width: calc(100% - 190px);
-					padding: 0 0 0 2em;
+					margin: 2em 0 0 0;
+
+					@media screen and (min-width: 560px) {
+
+						width: calc(100% - 190px);
+						margin: 0;
+						padding: 0 0 0 2em;
+
+					}
 
 				}
 
