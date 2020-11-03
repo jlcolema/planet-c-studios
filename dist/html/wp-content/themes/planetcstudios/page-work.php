@@ -263,6 +263,10 @@
 
 						$project_short_title = get_field( 'project_short_title', $project->ID );
 
+						// Title
+
+						$project_cover = get_field( 'project_cover', $project->ID );
+
 					?>
 
 					<li class="project__item" data-category="<?php if ( $project_categories ) : ?><?php foreach ( $project_categories as $project_category ) : ?><?php echo esc_html( $project_category->slug ); ?> <?php endforeach; ?><?php endif; ?>">
@@ -271,13 +275,13 @@
 
 							<div class="project__cover">
 
-								<?php if ( ! $project_cover_small ) : ?>
+								<?php if ( $project_cover ) : ?>
 
-									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img project__img--is-placeholder" />
+									<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
 
 								<?php else : ?>
 
-									<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
+									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img project__img--is-placeholder" />
 
 								<?php endif; ?>
 

@@ -40,6 +40,8 @@
 						$project_cover_large = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_large );
 						$project_cover_small = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_small );
 
+						$project_cover = get_field( 'project_cover' );
+
 					?>
 
 					<li class="work__item">
@@ -57,13 +59,13 @@
 
 							<div class="work__cover">
 
-								<?php if ( ! $project_cover_small ) : ?>
+								<?php if ( $project_cover ) : ?>
 
-									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img project__s-img--is-placeholder" />
+									<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img" />
 
 								<?php else : ?>
 
-									<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img" />
+									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img project__s-img--is-placeholder" />
 
 								<?php endif; ?>
 			

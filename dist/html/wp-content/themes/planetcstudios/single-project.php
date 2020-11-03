@@ -35,6 +35,10 @@
 
 		$project_clients = get_field( 'project_client' );
 
+		// Title
+
+		$project_cover = get_field( 'project_cover' );
+
 	?>
 
 	<div class="project">
@@ -64,13 +68,13 @@
 
 					<div class="project__s-cover">
 
-						<?php if ( ! $project_cover_small ) : ?>
+						<?php if ( $project_cover ) : ?>
 
-							<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img project__s-img--is-placeholder" />
+							<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img" />
 
 						<?php else : ?>
 
-							<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img" />
+							<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $project_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="project__s-img project__s-img--is-placeholder" />
 
 						<?php endif; ?>
 
