@@ -8,6 +8,10 @@
 
 		<h2 class="header section__header contact__header"><?php the_field( 's_contact_header' ); ?></h2>
 
+		<!-- CTA -->
+
+		<div class="contact__cta">Make Contact</div>
+
 		<!-- Form -->
 
 		<div class="contact__form">

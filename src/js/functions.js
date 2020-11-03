@@ -100,9 +100,9 @@
 
 		// Notes...
 
-		$('.form__legend').click( function() {
+		$('.contact__cta').click( function() {
 
-			$('.contact__form').addClass('contact__form--is-visible');
+			$('.section__contact').addClass('section__contact--is-visible');
 
 		});
 

@@ -23,152 +23,149 @@ Section: Contact
 
 		.contact__header {
 
-			margin: 0;
+			margin: 0 0 4em 0;
 			font-size: 1.5rem;
 			text-align: center;
 
 		}
 
+		.contact__cta {
+
+			width: 300px;
+			margin: 0 auto;
+			padding: 0.25em 0.50em;
+			font-size: 2rem;
+			text-transform: uppercase;
+			text-align: center;
+			color: $color-base-black;
+			background: $color-base-white;
+			border-radius: 8px;
+			cursor: pointer;
+			
+			&:hover {}
+
+			.section__contact--is-visible & {
+
+				display: none;
+
+			}
+
+		}
+
 		.contact__form {
 
-			margin: 6.25em 0 0 0;
+			display: none;
+			margin: 0 0 4em 0;
+
+			.section__contact--is-visible & {
+
+				display: block;
+
+			}
 
 		}
 
-		.contact__form--is-visible {
+			.wpcf7 {}
 
-			margin: 2em 0 0 0;
+				.screen-reader-response {}
 
-		}
+				.form__fieldset {}
 
-			.form {}
+					.form__legend {
 
-				.wpcf7 {
+						display: none !important;
+						padding: 0.25em 0.50em;
+						font-size: 2rem;
+						text-transform: uppercase;
+						text-align: center;
+						color: $color-base-black;
+						background: $color-base-white;
+						border-radius: 8px;
+						cursor: pointer;
 
-					position: relative;
+					}
 
-				}
+					.form__list {
 
-					.screen-reader-response {}
+						margin: 0;
+						padding: 0;
+						list-style: none;
 
-					.form__fieldset {}
+					}
 
-						.form__legend {
+						.form__item {
 
-							padding: 0.25em 0.50em;
-							font-size: 2rem;
-							text-transform: uppercase;
-							text-align: center;
-							color: $color-base-black;
-							background: $color-base-white;
-							border-radius: 8px;
-							cursor: pointer;
+							margin: 0 0 1em 0;
 
-							.contact__form--is-visible & {
+							&:last-of-type {
+
+								margin: 0;
+
+							}
+
+						}
+
+						.form__item--is-required {}
+
+							.form__label {
 
 								display: none;
 
-							}
-
-						}
-
-						.form__list {
-
-							display: none;
-
-							margin: 0;
-							padding: 0;
-							list-style: none;
-
-							.contact__form--is-visible & {
-
-								display: block;
+								.required {}
 
 							}
 
-						}
+						.wpcf7-form-control-wrap {}	
 
-							.form__item {
+							.form__field {
 
-								margin: 0 0 1em 0;
+								// text-transform: uppercase;
+								// color: $color-base-white;
 
-								&:last-of-type {
+								&.wpcf7-not-valid {
 
-									margin: 0;
+									background: rgba(220, 50, 50, 0.10);
+									border-color: rgb(220, 50, 50);
 
 								}
 
 							}
 
-							.form__item--is-required {}
+								.wpcf7-not-valid-tip {
 
-								.form__label {
-
-									display: none;
-
-									.required {}
+									margin: 0.50em 0 0 0;
 
 								}
 
-							.wpcf7-form-control-wrap {}	
+				.form__button {
 
-								.form__field {
+					width: 120px;
+					margin: 1em 0 0 0;
+					z-index: 1;
 
-									// text-transform: uppercase;
-									// color: $color-base-white;
+				}
 
-									&.wpcf7-not-valid {
+					.form__submit {
 
-										background: rgba(220, 50, 50, 0.10);
-										border-color: rgb(220, 50, 50);
-
-									}
-
-								}
-
-									.wpcf7-not-valid-tip {
-
-										margin: 0.50em 0 0 0;
-
-									}
-
-					.form__button {
-
-						display: none;
-
-						width: 120px;
-						margin: 1em 0 0 0;
-						z-index: 1;
-
-						.contact__form--is-visible & {
-
-							display: block;
-
-						}
+						// padding: 1em 0;
 
 					}
 
-						.form__submit {
+					.ajax-loader {
 
-							// padding: 1em 0;
-
-						}
-
-						.ajax-loader {
-
-							display: none !important; // The visual indicator that the form is processing. Hidden temporarily. !import is used to override the Contact Form 7 stylesheet.
-
-						}
-
-					.wpcf7-response-output {
-
-						margin: 2em 0 0 0 !important; // !important is used to override the Contact Form 7 stylesheet.
-						padding: 0.50em 1em !important; // !important is used to override the Contact Form 7 stylesheet.
-						// color: $color-base-black;
-						// background: rgba(255, 185, 0, 1);
-						// border: none !important; // !important is used to override the Contact Form 7 stylesheet.
+						display: none !important; // The visual indicator that the form is processing. Hidden temporarily. !import is used to override the Contact Form 7 stylesheet.
 
 					}
+
+				.wpcf7-response-output {
+
+					margin: 2em 0 0 0 !important; // !important is used to override the Contact Form 7 stylesheet.
+					padding: 0.50em 1em !important; // !important is used to override the Contact Form 7 stylesheet.
+					// color: $color-base-black;
+					// background: rgba(255, 185, 0, 1);
+					// border: none !important; // !important is used to override the Contact Form 7 stylesheet.
+
+				}
 
 		.contact__contact-information {
 
