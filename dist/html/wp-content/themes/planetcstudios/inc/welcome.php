@@ -52,7 +52,7 @@
 
 								<?php while ( have_rows( 'service_samples' ) ) : the_row(); ?>
 
-									<div class="service__sample service__sample--<?php echo get_row_index(); ?>">
+									<div class="service__sample service__sample--<?php echo get_row_index(); ?>" style="background-image: url(<?php the_sub_field( 'sample_image' ); ?>);">
 
 										<div class="service__img"></div>
 
