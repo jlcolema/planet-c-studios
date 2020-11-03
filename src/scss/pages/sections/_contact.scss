@@ -115,10 +115,22 @@ Section: Contact
 								.form__field {
 
 									// text-transform: uppercase;
-									color: $color-base-white;
-									background: $color-base-black;
+									// color: $color-base-white;
+
+									&.wpcf7-not-valid {
+
+										background: rgba(220, 50, 50, 0.10);
+										border-color: rgb(220, 50, 50);
+
+									}
 
 								}
+
+									.wpcf7-not-valid-tip {
+
+										margin: 0.50em 0 0 0;
+
+									}
 
 					.form__button {
 
@@ -141,6 +153,22 @@ Section: Contact
 							// padding: 1em 0;
 
 						}
+
+						.ajax-loader {
+
+							display: none !important; // The visual indicator that the form is processing. Hidden temporarily. !import is used to override the Contact Form 7 stylesheet.
+
+						}
+
+					.wpcf7-response-output {
+
+						margin: 1em 0 0 0 !important; // !important is used to override the Contact Form 7 stylesheet.
+						padding: 0.50em 1em !important; // !important is used to override the Contact Form 7 stylesheet.
+						color: $color-base-black;
+						background: rgba(255, 185, 0, 1);
+						border: none !important; // !important is used to override the Contact Form 7 stylesheet.
+
+					}
 
 		.contact__contact-information {
 
