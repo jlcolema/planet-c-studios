@@ -75,6 +75,38 @@
 
 						</a>
 
+						<div class="work__repeater">
+
+							<div class="work__repeater-item work__repeater-item--1">
+
+								<?php if ( $project_cover ) : ?>
+
+									<img src="<?php echo $project_cover_small[0]; ?>" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="repeater__img" />
+
+								<?php else : ?>
+
+									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="repeater__img repeater__img--is-placeholder" />
+
+								<?php endif; ?>
+							
+							</div>
+
+							<div class="work__repeater-item work__repeater-item--2">
+
+								<?php if ( $project_cover ) : ?>
+
+									<img src="<?php echo $project_cover_small[0]; ?>" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="repeater__img" />
+
+								<?php else : ?>
+
+									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="repeater__img project__s-img--is-placeholder" />
+
+								<?php endif; ?>
+							
+							</div>
+
+						</div>
+
 					</li>
 
 				<?php endforeach; ?>
