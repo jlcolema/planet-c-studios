@@ -60,11 +60,13 @@
 
 								// Size Labels
 
+								$member_photo_size_x_large = 'photo-x-large';
 								$member_photo_size_large = 'photo-large';
 								$member_photo_size_small = 'photo-small';
 
 								// Image Sizes
 
+								$member_photo_x_large = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_x_large );
 								$member_photo_large = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_large );
 								$member_photo_small = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_small );
 
@@ -82,15 +84,7 @@
 
 								<div class="member__photo">
 
-									<?php if ( ! $member_photo_small ) : ?>
-
-										<img src="https://via.placeholder.com/120x120.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php echo esc_html( $about_founder->post_title ); ?>" width="120" height="120" decoding="async" loading="lazy" class="member__img member__img--is-placeholder" />
-
-										<?php else : ?>
-
-										<img src="<?php echo $member_photo_large[0]; ?>" srcset="<?php echo $member_photo_x_large[0]; ?> 2x" alt="A photo of <?php echo esc_html( $about_founder->post_title ); ?>" width="120" height="120" decoding="async" loading="lazy" class="member__img" />
-
-									<?php endif; ?>
+									<img src="<?php echo $member_photo_large[0]; ?>" srcset="<?php echo $member_photo_x_large[0]; ?> 2x" alt="A photo of <?php echo esc_html( $about_founder->post_title ); ?>" width="120" height="120" decoding="async" loading="lazy" class="member__img" />
 
 								</div>
 
@@ -144,20 +138,23 @@
 											$member_photo_large = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_large );
 											$member_photo_small = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_small );
 
+											// Title
+
+											$member_photo = get_field( 'member_photo' );
+
 										?>
 
 										<li class="member__item member__item--core-team">
 
 											<div class="member__photo">
 											
-												<?php if ( ! $member_photo_small ) : ?>
-
-													<img src="https://via.placeholder.com/60x60.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img member__img--is-placeholder" />
-
-												<?php else : ?>
+												<?php if ( $member_photo ) : ?>
 
 													<img src="<?php echo $member_photo_small[0]; ?>" srcset="<?php echo $member_photo_large[0]; ?> 2x" alt="A photo of <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img" />
 
+												<?php else : ?>
+
+													<img src="https://via.placeholder.com/60x60.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img member__img--is-placeholder" />
 
 												<?php endif; ?>
 
@@ -229,20 +226,23 @@
 									$member_photo_large = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_large );
 									$member_photo_small = wp_get_attachment_image_src( $member_photo_attachment_id, $member_photo_size_small );
 
+									// Title
+
+									$member_photo = get_field( 'member_photo' );
+
 								?>
 
 								<li class="member__item member__item--key-collaborators">
 
 									<div class="member__photo">
 											
-										<?php if ( ! $member_photo_small ) : ?>
-
-											<img src="https://via.placeholder.com/60x60.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img member__img--is-placeholder" />
-
-										<?php else : ?>
+										<?php if ( $member_photo ) : ?>
 
 											<img src="<?php echo $member_photo_small[0]; ?>" srcset="<?php echo $member_photo_large[0]; ?> 2x" alt="A photo of <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img" />
 
+										<?php else : ?>
+
+											<img src="https://via.placeholder.com/60x60.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img member__img--is-placeholder" />
 
 										<?php endif; ?>
 
