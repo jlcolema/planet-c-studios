@@ -4,29 +4,108 @@ Section: Welcome
 
 // Notes...
 
-.section__welcome {}
+.section__welcome {
 
-	.welcome__inner-wrap {}
+	padding: 0 5.625em;
 
-		.welcome__header {}
+	background: pink;
 
-		.services__list {}
+}
 
-			.service__item {}
+	.welcome__inner-wrap {
 
-				.service__title {}
+		width: 100%;
+		// max-width: 960px;
+		margin: 0 auto;
+		background: darken(pink, 5%);
 
-				.service__description {
+	}
 
-					p {
+		.welcome__header {
 
-						&:last-of-type {}
+			display: none; // Temporarily hidden.
+
+		}
+
+		.services__list {
+
+			display: flex;
+			flex-direction: column;
+			flex-wrap: nowrap;
+			justify-content: center;
+			align-items: flex-start;
+			align-content: flex-start;
+
+			width: 100%;
+			max-width: 400px;
+			min-height: 100vh;
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			// background: darken(pink, 10%);
+
+		}
+
+			.service__item {
+
+				display: block;
+				width: 100%;
+				margin: 0 0 1.5em 0;
+				background: darken(pink, 15%);
+				cursor: pointer;
+
+				&:last-of-type {
+
+					margin: 0;
+
+				}
+
+				&.service__item--is-active {}
+
+			}
+
+				.service__title {
+
+					margin: 0;
+					font-size: 1.5rem;
+
+					.service__item--is-active & {
+
+						font-size: 2.25rem;
 
 					}
 
 				}
 
-				.service__samples {}
+				.service__description {
+
+					display: none;
+
+					p {
+
+						&:last-of-type {
+
+							margin: 0;
+
+						}
+
+					}
+
+					.service__item--is-active & {
+
+						display: block;
+						margin: 0.5em 0 0 0;
+
+					}
+
+				}
+
+				.service__samples {
+
+					display: none; // Temporarily hidden.
+
+				}
 
 					.service__sample {}
 
@@ -38,6 +117,10 @@ Section: Welcome
 
 				.service__samples--three-up {}
 
-		.welcome__background {}
+		.welcome__background {
+
+			display: none; // Temporarily hidden.
+
+		}
 
 			.welcome__img {}

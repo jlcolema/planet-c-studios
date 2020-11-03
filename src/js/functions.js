@@ -77,6 +77,19 @@
 
 		});
 
+		/* Services Toggle
+		--------------------------------------*/
+
+		// Notes...
+
+		$('.service__item').click( function() {
+
+			$(this).siblings().removeClass('service__item--is-active');
+
+			$(this).addClass('service__item--is-active');
+
+		});
+
 		/* Card Clones
 		--------------------------------------*/
 
