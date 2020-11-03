@@ -6,9 +6,9 @@ Section: Welcome
 
 .section__welcome {
 
-	padding: 0 5.625em;
+	position: relative;
 
-	background: pink;
+	// background: pink;
 
 }
 
@@ -17,7 +17,8 @@ Section: Welcome
 		width: 100%;
 		// max-width: 960px;
 		margin: 0 auto;
-		background: darken(pink, 5%);
+		padding: 0 5.625em;
+		// background: darken(pink, 5%);
 
 	}
 
@@ -52,7 +53,7 @@ Section: Welcome
 				display: block;
 				width: 100%;
 				margin: 0 0 1.5em 0;
-				background: darken(pink, 15%);
+				// background: darken(pink, 15%);
 				cursor: pointer;
 
 				&:last-of-type {
@@ -103,24 +104,103 @@ Section: Welcome
 
 				.service__samples {
 
-					display: none; // Temporarily hidden.
+					position: absolute;
+					right: 0;
+					top: 0;
+					width: 75%;
+					height: 100%;
+					opacity: 0;
+					transition: opacity 0.70s ease-in-out;
+					z-index: -1;
+
+					// background: rgba(pink, 0.65);
+
+					.service__item--is-active & {
+
+						opacity: 1;
+
+					}
 
 				}
 
-					.service__sample {}
+					.service__sample {
+
+						position: absolute;
+						right: 0;
+						top: 0;
+						width: 100%;
+						height: 100%;
+
+					}
+
+					.service__sample--1 {
+
+						background-image: url(https://via.placeholder.com/2000x2000.png/333333?text=Sample+1);
+						background-size: cover;
+						background-position: center center;
+						clip-path: polygon(33% 0, 100% 0, 100% 100%, 0% 100%);
+						z-index: 1;
+	
+					}
+
+					.service__sample--2 {
+
+						background-image: url(https://via.placeholder.com/2000x2000/555555.png?text=Sample+2);
+						background-size: cover;
+						background-size: center center;
+						clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+						z-index: 2;
+
+					}
+
+					.service__sample--3 {
+
+						background-image: url(https://via.placeholder.com/2000x2000/777777.png?text=Sample+3);
+						background-size: cover;
+						background-size: center center;
+						clip-path: polygon(100% 50%, 0% 100%, 100% 100%);
+						z-index: 3;
+
+					}
 
 						.service__img {}
 
-				.service__samples--one-up {}
+				.service__samples--1-up {
 
-				.service__samples--two-up {}
+					// background: darken(pink, 15%);
 
-				.service__samples--three-up {}
+					.service__img {
+
+						display: none;
+
+					}
+
+				}
+
+				.service__samples--2-up {}
+
+				.service__samples--3-up {}
 
 		.welcome__background {
 
-			display: none; // Temporarily hidden.
+			position: absolute;
+			left: 0;
+			top: 100px;
+			width: 100%;
+			height: 400px;
+			overflow: hidden;
+			z-index: -2;
 
 		}
 
-			.welcome__img {}
+			.welcome__img {
+
+				position: absolute;
+				left: 50%;
+				top: 0;
+				max-width: none;
+				height: 100%;
+				transform: translate(-50%, 0);
+				z-index: 1;
+
+			}

@@ -54,7 +54,19 @@
 
 									<div class="service__sample service__sample--<?php echo get_row_index(); ?>">
 
-										<img src="<?php the_sub_field( 'sample_image' ); ?>" alt="A sample title image" class="service__img" />
+										<div class="service__img"></div>
+
+										<?php /*
+
+											<img src="https://via.placeholder.com/2000x2000.png?text=Sample" alt="A placeholder sample image" class="service__img" />
+
+										*/ ?>
+
+										<?php /*
+
+											<img src="<?php the_sub_field( 'sample_image' ); ?>" alt="A sample title image" class="service__img" />
+
+										*/ ?>
 
 									</div>
 
@@ -82,7 +94,7 @@
 
 		<div class="welcome__background">
 
-			<img src="https://via.placeholder.com/300x200.png?text=Background+(300x200)" alt="A photo of a rising planet earth" class="welcome__img" />
+			<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 2x" width="1730" height="400" alt="A photo of a rising planet earth" decoding="async" loading="lazy" class="welcome__img" />
 
 		</div>
 
