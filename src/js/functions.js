@@ -110,11 +110,6 @@
 
 		});
 
-		/* Card Clones
-		--------------------------------------*/
-
-		// Notes...
-
 		/* Form Toggle
 		--------------------------------------*/
 
@@ -123,6 +118,17 @@
 		$('.contact__cta').click( function() {
 
 			$('.section__contact').addClass('section__contact--is-visible');
+
+		});
+
+		/* Filter Toggle
+		--------------------------------------*/
+
+		// Notes...
+
+		$('.filter__list').click( function() {
+
+			$(this).toggleClass('filter__list--is-open');
 
 		});
 

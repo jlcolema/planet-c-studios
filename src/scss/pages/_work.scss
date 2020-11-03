@@ -20,25 +20,80 @@ Page: Work
 
 	}
 
-		.projects__nav {}
-
-		.projects__header {
-
-			font-size: 1.75em;
-
-		}
-
 		.projects__categories {}
 			
 		.filter__input {}
 
 		.filter__input--radio {}
 
-		.filter__list {}
+		.projects__nav {
 
-			.filter__item {}
+			position: relative;
 
-				.filter__label {}
+			width: 340px;
+			height: 44px;
+			margin: 0 auto 1.25em auto;
+
+			// background: pink;
+
+		}
+
+			.projects__header {
+
+				display: block;
+				height: 44px; // Matches height of dropdown.
+				margin: 0;
+				padding: 9px 0 0 220px;
+				font-size: 1.75em;
+				text-align: right;
+
+			}
+
+			.filter__list {
+
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 200px;
+				height: 40px;
+				margin: 0 1.25em 0 0;
+				padding: 40px 0 0 0;
+				list-style: none;
+				border: 2px solid $color-base-white;
+				background: rgba($color-base-black, 0.90);
+				overflow: hidden;
+				border-radius: 8px;
+				cursor: pointer;
+				z-index: 999;
+
+				&.filter__list--is-open {
+
+					height: auto;
+					overflow: auto;
+
+				}
+
+			}
+
+				.filter__item {
+
+					margin: 0;
+
+					&:last-of-type {
+
+						margin: 0;
+
+					}
+
+				}
+
+					.filter__label {
+
+						height: 40px;
+						padding: 0.5625em 0 0 0.75em;
+						// background: green;
+
+					}
 
 		.projects__list {
 
@@ -165,16 +220,16 @@ input[type="radio"] {
   }
   
   .projects__filter * {
-	display: inline-block;
+	// display: inline-block;
   }
   
   .projects__filter label {
-	padding: 0.5rem 1rem;
+	// padding: 0.5rem 1rem;
 	// border-radius: 2rem;
-	min-width: 50px;
-	line-height: normal;
+	// min-width: 50px;
+	// line-height: normal;
 	cursor: pointer;
-	transition: all 0.1s;
+	// transition: all 0.1s;
   }
   
   .projects__filter label:hover {
@@ -184,29 +239,45 @@ input[type="radio"] {
 
   /* FILTERING RULES
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  [value="See All"]:checked ~ .projects__filter [for="all"],
-  [value="Animation"]:checked ~ .projects__filter [for="animation"],
-  [value="Branding"]:checked ~ .projects__filter [for="branding"],
-  [value="Comedy"]:checked ~ .projects__filter [for="comedy"],
-  [value="Concept"]:checked ~ .projects__filter [for="concept"],
-  [value="Documentary"]:checked ~ .projects__filter [for="documentary"],
-  [value="Educational"]:checked ~ .projects__filter [for="educational"],
-  [value="Graphics"]:checked ~ .projects__filter [for="graphics"],
-  [value="Horror"]:checked ~ .projects__filter [for="horror"],
-  [value="Montage"]:checked ~ .projects__filter [for="montage"],
-  [value="Music Video"]:checked ~ .projects__filter [for="music-video"],
-  [value="Production"]:checked ~ .projects__filter [for="production"],
-  [value="Projection Mapping"]:checked ~ .projects__filter [for="projection-mapping"],
-  [value="Promo"]:checked ~ .projects__filter [for="promo"],
-  [value="Scripted"]:checked ~ .projects__filter [for="scripted"],
-  [value="Short"]:checked ~ .projects__filter [for="short"],
-  [value="Special Venue"]:checked ~ .projects__filter [for="special-venue"],
-  [value="Star Talent"]:checked ~ .projects__filter [for="star-talent"],
-  [value="Television"]:checked ~ .projects__filter [for="television"],
-  [value="Visual Effects"]:checked ~ .projects__filter [for="visual-effects"] {
+  [value="See All"]:checked ~ .projects__nav .projects__filter [for="all"],
+  [value="Animation"]:checked ~ .projects__nav .projects__filter [for="animation"],
+  [value="Branding"]:checked ~ .projects__nav .projects__filter [for="branding"],
+  [value="Comedy"]:checked ~ .projects__nav .projects__filter [for="comedy"],
+  [value="Concept"]:checked ~ .projects__nav .projects__filter [for="concept"],
+  [value="Documentary"]:checked ~ .projects__nav .projects__filter [for="documentary"],
+  [value="Educational"]:checked ~ .projects__nav .projects__filter [for="educational"],
+  [value="Graphics"]:checked ~ .projects__nav .projects__filter [for="graphics"],
+  [value="Horror"]:checked ~ .projects__nav .projects__filter [for="horror"],
+  [value="Montage"]:checked ~ .projects__nav .projects__filter [for="montage"],
+  [value="Music Video"]:checked ~ .projects__nav .projects__filter [for="music-video"],
+  [value="Production"]:checked ~ .projects__nav .projects__filter [for="production"],
+  [value="Projection Mapping"]:checked ~ .projects__nav .projects__filter [for="projection-mapping"],
+  [value="Promo"]:checked ~ .projects__nav .projects__filter [for="promo"],
+  [value="Scripted"]:checked ~ .projects__nav .projects__filter [for="scripted"],
+  [value="Short"]:checked ~ .projects__nav .projects__filter [for="short"],
+  [value="Special Venue"]:checked ~ .projects__nav .projects__filter [for="special-venue"],
+  [value="Star Talent"]:checked ~ .projects__nav .projects__filter [for="star-talent"],
+  [value="Television"]:checked ~ .projects__nav .projects__filter [for="television"],
+  [value="Visual Effects"]:checked ~ .projects__nav .projects__filter [for="visual-effects"] {
 
 	background: darken(pink, 10%);
 	color: var(--white);
+
+	&:after {
+
+		content: attr(aria-label) "";
+
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 40px;
+		padding: 0.5625em 0 0 0.75em;
+		text-transform: uppercase;
+		// background: orange;
+		z-index: 1;
+
+	}
  
 }
   

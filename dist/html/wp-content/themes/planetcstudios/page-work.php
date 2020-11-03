@@ -21,6 +21,8 @@
 
 			<?php /* Projects Navigation */ ?>
 
+			<?php /*
+
 			<div class="projects__nav">
 
 				<h1 class="projects__header">Projects</h1>
@@ -58,6 +60,8 @@
 
 			</div>
 
+			*/ ?>
+
 			<!-- Need to Organize into `projects__nav` section above. -->
 
 			<input type="radio" id="all" class="filter__input filter__input--radio" name="project-categories" value="See All" checked="checked" />
@@ -81,129 +85,135 @@
 			<input type="radio" id="television" class="filter__input filter__input--radio" name="project-categories" value="Television" />
 			<input type="radio" id="visual-effects" class="filter__input filter__input--radio" name="project-categories" value="Visual Effects" />
 
-			<ol class="projects__filter filter__list">
+			<div class="projects__nav">
+
+				<h1 class="projects__header">Projects</h1>
+
+				<ol class="projects__filter filter__list">
+					
+					<li class="filter__item">
 				
-				<li class="filter__item">
+						<label for="all" aria-label="See All" class="filter__label">See All</label>
 			
-					<label for="all" class="filter__label">See All</label>
-		
-				</li>
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="animation" class="filter__label">Animation</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="animation" aria-label="Animation" class="filter__label">Animation</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="branding" class="filter__label">Branding</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="branding" aria-label="Branding" class="filter__label">Branding</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="comedy" class="filter__label">Comedy</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="comedy" aria-label="Comedy" class="filter__label">Comedy</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="concept" class="filter__label">Concept</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="concept" aria-label="Concept" class="filter__label">Concept</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="documentary" class="filter__label">Documentary</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="documentary" aria-label="Documentary" class="filter__label">Documentary</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="educational" class="filter__label">Educational</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="educational" aria-label="Educational" class="filter__label">Educational</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="graphics" class="filter__label">Graphics</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="graphics" aria-label="Graphics" class="filter__label">Graphics</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="horror" class="filter__label">Horror</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="horror" aria-label="Horror" class="filter__label">Horror</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="montage" class="filter__label">Montage</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="montage" aria-label="Montage" class="filter__label">Montage</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="music-video" class="filter__label">Music Video</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="music-video" aria-label="Music Video" class="filter__label">Music Video</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="production" class="filter__label">Production</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="production" aria-label="Production" class="filter__label">Production</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="projection-mapping" class="filter__label">Projection Mapping</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="projection-mapping" aria-label="Projection Mapping" class="filter__label">Projection Mapping</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="promo" class="filter__label">Promo</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="promo" aria-label="Promo" class="filter__label">Promo</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="scripted" class="filter__label">Scripted</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="scripted" aria-label="Scripted" class="filter__label">Scripted</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="short" class="filter__label">Short</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="short" aria-label="Short" class="filter__label">Short</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="special-venue" class="filter__label">Special Venue</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="special-venue" aria-label="Special Venue" class="filter__label">Special Venue</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="star-talent" class="filter__label">Star Talent</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="star-talent" aria-label="Star Talent" class="filter__label">Star Talent</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="television" class="filter__label">Television</label>
-				
-				</li>
+					<li class="filter__item">
+					
+						<label for="television" aria-label="Television" class="filter__label">Television</label>
+					
+					</li>
 
-				<li class="filter__item">
-				
-					<label for="visual-effects" class="filter__label">Visual Effects</label>
+					<li class="filter__item">
+					
+						<label for="visual-effects" aria-label="Visual Effects" class="filter__label">Visual Effects</label>
 
-				</li>
-				
-			</ol>
+					</li>
+					
+				</ol>
+
+			</div>
 
 			<?php /* List of Projects */ ?>
 
