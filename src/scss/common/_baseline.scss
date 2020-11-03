@@ -472,7 +472,7 @@ form {}
 				// @include font-size(16);
 				// line-height: (20/16);
 				color: $color-base-white;
-				background: $color-base-black;
+				background: transparent;
 				border: 2px solid $color-base-white;
 				border-radius: 8px;
 				// outline: none;
@@ -519,7 +519,7 @@ form {}
 			// @include font-size(16);
 			// line-height: (20/16);
 			color: $color-base-white;
-			background: $color-base-black;
+			background: transparent;
 			border: 2px solid $color-base-white;
 			border-radius: 8px;
 			// outline: none;
