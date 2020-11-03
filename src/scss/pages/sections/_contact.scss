@@ -14,9 +14,9 @@ Section: Contact
 	.contact__inner-wrap {
 
 		width: 100%;
-		max-width: 780px;
+		max-width: 640px;
 		margin: 0 auto;
-		padding: 180px 80px 100px 80px; // Gives space for send button when viewed on larger screen sizes.
+		padding: 180px 0 100px 0;
 		// background: darken(pink, 5%);
 
 	}
@@ -124,10 +124,7 @@ Section: Contact
 
 						display: none;
 
-						position: absolute;
-						right: -80px;
-						bottom: 0;
-						width: 60px;
+						width: 120px;
 						margin: 1em 0 0 0;
 						z-index: 1;
 

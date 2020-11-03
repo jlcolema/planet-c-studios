@@ -468,7 +468,7 @@ form {}
 
 				display: block;
 				width: 100%;
-				padding: 1em;
+				padding: 0.75em 1em;
 				// @include font-size(16);
 				// line-height: (20/16);
 				color: $color-base-white;
@@ -515,7 +515,7 @@ form {}
 			display: block;
 			width: 100%;
 			max-width: 100%;
-			padding: 1em;
+			padding: 0.75em 1em;
 			// @include font-size(16);
 			// line-height: (20/16);
 			color: $color-base-white;
