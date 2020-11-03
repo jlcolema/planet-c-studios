@@ -77,6 +77,26 @@
 
 		});
 
+		// Hide toggle once an item is selected...
+
+		$('.menu-item').click( function() {
+
+			$('.navigation').removeClass('navigation--is-open');
+
+		});
+
+		// Hide toggle if an area outside of the toggle is selected while it is open...
+
+		$(document).click( function(event) {
+
+			if ( ! $(event.target).closest('.navigation').length ) {
+
+				$('.navigation').removeClass('navigation--is-open');
+
+			}
+
+		});
+
 		/* Services Toggle
 		--------------------------------------*/
 
