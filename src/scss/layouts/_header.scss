@@ -54,12 +54,17 @@ Header
 					display: block;
 					width: 40px;
 					height: 40px;
-					// background: rgba($color-base-black, 0.27);
+					background: url(../img/navigation-toggle.svg) 0 0 no-repeat;
+					background-size: 80px 40px;
 					border-radius: 8px;
 					cursor: pointer;
 					@include hide-text;
 
-					.navigation--is-open & {}
+					.navigation--is-open & {
+
+						background-position-x: -40px;
+
+					}
 
 				}
 
@@ -76,7 +81,6 @@ Header
 				padding: 40px 0 0 0;
 				list-style: none;
 				background: rgba($color-base-black, 0.27);
-				background: pink;
 				border-radius: 8px;
 				overflow: hidden;
 				transition: width 0.35s ease-in-out, height 0.25s ease-in-out;
