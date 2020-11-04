@@ -80,12 +80,43 @@ Section: Welcome
 
 				.service__title {
 
+					position: relative;
+					display: inline-block;
 					margin: 0;
+					padding: 0 20px 0 0;
 					font-size: 1.5rem;
+
+					&:after {
+
+						content: "";
+
+						position: absolute;
+						right: 0;
+						top: 50%;
+						width: 6px;
+						height: 10px;
+						margin-top: -5px;
+						background: url(../img/service-toggle.svg) center center no-repeat;
+						background-size: 6px 10px;
+						z-index: 1;
+
+					}
 
 					.service__item--is-active & {
 
-						font-size: 2.25rem;
+						padding: 0 35px 0 0;
+						font-size: 3rem;
+
+						&:after {
+
+							width: 12px;
+							height: 20px;
+							margin-top: -9px;
+							transform: rotate(90deg);
+							// background-color: pink;
+							background-size: 12px 20px;
+
+						}
 
 					}
 
