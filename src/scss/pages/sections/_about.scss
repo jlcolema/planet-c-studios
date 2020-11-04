@@ -33,21 +33,29 @@ Section: About
 
 		.about__overview {
 
-			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
-			justify-content: space-between;
-			align-items: flex-end;
-			align-content: flex-start;
+			background: darken(pink, 10%);
 
-			// background: darken(pink, 10%);
+			@media screen and (min-width: 640px) {
+
+				display: flex;
+				flex-direction: row;
+				flex-wrap: nowrap;
+				justify-content: space-between;
+				align-items: flex-end;
+				align-content: flex-start;
+
+			}
 
 		}
 
 			.about__mission-statement {
 
-				width: calc(100% - 240px);
-				padding: 0 2.5em 0 0;
+				@media screen and (min-width: 640px) {
+
+					width: calc(100% - 240px);
+					padding: 0 2.5em 0 0;
+
+				}
 
 				p {
 
@@ -71,9 +79,16 @@ Section: About
 
 			.about__founded {
 
-				width: 240px;
+				margin: 2em 0 0 0;
 				text-align: right;
-				overflow: hidden;
+
+				@media screen and (min-width: 640px) {
+
+					margin: 0;
+					width: 240px;
+					overflow: hidden;
+
+				}
 
 				span {
 
@@ -93,8 +108,15 @@ Section: About
 			align-items: flex-start;
 			align-content: flex-start;
 
-			margin: 130px 0 0 0;
-			// background: darken(pink, 10%);
+			margin: 65px 0 0 0;
+
+			background: darken(pink, 10%);
+
+			@media screen and (min-width: 640px) {
+
+				margin: 130px 0 0 0;
+
+			}
 
 		}
 
