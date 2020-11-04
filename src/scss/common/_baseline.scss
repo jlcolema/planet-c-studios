@@ -389,28 +389,28 @@ iframe {
 
 ::-webkit-input-placeholder {
 
-	color: $color-gray-50;
+	color: rgba($color-base-white, 0.40);
 	text-transform: uppercase;
 
 }
 
 ::-moz-placeholder {
 
-	color: $color-gray-50;
+	color: rgba($color-base-white, 0.40);
 	text-transform: uppercase;
 
 }
 
 :-ms-input-placeholder {
 
-	color: $color-gray-50;
+	color: rgba($color-base-white, 0.40);
 	text-transform: uppercase;
 
 }
 
 :-moz-placeholder {
 
-	color: $color-gray-50;
+	color: rgba($color-base-white, 0.40);
 	text-transform: uppercase;
 
 }
@@ -480,8 +480,8 @@ form {}
 				&:active,
 				&:focus {
 
-					// border-color: $color-primary-blue;
-					// box-shadow: 0 0 5px 0 $color-primary-blue;
+					// border-color: $color-branding-blue;
+					box-shadow: 0 0 1em 0 $color-base-white;
 					// background: rgba($color-base-black, 0.10);
 
 				}
@@ -528,7 +528,7 @@ form {}
 			&:focus {
 
 				// border-color: $color-primary-blue;
-				// box-shadow: 0 0 5px 0 $color-primary-blue;
+				box-shadow: 0 0 1em 0 $color-base-white;
 				// background: rgba($color-base-black, 0.10);
 
 			}
