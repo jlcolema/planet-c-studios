@@ -33,7 +33,7 @@ Section: About
 
 		.about__overview {
 
-			background: darken(pink, 10%);
+			// background: darken(pink, 10%);
 
 			@media screen and (min-width: 640px) {
 
@@ -102,12 +102,11 @@ Section: About
 		.about__members {
 
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			flex-wrap: nowrap;
-			justify-content: space-between;
-			align-items: flex-start;
+			justify-content: flex-start;
+			align-items: center;
 			align-content: flex-start;
-
 			margin: 65px 0 0 0;
 
 			background: darken(pink, 10%);
@@ -115,6 +114,14 @@ Section: About
 			@media screen and (min-width: 640px) {
 
 				margin: 130px 0 0 0;
+
+			}
+
+			@media screen and (min-width: 800px) {
+
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: flex-start;
 
 			}
 
@@ -126,14 +133,22 @@ Section: About
 
 				position: relative;
 				width: 420px;
-				// background: gray;
+				background: gray;
 
 			}
 
 			.member__type--key-collaborators {
 
-				width: calc(100% - 460px);
-				// background: darken(gray, 10%);
+				width: 100%;
+				margin: 65px 0 0 0;
+				background: darken(gray, 10%);
+
+				@media screen and (min-width: 800px) {
+
+					width: calc(100% - 460px);
+					margin: 0;
+
+				}
 
 			}
 
@@ -147,10 +162,16 @@ Section: About
 
 				.member__subheader--core-team {
 
-					position: absolute;
-					left: 0;
-					top: 0;
-					z-index: 1;
+					background: green;
+
+					@media screen and (min-width: 500px) {
+
+						position: absolute;
+						left: 0;
+						top: 0;
+						z-index: 1;
+
+					}
 
 				}
 
@@ -159,12 +180,20 @@ Section: About
 					.core-team__containers {
 					
 						display: flex;
-						flex-direction: row;
+						flex-direction: column;
 						flex-wrap: nowrap;
-						justify-content: space-between;
-						align-items: flex-start;
+						justify-content: flex-start;
+						align-items: center;
 						align-content: flex-start;
 						
+						@media screen and (min-width: 500px) {
+
+							flex-direction: row;
+							justify-content: space-between;
+							align-items: flex-start;
+							
+						}
+
 					}		
 
 						.core-team__container {}
@@ -172,13 +201,27 @@ Section: About
 						.core-team__founder {
 
 							width: 124px;
-							padding: 50px 0 0 0;
+							margin: 25px 0 0 0;
+
+							@media screen and (min-width: 500px) {
+
+								margin: 0;
+								padding: 50px 0 0 0;
+
+							}
 
 						}
 
 						.core-team__core-team {
 
 							width: calc(100% - 164px);
+							margin: 40px 0 0 0;
+
+							@media screen and (min-width: 500px) {
+
+								margin: 0;
+
+							}
 
 						}
 
