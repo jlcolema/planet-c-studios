@@ -115,6 +115,19 @@
 
 		// Notes...
 
+		$('.member__photo').click( function() {
+
+			$(this).parent().toggleClass('member__item--is-active');
+
+			// $(this).addClass('service__item--is-active');
+
+		});
+
+		/* Form Toggle
+		--------------------------------------*/
+
+		// Notes...
+
 		$('.contact__cta').click( function() {
 
 			$('.section__contact').addClass('section__contact--is-visible');

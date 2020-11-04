@@ -8,7 +8,7 @@ Section: About
 
 	padding: 0 1.25em;
 
-	// background: darken(pink, 10%);
+	background: darken(pink, 10%);
 
 	// clip-path: ellipse(100% 100% at 50% 100%);
 
@@ -271,7 +271,13 @@ Section: About
 
 								}
 
-									.member__item {}
+									.member__item {
+
+										position: relative;
+
+										&.member__item--is-active {}
+
+									}
 
 									.member__item--core-team {
 
@@ -312,9 +318,21 @@ Section: About
 
 										margin: 0;
 
+										.member__bio {
+
+											top: 144px;
+
+											.member__item--is-active & {}
+
+										}
+
 									}
 
-										.member__photo {}
+										.member__photo {
+
+											cursor: pointer;
+
+										}
 
 											.member__img {
 
@@ -341,7 +359,26 @@ Section: About
 
 										.member__bio {
 
-											display: none; // Temporarily hidden.
+											display: none;
+											position: absolute;
+											left: 50%;
+											top: 84px;
+											width: 200px;
+											height: 300px;
+											margin-left: -100px;
+											padding: 0.50em 0.75em;
+											background: $color-base-black;
+											border: 2px solid $color-base-white;
+											border-radius: 8px;
+											box-shadow: 0 10px 15px rgba($color-base-black, 0.65);
+											overflow-y: scroll;
+											z-index: 1;
+
+											.member__item--is-active & {
+
+												display: block;
+
+											}
 
 											p {
 
