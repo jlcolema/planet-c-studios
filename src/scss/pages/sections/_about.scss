@@ -109,7 +109,7 @@ Section: About
 			align-content: flex-start;
 			margin: 65px 0 0 0;
 
-			background: darken(pink, 10%);
+			// background: darken(pink, 10%);
 
 			@media screen and (min-width: 640px) {
 
@@ -133,7 +133,7 @@ Section: About
 
 				position: relative;
 				width: 420px;
-				background: gray;
+				// background: gray;
 
 			}
 
@@ -141,7 +141,7 @@ Section: About
 
 				width: 100%;
 				margin: 65px 0 0 0;
-				background: darken(gray, 10%);
+				// background: darken(gray, 10%);
 
 				@media screen and (min-width: 800px) {
 
@@ -162,7 +162,7 @@ Section: About
 
 				.member__subheader--core-team {
 
-					background: green;
+					// background: green;
 
 					@media screen and (min-width: 500px) {
 
