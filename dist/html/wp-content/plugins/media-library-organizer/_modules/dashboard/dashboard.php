@@ -890,13 +890,14 @@ class WPZincDashboardWidget {
      *
      * @since   1.0.0
      *
-     * @param   string  $data   Uncompressed Data
+     * @param   string  $data       Uncompressed Data
+     * @param   string  $filename   Filename to Export Data to, excluding extension (default: export)
      */
-    public function force_zip_file_download( $json ) {
+    public function force_zip_file_download( $json, $filename = 'export' ) {
 
         // Create new ZIP file
         $zip = new ZipArchive();
-        $filename = 'export.zip';
+        $filename = $filename . '.zip';
 
         // Bail if ZIP file couldn't be created
         if ( $zip->open( $filename, ZipArchive::CREATE ) !== true ) {
@@ -904,12 +905,12 @@ class WPZincDashboardWidget {
         }
 
         // Add JSON data to export.json and close
-        $zip->addFromString( 'export.json', $json );
+        $zip->addFromString( $filename . '.json', $json );
         $zip->close();
 
         // Output ZIP data, prompting the browser to auto download as a ZIP file now
         header( "Content-type: application/zip" );
-        header( "Content-Disposition: attachment; filename=export.zip" );
+        header( "Content-Disposition: attachment; filename=" . $filename . ".zip" );
         header( "Pragma: no-cache" );
         header( "Expires: 0" );
         readfile( $filename );
@@ -923,16 +924,37 @@ class WPZincDashboardWidget {
      *
      * @since   1.0.0
      *
-     * @param   string  $json   JSON Data for file
+     * @param   string  $json       JSON Data for file
+     * @param   string  $filename   Filename to Export Data to, excluding extension (default: export)
      */
-    public function force_json_file_download( $json ) {
+    public function force_json_file_download( $json, $filename = 'export' ) {
 
         // Output JSON data, prompting the browser to auto download as a JSON file now
         header( "Content-type: application/x-msdownload" );
-        header( "Content-Disposition: attachment; filename=export.json" );
+        header( "Content-Disposition: attachment; filename=" . $filename . ".json" );
         header( "Pragma: no-cache" );
         header( "Expires: 0" );
         echo $json;
+        exit();
+
+    }
+
+    /**
+     * Force a browser download comprising of the given CSV data
+     *
+     * @since   1.0.0
+     *
+     * @param   string  $csv        CSV Data for file
+     * @param   string  $filename   Filename to Export Data to, excluding extension (default: export)
+     */
+    public function force_csv_file_download( $csv, $filename = 'export' ) {
+
+        // Output JSON data, prompting the browser to auto download as a JSON file now
+        header( "Content-Type: text/csv; charset=UTF-8" );
+        header( "Content-Disposition: attachment; filename=" . $filename . ".csv" );
+        header( "Pragma: no-cache" );
+        header( "Expires: 0" );
+        echo $csv;
         exit();
 
     }

@@ -314,11 +314,24 @@ class Media_Library_Organizer_Media {
          * Defines the data to display in the List View WP_List_Table Column, for the given column
          * and Attachment
          *
+         * @since   1.2.5
+         *
+         * @param   string  $output         Output
+         * @param   string  $column_name    Column Name
+         * @param   int     $id             Attachment ID
+         * @return  string                  Output
+         */
+        $output = apply_filters( 'media_library_organizer_media_define_list_view_columns_output', $output, $column_name, $id );
+
+        /**
+         * Defines the data to display in the List View WP_List_Table Column, for the given column
+         * and Attachment
+         *
          * @since   1.1.4
          *
          * @param   string  $output         Output
          * @param   int     $id             Attachment ID
-         * @return  array                   Columns
+         * @return  string                  Output
          */
         $output = apply_filters( 'media_library_organizer_media_define_list_view_columns_output_' . $column_name, $output, $id );
 

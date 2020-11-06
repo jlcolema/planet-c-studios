@@ -165,6 +165,11 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 
 == Changelog ==
 
+= 1.2.5 (2020-11-05) =
+* Fix: Import & Export: Tabs would not work when using Pro Plugin
+* Fix: Import: Don't attempt to import Terms that have no name
+* Fix: Import: Continue importing Terms and assigning Terms to Attachments if a single Term import fails, instead of stopping
+
 = 1.2.4 (2020-10-29) =
 * Added: Import & Export: Import from JoomUnited WP Media Folder.  See Docs: https://wpmedialibrary.com/documentation/import-export/import-from-wp-media-folder/
 * Added: Menus and Submenus: Filter to define minimum required capability for accessing Media Library Organizer Menu and Submenus.  See Docs: https://wpmedialibrary.com/documentation/media-library-organizer/actions-and-filters/#media_library_organizer_admin_admin_menu_minimum_capability

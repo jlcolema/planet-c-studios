@@ -242,7 +242,8 @@ class Media_Library_Organizer_Import {
         $terms = $this->get_terms( $taxonomy );
 
         // Define an array to store old to new Term mappings
-        $terms_mappings = array();
+        $term_mappings = array();
+        $terms_errors = array();
 
         // If no Terms were found, skip
         if ( empty( $terms ) || ! $terms ) {
@@ -282,18 +283,46 @@ class Media_Library_Organizer_Import {
 
             // Iterate through the Terms Stack, creating them for this Plugin's Taxonomy
             foreach ( $terms_stack as $child_term ) {
+                // Skip if the Term Name is empty
+                if ( empty( $child_term->name ) ) {
+                    continue;
+                }
+
                 // Create Term
                 $result = $this->create_term( $child_term->name, $child_term->description, ( isset( $term_mappings[ $child_term->parent ] ) ? $term_mappings[ $child_term->parent ] : '' ) );
 
-                // Bail if an error occured
+                // Skip if an error occured
                 if ( is_wp_error( $result ) ) {
-                    return $result;
+                    $terms_errors[] = sprintf(
+                        __( 'Term Name: %s, Error: %s', 'media-library-organizer' ),
+                        $child_term->name,
+                        $result->get_error_message()
+                    );
+                    continue;
                 }
 
                 // Map this Term
                 $term_mappings[ $child_term->term_taxonomy_id ] = $result;
             }
             
+        }
+
+        // If no Term Mappings exist, bail?
+        if ( empty( $term_mappings ) ) {
+            if ( count( $terms_errors ) ) {
+                return new WP_Error(
+                    'media_library_organizer_import_import_third_party_taxonomy_terms',
+                    sprintf(
+                        __( 'No Terms were imported, as the following errors were encountered: %s', 'media-library-organizer' ),
+                        '<br />' . implode( '<br />', $terms_errors )
+                    )
+                );
+            } else {
+                return new WP_Error(
+                    'media_library_organizer_import_import_third_party_taxonomy_terms',
+                    __( 'No Terms were imported', 'media-library-organizer' )
+                );
+            }
         }
 
         // Get Term Relationships with Attachments
@@ -322,13 +351,30 @@ class Media_Library_Organizer_Import {
                 // Assign the Plugin Taxonomy Term IDs to the Attachment
                 $result = wp_set_object_terms( $attachment_id, $term_ids, $this->base->get_class( 'taxonomy' )->taxonomy_name, false );
 
-                // Bail if something went wrong
+                // Store error if something went wrong
                 if ( is_wp_error( $result ) ) {
-                    return $result;
+                    $terms_errors[] = sprintf(
+                        __( 'Attachment ID: %s, Term IDs: %s, Error: %s', 'media-library-organizer' ),
+                        $attachment_id,
+                        implode( ',', $term_ids ),
+                        $result->get_error_message()
+                    );
                 }
             }
         }
 
+        // Return WP_Error if error(s) were detected during the import process
+        if ( count( $terms_errors ) ) {
+            return new WP_Error(
+                'media_library_organizer_import_import_third_party_taxonomy_terms',
+                sprintf(
+                    __( 'Terms were imported, however some errors were encountered.  They may have no impact on the import, but you\'ll need to check: %s', 'media-library-organizer' ),
+                    '<br />' . implode( '<br />', $terms_errors )
+                )
+            );
+        }
+
+        // All OK, no errors
         return true;
 
     }
