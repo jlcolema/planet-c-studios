@@ -17,44 +17,24 @@ Section: Clients
 	.clients__inner-wrap {
 
 		width: 100%;
-		max-width: 700px;
+		max-width: 1945px;
 		margin: 0 auto;
 		padding: 70px 0 130px 0;
 
-		// background: darken(pink, 5%);
+		background: darken(pink, 5%);
 
 	}
 
 		.clients__header {
 
 			width: 100%;
-			max-width: 560px;
+			max-width: 900px;
 			margin: 0 auto;
-			font-size: 1.125rem;
+			font-size: 1.875rem;
 			text-transform: none;
 			text-align: center;
+			background: pink;
 			
-		}
-
-		.clients__overview {
-
-			width: 100%;
-			max-width: 560px;
-			margin: 0 auto;
-			text-align: center;
-
-			p {
-
-				font-size: 1.125rem;
-
-				&:last-of-type {
-
-					margin: 0;
-
-				}
-
-			}
-
 		}
 
 		.featured-clients__list {
@@ -70,16 +50,17 @@ Section: Clients
 			margin: 40px auto 0 auto;
 			padding: 0;
 			list-style: none;
+			background: darken(pink, 10%);
 
 			// background: darken(pink, 15%);
 
 			@media screen and (min-width: 600px) {
 
-				position: relative;
-				display: block;
-				width: 530px;
-				height: 244px;
-				margin: 60px auto 0 auto;
+				// position: relative;
+				// display: block;
+				// width: 530px;
+				// height: 244px;
+				// margin: 60px auto 0 auto;
 
 			}
 
@@ -88,100 +69,14 @@ Section: Clients
 			.featured-client__item {
 
 				display: block;
-				width: 100%;
-				// height: 80px;
-				// background: darken(pink, 20%);
+				width: 206px;
+				height: 145 px;
+				background: darken(pink, 20%);
 				margin: 1em 0 0 0;
 
-				@media screen and (min-width: 400px) {
+				@media screen and (min-width: 400px) {}
 
-					width: 50%;
-
-				}
-
-				@media screen and (min-width: 600px) {
-
-					position: absolute;
-					display: block;
-					width: auto;
-					height: auto;
-					z-index: 1;
-
-				}
-
-				/* Custom positioning begins at 600px W. */
-
-				// WB: 62px W x 80px H
-
-				&:nth-child(1) {
-					
-					left: 66px;
-					top: 0;
-
-				}
-
-				// Universal: 118px W x 66px H
-
-				&:nth-child(2) {
-
-					left: 193px;
-					top: 52px;
-
-				}
-
-				// HBO Max: 140px W x 24px H
-
-				&:nth-child(3) {
-
-					right: 0;
-					top: 118px;
-
-				}
-
-				// DC: 60px W x 60px H
-
-				&:nth-child(4) {
-
-					left: 239px;
-					bottom: 29px;
-
-				}
-
-				// New Line Cinema: 106px W x 60px H
-
-				&:nth-child(5) {
-
-					left: 91px;
-					bottom: 0;
-
-				}
-
-				// MRC: 90px W x 40px H
-
-				&:nth-child(6) {
-
-					right: 82px;
-					bottom: 6px;
-
-				}
-
-				// AT&T: 144px W x 50px H
-
-				&:nth-child(7) {
-
-					right: 40px;
-					top: 16px;
-
-				}
-
-				// Illumination Entertainment: 114px W x 30px H
-
-				&:nth-child(8) {
-
-					left: 0;
-					top: 120px;
-
-				}
+				@media screen and (min-width: 600px) {}
 
 				&:last-of-type {}
 
