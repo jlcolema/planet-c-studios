@@ -88,13 +88,37 @@
 
 		<?php
 
-			/* The background image for this section is considered part of overall look and feel for the theme. This image can be found in the root theme directory at `assets/img/name.png`. */
+			// Image Attachment
+
+			$s_welcome_background_image_attachment_id = get_field( 's_welcome_background_image', $s_welcome_background_image->ID );
+
+			// Size Options
+
+			$s_welcome_background_image_size_x_large = 's-welcome-background-image-x-large';
+			$s_welcome_background_image_size_large = 's-welcome-background-image-large';
+			$s_welcome_background_image_size_small = 's-welcome-background-image-small';
+
+			// Image Sizes
+
+			$s_welcome_background_image_x_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_x_large );
+			$s_welcome_background_image_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_large );
+			$s_welcome_background_image_small = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_small );
+
+			$s_welcome_background_image = get_field( 's_welcome_background_image' );
 
 		?>
 
 		<div class="welcome__background">
 
-			<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 2x" width="1730" height="400" alt="A photo of a rising planet earth" decoding="async" loading="lazy" class="welcome__img" />
+			<?php if ( $s_welcome_background_image ) : ?>
+
+				<img src="<?php echo $s_welcome_background_image_small[0]; ?>" srcset="<?php echo $s_welcome_background_image_large[0]; ?> 2x, <?php echo $s_welcome_background_image_x_large[0]; ?> 3x" width="1730" height="400" alt="A photo of a rising planet earth" decoding="async" loading="lazy" class="welcome__img" />
+
+			<?php else : ?>
+
+				<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 2x, <?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 3x" width="1730" height="400" alt="A placeholder background image" decoding="async" loading="lazy" class="welcome__img welcome__img--is-placeholder" />
+
+			<?php endif; ?>
 
 		</div>
 
