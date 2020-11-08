@@ -225,6 +225,36 @@ Section: Welcome
 
 				.service__samples--3-up {}
 
+		/* CTA */
+
+		.welcome__cta {
+
+			display: none; // Temporarily hidden.
+
+			margin: 2.5em 0 0 0;
+			font-size: 1.75rem;
+			text-transform: uppercase;
+			text-align: center;
+
+		}
+
+			.welcome__cta-link {
+
+				position: relative;
+				display: inline-block;
+				padding: 0.0625em 0.75em;
+				color: $color-base-black;
+				background: $color-base-white;
+				border-radius: 8px;
+
+				&:hover {
+
+					text-decoration: none;
+
+				}
+
+			}
+
 		.welcome__background {
 
 			position: absolute;

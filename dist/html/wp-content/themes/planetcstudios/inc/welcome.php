@@ -86,6 +86,14 @@
 
 		<?php endif; ?>
 
+		<!-- CTA -->
+
+		<div class="welcome__cta">
+
+			<a href="/work/" title="View all of our work" class="welcome__cta-link">Projects</a>
+
+		</div>
+
 		<?php
 
 			// Image Attachment
