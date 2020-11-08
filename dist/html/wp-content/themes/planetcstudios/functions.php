@@ -71,6 +71,14 @@ function planetcstudios_theme_support() {
 	add_image_size( 'photo-small', 60, 60, true );
 
 
+	// Add custom image sizes for background image within the Welcome section.
+
+	// add_image_size( 's-welcome-background-image-x-large', 3400, 800, true );
+
+	// add_image_size( 's-welcome-background-image-large', 1700, 400, true );
+
+	// add_image_size( 's-welcome-background-image-small', 850, 200, true );
+
 
 	/*
 	 * Let WordPress manage the document title.
