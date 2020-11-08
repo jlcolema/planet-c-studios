@@ -112,11 +112,11 @@
 
 			<?php if ( $s_welcome_background_image ) : ?>
 
-				<img src="<?php echo $s_welcome_background_image_small[0]; ?>" srcset="<?php echo $s_welcome_background_image_large[0]; ?> 2x, <?php echo $s_welcome_background_image_x_large[0]; ?> 3x" width="1730" height="400" alt="A photo of a rising planet earth" decoding="async" loading="lazy" class="welcome__img" />
+				<img src="<?php echo $s_welcome_background_image_small[0]; ?>" srcset="<?php echo $s_welcome_background_image_large[0]; ?> 2x, <?php echo $s_welcome_background_image_x_large[0]; ?> 3x" width="1700" height="400" alt="A photo of a rising planet earth" decoding="async" loading="lazy" class="welcome__img" />
 
 			<?php else : ?>
 
-				<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 2x, <?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 3x" width="1730" height="400" alt="A placeholder background image" decoding="async" loading="lazy" class="welcome__img welcome__img--is-placeholder" />
+				<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 2x, <?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 3x" width="1700" height="400" alt="A placeholder background image" decoding="async" loading="lazy" class="welcome__img welcome__img--is-placeholder" />
 
 			<?php endif; ?>
 
