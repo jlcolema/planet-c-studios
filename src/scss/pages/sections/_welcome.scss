@@ -259,9 +259,9 @@ Section: Welcome
 
 			position: absolute;
 			left: 0;
-			top: 100px;
+			top: 60px;
 			width: 100%;
-			height: 400px;
+			height: 644px;
 			overflow: hidden;
 			z-index: -2;
 
@@ -274,7 +274,7 @@ Section: Welcome
 				top: 0;
 				max-width: none;
 				height: 100%;
-				margin-left: 80px; // Improve centered optical alignment.
+				// margin-left: 80px; // Improve centered optical alignment.
 				transform: translate(-50%, 0);
 				z-index: 1;
 
