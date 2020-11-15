@@ -1,3 +1,278 @@
 /*------------------------------
 Entry: Proposal
 ------------------------------*/
+
+.proposal {
+
+	padding: 0 1.25em;
+
+	// background: pink;
+
+	// Gradient to use...
+
+	// background: linear-gradient(301.28deg, #F2BFBF 0%, #052600 100%),
+	// 			linear-gradient(244.35deg, rgba(164, 0, 0, 0.25) 0%, rgba(0, 163, 255, 0.25) 100%),
+	// 			linear-gradient(126.95deg, #110041 0%, #81D599 100%),
+	// 			radial-gradient(100% 233.99% at 0% 100%, #FF0000 0%, #00FFFF 100%),
+	// 			linear-gradient(307.27deg, #1DAC92 0.37%, #2800C6 100%),
+	// 			radial-gradient(100% 140% at 100% 0%, #EAFF6B 0%, #006C7A 57.29%, #2200AA 100%);
+
+	// background-blend-mode: overlay, overlay, overlay, difference, difference, normal;
+
+}
+
+	.proposal__inner-wrap {
+
+		width: 100%;
+		max-width: 808px;
+		margin: 0 auto;
+		padding: 190px 0 220px 0; // Left and right padding gives some room for the navigation arrows.
+		// background: darken(pink, 5%);
+
+	}
+
+		.proposal__overview {
+
+			position: relative;
+			// background: pink;
+
+		}
+
+			.proposal__s-title {
+
+				font-size: 2rem;
+				color: $color-base-white;
+
+			}
+
+			.proposal__meta {
+
+				@media screen and (min-width: 560px) {
+
+					display: flex;
+					flex-direction: row;
+					flex-wrap: nowrap;
+					justify-content: space-between;
+					align-items: flex-start;
+					align-content: flex-start;
+
+				}
+
+				// background: darken(pink, 10%);
+
+			}
+
+				.proposal__s-cover {
+
+					width: 190px;
+
+				}
+
+					.proposal__s-img {}
+
+				.proposal__details {
+
+					margin: 2em 0 0 0;
+
+					@media screen and (min-width: 560px) {
+
+						width: calc(100% - 190px);
+						margin: 0;
+						padding: 0 0 0 2em;
+
+					}
+
+				}
+
+					.proposal__description {
+
+						color: $color-base-white;
+
+						p {
+
+							&:last-of-type {
+
+								margin: 0;
+
+							}
+
+						}
+
+							a {
+
+								&:hover {}
+
+							}
+
+					}
+
+					.proposal__extra {
+
+						margin: 4rem 0 0 0;
+
+					}
+
+						.proposal__date {
+
+							color: $color-base-white;
+
+						}
+
+						.proposal__location {
+
+							color: $color-base-white;
+
+						}
+
+						.proposal__client {
+
+							margin: 1.25em 0 0 0;
+
+						}
+
+							.client__label {
+
+								color: $color-base-white;
+
+							}
+
+							.client__list {
+
+								margin: 0;
+								padding: 0;
+								list-style: none;
+
+							}
+
+								.client__item {
+
+									display: inline-block;
+									margin: 0;
+									color: $color-base-white;
+
+									&:after {
+
+										content: "\2c"; // Adds a comma after each client name.
+
+									}
+
+									&:last-of-type {
+
+										&:after {
+
+											content: none; // Removes comma from last client name in the list.
+
+										}
+
+									}
+
+								}
+
+		.proposal__projects {
+
+			margin: 120px auto 0 auto;
+			padding: 80px 0 0 0;
+
+			// background: darken(pink, 15%);
+
+		}
+
+			.proposal-projects__list {
+
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: flex-start;
+				align-content: flex-start;
+
+				margin: 0;
+				padding: 0;
+				list-style: none;
+
+				// background: darken(pink, 10%);
+
+				&:hover {
+
+					.proposal-project__item {
+
+						opacity: 0.35;
+
+						&:hover {
+
+							opacity: 1;
+
+						}
+
+					}
+
+				}
+
+			}
+
+				.proposal-project__item {
+
+					width: 190px;
+					margin: 0.75em 0.375em 0 0.375em;
+					transition: all 0.35s ease-in-out;
+
+					&:hover {
+
+						position: relative;
+						outline: 3px solid $color-base-white;
+						box-shadow: 0 0 25px 5px rgba($color-base-white, 0.75);
+						z-index: 5;
+
+					}
+
+				}
+
+				.proposal-project__item--gap {
+
+					margin-top: 0;
+
+				}
+
+				.proposal-project__item--gap {}
+
+					.proposal-project__link {
+
+						position: relative;
+						display: block;
+						overflow: hidden; // This is temporary until long title names are figured out.
+
+						&:hover {}
+
+					}
+
+						.proposal-project__cover {}
+
+							.proposal-project__img {
+
+								height: auto !important;
+
+							}
+
+						.proposal-project__title {
+
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							width: 100%;
+							margin: 0;
+							padding: 1.25em 0.75em 0.75em 0.75em;
+							font-size: 1.25rem;
+							color: $color-base-white;
+							background: rgba($color-base-black, 0.70);
+							clip-path: ellipse(100% 100% at 50% 100%);
+							opacity: 0;
+							transition: opacity 0.35s ease-in-out;
+							z-index: 1;
+
+							.proposal-project__link:hover & {
+
+								opacity: 1;
+
+							}
+
+						}
