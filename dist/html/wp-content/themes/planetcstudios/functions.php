@@ -504,6 +504,14 @@ add_action('upload_mimes', 'add_file_types_to_uploads');
 // add_filter( 'wpcf7_load_js', '__return_false' );
 
 /**
+ * Image Scaling
+ */
+
+// Disable image scaling upon upload.
+
+add_filter( 'big_image_size_threshold', '__return_false' );
+
+/**
  * Advanced Custom Fields
  */
 
