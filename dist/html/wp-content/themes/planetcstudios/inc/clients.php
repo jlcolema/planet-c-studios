@@ -24,6 +24,7 @@
 
 					<?php
 
+						// Options...
 
 					?>
 
@@ -32,8 +33,6 @@
 					<li class="featured-client__item featured-client__item--<?php echo $post->post_name; ?>">
 
 						<div class="featured-client__logo">
-
-							<!-- If possible, use embedded SVG markup. -->
 
 							<img src="<?php the_field( 'client_logo' ); ?>" alt="Logo for <?php the_title(); ?>" class="featured-client__img" />
 
