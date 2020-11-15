@@ -66,6 +66,20 @@ Page: Work
 				cursor: pointer;
 				z-index: 999;
 
+				&:after {
+
+					content: '';
+
+					position: absolute;
+					right: 0.75em;
+					top: 8px;
+					width: 9px;
+					height: 24px;
+					background: url(../img/filter-toggle.svg) 0 0 no-repeat;
+					background-size: 9px 24px;
+
+				}
+
 				&.filter__list--is-open {
 
 					height: auto;
@@ -234,7 +248,7 @@ input[type="radio"] {
   }
   
   .projects__filter label:hover {
-	background: darken(pink, 10%);
+	background: rgba($color-base-white, 0.10);
 	color: var(--white);
   }
 
@@ -261,7 +275,7 @@ input[type="radio"] {
   [value="Television"]:checked ~ .projects__nav .projects__filter [for="television"],
   [value="Visual Effects"]:checked ~ .projects__nav .projects__filter [for="visual-effects"] {
 
-	background: darken(pink, 10%);
+	background: rgba($color-base-white, 0.15);
 	color: var(--white);
 
 	&:after {
