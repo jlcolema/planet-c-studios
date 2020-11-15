@@ -553,6 +553,14 @@ if ( function_exists( 'acf_add_options_page' ) ) {
 
 	acf_add_options_sub_page( array(
 
+		'page_title'		=> 'Footer',
+		'menu_title'		=> 'Footer',
+		'parent_slug'	=> 'globals'
+
+	) );
+
+	acf_add_options_sub_page( array(
+
 		'page_title'		=> '404',
 		'menu_title'		=> '404',
 		'parent_slug'	=> 'globals'
