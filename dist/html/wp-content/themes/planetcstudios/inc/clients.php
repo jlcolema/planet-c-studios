@@ -38,8 +38,6 @@
 
 						</div>
 
-						<h3 class="featured-client__name"><?php the_title(); ?></h3>
-
 					</li>
 
 				<?php endforeach; ?>
