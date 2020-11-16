@@ -282,28 +282,29 @@ Section: Work
 
 				position: relative;
 				display: inline-block;
-				padding: 0.0625em 0.75em;
-				color: $color-base-black;
-				background: $color-base-white;
-				border-radius: 8px;
+				height: 50px;
+				padding: 2px 0.75em 0 0.75em;
+				color: $color-base-white;
+				background: $color-base-black;
+				border: 2px solid $color-base-white;
+				border-radius: 25px;
 
 				&:after {
 
 					content: "";
 					
 					position: absolute;
-					right: -48px;
+					right: -38px;
 					top: 50%;
 					display: block;
-					width: 48px;
-					height: 40px;
-					margin-top: -20px;
-					padding: 0 0 0 8px;
-					background: url(../img/sample-navigation.svg) right center no-repeat;
-					background-size: 80px 40px;
+					width: 60px;
+					height: 50px;
+					margin-top: -25px;
+					padding: 0;
+					background: url(../img/more-arrow.svg) right center no-repeat;
+					background-size: 22px 28px;
 					overflow: hidden;
 					z-index: 1;
-
 
 				}
 
