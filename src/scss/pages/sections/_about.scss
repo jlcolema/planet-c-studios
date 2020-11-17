@@ -6,24 +6,26 @@ Section: About
 
 .section__about {
 
-	padding: 0 1.25em;
-
-	// background: darken(pink, 10%);
+	margin-bottom: -4vw; // Pulls next section up so that curves overlap.
+	padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
 
 	// Gradient to use...
 
-	// background: linear-gradient(120deg, #FF00C7 0%, #51003F 100%),
-	// 			linear-gradient(120deg, #0030AD 0%, #00071A 100%),
-	// 			linear-gradient(180deg, #000346 0%, #FF0000 100%),
-	// 			linear-gradient(60deg, #0029FF 0%, #AA0014 100%),
-	// 			radial-gradient(100% 165% at 100% 100%, #FF00A8 0%, #00FF47 100%),
-	// 			radial-gradient(100% 150% at 0% 0%, #FFF500 0%, #51D500 100%);
+	background: linear-gradient(120deg, #FF00C7 0%, #51003F 100%),
+				linear-gradient(120deg, #0030AD 0%, #00071A 100%),
+				linear-gradient(180deg, #000346 0%, #FF0000 100%),
+				linear-gradient(60deg, #0029FF 0%, #AA0014 100%),
+				radial-gradient(100% 165% at 100% 100%, #FF00A8 0%, #00FF47 100%),
+				radial-gradient(100% 150% at 0% 0%, #FFF500 0%, #51D500 100%);
 
-	// background-blend-mode: overlay, color-dodge, overlay, overlay, difference, normal;
+	background-blend-mode: overlay, color-dodge, overlay, overlay, difference, normal;
 
 	// Top curve...
 
-	// clip-path: ellipse(100% 100% at 50% 100%);
+	mask: url(../img/section-curve.svg) center top no-repeat;
+	mask-size: cover;
+
+	// background: rgba(green, 0.50);
 
 }
 

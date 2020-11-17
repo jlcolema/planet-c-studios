@@ -7,6 +7,8 @@ Section: Welcome
 .section__welcome {
 
 	position: relative;
+	margin-bottom: -4vw; // Pulls next section up so that curves overlap.
+	padding-bottom: 4vw; // Padding bottom gives space back due to margin-bottom.
 
 	// background: pink;
 
