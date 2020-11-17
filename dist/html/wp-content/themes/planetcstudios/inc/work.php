@@ -4,6 +4,15 @@
 
 	<div class="inner-wrap section__inner-wrap work__inner-wrap">
 
+
+	<svg width="190px" height="280px" viewBox="0 0 190 280" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="cover-curve" fill="#670EA5">
+            <path d="M190,7 C126.505607,-1.9166911 63.1728997,-1.88018148 -3.41060513e-13,7 L-3.41060513e-13,20 L190,20 L190,7 Z" id="Fill-1"></path>
+        </g>
+    </g>
+</svg>
+
 		<!-- Header -->
 
 		<h2 class="header section__header work__header"><?php the_field( 's_work_header' ); ?></h2>
