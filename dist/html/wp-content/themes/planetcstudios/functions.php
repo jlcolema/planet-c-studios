@@ -512,6 +512,20 @@ add_action('upload_mimes', 'add_file_types_to_uploads');
 add_filter( 'big_image_size_threshold', '__return_false' );
 
 /**
+ * Password Protected Entries
+ */
+
+// Add a custom title for password protected proposal entries.
+
+add_filter( 'protected_title_format', 'remove_protected_text' );
+
+function remove_protected_text() {
+
+	return __('Proposal: %s');
+
+}
+
+/**
  * Advanced Custom Fields
  */
 
