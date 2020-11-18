@@ -17,7 +17,55 @@
 
 	<?php if ( post_password_required() ) : ?>
 
-		<?php echo get_the_password_form(); ?>
+		<?php
+
+			function proposal_password_form() {
+	
+				global $post;
+	
+				$label = 'pwbox-'.( empty( $post->ID ) ? rand() : $post->ID );
+	
+				$proposal_password_form = '
+				
+					<form action="' . esc_url( site_url( 'wp-login.php?action=postpass', 'login_post' ) ) . '" method="post" class="proposal__form">
+
+						<fieldset>
+
+							<legend>' . __( "To view this proposal, enter the password below:" ) . '</legend>
+	
+							<ol class="">
+
+								<li class="">
+
+									<label for="' . $label . '" class="">' . __( "Password" ) . '</label>
+					
+									<input name="post_password" id="' . $label . '" type="password" size="20" maxlength="20" placeholder="Password" class="" />
+					
+								</li>
+
+							</ol>
+
+							<div class="">
+
+								<input type="submit" name="Submit" value="' . esc_attr__( "Submit" ) . '" class="" />
+	
+							</div>
+
+						</fieldset>
+
+					</form>
+				
+				';
+	
+				return $proposal_password_form;
+
+			}
+
+			add_filter( 'the_password_form', 'proposal_password_form' );
+
+		?>
+		
+		<?php echo proposal_password_form(); ?>
 
 	<?php else : ?>
 
