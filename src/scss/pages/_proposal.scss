@@ -4,7 +4,7 @@ Entry: Proposal
 
 .proposal {
 
-	padding: 0 1.25em;
+	// padding: 0 1.25em;
 
 	// background: pink;
 
@@ -23,256 +23,288 @@ Entry: Proposal
 
 	.proposal__inner-wrap {
 
-		width: 100%;
-		max-width: 808px;
-		margin: 0 auto;
-		padding: 190px 0 220px 0; // Left and right padding gives some room for the navigation arrows.
-		// background: darken(pink, 5%);
+		// background: pink;
 
 	}
 
 		.proposal__overview {
 
 			position: relative;
-			// background: pink;
+
+			margin-bottom: -4vw; // Pulls next section up so that curves overlap.
+			padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
+
+			background: url(../img/project-overview-gradient-small.png) center top no-repeat;
+			background-size: cover;
+
+			// background: darken(pink, 5%);
 
 		}
 
-			.proposal__s-title {
+			.proposal__overview-inner-wrap {
 
-				font-size: 2rem;
-				color: $color-base-white;
+				width: 100%;
+				max-width: 808px;
+				margin: 0 auto;
+				padding: 190px 0 120px 0;
 
-			}
-
-			.proposal__meta {
-
-				@media screen and (min-width: 560px) {
-
-					display: flex;
-					flex-direction: row;
-					flex-wrap: nowrap;
-					justify-content: space-between;
-					align-items: flex-start;
-					align-content: flex-start;
-
-				}
-
-				// background: darken(pink, 10%);
+				// background: darken(pink, 15%);
 
 			}
 
-				.proposal__s-cover {
+				.proposal__s-title {
 
-					width: 190px;
+					font-size: 2rem;
+					color: $color-base-white;
 
 				}
 
-					.proposal__s-img {}
-
-				.proposal__details {
-
-					margin: 2em 0 0 0;
+				.proposal__meta {
 
 					@media screen and (min-width: 560px) {
 
-						width: calc(100% - 190px);
-						margin: 0;
-						padding: 0 0 0 2em;
+						display: flex;
+						flex-direction: row;
+						flex-wrap: nowrap;
+						justify-content: space-between;
+						align-items: flex-start;
+						align-content: flex-start;
 
 					}
+
+					// background: darken(pink, 10%);
 
 				}
 
-					.proposal__description {
+					.proposal__s-cover {
 
-						color: $color-base-white;
-
-						p {
-
-							&:last-of-type {
-
-								margin: 0;
-
-							}
-
-						}
-
-							a {
-
-								&:hover {}
-
-							}
+						width: 190px;
 
 					}
 
-					.proposal__extra {
+						.proposal__s-img {}
 
-						margin: 4rem 0 0 0;
+					.proposal__details {
+
+						margin: 2em 0 0 0;
+
+						@media screen and (min-width: 560px) {
+
+							width: calc(100% - 190px);
+							margin: 0;
+							padding: 0 0 0 2em;
+
+						}
 
 					}
 
-						.proposal__date {
+						.proposal__description {
 
 							color: $color-base-white;
 
+							p {
+
+								&:last-of-type {
+
+									margin: 0;
+
+								}
+
+							}
+
+								a {
+
+									&:hover {}
+
+								}
+
 						}
 
-						.proposal__location {
+						.proposal__extra {
 
-							color: $color-base-white;
-
-						}
-
-						.proposal__client {
-
-							margin: 1.25em 0 0 0;
+							margin: 4rem 0 0 0;
 
 						}
 
-							.client__label {
+							.proposal__date {
 
 								color: $color-base-white;
 
 							}
 
-							.client__list {
+							.proposal__location {
 
-								margin: 0;
-								padding: 0;
-								list-style: none;
+								color: $color-base-white;
 
 							}
 
-								.client__item {
+							.proposal__client {
 
-									display: inline-block;
-									margin: 0;
+								margin: 1.25em 0 0 0;
+
+							}
+
+								.client__label {
+
 									color: $color-base-white;
 
-									&:after {
+								}
 
-										content: "\2c"; // Adds a comma after each client name.
+								.client__list {
 
-									}
+									margin: 0;
+									padding: 0;
+									list-style: none;
 
-									&:last-of-type {
+								}
+
+									.client__item {
+
+										display: inline-block;
+										margin: 0;
+										color: $color-base-white;
 
 										&:after {
 
-											content: none; // Removes comma from last client name in the list.
+											content: "\2c"; // Adds a comma after each client name.
+
+										}
+
+										&:last-of-type {
+
+											&:after {
+
+												content: none; // Removes comma from last client name in the list.
+
+											}
 
 										}
 
 									}
 
-								}
-
 		.proposal__projects {
 
-			margin: 120px auto 0 auto;
-			padding: 80px 0 0 0;
+			padding: 0 0.875em; // Accounts for left and right margins for project items.
+
+			// Top curve...
+
+			mask: url(../img/section-curve.svg) center top no-repeat;
+			mask-size: cover;
+
+			background: url(../img/project-samples-gradient-small.png) center top no-repeat;
+			background-size: cover;
 
 			// background: darken(pink, 15%);
 
 		}
 
-			.proposal-projects__list {
+			.proposal__projects-inner-wrap {
 
-				display: flex;
-				flex-direction: row;
-				flex-wrap: wrap;
-				justify-content: center;
-				align-items: flex-start;
-				align-content: flex-start;
+				width: 100%;
+				max-width: 808px;
+				margin: 0 auto;
+				padding: 190px 0 220px 0;
 
-				margin: 0;
-				padding: 0;
-				list-style: none;
-
-				// background: darken(pink, 10%);
-
-				&:hover {
-
-					.proposal-project__item {
-
-						opacity: 0.35;
-
-						&:hover {
-
-							opacity: 1;
-
-						}
-
-					}
-
-				}
+				// background: darken(pink, 5%);
 
 			}
 
-				.proposal-project__item {
+				.proposal-projects__list {
 
-					width: 190px;
-					margin: 0.75em 0.375em 0 0.375em;
-					transition: all 0.35s ease-in-out;
+					display: flex;
+					flex-direction: row;
+					flex-wrap: wrap;
+					justify-content: center;
+					align-items: flex-start;
+					align-content: flex-start;
+
+					margin: 0;
+					padding: 0;
+					list-style: none;
+
+					// background: darken(pink, 10%);
 
 					&:hover {
 
-						position: relative;
-						outline: 3px solid $color-base-white;
-						box-shadow: 0 0 25px 5px rgba($color-base-white, 0.75);
-						z-index: 5;
+						.proposal-project__item {
 
-					}
+							opacity: 0.35;
 
-				}
-
-				.proposal-project__item--gap {
-
-					margin-top: 0;
-
-				}
-
-				.proposal-project__item--gap {}
-
-					.proposal-project__link {
-
-						position: relative;
-						display: block;
-						overflow: hidden; // This is temporary until long title names are figured out.
-
-						&:hover {}
-
-					}
-
-						.proposal-project__cover {}
-
-							.proposal-project__img {
-
-								height: auto !important;
-
-							}
-
-						.proposal-project__title {
-
-							position: absolute;
-							left: 0;
-							bottom: 0;
-							width: 100%;
-							margin: 0;
-							padding: 1.25em 0.75em 0.75em 0.75em;
-							font-size: 1.25rem;
-							color: $color-base-white;
-							background: rgba($color-base-black, 0.70);
-							clip-path: ellipse(100% 100% at 50% 100%);
-							opacity: 0;
-							transition: opacity 0.35s ease-in-out;
-							z-index: 1;
-
-							.proposal-project__link:hover & {
+							&:hover {
 
 								opacity: 1;
 
 							}
 
 						}
+
+					}
+
+				}
+
+					.proposal-project__item {
+
+						width: 190px;
+						margin: 0.75em 0.375em 0 0.375em;
+						transition: all 0.35s ease-in-out;
+
+						&:hover {
+
+							position: relative;
+							outline: 3px solid $color-base-white;
+							box-shadow: 0 0 25px 5px rgba($color-base-white, 0.75);
+							z-index: 5;
+
+						}
+
+					}
+
+					.proposal-project__item--gap {
+
+						margin-top: 0;
+
+					}
+
+					.proposal-project__item--gap {}
+
+						.proposal-project__link {
+
+							position: relative;
+							display: block;
+							overflow: hidden; // This is temporary until long title names are figured out.
+
+							&:hover {}
+
+						}
+
+							.proposal-project__cover {}
+
+								.proposal-project__img {
+
+									height: auto !important;
+
+								}
+
+							.proposal-project__title {
+
+								position: absolute;
+								left: 0;
+								bottom: 0;
+								width: 100%;
+								margin: 0;
+								padding: 1.25em 0.75em 0.75em 0.75em;
+								font-size: 1.25rem;
+								color: $color-base-white;
+								background: rgba($color-base-black, 0.70);
+								clip-path: ellipse(100% 100% at 50% 100%);
+								opacity: 0;
+								transition: opacity 0.35s ease-in-out;
+								z-index: 1;
+
+								.proposal-project__link:hover & {
+
+									opacity: 1;
+
+								}
+
+							}

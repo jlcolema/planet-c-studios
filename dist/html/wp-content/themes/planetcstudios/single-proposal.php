@@ -53,86 +53,90 @@
 
 				<div class="proposal__overview">
 
-					<h1 class="proposal__s-title"><?php the_title(); ?></h1>
+					<div class="proposal__overview-inner-wrap">
 
-					<div class="proposal__meta">
+						<h1 class="proposal__s-title"><?php the_title(); ?></h1>
 
-						<!-- 
-							
-							Two sizes are available:
+						<div class="proposal__meta">
+
+							<!-- 
 								
-							1. cover-large, 380 x 560, for higher density screens.
-							2. cover-small, 190 x 288, the default output.
+								Two sizes are available:
+									
+								1. cover-large, 380 x 560, for higher density screens.
+								2. cover-small, 190 x 288, the default output.
 
-						-->
+							-->
 
-						<div class="proposal__s-cover">
+							<div class="proposal__s-cover">
 
-							<?php if ( $proposal_cover ) : ?>
+								<?php if ( $proposal_cover ) : ?>
 
-								<img src="<?php echo $proposal_cover_small[0]; ?>" srcset="<?php echo $proposal_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $proposal_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal__s-img" />
+									<img src="<?php echo $proposal_cover_small[0]; ?>" srcset="<?php echo $proposal_cover_large[0]; ?> 2x" alt="The cover image for <?php echo $proposal_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal__s-img" />
 
-							<?php else : ?>
+								<?php else : ?>
 
-								<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $proposal_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal__s-img proposal__s-img--is-placeholder" />
-
-							<?php endif; ?>
-
-						</div>
-
-						<div class="proposal__details">
-
-							<?php if ( get_field( 'proposal_description' ) ) : ?>
-
-								<div class="proposal__description">
-
-									<?php the_field( 'proposal_description' ); ?>
-
-								</div>
-
-							<?php endif; ?>
-
-							<div class="proposal__extra">
-
-								<?php if ( get_field( 'proposal_date' ) ) : ?>
-
-									<div class="proposal__date"><?php the_field( 'proposal_date' ); ?></div>
+									<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php echo $proposal_title; ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal__s-img proposal__s-img--is-placeholder" />
 
 								<?php endif; ?>
 
-								<?php if ( get_field( 'proposal_location' ) ) : ?>
+							</div>
 
-									<div class="proposal__location"><?php the_field( 'proposal_location' ); ?></div>
+							<div class="proposal__details">
 
-								<?php endif; ?>
+								<?php if ( get_field( 'proposal_description' ) ) : ?>
 
-								<?php if ( $proposal_clients ) : ?>
+									<div class="proposal__description">
 
-									<div class="proposal__client">
-
-										<span class="client__label">Client:</span>
-										
-										<ul class="client__list">
-
-											<?php foreach ( $proposal_clients as $proposal_client ) : ?>
-											
-												<?php
-
-													// Title
-
-													$client_title = get_the_title( $proposal_client->ID );
-
-												?>
-
-												<li class="client__item"><?php echo esc_html( $client_title ); ?></li>
-
-											<?php endforeach; ?>
-
-										</ul>
+										<?php the_field( 'proposal_description' ); ?>
 
 									</div>
 
 								<?php endif; ?>
+
+								<div class="proposal__extra">
+
+									<?php if ( get_field( 'proposal_date' ) ) : ?>
+
+										<div class="proposal__date"><?php the_field( 'proposal_date' ); ?></div>
+
+									<?php endif; ?>
+
+									<?php if ( get_field( 'proposal_location' ) ) : ?>
+
+										<div class="proposal__location"><?php the_field( 'proposal_location' ); ?></div>
+
+									<?php endif; ?>
+
+									<?php if ( $proposal_clients ) : ?>
+
+										<div class="proposal__client">
+
+											<span class="client__label">Client:</span>
+											
+											<ul class="client__list">
+
+												<?php foreach ( $proposal_clients as $proposal_client ) : ?>
+												
+													<?php
+
+														// Title
+
+														$client_title = get_the_title( $proposal_client->ID );
+
+													?>
+
+													<li class="client__item"><?php echo esc_html( $client_title ); ?></li>
+
+												<?php endforeach; ?>
+
+											</ul>
+
+										</div>
+
+									<?php endif; ?>
+
+								</div>
 
 							</div>
 
@@ -144,82 +148,86 @@
 
 				<div class="proposal__projects">
 
-					<!-- Featured Projects -->
+					<div class="proposal__projects-inner-wrap">
 
-					<?php
+						<!-- Featured Projects -->
 
-						$proposal_projects = get_field( 'proposal_projects' );
+						<?php
 
-					?>
+							$proposal_projects = get_field( 'proposal_projects' );
 
-					<?php if ( $proposal_projects ) : ?>
+						?>
 
-						<ul class="proposal-projects__list">
+						<?php if ( $proposal_projects ) : ?>
 
-							<?php foreach ( $proposal_projects as $post ) : ?>
+							<ul class="proposal-projects__list">
 
-								<?php setup_postdata( $post ); ?>
+								<?php foreach ( $proposal_projects as $post ) : ?>
 
-								<?php
+									<?php setup_postdata( $post ); ?>
 
-									// Cover
+									<?php
 
-									$project_cover_attachment_id = get_field( 'project_cover', $project->ID );
+										// Cover
 
-									// Size Labels
+										$project_cover_attachment_id = get_field( 'project_cover', $project->ID );
 
-									$project_cover_size_large = 'cover-large';
-									$project_cover_size_small = 'cover-small';
+										// Size Labels
 
-									// Image Sizes
+										$project_cover_size_large = 'cover-large';
+										$project_cover_size_small = 'cover-small';
 
-									$project_cover_large = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_large );
-									$project_cover_small = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_small );
+										// Image Sizes
 
-									$project_cover = get_field( 'project_cover' );
+										$project_cover_large = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_large );
+										$project_cover_small = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_small );
 
-								?>
+										$project_cover = get_field( 'project_cover' );
 
-								<li class="proposal-project__item">
+									?>
 
-									<a href="<?php the_permalink(); ?>" class="proposal-project__link">
+									<li class="proposal-project__item">
 
-										<!-- 
-											
-											Two sizes are available:
+										<a href="<?php the_permalink(); ?>" class="proposal-project__link">
+
+											<!-- 
 												
-											1. cover-large, 380 x 560, for higher density screens.
-											2. cover-small, 190 x 288, the default output.
+												Two sizes are available:
+													
+												1. cover-large, 380 x 560, for higher density screens.
+												2. cover-small, 190 x 288, the default output.
 
-										-->
+											-->
 
-										<div class="proposal-project__cover">
+											<div class="proposal-project__cover">
 
-											<?php if ( $project_cover ) : ?>
+												<?php if ( $project_cover ) : ?>
 
-												<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal-project__img" />
+													<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal-project__img" />
 
-											<?php else : ?>
+												<?php else : ?>
 
-												<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal-project__img proposal-project__img--is-placeholder" />
+													<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="proposal-project__img proposal-project__img--is-placeholder" />
 
-											<?php endif; ?>
-						
-										</div>
+												<?php endif; ?>
+							
+											</div>
 
-										<h3 class="proposal-project__title"><?php the_title(); ?></h3>
+											<h3 class="proposal-project__title"><?php the_title(); ?></h3>
 
-									</a>
+										</a>
 
-								</li>
+									</li>
 
-							<?php endforeach; ?>
+								<?php endforeach; ?>
 
-						</ul>
+							</ul>
 
-						<?php wp_reset_postdata(); ?>
+							<?php wp_reset_postdata(); ?>
 
-					<?php endif; ?>
+						<?php endif; ?>
+
+					</div>
 
 				</div>
 
