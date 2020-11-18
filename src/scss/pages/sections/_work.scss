@@ -11,12 +11,12 @@ Section: Work
 
 	// Gradient to use...
 
-	background: linear-gradient(rgb(0, 3, 70) 0%, rgba(255, 160, 0, 1) 100%),
-				linear-gradient(60deg, rgb(0, 5, 34) 0%, rgb(0, 255, 229) 100%),
-				radial-gradient(100% 165% at 100% 100%, rgb(255, 0, 168) 0%, rgb(0, 255, 120) 100%),
-				radial-gradient(100% 150% at 0% 0%, rgb(255, 245, 0) 0%, rgb(81, 213, 0) 100%);
+	// background: linear-gradient(rgb(0, 3, 70) 0%, rgba(255, 160, 0, 1) 100%),
+	// 			linear-gradient(60deg, rgb(0, 5, 34) 0%, rgb(0, 255, 229) 100%),
+	// 			radial-gradient(100% 165% at 100% 100%, rgb(255, 0, 168) 0%, rgb(0, 255, 120) 100%),
+	// 			radial-gradient(100% 150% at 0% 0%, rgb(255, 245, 0) 0%, rgb(81, 213, 0) 100%);
 
-	background-blend-mode: overlay, soft-light, difference, normal;
+	// background-blend-mode: overlay, soft-light, difference, normal;
 
 	// Top curve...
 
@@ -24,6 +24,9 @@ Section: Work
 	mask-size: cover;
 
 	// background: rgba(pink, 0.50);
+
+	background: url(../img/work-gradient-small.png) center top no-repeat;
+	background-size: cover;
 
 }
 
