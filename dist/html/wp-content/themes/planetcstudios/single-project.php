@@ -168,33 +168,33 @@
 
 										<?php if ( get_sub_field( 'sample_type' ) == 'still' ) : ?>
 
-											<img src="https://via.placeholder.com/720x400.png?text=Still+(720x400)" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
+											<img src="<?php the_sub_field( 'sample_still' ); ?>" alt="A project sample image still" width="720" height="400" decoding="async" loading="lazy" class="sample__img" />
 
-										<?php elseif ( get_sub_field( 'sample_type' ) == 'video-self-hosted' ) : ?>
-										
+										<?php elseif ( get_sub_field( 'sample_type' ) == 'video' ) : ?>
+
+											<?php the_sub_field( 'sample_video' ); ?>
+
+										<?php else : ?>
+
 											<div class="sample__container">
 
 												<video controls src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" poster="https://via.placeholder.com/720x400.png?text=Poster+(720x400)" width="720" height="400" class="sample__video">
 
-												<?php /*
-												
-													// If multiple sources are needed, follow these examples.
+													<?php /*
+													
+														// If multiple sources are needed, follow these examples.
 
-													<source src="https://planetcstudios.com/name.mp4" type="video/mp4">
+														<source src="https://planetcstudios.com/name.mp4" type="video/mp4">
 
-													<source src="https://planetcstudios.com/name.ogg" type="video/ogg">
+														<source src="https://planetcstudios.com/name.ogg" type="video/ogg">
 
-													<source src="https://planetcstudios.com/name.avi" type="video/avi">
+														<source src="https://planetcstudios.com/name.avi" type="video/avi">
 
-												*/ ?>
+													*/ ?>
 
 												</video>
 
 											</div>
-
-										<?php else : ?>
-
-											<?php the_sub_field( 'sample_video' ); ?>
 
 										<?php endif; ?>
 
