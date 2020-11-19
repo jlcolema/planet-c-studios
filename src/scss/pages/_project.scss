@@ -232,11 +232,9 @@ Entry: Project
 
 				.samples__title {
 
-					// Need to name better.
+					// Need to name better for the slide container.
 
 					position: relative;
-
-				}
 
 					.samples__list {}
 
@@ -295,6 +293,8 @@ Entry: Project
 
 												}
 
+				}
+
 					.slick-arrow {
 
 						position: absolute;
@@ -331,7 +331,9 @@ Entry: Project
 
 					}
 
-				.samples__nav {}
+				.samples__nav {
+
+					margin: 1.5em 0 0 0;
 
 					.thumbnails__list {}
 
@@ -341,11 +343,21 @@ Entry: Project
 
 								.slick-slide {
 
+									// width: 110px !important;
+									// margin: 0 21px 0 21px !important;
+									opacity: 0.50;
+									cursor: pointer;
+									// background: green;
+
 									div {}
 
 								}
 
-								.slick-current {}
+								.slick-current {
+
+									opacity: 1;
+
+								}
 
 								.slick-active {}
 
@@ -358,9 +370,11 @@ Entry: Project
 											.thumbnail__img {
 
 												height: auto;
+												margin: 0 auto;
 
 											}
 
+				}
 
 	/* Slider */
 

@@ -154,8 +154,10 @@
 
 			slidesToShow: 1,
 			slidesToScroll: 1,
+			adaptiveHeight: true,
 			arrows: true,
 			fade: true,
+			lazyLoad: 'progressive',
 			asNavFor: '.thumbnails__list',
 			prevArrow: '.sample__previous',
 			nextArrow: '.sample__next'
@@ -170,7 +172,44 @@
 			arrows: false,
 			dots: false,
 			centerMode: false,
-			focusOnSelect: true
+			// centerPadding: '20px',
+			focusOnSelect: true,
+
+			responsive: [
+				
+				{
+
+					breakpoint: 1000,
+
+					settings: {
+
+						slidesToShow: 5
+
+					}
+
+				}, {
+
+					breakpoint: 800,
+
+					settings: {
+
+						slidesToShow: 4
+
+					}
+
+				}, {
+
+					breakpoint: 600,
+
+					settings: {
+
+						slidesToShow: 3
+
+					}
+
+				}
+			
+			]
 
 		});
 
