@@ -160,6 +160,12 @@
 
 									<div class="sample__item sample__item--<?php the_sub_field( 'sample_type' ); ?>">
 
+										<?php if ( get_sub_field( 'sample_description' ) ) : ?>
+
+											<div class="sample__description"><?php the_sub_field( 'sample_description' ); ?></div>
+
+										<?php endif; ?>
+
 										<?php
 
 											/* If the sample is a still, show an image. Otherwise, show a video. */
