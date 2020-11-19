@@ -127,7 +127,14 @@ class Media_Library_Organizer_Filesystem {
 
             // If an error occured, bail
             if ( ! $result ) {
-                return new WP_Error( 'media_library_organizer_common_get_tmp_folder', sprintf( __( 'Could not create temporary folder at %s', 'media-library-organizer' ), $temporary_folder ) );
+                return new WP_Error( 
+                    'media_library_organizer_common_get_tmp_folder',
+                    sprintf( 
+                        /* translators: Folder name */
+                        __( 'Could not create temporary folder at %s', 'media-library-organizer' ),
+                        $temporary_folder
+                    )
+                );
             }
         }
 
@@ -182,13 +189,28 @@ class Media_Library_Organizer_Filesystem {
 
         // If the folder for deletion's path isn't within wp-content/uploads, bail
         if ( strpos( $folder, $upload_dir['basedir'] ) === false ) {
-            return new WP_Error( 'media_library_organizer_common_delete_folder', sprintf( __( 'Cannot delete %s, as it is not within %s.', 'media-library-organizer' ), $folder, $upload_dir['basedir'] ) );
+            return new WP_Error( 
+                'media_library_organizer_common_delete_folder',
+                sprintf( 
+                    /* translators: %1$s: Folder Name, %2$s: WordPress Uploads Folder Path */
+                    __( 'Cannot delete %1$s, as it is not within %2$s.', 'media-library-organizer' ),
+                    $folder,
+                    $upload_dir['basedir']
+                )
+            );
         }
 
         // Delete the folder
         $result = $wp_filesystem->rmdir( $folder, true );
         if ( ! $result ) {
-            return new WP_Error( 'media_library_organizer_common_delete_folder', sprintf( __( 'Unable to delete %s', 'media-library-organizer' ), $folder ) );
+            return new WP_Error(
+                'media_library_organizer_common_delete_folder',
+                sprintf(
+                    /* translators: Folder Name */
+                    __( 'Unable to delete %s', 'media-library-organizer' ),
+                    $folder
+                )
+            );
         }
 
         // OK

@@ -52,9 +52,17 @@
                 <div id="import-<?php echo $import_source['name']; ?>" class="panel">
                     <div class="postbox">
                         <header>
-                            <h3><?php echo sprintf( __( 'Import from %s', 'media-library-organizer' ), $import_source['label'] ); ?></h3>
+                            <h3>
+                                <?php 
+                                /* translators: Import Source Name */
+                                echo sprintf( __( 'Import from %s', 'media-library-organizer' ), $import_source['label'] );
+                                ?>
+                            </h3>
                             <p class="description">
-                                <?php echo sprintf( __( 'Imports %s data found on this WordPress installation. This will overwrite any existing settings in this Plugin.', 'media-library-organizer' ), $import_source['label'] ); ?>
+                                <?php
+                                /* translators: Import Source Name */
+                                echo sprintf( __( 'Imports %s data found on this WordPress installation. This will overwrite any existing settings in this Plugin.', 'media-library-organizer' ), $import_source['label'] );
+                                ?>
                             </p>
                         </header>
 

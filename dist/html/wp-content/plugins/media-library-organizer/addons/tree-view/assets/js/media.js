@@ -67,6 +67,30 @@ function mediaLibraryOrganizerTreeViewAddCategory( term_id ) {
 				   return;
 				}
 
+				// Fire the mlo:grid:tree-view:added:mlo-category event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:added:mlo-category', {
+					term: response.data.term
+				} );
+
+				// Add this Category to the dropdown
+				switch ( media_library_organizer_tree_view.media_view ) {
+					/**
+					 * List View
+					 */
+					case 'list':
+						// Replace <select> category dropdown to reflect changes
+						$( 'select#mlo-category' ).replaceWith( response.data.dropdown_filter );
+						$( 'select#mlo-category' ).val( media_library_organizer_tree_view.selected_term );
+						break;
+
+					/**
+					 * Grid View
+					 */
+					case 'grid':
+						
+						break;
+				}
+
 				// Reload Tree View
 				mediaLibraryOrganizerTreeViewGet( term_id );
 
@@ -117,12 +141,20 @@ function mediaLibraryOrganizerTreeViewEditCategory( term_id, term_name ) {
 				   return;
 				}
 
+				// Fire the mlo:grid:tree-view:edited:mlo-category event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:edited:mlo-category', {
+					term: response.data.term
+				} );
+
 				// Update this Category for any Attachments in the Media Library View that are assigned to it
 				switch ( media_library_organizer_tree_view.media_view ) {
 					/**
 					 * List View
 					 */
 					case 'list':
+						// Replace <select> category dropdown to reflect changes
+						$( 'select#mlo-category' ).replaceWith( response.data.dropdown_filter );
+
 						// Iterate through all Terms listed in the WP_List_Table for each Attachment
 						$( 'td.taxonomy-' + response.data.term.taxonomy + ' a' ).each( function() {
 							// If this Term matches the one just updated, update it in the DOM
@@ -194,12 +226,21 @@ function mediaLibraryOrganizerTreeViewDeleteCategory( term_id, term_name ) {
 				   	return;
 				}
 
+				// Fire the mlo:grid:tree-view:deleted:mlo-category event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:deleted:mlo-category', {
+					term: 				response.data.term
+				} );
+
 				// Remove this Category from any Attachments in the Media Library View
 				switch ( media_library_organizer_tree_view.media_view ) {
 					/**
 					 * List View
 					 */
 					case 'list':
+						// Replace <select> category dropdown to reflect changes
+						$( 'select#mlo-category' ).replaceWith( response.data.dropdown_filter );
+						$( 'select#mlo-category' ).val( media_library_organizer_tree_view.selected_term );
+
 						// Iterate through all Terms listed in the WP_List_Table for each Attachment
 						$( 'td.taxonomy-' + response.data.term.taxonomy + ' a' ).each( function() {
 							// If this Term matches the one just deleted, remove it from the DOM
@@ -273,6 +314,13 @@ function mediaLibraryOrganizerTreeViewAssignAttachmentsToCategory( attachment_id
 				   	wpzinc_notification_show_error_message( response.data );
 				   	return;
 				}
+
+				// Fire the mlo:grid:tree-view:assigned:attachments:mlo-category event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:assigned:attachments:mlo-category', {
+					term_id: 		term_id,
+					attachment_ids: attachment_ids,
+					attachments: 	response.data.attachments
+				} );
 
 				// Show notification
 				wpzinc_notification_show_success_message( response.data.attachments.length + ' Attachments Categorized.' );
@@ -378,6 +426,9 @@ function mediaLibraryOrganizerTreeViewGet( current_term ) {
 
 				// Rebind Droppable
 				mediaLibraryOrganizerTreeViewInitDroppable();
+
+				// Fire the mlo:grid:tree-view:loaded event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:loaded' );
 
 			}
 		);

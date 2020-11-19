@@ -51,7 +51,6 @@ class Media_Library_Organizer_Admin {
         add_action( 'media_library_organizer_admin_output_settings_panel_general', array( $this, 'output_addon_settings_panel_general' ) );
         add_action( 'media_library_organizer_admin_output_settings_panels', array( $this, 'output_addon_panels' ) );
         
-
     }
 
     /**
@@ -365,8 +364,8 @@ class Media_Library_Organizer_Admin {
                 $access = 'settings';
             }
 
-            // Skip if access isn't permitted, but always allow licensing
-            if ( function_exists( 'Media_Library_Organizer_Access' ) && $access != '_pro' && ! Media_Library_Organizer_Access()->can_access( 'show_menu_' . $access ) ) {
+            // Skip if access isn't permitted, but always allow licensing and settings
+            if ( $access != 'settings' && function_exists( 'Media_Library_Organizer_Access' ) && $access != '_pro' && ! Media_Library_Organizer_Access()->can_access( 'show_menu_' . $access ) ) {
                 continue;
             }
 

@@ -52,13 +52,16 @@ class Media_Library_Organizer_AJAX {
         $term_name = sanitize_text_field( $_REQUEST['term_name'] );
         $term_parent_id = sanitize_text_field( $_REQUEST['term_parent_id'] );
 
-        $result = $this->base->get_class( 'taxonomy' )->create_term( $term_name, $term_parent_id );
-        if ( is_wp_error( $result ) ) {
-            wp_send_json_error( $result->get_error_message() );
+        $term_id = $this->base->get_class( 'taxonomy' )->create_term( $term_name, $term_parent_id );
+        if ( is_wp_error( $term_id ) ) {
+            wp_send_json_error( $term_id->get_error_message() );
         }
 
-        // Done
-        wp_send_json_success();
+        // Return success with created Term and List View compatible dropdown filter reflecting changes
+        wp_send_json_success( array(
+            'term'              => get_term_by( 'id', $term_id, $this->base->get_class( 'taxonomy' )->taxonomy_name ),
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
+        ) );
 
     }
 
@@ -90,10 +93,11 @@ class Media_Library_Organizer_AJAX {
             wp_send_json_error( $result->get_error_message() );
         }
 
-        // Done
+        // Return success with old term, edited Term and List View compatible dropdown filter reflecting changes
         wp_send_json_success( array(
-            'old_term'  => $old_term,
-            'term'      => get_term_by( 'id', $term_id, $this->base->get_class( 'taxonomy' )->taxonomy_name ),
+            'old_term'          => $old_term,
+            'term'              => get_term_by( 'id', $term_id, $this->base->get_class( 'taxonomy' )->taxonomy_name ),
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
         ) );
 
     }
@@ -125,9 +129,10 @@ class Media_Library_Organizer_AJAX {
             wp_send_json_error( $result->get_error_message() );
         }
 
-        // Done
+        // Return success with deleted Term and List View compatible dropdown filter reflecting changes
         wp_send_json_success( array(
-            'term' => $term,
+            'term'              => $term,
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
         ) );
 
     }

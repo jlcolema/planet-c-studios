@@ -3,7 +3,7 @@ Contributors: wpmedialibrary
 Donate link: https://wpmedialibrary.com
 Tags: media categories, media library, media tags, images, organizer
 Requires at least: 5.0
-Tested up to: 5.5.1
+Tested up to: 5.5.3
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -164,6 +164,11 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 4. Plugin-wide Settings
 
 == Changelog ==
+
+= 1.2.6 (2020-11-19) =
+* Added: Localization support, with .pot file, translators comments and load_plugin_textdomain()
+* Fix: Tree View: List View: Update category dropdown filter to reflect changes made when categories are added, edited and deleted through Tree View
+* Fix: Grid View: Categorization would fail with "Uncaught TypeError: Cannot read property 'uploader' of undefined" JS error when editing an Attachment and then uploading a new Attachment
 
 = 1.2.5 (2020-11-05) =
 * Fix: Import & Export: Tabs would not work when using Pro Plugin

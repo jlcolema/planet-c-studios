@@ -310,8 +310,9 @@ class WPZincDashboardWidget {
 
             /**
              * Import / Export
+             * - Must use displayName because of whitelabelling and WordPress stupidity?
              */
-            case $this->plugin->name . '_page_' . $this->plugin->name . '-import-export':
+            case sanitize_title( $this->plugin->displayName ) . '_page_' . $this->plugin->name . '-import-export':
                wp_enqueue_script( 'wpzinc-admin-tabs' );
                wp_enqueue_script( 'wpzinc-admin-toggle' );
                break;

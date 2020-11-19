@@ -99,13 +99,21 @@ class Media_Library_Organizer_Taxonomy {
             'labels'                => array(
                 'name'              => $this->taxonomy_label_plural,
                 'singular_name'     => $this->taxonomy_label_singular,
+                /* translators: Taxonomy Label, Plural ("Categories") */
                 'search_items'      => sprintf( __( 'Search %s', 'media-library-organizer' ), $this->taxonomy_label_plural ),
+                /* translators: Taxonomy Label, Plural ("Categories") */
                 'all_items'         => sprintf( __( 'All %s', 'media-library-organizer' ), $this->taxonomy_label_plural ),
+                /* translators: Taxonomy Label, Singular ("Category") */
                 'parent_item'       => sprintf( __( 'Parent %s', 'media-library-organizer' ), $this->taxonomy_label_singular ),
+                /* translators: Taxonomy Label, Singular ("Category") */
                 'parent_item_colon' => sprintf( __( 'Parent %s:', 'media-library-organizer' ), $this->taxonomy_label_singular ),
+                /* translators: Taxonomy Label, Singular ("Category") */
                 'edit_item'         => sprintf( __( 'Edit %s', 'media-library-organizer' ), $this->taxonomy_label_singular ),
+                /* translators: Taxonomy Label, Singular ("Category") */
                 'update_item'       => sprintf( __( 'Update %s', 'media-library-organizer' ), $this->taxonomy_label_singular ),
+                /* translators: Taxonomy Label, Singular ("Category") */
                 'add_new_item'      => sprintf( __( 'Add New %s', 'media-library-organizer' ), $this->taxonomy_label_singular ),
+                /* translators: Taxonomy Label, Singular ("Category") */
                 'new_item_name'     => sprintf( __( 'New %s', 'media-library-organizer' ), $this->taxonomy_label_singular ),
                 'menu_name'         => $this->taxonomy_label_plural,
             ),
@@ -221,7 +229,7 @@ class Media_Library_Organizer_Taxonomy {
      *
      * @param   string  $name           Name
      * @param   int     $parent         Parent Term
-     * @return  mixed                   WP_Error | bool
+     * @return  mixed                   WP_Error | integer
      */
     public function create_term( $name, $parent = 0 ) {
 
@@ -235,7 +243,7 @@ class Media_Library_Organizer_Taxonomy {
         }
 
         // Return Term ID
-        return $result['term_id'];
+        return absint( $result['term_id'] );
 
     }
 
@@ -247,7 +255,7 @@ class Media_Library_Organizer_Taxonomy {
      * @param   int     $term_id        Term ID
      * @param   string  $name           Name
      * @param   int     $parent         Parent Term
-     * @return  mixed                   WP_Error | bool
+     * @return  mixed                   WP_Error | integer
      */
     public function update_term( $term_id, $name, $parent = 0 ) {
 
@@ -268,7 +276,7 @@ class Media_Library_Organizer_Taxonomy {
         }
 
         // Return Term ID
-        return $result['term_id'];
+        return absint( $result['term_id'] );
 
     }
 

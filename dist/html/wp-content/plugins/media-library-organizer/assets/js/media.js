@@ -1,3 +1,5 @@
+var mediaLibraryOrganizerUploader = false;
+
 jQuery( document ).ready( function( $ ) {
 
 	/**
@@ -31,7 +33,7 @@ jQuery( document ).ready( function( $ ) {
 } );
 
 /**
- * Fires events for the life cycle of an attachment being uploaded and deleted
+ * Fetches the uploader instance, and fires events for the life cycle of an attachment being uploaded and deleted
  *
  * @since 	1.2.3
  */
@@ -460,21 +462,22 @@ jQuery( document ).ready( function( $ ) {
 } ) ( jQuery, _ );
 
 /**
- * When uploading to a grid view, if a Category filter has been applied
- * assign the selected Category to the uploaded Attachment(s).
- *
- * @since 	1.2.3
- * 
-
-/**
  * Update multipart_params when the uploader is first initialized
  *
  * @since 	1.2.3
  */
 wp.media.events.on( 'mlo:grid:attachment:upload:init', function() {
 
-	wp.media.frame.uploader.uploader.uploader.settings.multipart_params.media_library_organizer = {
-		'mlo-category': media_library_organizer_media.selected_term
+	// Fetch wp.media.frame.uploader, so we persist it when the user switches
+	// between grid view and inline editing in grid view.
+	if ( ! mediaLibraryOrganizerUploader && typeof wp.media.frame.uploader !== 'undefined' ) {
+		mediaLibraryOrganizerUploader = wp.media.frame.uploader;
+	}
+
+	if ( mediaLibraryOrganizerUploader ) {
+		mediaLibraryOrganizerUploader.uploader.uploader.settings.multipart_params.media_library_organizer = {
+			'mlo-category': media_library_organizer_media.selected_term
+		}
 	}
 
 } );
@@ -489,8 +492,10 @@ wp.media.events.on( 'mlo:grid:attachment:upload:init', function() {
  */
 wp.media.events.on( 'mlo:grid:filter:change:mlo-category', function( atts ) { 
 
-	wp.media.frame.uploader.uploader.uploader.settings.multipart_params.media_library_organizer = {
-		'mlo-category': atts.slug
+	if ( mediaLibraryOrganizerUploader ) {
+		mediaLibraryOrganizerUploader.uploader.uploader.settings.multipart_params.media_library_organizer = {
+			'mlo-category': atts.slug
+		}
 	}
 
 } );

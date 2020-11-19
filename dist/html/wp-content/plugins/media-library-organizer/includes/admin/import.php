@@ -294,7 +294,8 @@ class Media_Library_Organizer_Import {
                 // Skip if an error occured
                 if ( is_wp_error( $result ) ) {
                     $terms_errors[] = sprintf(
-                        __( 'Term Name: %s, Error: %s', 'media-library-organizer' ),
+                        /* translators: %1$s: Term name to create, %2$s: Error message from attempting to create term */
+                        __( 'Term Name: %1$s, Error: %2$s', 'media-library-organizer' ),
                         $child_term->name,
                         $result->get_error_message()
                     );
@@ -313,6 +314,7 @@ class Media_Library_Organizer_Import {
                 return new WP_Error(
                     'media_library_organizer_import_import_third_party_taxonomy_terms',
                     sprintf(
+                        /* translators: Errors when trying to import Terms from another Plugin */
                         __( 'No Terms were imported, as the following errors were encountered: %s', 'media-library-organizer' ),
                         '<br />' . implode( '<br />', $terms_errors )
                     )
@@ -354,7 +356,8 @@ class Media_Library_Organizer_Import {
                 // Store error if something went wrong
                 if ( is_wp_error( $result ) ) {
                     $terms_errors[] = sprintf(
-                        __( 'Attachment ID: %s, Term IDs: %s, Error: %s', 'media-library-organizer' ),
+                        /* translators: %1$s: Attachment ID, %2$s: Term IDs to assign to Attachment ID, %3$s: Error message when trying to assign Terms to Attachment */
+                        __( 'Attachment ID: %1$s, Term IDs: %2$s, Error: %3$s', 'media-library-organizer' ),
                         $attachment_id,
                         implode( ',', $term_ids ),
                         $result->get_error_message()
@@ -368,6 +371,7 @@ class Media_Library_Organizer_Import {
             return new WP_Error(
                 'media_library_organizer_import_import_third_party_taxonomy_terms',
                 sprintf(
+                    /* translators: Errors encountered when trying to import and assign Terms to Attachments */
                     __( 'Terms were imported, however some errors were encountered.  They may have no impact on the import, but you\'ll need to check: %s', 'media-library-organizer' ),
                     '<br />' . implode( '<br />', $terms_errors )
                 )

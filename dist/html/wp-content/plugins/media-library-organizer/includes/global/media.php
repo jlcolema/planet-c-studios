@@ -129,40 +129,7 @@ class Media_Library_Organizer_Media {
 
         // Taxonomy Filter
         if ( $this->base->get_class( 'settings' )->get_setting( 'general', 'taxonomy_enabled' ) ) {
-            $taxonomy_filter_args = array(
-                'show_option_all'   => __( 'All Media Categories', 'media-library-organizer' ),
-                'show_option_none'   => __( '(Unassigned)', 'media-library-organizer' ),
-                'option_none_value' => -1,
-                'orderby'           => 'name',
-                'order'             => 'ASC',
-                'show_count'        => true,
-                'hide_empty'        => false,
-                'echo'              => true,
-                'selected'          => $this->get_selected_terms_slugs(),
-                'hierarchical'      => true,
-                'name'              => $this->base->get_class( 'taxonomy' )->taxonomy_name,
-                'id'                => $this->base->get_class( 'taxonomy' )->taxonomy_name,
-                'taxonomy'          => $this->base->get_class( 'taxonomy' )->taxonomy_name,
-                'value_field'       => 'slug',
-            );
-
-            /**
-             * Define the wp_dropdown_categories() compatible arguments for the Media Categories Taxonomy Filter
-             * in the Media Library List View
-             *
-             * @since   1.1.1
-             *
-             * @param   array $taxonomy_filters_args    wp_dropdown_categories() compatible arguments
-             */
-            $taxonomy_filter_args = apply_filters( 'media_library_organizer_media_output_list_table_filters_taxonomy_filter_args', $taxonomy_filter_args );
-
-            // Filter the output of wp_dropdown_categories()
-            add_filter( 'wp_dropdown_cats', array( $this, 'output_list_table_filters_taxonomy' ), 10, 2 );
-
-            wp_dropdown_categories( $taxonomy_filter_args );
-
-            // Remove filter for output of wp_dropdown_categories(), so we don't affect any other calls to this function
-            remove_filter( 'wp_dropdown_cats', array( $this, 'output_list_table_filters_taxonomy' ) );
+            echo $this->get_list_table_category_filter();
         }
 
         /**
@@ -179,6 +146,54 @@ class Media_Library_Organizer_Media {
             include( $this->base->plugin->folder . '/views/global/media-list-view-order.php' );
 
         }
+
+    }
+
+    /**
+     * Fetches the List Table Category Filter <select> dropdown
+     *
+     * @since   1.2.6
+     *
+     * @return  string  <select> Output
+     */
+    public function get_list_table_category_filter() {
+
+        $taxonomy_filter_args = array(
+            'show_option_all'   => __( 'All Media Categories', 'media-library-organizer' ),
+            'show_option_none'   => __( '(Unassigned)', 'media-library-organizer' ),
+            'option_none_value' => -1,
+            'orderby'           => 'name',
+            'order'             => 'ASC',
+            'show_count'        => true,
+            'hide_empty'        => false,
+            'echo'              => false,
+            'selected'          => $this->get_selected_terms_slugs(),
+            'hierarchical'      => true,
+            'name'              => $this->base->get_class( 'taxonomy' )->taxonomy_name,
+            'id'                => $this->base->get_class( 'taxonomy' )->taxonomy_name,
+            'taxonomy'          => $this->base->get_class( 'taxonomy' )->taxonomy_name,
+            'value_field'       => 'slug',
+        );
+
+        /**
+         * Define the wp_dropdown_categories() compatible arguments for the Media Categories Taxonomy Filter
+         * in the Media Library List View
+         *
+         * @since   1.1.1
+         *
+         * @param   array $taxonomy_filters_args    wp_dropdown_categories() compatible arguments
+         */
+        $taxonomy_filter_args = apply_filters( 'media_library_organizer_media_output_list_table_filters_taxonomy_filter_args', $taxonomy_filter_args );
+
+        // Filter the output of wp_dropdown_categories()
+        add_filter( 'wp_dropdown_cats', array( $this, 'output_list_table_filters_taxonomy' ), 10, 2 );
+
+        $output = wp_dropdown_categories( $taxonomy_filter_args );
+
+        // Remove filter for output of wp_dropdown_categories(), so we don't affect any other calls to this function
+        remove_filter( 'wp_dropdown_cats', array( $this, 'output_list_table_filters_taxonomy' ) );
+
+        return $output;
 
     }
 
@@ -249,6 +264,9 @@ class Media_Library_Organizer_Media {
                 'orderby_enabled'   => $this->base->get_class( 'settings' )->get_setting( 'user-options', 'orderby_enabled' ),
                 'orderby'           => $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'orderby' ),
             ),
+
+            // Media View
+            'media_view' => Media_Library_Organizer()->get_class( 'common' )->get_media_view(), // list|grid
         ) );
 
         // JS: Register
