@@ -61,6 +61,7 @@ Section: Contact
 			color: $color-base-black;
 			background: $color-base-white;
 			border-radius: 8px;
+			mix-blend-mode: screen;
 			cursor: pointer;
 			
 			&:hover {}
