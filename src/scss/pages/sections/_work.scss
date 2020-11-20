@@ -46,7 +46,13 @@ Section: Work
 			padding: 0 0.375em; // This helps match alignment on the left and right sides.
 			font-size: 1.125rem;
 			text-transform: none;
-			// text-align: center;
+			text-align: center;
+
+			@media screen and (min-width: 900px) {
+
+				text-align: left;
+
+			}
 
 		}
 
@@ -59,11 +65,19 @@ Section: Work
 			align-items: flex-start;
 			align-content: flex-start;
 
-			margin: 1em 0 0 0;
+			width: 100%;
+			max-width: 460px;
+			margin: 1em auto 0 auto;
 			padding: 0;
 			list-style: none;
 
 			// background: darken(pink, 10%);
+
+			@media screen and (min-width: 900px) {
+
+				max-width: none;
+
+			}
 
 		}
 
@@ -220,12 +234,20 @@ Section: Work
 
 				.work__repeater {
 
+					display: none;
+
 					position: absolute;
 					left: 0;
 					top: 0;
 					width: 190px;
 					height: 280px;
 					z-index: -1 !important;
+
+					@media screen and (min-width: 900px) {
+
+						display: block;
+
+					}
 
 				}
 
