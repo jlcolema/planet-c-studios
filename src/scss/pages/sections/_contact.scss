@@ -207,6 +207,13 @@ Section: Contact
 
 				margin: 1em 0.50em 0 0.50em;
 
+				a {
+
+					color: $color-base-white;
+					text-decoration: none;
+
+				}
+
 			}
 
 			.contact__email {
@@ -272,6 +279,15 @@ Section: Contact
 
 							.location__postal-code {}
 
-					.location__tel {}
+					.location__tel {
+
+						a {
+
+							color: $color-base-white;
+							text-decoration: none;
+
+						}
+
+					}
 
 						.location__label {}
