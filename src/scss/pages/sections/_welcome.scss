@@ -25,6 +25,7 @@ Section: Welcome
 		width: 100%;
 		max-width: 700px;
 		height: 100vh;
+		min-height: 460px; // Helps keeps content from overlapping when at a very narrow viewport height.
 		margin: 0 auto;
 
 		// background: darken(pink, 5%);
