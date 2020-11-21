@@ -8,7 +8,7 @@ Section: Welcome
 
 	position: relative;
 	margin-bottom: -4vw; // Pulls next section up so that curves overlap.
-	padding-bottom: 4vw; // Padding bottom gives space back due to margin-bottom.
+	padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
 
 	// background: pink;
 
@@ -16,33 +16,70 @@ Section: Welcome
 
 	.welcome__inner-wrap {
 
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
+
 		width: 100%;
-		// max-width: 960px;
+		max-width: 700px;
+		height: 100vh;
 		margin: 0 auto;
-		padding: 0 1.25em;
+
 		// background: darken(pink, 5%);
 
-		@media screen and (min-width: 500px) {
+		// Animation test...
 
-			padding: 0 2.5em;
-
-		}
-
-		@media screen and (min-width: 700px) {
-
-			padding: 0 5.625em;
-
-		}
+		// animation-name: inner-wrap;
+		// animation-duration: 1s;
+		// animation-iteration-count: 1;
+		// animation-direction: normal;
+		// animation-timing-function: ease-in-out;
+		// animation-fill-mode: forwards;
+		// animation-delay: 3s;
 
 	}
 
 		.welcome__header {
 
-			display: none; // Temporarily hidden.
+			position: relative;
+			left: -1em;
+
+			margin: 0;
+			font-size: 3rem;
+			line-height: 1.40;
+			opacity: 0;
+
+			// Animation test...
+
+			animation-name: welcome-header;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 0.75s;			
+
+		}
+
+		@keyframes welcome-header {
+
+			from {}
+
+			to {
+
+				left: 0;
+				opacity: 1;
+
+			}
 
 		}
 
 		.services__list {
+
+			position: relative;
+			left: -2em;
 
 			display: flex;
 			flex-direction: column;
@@ -51,14 +88,38 @@ Section: Welcome
 			align-items: flex-start;
 			align-content: flex-start;
 
-			width: 100%;
-			max-width: 400px;
-			min-height: 100vh;
+			// width: 100%;
+			// max-width: 400px;
+			// min-height: 100vh;
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			opacity: 0;
 
 			// background: darken(pink, 10%);
+
+			// Animation test...
+
+			animation-name: services-list;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 1s;
+
+		}
+
+		@keyframes services-list {
+
+			from {}
+
+			to {
+
+				left: 0;
+				opacity: 1;
+
+			}
 
 		}
 
