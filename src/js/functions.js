@@ -213,21 +213,20 @@
 
 		});
 
-		// $('.nav__label').click( function() {
+		/* Infinite Slide
+		--------------------------------------*/
 
-			// $(this).parent().next().toggleClass('nav__list--is-open');
+		// Adds automatic scrolling to the Key Collaborators section.
 
-			// $('body').addClass('primary-nav-is-open');
+		$('.infinite-slide').infiniteslide({
 
-		// });
+			'speed': 25, // speed is in px/min.
+			'direction': 'left', // choose up, down, left, or right.
+			'pauseonhover': true, // if true, stop on mouseover.
+		// 	'responsive': false, // width/height recalculation on window resize.
+		// 	'clone': 1, // if child elements are too few.
 
-		// $('.c-primary-nav__toggle').click( function() {
-
-		// 	$(this).parent().removeClass('c-primary-nav--is-open');
-
-		// 	$('body').removeClass('primary-nav-is-open');
-
-		// });
+		});
 
 		/* Smooth Scroll
 		--------------------------------------*/

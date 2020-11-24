@@ -204,7 +204,7 @@
 
 					<?php if ( $key_collaborators ) : ?>
 
-						<ul class="members__list members__list--key-collaborators">
+						<ul class="members__list members__list--key-collaborators infinite-slide">
 
 							<?php foreach ( $key_collaborators as $post ) : ?>
 
@@ -238,11 +238,11 @@
 											
 										<?php if ( $member_photo ) : ?>
 
-											<img src="<?php echo $member_photo_small[0]; ?>" srcset="<?php echo $member_photo_large[0]; ?> 2x" alt="A photo of <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img" />
+											<img src="<?php echo $member_photo_small[0]; ?>" srcset="<?php echo $member_photo_large[0]; ?> 2x" alt="A photo of <?php the_title(); ?>" width="60" height="60" decoding="async" loading="" class="member__img" />
 
 										<?php else : ?>
 
-											<img src="https://via.placeholder.com/60x60.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php the_title(); ?>" width="60" height="60" decoding="async" loading="lazy" class="member__img member__img--is-placeholder" />
+											<img src="https://via.placeholder.com/60x60.png?text=Placeholder+Photo" srcset="https://via.placeholder.com/120x120.png?text=Placeholder+Photo 2x" alt="A placeholder photo for <?php the_title(); ?>" width="60" height="60" decoding="async" loading="" class="member__img member__img--is-placeholder" />
 
 										<?php endif; ?>
 
