@@ -77,6 +77,7 @@ gulp.task('js', function() {
 
 		basePaths.dev + 'js/plugins/slick-1.8.0.js',
 		basePaths.dev + 'js/plugins/smooth-scroll-2.2.0.js',
+		basePaths.dev + 'js/plugins/infinite-slide-2.0.1.js',
 
 		// basePaths.dev + 'js/plugins/selectboxit-3.8.1.js',
 
