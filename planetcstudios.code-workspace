@@ -1,12 +1,18 @@
 {
 	"folders": [
 		{
+			// The entire project folder
+			"name": "Everything",
 			"path": "."
 		},
 		{
+			// Source files
+			"name": "Source Files",
 			"path": "src"
 		},
 		{
+			// Theme files
+			"name": "Theme",
 			"path": "dist/html/wp-content/themes/planetcstudios"
 		}
 	],
