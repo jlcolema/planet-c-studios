@@ -96,9 +96,11 @@
 
 		<?php
 
+			$s_welcome_background_image = get_field( 's_welcome_background_image' );
+
 			// Image Attachment
 
-			$s_welcome_background_image_attachment_id = get_field( 's_welcome_background_image', $s_welcome_background_image->ID );
+			$s_welcome_background_image_attachment_id = get_field( 's_welcome_background_image' );
 
 			// Size Options
 
@@ -111,8 +113,6 @@
 			$s_welcome_background_image_x_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_x_large );
 			$s_welcome_background_image_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_large );
 			$s_welcome_background_image_small = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_small );
-
-			$s_welcome_background_image = get_field( 's_welcome_background_image' );
 
 		?>
 
