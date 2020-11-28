@@ -73,7 +73,7 @@
 
 			// Cover
 
-			$proposal_cover_attachment_id = get_field( 'proposal_cover', $proposal->ID );
+			$proposal_cover_attachment_id = get_field( 'proposal_cover' );
 
 			// Size Labels
 
@@ -218,7 +218,7 @@
 
 										// Cover
 
-										$project_cover_attachment_id = get_field( 'project_cover', $project->ID );
+										$project_cover_attachment_id = get_field( 'project_cover' );
 
 										// Size Labels
 
