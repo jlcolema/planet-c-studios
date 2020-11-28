@@ -3,7 +3,7 @@ Contributors: Backup with UpdraftPlus, DavidAnderson, DNutbourne, aporter, snigh
 Tags: backup, restore, database backup, wordpress backup, cloud backup, s3, dropbox, google drive, onedrive, ftp, backups
 Requires at least: 3.2
 Tested up to: 5.6
-Stable tag: 1.16.36
+Stable tag: 1.16.41
 Author URI: https://updraftplus.com
 Donate link: https://david.dw-perspective.org.uk/donate
 License: GPLv3 or later
@@ -12,7 +12,7 @@ Backup and restoration made easy. Complete backups; manual or scheduled (backup 
 
 == Description ==
 
-<a href="https://updraftplus.com">UpdraftPlus</a> simplifies backups and restoration. It is the world's highest ranking and most popular scheduled backup plugin, with over two million currently-active installs. Backup your files and database backups into the cloud and restore with a single click!
+<a href="https://updraftplus.com">UpdraftPlus</a> simplifies backups and restoration. It is the world's highest ranking and most popular scheduled backup plugin, with over three million currently-active installs. Backup your files and database backups into the cloud and restore with a single click!
 
 Backup into the cloud directly to Dropbox, Google Drive, Amazon S3 (or compatible), UpdraftVault, Rackspace Cloud, FTP, DreamObjects, Openstack Swift, and email. The paid version also backs up to Microsoft OneDrive, Microsoft Azure, Google Cloud Storage, Backblaze B2, SFTP, SCP, and WebDAV.
 
@@ -44,7 +44,7 @@ Unlike many other plugins, UpdraftPlus:
 * Backs up to more cloud options than any others
 * Allows you to set up automatic backup schedules, for the ultimate in convenience
 * Is faster, using up fewer server resources
-* Has been tested on over 1 million sites
+* Has been tested on over 3 million sites
 
 On our website, we've got a whole page dedicated to how our Premium version compares with the competition <a href="https://updraftplus.com/comparison-updraftplus-free-updraftplus-premium/">here</a>
 
@@ -167,6 +167,24 @@ Unfortunately not; since this is free software, there’s no warranty and no gua
 The <a href="https://updraftplus.com/news/">UpdraftPlus backup blog</a> is the best place to learn in more detail about any important changes.
 
 N.B. Paid versions of UpdraftPlus Backup / Restore have a version number which is 1 higher in the first digit, and has an extra component on the end, but the changelog below still applies. i.e. changes listed for 1.16.32.x of the free version correspond to changes made in 2.16.32.x of the paid version.
+
+= 1.16.41 - 27/Nov/2020 =
+
+* TWEAK: Don't repeat sending the 'upload_complete' command to a remotesend destination after it succeeded the first time
+* TWEAK: Update the udrpc library
+* TWEAK: In UpdraftClone, delay the temporary_clone_ready_for_restore signal until the browser connection is closed (preventing a loss of response)
+
+= 1.16.40 - 25/Nov/2020 =
+
+* TWEAK: Cycle Dropbox API client ID (old one has been cycled and no longer works)
+
+= 1.16.37 - 23/Nov/2020 =
+
+* FIX: Scheduled backups to remote storage not being correctly sent in 1.16.35/36 in the absence of the "More Storage" add-on
+* TWEAK: Wording tweak to clarify the effect of the conditional logic settings
+* TWEAK: Add a warning to the restore page to inform the user if JavaScript is broken and as a result the restore won't start
+* TWEAK: Replace intval() with casting to (int)
+* TWEAK: If the first fetch from a table failed, then the algorithm to fetch fewer rows failed to reduce the fetch size more than once
 
 = 1.16.36 - 20/Nov/2020 =
 
@@ -1154,4 +1172,4 @@ Reliance upon any non-English translation is at your own risk; UpdraftPlus can g
 We recognise and thank those mentioned at https://updraftplus.com/acknowledgements/ for code and/or libraries used and/or modified under the terms of their open source licences.
 
 == Upgrade Notice ==
-* 1.16.36: Many and various small improvements and fixes, including a fix and mitigation to a backup corruption issue on the term_relationships table in 1.16.30-34. A strongly recommended update for all.
+* 1.16.41: Update the Dropbox client ID (necessary for new authentications). Prevent unnecessary resumptions when creating a clone. A recommended update for all.

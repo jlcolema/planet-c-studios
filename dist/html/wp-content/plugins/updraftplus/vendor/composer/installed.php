@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'e4b44190b173ff94847d92697c66e31bf857da27',
+    'reference' => 'd27a6e251a2cd227da3cb31980b4071e29e8db30',
     'name' => 'updraftplus/updraftplus',
   ),
   'versions' => 
@@ -273,15 +273,6 @@
       ),
       'reference' => 'b8648cf1d5af12a44a51d07ef9bf980921f15fca',
     ),
-    'team-updraft/common-libs' => 
-    array (
-      'pretty_version' => '3.0.0',
-      'version' => '3.0.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => 'v3.0.0',
-    ),
     'updraftplus/updraftplus' => 
     array (
       'pretty_version' => 'dev-master',
@@ -289,7 +280,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'e4b44190b173ff94847d92697c66e31bf857da27',
+      'reference' => 'd27a6e251a2cd227da3cb31980b4071e29e8db30',
     ),
   ),
 );
