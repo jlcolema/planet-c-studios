@@ -128,3 +128,12 @@ Section: Clients
 						@media screen and (min-width: 600px) {}
 
 					}
+
+					.featured-client__logo svg {
+
+						display: block;
+						width: 114px;
+						height: 80px;
+						// background: green;
+
+					}

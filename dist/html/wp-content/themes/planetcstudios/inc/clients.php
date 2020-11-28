@@ -26,6 +26,8 @@
 
 						// Options...
 
+						$client_logo = get_field( 'client_logo' );
+
 					?>
 
 					<?php setup_postdata( $post ); ?>
@@ -34,7 +36,7 @@
 
 						<div class="featured-client__logo">
 
-							<img src="<?php the_field( 'client_logo' ); ?>" alt="Logo for <?php the_title(); ?>" class="featured-client__img" />
+							<?php echo file_get_contents( $client_logo ); ?>
 
 						</div>
 
