@@ -311,19 +311,18 @@
 		/* Screen Size
 		--------------------------------------*/
 
-		// Add class of "dev" to <body>
-
-		$("body").addClass("dev");
-
-		// Displays screen size on the fly.
-
-		var windowWidth = $(window).width();
-
-		var windowHeight = $(window).height();
+		// Add a div after the footer to display screen size.
 
 		$(".footer").after('<div id="dev"></div>');
 
-		$("#dev").text(windowWidth + ' ' + 'W' + ' ' + '/' + ' ' + windowHeight + ' ' + 'H');
+		$("#dev").text( $(window).width() + " W / " + $(window).height() + " H"),
+		
+		$(window).resize(function() {
+		
+			$("#dev").text( $(window).width() + " W / " + $(window).height() + " H")
+		
+		})
+
 
 	});
 
@@ -337,17 +336,6 @@
 		--------------------------------------*/
 
 		// Notes...
-
-		/* Screen Size
-		--------------------------------------*/
-
-		// Displays screen size on the fly.
-
-		var windowWidth = $(window).width();
-
-		var windowHeight = $(window).height();
-
-		$("#dev").text(windowWidth + ' ' + 'W' + ' ' + '/' + ' ' + windowHeight + ' ' + 'H');
 
 	});
 
