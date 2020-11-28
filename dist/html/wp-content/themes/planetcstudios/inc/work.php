@@ -28,7 +28,7 @@
 
 						// Cover
 
-						$project_cover_attachment_id = get_field( 'project_cover', $project->ID );
+						$project_cover_attachment_id = get_field( 'project_cover', $post->ID );
 
 						// Size Labels
 
