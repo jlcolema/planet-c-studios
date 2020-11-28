@@ -104,8 +104,9 @@ class Media_Library_Organizer_Tree_View_Media {
                 'action'        => 'media_library_organizer_tree_view_get_tree_view',
                 'nonce'         => wp_create_nonce( 'media_library_organizer_tree_view_get_tree_view' ),
             ),
-            'selected_term' => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_slugs(),
-            'media_view' => Media_Library_Organizer()->get_class( 'common' )->get_media_view(), // list|grid
+            'selected_term'     => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_slugs(),
+            'media_view'        => Media_Library_Organizer()->get_class( 'common' )->get_media_view(), // list|grid
+            'jstree'            => Media_Library_Organizer()->get_class( 'settings' )->get_setting( 'tree-view', 'expand_collapse' ),
         );
 
         // Add Context Menu to Add, Edit and Delete Categories if the User's Role permits this
@@ -209,6 +210,9 @@ class Media_Library_Organizer_Tree_View_Media {
 
         // Get Tree View
         $output = $this->get_tree_view( Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_ids() );
+
+        // Check is JSTree enabled
+        $jstree_enabled = Media_Library_Organizer()->get_class( 'settings' )->get_setting( 'tree-view', 'jstree_enabled' );
 
         // Output
         require_once( $this->base->plugin->folder . '/views/admin/media.php' );

@@ -9,13 +9,13 @@ var mediaLibraryOrganizerTreeViewGridSelectedAttachments,
 function mediaLibraryOrganizerTreeViewContextMenuInit() {
 
 	( function( $ ) {
-		$( '#media-library-organizer-tree-view-jstree' ).contextmenu( {
+		$( '#media-library-organizer-tree-view-list' ).contextmenu( {
 			delegate:   '.cat-item',
 			menu:       media_library_organizer_tree_view.context_menu,
 			select:     function( event, ui ) {
 				// Get selected Term ID and Name
-				var   term_id = $( 'span.count', ui.target.parent() ).data( 'term-id' ),
-				term_name = ui.target.text();
+				var term_id = mediaLibraryOrganizerTreeViewGetTermIDFromElement( ui.target.parent() ),
+					term_name = ui.target.text();
 
 				switch ( ui.cmd ) {
 					case 'create_term':
@@ -57,7 +57,9 @@ function mediaLibraryOrganizerTreeViewAddCategory( term_id ) {
 				'action':                media_library_organizer_tree_view.create_term.action,
 				'nonce':                 media_library_organizer_tree_view.create_term.nonce,
 				'term_name':             new_term_name,
-				'term_parent_id':        term_id
+				'term_parent_id':        term_id,
+				// Currently selected Term, so it's given .current-cat in the response data
+				'mlo-category': 		 media_library_organizer_tree_view.selected_term, 
 		 	},
 		 	function( response ) {
 
@@ -92,7 +94,7 @@ function mediaLibraryOrganizerTreeViewAddCategory( term_id ) {
 				}
 
 				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet( term_id );
+				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
 
 		 	}
 	  	);
@@ -131,7 +133,9 @@ function mediaLibraryOrganizerTreeViewEditCategory( term_id, term_name ) {
 				'action':                media_library_organizer_tree_view.edit_term.action,
 				'nonce':                 media_library_organizer_tree_view.edit_term.nonce,
 				'term_id':               term_id,
-				'term_name':             new_term_name
+				'term_name':             new_term_name,
+				// Currently selected Term, so it's given .current-cat in the response data
+				'mlo-category': 		 media_library_organizer_tree_view.selected_term, 
 			},
 			function( response ) {
 
@@ -179,7 +183,7 @@ function mediaLibraryOrganizerTreeViewEditCategory( term_id, term_name ) {
 				}
 
 				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet( term_id );
+				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
 
 			}
 		);
@@ -216,7 +220,9 @@ function mediaLibraryOrganizerTreeViewDeleteCategory( term_id, term_name ) {
 			{
 				'action':                media_library_organizer_tree_view.delete_term.action,
 				'nonce':                 media_library_organizer_tree_view.delete_term.nonce,
-				'term_id':               term_id
+				'term_id':               term_id,
+				// Currently selected Term, so it's given .current-cat in the response data
+				'mlo-category': 		 media_library_organizer_tree_view.selected_term, 
 			},
 			function( response ) {
 
@@ -269,7 +275,7 @@ function mediaLibraryOrganizerTreeViewDeleteCategory( term_id, term_name ) {
 				}
 
 				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet();
+				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
 
 			}
 		);
@@ -363,7 +369,7 @@ function mediaLibraryOrganizerTreeViewAssignAttachmentsToCategory( attachment_id
 				}
 
 				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet();
+				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
 
 			}
 		);
@@ -381,7 +387,7 @@ function mediaLibraryOrganizerTreeViewContextualButtons() {
 
    	( function( $ ) {
 
-	 	if ( $( '#media-library-organizer-tree-view-jstree .current-cat' ).length ) {
+	 	if ( $( '#media-library-organizer-tree-view-list .current-cat' ).length ) {
 			// Enable
 		 	$( 'button.media-library-organizer-tree-view-edit' ).prop( 'disabled', false );
 		 	$( 'button.media-library-organizer-tree-view-delete' ).prop( 'disabled', false );
@@ -419,7 +425,14 @@ function mediaLibraryOrganizerTreeViewGet( current_term ) {
 				   return false;
 				}
 
-				$( '#media-library-organizer-tree-view-jstree' ).html( response.data );
+				// Destroy JSTree
+				mediaLibraryOrganizerTreeViewDestroyJsTree();
+
+				// Inject Tree View into DOM
+				$( '#media-library-organizer-tree-view-list' ).html( response.data );
+
+				// Init JSTree
+				mediaLibraryOrganizerTreeViewInitJsTree();
 
 				// Enable or Disable Rename and Delete when a Category is selected
 				mediaLibraryOrganizerTreeViewContextualButtons();
@@ -434,6 +447,54 @@ function mediaLibraryOrganizerTreeViewGet( current_term ) {
 		);
 
    	} )( jQuery );
+
+}
+
+/**
+ * Initialize the Tree View JSTree
+ *
+ * @since   1.2.7
+ */
+function mediaLibraryOrganizerTreeViewInitJsTree() {
+
+	( function( $ ) {
+
+		if ( $( '.media-library-organizer-tree-view-enabled' ).length ) {
+			// If a subcategory was selected, open all .current-cat-ancestor list items,
+			// so the user can see the subcategory
+			$( 'li.current-cat-ancestor', $( '.media-library-organizer-tree-view-enabled' ) ).each( function() {
+				$( this ).addClass( 'jstree-open' );
+			} );
+			
+			// Init JSTree
+			$( '.media-library-organizer-tree-view-enabled' ).jstree()
+				.bind( 'select_node.jstree', function( e, data ) {
+					document.location.href = data.node.a_attr.href;
+				} )
+				.bind( 'open_node.jstree', function( e, data ) {
+					// Re-init droppable targets as new categories are displayed in the Tree View
+					mediaLibraryOrganizerTreeViewInitDroppable();
+				} );
+		}
+
+	} )( jQuery );
+
+}
+
+/**
+ * Destroys the Tree View JSTree
+ *
+ * @since   1.2.7
+ */
+function mediaLibraryOrganizerTreeViewDestroyJsTree() {
+
+	( function( $ ) {
+
+		if ( $( '.media-library-organizer-tree-view-enabled' ).length ) {
+			$( '.media-library-organizer-tree-view-enabled' ).jstree( 'destroy' );	
+		}
+
+	} )( jQuery );
 
 }
 
@@ -561,7 +622,7 @@ function mediaLibraryOrganizerTreeViewInitDroppable() {
 
 	( function( $ ) {
 
-		$( '#media-library-organizer-tree-view-jstree li.cat-item a' ).droppable( {
+		$( '#media-library-organizer-tree-view-list li.cat-item a' ).droppable( {
 			hoverClass: 'media-library-organizer-tree-view-droppable-hover',
 			drop: function( event, ui ) {
 				// Get Attachment IDs from helper
@@ -570,8 +631,10 @@ function mediaLibraryOrganizerTreeViewInitDroppable() {
 					attachment_ids = attachment_ids.toString().split( ',' );
 				}
 			   
-				// Get Term ID we droppe the items on
-				var term_id = $( 'span.count', $( event.target ).parent() ).data( 'term-id' );
+				// Get Term ID we dropped the items on
+				$( event.target ).parent()
+
+				var term_id = mediaLibraryOrganizerTreeViewGetTermIDFromElement( $( event.target ).parent() );
 
 				// Assign Attachments to Category
 				mediaLibraryOrganizerTreeViewAssignAttachmentsToCategory( attachment_ids, term_id );
@@ -580,6 +643,41 @@ function mediaLibraryOrganizerTreeViewInitDroppable() {
 
 	} )( jQuery );
  
+}
+
+/**
+ * Extracts the Term ID from the given <li> Tree View element
+ *
+ * @since 	1.2.7
+ *
+ * @param 	DOMElement 	element 	The <li> element
+ * @return 	int 					Term ID
+ */
+function mediaLibraryOrganizerTreeViewGetTermIDFromElement( element ) {
+
+	// Bail if no CSS classes exist on the element
+	if ( typeof element[0] === 'undefined' ) {
+		return false;
+	}
+	if ( typeof element[0].className === 'undefined' ) {
+		return false;
+	}
+
+	var css_classes = element[0].className.split( ' ' );
+
+	for ( var i = 0; i < css_classes.length; i++ ) {
+		// Skip if this isn't the class we're looking for
+		if ( css_classes[ i ].search( 'cat-item-' ) == -1 ) {
+			continue;
+		}
+
+		// Extract number
+		return css_classes[ i ].replace( 'cat-item-', '' );
+
+	}
+
+	return false;
+
 }
 
 /**
@@ -643,6 +741,9 @@ jQuery( document ).ready( function( $ ) {
 			mediaLibraryOrganizerTreeViewContextMenuInit();
 		}
 
+		// JSTree
+		mediaLibraryOrganizerTreeViewInitJsTree();
+
 		// Draggable
 		mediaLibraryOrganizerTreeViewListInitDraggable();
 
@@ -652,13 +753,14 @@ jQuery( document ).ready( function( $ ) {
 		// Enable or Disable Rename and Delete when a Category is selected
 		mediaLibraryOrganizerTreeViewContextualButtons();
 
+
 		// Add Category
 		$( 'body' ).on( 'click', '.media-library-organizer-tree-view-add', function( e ) {
 
 			e.preventDefault();
 
 			// Get selected Term ID
-			var   term_id = $( '#media-library-organizer-tree-view-jstree .current-cat span.count' ).data( 'term-id' );
+			var term_id = mediaLibraryOrganizerTreeViewGetTermIDFromElement( $( '#media-library-organizer-tree-view-list .current-cat' ) );
 
 			// Add Category
 			mediaLibraryOrganizerTreeViewAddCategory( term_id );
@@ -671,8 +773,8 @@ jQuery( document ).ready( function( $ ) {
 			e.preventDefault();
 
 			// Get selected Term ID and Name
-			var   term_id = $( '#media-library-organizer-tree-view-jstree .current-cat span.count' ).data( 'term-id' ),
-				  term_name = $( '#media-library-organizer-tree-view-jstree .current-cat a' ).text();
+			var term_id = mediaLibraryOrganizerTreeViewGetTermIDFromElement( $( '#media-library-organizer-tree-view-list .current-cat' ) );
+				term_name = $( '#media-library-organizer-tree-view-list .current-cat a' ).text();
 
 			// Edit Category
 			mediaLibraryOrganizerTreeViewEditCategory( term_id, term_name );
@@ -685,8 +787,8 @@ jQuery( document ).ready( function( $ ) {
 			e.preventDefault();
 
 			// Get selected Term ID and Name
-			var   term_id = $( '#media-library-organizer-tree-view-jstree .current-cat span.count' ).data( 'term-id' ),
-				  term_name = $( '#media-library-organizer-tree-view-jstree .current-cat a' ).text();
+			var term_id = mediaLibraryOrganizerTreeViewGetTermIDFromElement( $( '#media-library-organizer-tree-view-list .current-cat' ) );
+				term_name = $( '#media-library-organizer-tree-view-list .current-cat a' ).text();
 
 			// Delete Category
 			mediaLibraryOrganizerTreeViewDeleteCategory( term_id, term_name );
@@ -737,7 +839,7 @@ wp.media.events.on( 'mlo:grid:attachments:received', function( atts ) {
 wp.media.events.on( 'mlo:grid:attachment:upload:success', function( attachment ) { 
 
 	// Reload Tree View
-	mediaLibraryOrganizerTreeViewGet();
+	mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
 
 	clearTimeout( mediaLibraryOrganizerTreeViewGridModified );
 	mediaLibraryOrganizerTreeViewGridModified = setTimeout( function() {
@@ -754,7 +856,7 @@ wp.media.events.on( 'mlo:grid:attachment:upload:success', function( attachment )
 wp.media.events.on( 'mlo:grid:attachments:bulk_actions:done', function() { 
 
 	setTimeout( function() {
-  		mediaLibraryOrganizerTreeViewGet();
+  		mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
   	}, 500 );
 
 } );

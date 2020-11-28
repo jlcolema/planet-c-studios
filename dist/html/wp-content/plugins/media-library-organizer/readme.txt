@@ -3,7 +3,7 @@ Contributors: wpmedialibrary
 Donate link: https://wpmedialibrary.com
 Tags: media categories, media library, media tags, images, organizer
 Requires at least: 5.0
-Tested up to: 5.5.3
+Tested up to: 5.6
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -164,6 +164,10 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 4. Plugin-wide Settings
 
 == Changelog ==
+
+= 1.2.7 (2020-11-26) =
+* Added: Tree View: Option to expand/collapse Categories.  See Docs: https://wpmedialibrary.com/documentation/tree-view/setup/
+* Fix: Tree View: Preserve selected category when adding/editing/deleting Categories and child Categories.
 
 = 1.2.6 (2020-11-19) =
 * Added: Localization support, with .pot file, translators comments and load_plugin_textdomain()

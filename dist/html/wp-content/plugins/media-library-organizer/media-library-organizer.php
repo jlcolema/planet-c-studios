@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Media Library Organizer
 * Plugin URI: https://wpmedialibrary.com
-* Version: 1.2.6
+* Version: 1.2.7
 * Author: WP Media Library
 * Author URI: https://wpmedialibrary.com
 * Description: Organize and Search your Media Library, quicker and easier.
@@ -65,10 +65,10 @@ class Media_Library_Organizer {
         $this->plugin->name             = 'media-library-organizer';
         $this->plugin->displayName      = 'Media Library Organizer';
         $this->plugin->author_name      = 'Media Library Organizer';
-        $this->plugin->version          = '1.2.6';
-        $this->plugin->buildDate        = '2020-11-19 18:00:00';
+        $this->plugin->version          = '1.2.7';
+        $this->plugin->buildDate        = '2020-11-26 18:00:00';
         $this->plugin->requires         = '5.0';
-        $this->plugin->tested           = '5.5.3';
+        $this->plugin->tested           = '5.6';
         $this->plugin->folder           = plugin_dir_path( __FILE__ );
         $this->plugin->url              = plugin_dir_url( __FILE__ );
         $this->plugin->documentation_url= 'https://wpmedialibrary.com/documentation';

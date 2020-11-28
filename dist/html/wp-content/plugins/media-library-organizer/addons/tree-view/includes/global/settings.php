@@ -44,7 +44,8 @@ class Media_Library_Organizer_Tree_View_Settings {
 
         // Define Defaults
         $defaults['tree-view'] = array(
-            'enabled' => 1,
+            'enabled'           => 1,
+            'jstree_enabled'    => 0,
         );
 
         // Return

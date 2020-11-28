@@ -189,7 +189,7 @@ class Media_Library_Organizer_Media {
         add_filter( 'wp_dropdown_cats', array( $this, 'output_list_table_filters_taxonomy' ), 10, 2 );
 
         $output = wp_dropdown_categories( $taxonomy_filter_args );
-
+        
         // Remove filter for output of wp_dropdown_categories(), so we don't affect any other calls to this function
         remove_filter( 'wp_dropdown_cats', array( $this, 'output_list_table_filters_taxonomy' ) );
 
@@ -892,7 +892,7 @@ class Media_Library_Organizer_Media {
 
         // Get selected Terms
         $selected_terms = $this->get_selected_terms();
-        
+
         // Bail if no selected Terms
         if ( ! $selected_terms ) {
             return false;

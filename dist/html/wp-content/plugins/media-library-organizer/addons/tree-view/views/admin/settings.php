@@ -25,6 +25,25 @@
         </div>
 
         <div id="tree-view-enabled">
+            <div class="wpzinc-option">
+                <div class="left">
+                    <strong><?php _e( 'Expand/Collapse', 'media-library-organizer-pro' ); ?></strong>
+                </div>
+                <div class="right">
+                    <select name="tree-view[jstree_enabled]" size="1">
+                        <option value="1"<?php selected( $this->get_setting( 'tree-view', 'jstree_enabled' ), 1 ); ?>>
+                            <?php _e( 'Enabled', 'media-library-organizer-pro' ); ?>
+                        </option>
+                        <option value="0"<?php selected( $this->get_setting( 'tree-view', 'jstree_enabled' ), 0 ); ?>>
+                            <?php _e( 'Disabled', 'media-library-organizer-pro' ); ?>
+                        </option>
+                    </select>
+
+                    <p class="description">
+                        <?php _e( 'If enabled, only top level Categories are displayed in the Tree View. Clicking the icon next to them will reveal Subcategories.', 'media-library-organizer' ); ?>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
