@@ -15,8 +15,9 @@ Page: Work
 
 	// background-blend-mode: overlay, soft-light, difference, normal;
 
-	background: url(../img/work-gradient-small.png) center top no-repeat;
-	background-size: 2000px 100%;
+	background: url(../img/work-gradient-small.png) center bottom no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
 
 	// background: pink;
 
