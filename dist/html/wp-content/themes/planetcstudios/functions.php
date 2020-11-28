@@ -139,7 +139,7 @@ add_action( 'after_setup_theme', 'planetcstudios_theme_support' );
 
 function planetcstudios_register_styles() {
 
-	// $theme_version = wp_get_theme()->get( 'Version' );
+	$theme_version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_style( 'styles', get_template_directory_uri() . '/assets/css/styles.css', array(), $theme_version );
 
@@ -155,7 +155,7 @@ add_action( 'wp_enqueue_scripts', 'planetcstudios_register_styles' );
 
 function planetcstudios_register_scripts() {
 
-	// $theme_version = wp_get_theme()->get( 'Version' );
+	$theme_version = wp_get_theme()->get( 'Version' );
 
 	// if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
