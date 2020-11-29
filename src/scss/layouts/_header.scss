@@ -2,9 +2,23 @@
 Header
 ------------------------------*/
 
-.header {}
+.header {
 
-	.header__wrap {}
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 9999;
+
+}
+
+	.header__wrap {
+
+		height: 120px;
+		background: url(../img/header-curve.svg) center bottom no-repeat;
+		background-size: cover;
+
+	}
 
 		/* Logo */
 
