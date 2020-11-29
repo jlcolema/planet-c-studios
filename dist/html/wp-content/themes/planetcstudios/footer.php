@@ -47,11 +47,17 @@
 
 								$social_service = get_sub_field( 'social_service', 'option' );
 
+								$social_icon = get_sub_field( 'social_icon', 'option' );
+
 							?>
 
 							<li class="social__item social__item--<?php echo esc_attr( $social_service['value'] ); ?>">
 
-								<a href="<?php the_sub_field( 'social_url', 'option' ); ?>" class="social__link"><?php echo esc_html( $social_service['label'] ); ?></a>
+								<a href="<?php the_sub_field( 'social_url', 'option' ); ?>" class="social__link">
+								
+									<?php echo file_get_contents( $social_icon ); ?>
+									
+								</a>
 
 							</li>
 
