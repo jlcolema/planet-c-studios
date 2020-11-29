@@ -4,15 +4,15 @@
 
 	<div class="inner-wrap section__inner-wrap contact__inner-wrap">
 
-		<!-- Header -->
+		<?php /* Header */ ?>
 
-		<h2 class="header section__header contact__header"><?php the_field( 's_contact_header' ); ?></h2>
+		<h2 class="section__header contact__header"><?php the_field( 's_contact_header' ); ?></h2>
 
-		<!-- CTA -->
+		<?php /* CTA */ ?>
 
 		<div class="contact__cta">Make Contact</div>
 
-		<!-- Form -->
+		<?php /* Form */ ?>
 
 		<div class="contact__form">
 
@@ -20,7 +20,7 @@
 
 		</div>
 
-		<!-- Contact Information -->
+		<?php /* Contact Information */ ?>
 
 		<div class="contact__contact-information contact__h-card h-card">
 
@@ -34,7 +34,7 @@
 
 		</div>
 
-		<!-- Locations -->
+		<?php /* Locations */ ?>
 
 		<?php if ( have_rows( 'contact_locations_list', 'option' ) ) : ?>
 

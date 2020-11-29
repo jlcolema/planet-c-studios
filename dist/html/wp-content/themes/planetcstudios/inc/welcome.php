@@ -4,11 +4,11 @@
 
 	<div class="inner-wrap section__inner-wrap welcome__inner-wrap">
 
-		<!-- Header -->
+		<?php /* Header */ ?>
 
-		<h1 class="header section__header welcome__header"><?php the_field( 'about_tagline', 'option' ); ?></h1>
+		<h1 class="section__header welcome__header"><?php the_field( 'about_tagline', 'option' ); ?></h1>
 
-		<!-- List of Services -->
+		<?php /* List of Services */ ?>
 
 		<?php
 
@@ -86,13 +86,15 @@
 
 		<?php endif; ?>
 
-		<!-- CTA -->
+		<?php /* CTA */ ?>
 
 		<div class="welcome__cta">
 
 			<a href="/work/" title="View all of our work" class="welcome__cta-link">Projects</a>
 
 		</div>
+
+		<?php /* Background Image */ ?>
 
 		<?php
 

@@ -4,11 +4,11 @@
 
 	<div class="inner-wrap section__inner-wrap clients__inner-wrap">
 
-		<!-- Header -->
+		<?php /* Header */ ?>
 
-		<h2 class="header section__header clients__header"><?php the_field( 's_clients_header' ); ?></h2>
+		<h2 class="section__header clients__header"><?php the_field( 's_clients_header' ); ?></h2>
 
-		<!-- List of Clients -->
+		<?php /* List of Clients */ ?>
 
 		<?php
 

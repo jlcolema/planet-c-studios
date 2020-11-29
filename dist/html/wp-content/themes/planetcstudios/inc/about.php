@@ -4,15 +4,15 @@
 
 	<div class="inner-wrap section__inner-wrap about__inner-wrap">
 
-		<!-- Header -->
+		<?php /* Header */ ?>
 
-		<h2 class="header section__header about__header">About</h2>
+		<h2 class="section__header about__header">About</h2>
 
-		<!-- Overview -->
+		<?php /* Overview */ ?>
 
 		<div class="about__overview">
 
-			<!-- Mission Statement -->
+			<?php /* Mission Statement */ ?>
 
 			<div class="about__mission-statement">
 
@@ -20,7 +20,7 @@
 
 			</div>
 
-			<!-- Founded -->
+			<?php /* Founded */ ?>
 
 			<div class="about__founded">
 			
@@ -30,7 +30,7 @@
 
 		</div>
 
-		<!-- Members -->
+		<?php /* Members */ ?>
 
 		<div class="about__members">
 

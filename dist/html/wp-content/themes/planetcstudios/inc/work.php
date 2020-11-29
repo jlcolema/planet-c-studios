@@ -4,11 +4,11 @@
 
 	<div class="inner-wrap section__inner-wrap work__inner-wrap">
 
-		<!-- Header -->
+		<?php /* Header */ ?>
 
-		<h2 class="header section__header work__header"><?php the_field( 's_work_header' ); ?></h2>
+		<h2 class="section__header work__header"><?php the_field( 's_work_header' ); ?></h2>
 
-		<!-- Featured Projects -->
+		<?php /* Featured Projects */ ?>
 
 		<?php
 
@@ -117,7 +117,7 @@
 
 		<?php endif; ?>
 
-		<!-- CTA -->
+		<?php /* CTA */ ?>
 
 		<div class="work__cta">
 
