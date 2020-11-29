@@ -151,7 +151,8 @@ gulp.task('watch', function() {
 
 		proxy: "https://planetcstudios.local",
 		host: "planetcstudios.local",
-		open: "external"
+		open: "external",
+		browser: 'microsoft edge'
 
 	});
 
