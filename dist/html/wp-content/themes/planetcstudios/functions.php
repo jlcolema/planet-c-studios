@@ -357,20 +357,6 @@ add_action( 'init', 'planetcstudios_menus' );
 // add_filter( 'tiny_mce_before_init', 'planetcstudios_add_classic_editor_non_latin_styles' );
 
 /**
- * Support for SVG
- */
-
-// Notes...
-
-// function cc_mime_types( $mimes ) {
-
-	// $mimes['svg'] = 'image/svg+xml';
-
-	// return $mimes;
-
-// }
-
-/**
  * Remove Block Library CSS
  */
 
@@ -481,17 +467,19 @@ add_action( 'init', 'deregister_features' );
 
 // Notes...
 
-function add_file_types_to_uploads($file_types) {
+function planetcstudios_custom_upload_mimes( $planetcstudios_existing_mimes ) {
 
-	$new_filetypes = array();
-	$new_filetypes['svg'] = 'image/svg+xml';
-	$file_types = array_merge($file_types, $new_filetypes);
+	// Add SVG to the list of mime types.
 
-	return $file_types;
+	$planetcstudios_existing_mimes['svg'] = 'image/svg+xml';
+
+	// Return the array back to the function with our added mime type.
+
+	return $planetcstudios_existing_mimes;
 
 }
 
-add_action('upload_mimes', 'add_file_types_to_uploads');
+add_filter( 'mime_types', 'planetcstudios_custom_upload_mimes' );
 
 /**
  * Contact Form 7
