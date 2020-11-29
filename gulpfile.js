@@ -73,19 +73,18 @@ gulp.task('js', function() {
 
 	return gulp.src([
 
-		// basePaths.dev + 'js/libraries/file.js',
+		// Libraries
+
+		basePaths.dev + 'js/libraries/jquery.3.5.1.js',
+
+		// Plugins
 
 		basePaths.dev + 'js/plugins/slick-1.8.0.js',
 		basePaths.dev + 'js/plugins/smooth-scroll-2.2.0.js',
 		basePaths.dev + 'js/plugins/infinite-slide-2.0.1.js',
 
-		// basePaths.dev + 'js/plugins/selectboxit-3.8.1.js',
+		// Output
 
-		// basePaths.dev + 'js/modernizr.js',
-		// basePaths.dev + 'js/libraries/jquery-3.5.1.js',
-		// basePaths.dev + 'js/flexslider.js',
-		// basePaths.dev + 'js/scroll.js',
-		// basePaths.dev + 'js/holder.js',
 		basePaths.dev + 'js/functions.js'
 
 	])
