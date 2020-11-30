@@ -17,11 +17,15 @@
 
 <head>
 
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-	<link rel="apple-touch-icon" href="icon.png">
+	<meta name="theme-color" content="#000000" />
+
+	<link rel="apple-touch-icon" href="icon.png" />
+
+	<link rel="manifest" href="<?php bloginfo( 'template_directory' ); ?>/site.webmanifest" />
 
 	<?php wp_head(); ?>
 
