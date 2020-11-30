@@ -331,10 +331,18 @@ Section: Welcome
 				position: absolute;
 				left: 50%;
 				top: 0;
+				width: 100%;
+				min-width: 1644px;
 				max-width: none;
-				height: 100%;
-				// margin-left: 80px; // Improve centered optical alignment.
+				height: auto;
 				transform: translate(-50%, 0);
 				z-index: 1;
+
+				@media screen and (min-width: 1600px) {
+
+					width: 100%;
+					height: auto;
+
+				}
 
 			}
