@@ -41,10 +41,44 @@ Section: Clients
 	mask: url(../img/section-curve.svg) center top no-repeat;
 	mask-size: cover;
 
+	// Option 1: Image
+
 	// background: rgba(green, 0.50);
 
 	background: url(../img/clients-gradient-small.png) center top no-repeat;
 	background-size: cover;
+
+	// Option 2: Gradient
+
+	// background: radial-gradient(ellipse at 24% 0%, #41004a 0%, #000 73.63%),
+	// 			radial-gradient(ellipse at 11% 99%, #f0b730 0%, #000000 65%),
+	// 			radial-gradient(ellipse at 77% 99%, #cc071c 0%, #000 39.84%),
+	// 			radial-gradient(ellipse farthest-side at 96% 51%, #219abf 0%, #000 77.92%),
+	// 			linear-gradient(180deg, #000 0%, #000 100%); 
+
+	// background-blend-mode: screen, screen, screen, screen, normal; 
+	// background-repeat: repeat, repeat, repeat, repeat, repeat; 
+	// background-position: 0 0, 0 0, 0 0, 0 0, 0 0; 
+	// background-size: auto auto, auto auto, auto auto, auto auto, auto auto;
+
+}
+
+@keyframes clients-gradient {
+
+	to {
+
+		background: radial-gradient(ellipse at 93% 10%, #41004a 0%, #000 73.63%),
+					radial-gradient(ellipse at 82% 100%, #f0b730 0%, #000000 65%),
+					radial-gradient(ellipse at 0% 90%, #cc071c 0%, #000 39.84%),
+					radial-gradient(ellipse farthest-side at 30% 100%, #219abf 0%, #000 77.92%),
+					linear-gradient(180deg, #000 0%, #000 100%);
+
+		background-blend-mode: screen, screen, screen, screen, normal;  
+		background-repeat: repeat, repeat, repeat, repeat, repeat; 
+		background-position: 0 0, 0 0, 0 0, 0 0, 0 0; 
+		background-size: auto auto, auto auto, auto auto, auto auto, auto auto;		
+
+	}
 
 }
 
