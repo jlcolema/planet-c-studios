@@ -42,11 +42,25 @@ Section: Work
 
 		.work__header {
 
+			position: relative;
+			top: 2em;
+
 			margin: 0;
 			padding: 0 0.375em; // This helps match alignment on the left and right sides.
 			font-size: 1.125rem;
 			text-transform: none;
 			text-align: center;
+			opacity: 0;
+
+			// Animation test...
+
+			animation-name: work-header;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 1.25s;	
 
 			@media screen and (min-width: 900px) {
 
@@ -56,7 +70,21 @@ Section: Work
 
 		}
 
+		@keyframes work-header {
+
+			to {
+
+				top: 0;
+				opacity: 1;
+
+			}
+
+		}
+
 		.work__list {
+
+			position: relative;
+			top: 2em;
 
 			display: flex;
 			flex-direction: row;
@@ -70,12 +98,34 @@ Section: Work
 			margin: 1em auto 0 auto;
 			padding: 0;
 			list-style: none;
+			opacity: 0;
+
+			// Animation test...
+
+			animation-name: work-list;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 0.75s;	
 
 			// background: darken(pink, 10%);
 
 			@media screen and (min-width: 900px) {
 
 				max-width: none;
+
+			}
+
+		}
+
+		@keyframes work-list {
+
+			to {
+
+				top: 0;
+				opacity: 1;
 
 			}
 
@@ -298,10 +348,35 @@ Section: Work
 
 		.work__cta {
 
+			position: relative;
+			top: 1em;
+
 			margin: 2.5em 0 0 0;
 			font-size: 1.75rem;
 			text-transform: uppercase;
 			text-align: center;
+			opacity: 0;
+
+			// Animation test...
+
+			animation-name: work-cta;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 1.75s;	
+
+		}
+
+		@keyframes work-cta {
+
+			to {
+
+				top: 0;
+				opacity: 1;
+
+			}
 
 		}
 
@@ -311,10 +386,11 @@ Section: Work
 				display: inline-block;
 				height: 50px;
 				padding: 2px 0.75em 0 0.75em;
-				color: $color-base-white;
-				background: transparent;
+				color: $color-base-black;
+				background: $color-base-white;
 				border: 2px solid $color-base-white;
 				border-radius: 25px;
+				mix-blend-mode: screen;
 
 				&:after {
 
@@ -331,6 +407,8 @@ Section: Work
 					background: url(../img/more-arrow.svg) right center no-repeat;
 					background-size: 22px 28px;
 					overflow: hidden;
+					transform: scale(0.75);
+					transition: transform 0.35s ease-in-out;
 					z-index: 1;
 
 				}
@@ -338,6 +416,13 @@ Section: Work
 				&:hover {
 
 					text-decoration: none;
+					
+
+					&:after {
+
+						transform: scale(1);
+
+					}
 
 				}
 
