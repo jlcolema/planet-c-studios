@@ -44,13 +44,41 @@ Section: Contact
 
 		.contact__header {
 
+			position: relative;
+			top: 1em;
+
 			margin: 0 0 4em 0;
 			font-size: 1.5rem;
 			text-align: center;
+			opacity: 0;
+
+			// Animation test...
+
+			animation-name: contact-header;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 0.75s;	
+
+		}
+
+		@keyframes contact-header {
+
+			to {
+
+				top: 0;
+				opacity: 1;
+
+			}
 
 		}
 
 		.contact__cta {
+
+			position: relative;
+			top: 1em;
 
 			width: 300px;
 			margin: 0 auto;
@@ -63,12 +91,34 @@ Section: Contact
 			border-radius: 8px;
 			mix-blend-mode: screen;
 			cursor: pointer;
-			
+			opacity: 0;
+
+			// Animation test...
+
+			animation-name: contact-cta;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 1.00s;	
+
 			&:hover {}
 
 			.section__contact--is-visible & {
 
 				display: none;
+
+			}
+
+		}
+
+		@keyframes contact-cta {
+
+			to {
+
+				top: 0;
+				opacity: 1;
 
 			}
 
@@ -191,6 +241,9 @@ Section: Contact
 
 		.contact__contact-information {
 
+			position: relative;
+			top: 1em;
+
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
@@ -199,8 +252,30 @@ Section: Contact
 			align-content: flex-start;
 
 			margin: 1em 0 0 0;
+			opacity: 0;
 	
 			// background: darken(pink, 10%);
+
+			// Animation test...
+
+			animation-name: contact-information;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 1.25s;	
+
+		}
+
+		@keyframes contact-information {
+
+			to {
+
+				top: 0;
+				opacity: 1;
+
+			}
 
 		}
 
@@ -231,9 +306,33 @@ Section: Contact
 
 		.contact__locations {
 
+			position: relative;
+			top: 1em;
 			margin: 1em 0 0 0;
+			opacity: 0;
 
 			// background: darken(pink, 10%);
+
+			// Animation test...
+
+			animation-name: contact-locations;
+			animation-duration: 0.35s;
+			animation-iteration-count: 1;
+			animation-direction: normal;
+			animation-timing-function: ease-in-out;
+			animation-fill-mode: forwards;
+			animation-delay: 1.50s;	
+
+		}
+
+		@keyframes contact-locations {
+
+			to {
+
+				top: 0;
+				opacity: 1;
+
+			}
 
 		}
 
