@@ -258,6 +258,20 @@
 
 		// Details...
 
+		/* Gradient Animations
+		--------------------------------------*/
+
+		// Notes...
+
+		// var gradient = getComputedStyle(document.documentElement);
+
+		// Color 01
+
+		// var cg_01_from_x = gradient.getPropertyValue('--cg-01-from-x');
+		// var cg_01_from_y = gradient.getPropertyValue('--cg-01-from-y');
+
+		
+
 		/* Move
 		--------------------------------------*/
 
