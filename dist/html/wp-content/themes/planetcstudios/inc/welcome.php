@@ -26,11 +26,11 @@
 
 					<li class="service__item">
 
-						<!-- Title -->
+						<?php /* Title */ ?>
 
 						<h2 class="service__title"><?php the_title(); ?></h2>
 
-						<!-- Description -->
+						<?php /* Description */ ?>
 
 						<div class="service__description">
 
@@ -38,7 +38,7 @@
 
 						</div>
 
-						<!-- Samples -->
+						<?php /* Samples */ ?>
 
 						<?php if ( have_rows( 'service_samples' ) ) : ?>
 
@@ -94,43 +94,43 @@
 
 		</div>
 
-		<?php /* Background Image */ ?>
+	</div>
 
-		<?php
+	<?php /* Background Image */ ?>
 
-			$s_welcome_background_image = get_field( 's_welcome_background_image' );
+	<?php
 
-			// Image Attachment
+		$s_welcome_background_image = get_field( 's_welcome_background_image' );
 
-			$s_welcome_background_image_attachment_id = get_field( 's_welcome_background_image' );
+		// Image Attachment
 
-			// Size Options
+		$s_welcome_background_image_attachment_id = get_field( 's_welcome_background_image' );
 
-			$s_welcome_background_image_size_x_large = 's-welcome-background-image-x-large';
-			$s_welcome_background_image_size_large = 's-welcome-background-image-large';
-			$s_welcome_background_image_size_small = 's-welcome-background-image-small';
+		// Size Options
 
-			// Image Sizes
+		$s_welcome_background_image_size_x_large = 's-welcome-background-image-x-large';
+		$s_welcome_background_image_size_large = 's-welcome-background-image-large';
+		$s_welcome_background_image_size_small = 's-welcome-background-image-small';
 
-			$s_welcome_background_image_x_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_x_large );
-			$s_welcome_background_image_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_large );
-			$s_welcome_background_image_small = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_small );
+		// Image Sizes
 
-		?>
+		$s_welcome_background_image_x_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_x_large );
+		$s_welcome_background_image_large = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_large );
+		$s_welcome_background_image_small = wp_get_attachment_image_src( $s_welcome_background_image_attachment_id, $s_welcome_background_image_size_small );
 
-		<div class="welcome__background">
+	?>
 
-			<?php if ( $s_welcome_background_image ) : ?>
+	<div class="welcome__background">
 
-				<img src="<?php echo $s_welcome_background_image_small[0]; ?>" srcset="<?php echo $s_welcome_background_image_large[0]; ?> 2x, <?php echo $s_welcome_background_image_x_large[0]; ?> 3x" width="1644" height="644" alt="A photo of a rising planet earth" decoding="async" loading="lazy" class="welcome__img" />
+		<?php if ( $s_welcome_background_image ) : ?>
 
-			<?php else : ?>
+			<img src="<?php echo $s_welcome_background_image_small[0]; ?>" srcset="<?php echo $s_welcome_background_image_large[0]; ?> 2x, <?php echo $s_welcome_background_image_x_large[0]; ?> 3x" width="1644" height="644" alt="A photo of a rising planet earth" decoding="async" loading="lazy" class="welcome__img" />
 
-				<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 2x, <?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 3x" width="1644" height="644" alt="A placeholder background image" decoding="async" loading="lazy" class="welcome__img welcome__img--is-placeholder" />
+		<?php else : ?>
 
-			<?php endif; ?>
+			<img src="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png" srcset="<?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 2x, <?php bloginfo( 'template_directory' ); ?>/assets/img/earthrise.png 3x" width="1644" height="644" alt="A placeholder background image" decoding="async" loading="lazy" class="welcome__img welcome__img--is-placeholder" />
 
-		</div>
+		<?php endif; ?>
 
 	</div>
 
