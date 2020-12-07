@@ -87,6 +87,47 @@
 
 	<?php wp_footer(); ?>
 
+	<?php /* Intersection Observer */ ?>
+
+	<script type="text/javascript">
+
+		const sections = document.querySelectorAll('.section');
+
+		const config = {
+
+			// root: document.body,
+			rootMargin: '0px',
+			threshold: 0.30
+
+		};
+
+		observer = new IntersectionObserver((entries) => {
+
+			entries.forEach(entry => {
+
+				if (entry.intersectionRatio > 0) {
+					
+					entry.target.classList.add('section--is-visible');
+	
+					observer.unobserve(entry.target);
+	
+				} else {
+
+					entry.target.classList.remove('section--is-visible');
+
+				}
+			});
+
+		}, config);
+
+		sections.forEach(section => {
+
+			observer.observe(section);
+
+		});
+
+	</script>
+
 </body>
 
 </html>
