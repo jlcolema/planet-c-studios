@@ -90,6 +90,12 @@ Section: Contact
 
 			}
 
+			.section__contact--is-visible & {
+
+				display: none;
+
+			}		
+
 		}
 
 		.contact__form {
