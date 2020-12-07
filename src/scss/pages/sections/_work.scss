@@ -50,7 +50,7 @@ Section: Work
 			font-size: 1.125rem;
 			text-transform: none;
 			text-align: center;
-			transition: all 0.35s ease-in;
+			transition: all 0.35s ease-in 0.25s;
 			opacity: 0;
 
 			@media screen and (min-width: 900px) {
@@ -330,7 +330,7 @@ Section: Work
 			font-size: 1.75rem;
 			text-transform: uppercase;
 			text-align: center;
-			transition: all 0.35s ease-in;
+			transition: all 0.35s ease-in 0.50s;
 			opacity: 0;
 
 			.section--is-visible & {

@@ -115,7 +115,7 @@ Section: About
 
 				margin: 2em 0 0 0;
 				text-align: right;
-				transition: all 0.35s ease-in;
+				transition: all 0.35s ease-in 0.50s;
 
 				@media screen and (min-width: 640px) {
 
@@ -178,7 +178,7 @@ Section: About
 				width: 420px;
 				opacity: 0;
 				// background: gray;
-				transition: all 0.35s ease-in;
+				transition: all 0.35s ease-in 0.75s;
 
 				.section--is-visible & {
 
@@ -197,7 +197,7 @@ Section: About
 				margin: 65px 0 0 0;
 				opacity: 0;
 				// background: darken(gray, 10%);
-				transition: 0.35s ease-in;
+				transition: 0.35s ease-in 0.25s;
 
 				@media screen and (min-width: 800px) {
 

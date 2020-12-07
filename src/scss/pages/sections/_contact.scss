@@ -79,7 +79,7 @@ Section: Contact
 			mix-blend-mode: screen;
 			cursor: pointer;
 			opacity: 0;
-			transition: all 0.35s eaes-in;
+			transition: all 0.35s ease-in 0.25s;
 
 			&:hover {}
 
@@ -221,7 +221,7 @@ Section: Contact
 
 			margin: 1em 0 0 0;
 			opacity: 0;
-			transition: 0.35s ease-in;
+			transition: all 0.35s ease-in 0.50s;
 	
 			// background: darken(pink, 10%);
 
@@ -265,7 +265,7 @@ Section: Contact
 			top: 1em;
 			margin: 1em 0 0 0;
 			opacity: 0;
-			transition: all 0.35s ease-in;
+			transition: all 0.35s ease-in 0.75s;
 
 			.section--is-visible & {
 
