@@ -50,17 +50,8 @@ Section: Work
 			font-size: 1.125rem;
 			text-transform: none;
 			text-align: center;
+			transition: all 0.35s ease-in;
 			opacity: 0;
-
-			// Animation test...
-
-			animation-name: work-header;
-			animation-duration: 0.35s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode: forwards;
-			animation-delay: 1.25s;	
 
 			@media screen and (min-width: 900px) {
 
@@ -68,11 +59,7 @@ Section: Work
 
 			}
 
-		}
-
-		@keyframes work-header {
-
-			to {
+			.section--is-visible & {
 
 				top: 0;
 				opacity: 1;
@@ -99,17 +86,8 @@ Section: Work
 			padding: 0;
 			list-style: none;
 			transform: scale(0.75);
+			transition: all 0.35s ease-in;
 			opacity: 0;
-
-			// Animation test...
-
-			animation-name: work-list;
-			animation-duration: 0.35s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode: forwards;
-			animation-delay: 0.75s;	
 
 			// background: darken(pink, 10%);
 
@@ -119,11 +97,7 @@ Section: Work
 
 			}
 
-		}
-
-		@keyframes work-list {
-
-			to {
+			.section--is-visible & {
 
 				top: 0;
 				transform: scale(1);
@@ -352,28 +326,14 @@ Section: Work
 
 			position: relative;
 			top: 1em;
-
 			margin: 2.5em 0 0 0;
 			font-size: 1.75rem;
 			text-transform: uppercase;
 			text-align: center;
+			transition: all 0.35s ease-in;
 			opacity: 0;
 
-			// Animation test...
-
-			animation-name: work-cta;
-			animation-duration: 0.35s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode: forwards;
-			animation-delay: 1.75s;	
-
-		}
-
-		@keyframes work-cta {
-
-			to {
+			.section--is-visible & {
 
 				top: 0;
 				opacity: 1;
