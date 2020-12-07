@@ -51,22 +51,9 @@ Section: Contact
 			font-size: 1.5rem;
 			text-align: center;
 			opacity: 0;
+			transition: all 0.35s ease-in;
 
-			// Animation test...
-
-			animation-name: contact-header;
-			animation-duration: 0.35s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode: forwards;
-			animation-delay: 0.75s;	
-
-		}
-
-		@keyframes contact-header {
-
-			to {
+			.section--is-visible & {
 
 				top: 0;
 				opacity: 1;
@@ -92,30 +79,11 @@ Section: Contact
 			mix-blend-mode: screen;
 			cursor: pointer;
 			opacity: 0;
-
-			// Animation test...
-
-			animation-name: contact-cta;
-			animation-duration: 0.35s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode: forwards;
-			animation-delay: 1.00s;	
+			transition: all 0.35s eaes-in;
 
 			&:hover {}
 
-			.section__contact--is-visible & {
-
-				display: none;
-
-			}
-
-		}
-
-		@keyframes contact-cta {
-
-			to {
+			.section--is-visible & {
 
 				top: 0;
 				opacity: 1;
@@ -253,24 +221,11 @@ Section: Contact
 
 			margin: 1em 0 0 0;
 			opacity: 0;
+			transition: 0.35s ease-in;
 	
 			// background: darken(pink, 10%);
 
-			// Animation test...
-
-			animation-name: contact-information;
-			animation-duration: 0.35s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode: forwards;
-			animation-delay: 1.25s;	
-
-		}
-
-		@keyframes contact-information {
-
-			to {
+			.section--is-visible & {
 
 				top: 0;
 				opacity: 1;
@@ -310,24 +265,9 @@ Section: Contact
 			top: 1em;
 			margin: 1em 0 0 0;
 			opacity: 0;
+			transition: all 0.35s ease-in;
 
-			// background: darken(pink, 10%);
-
-			// Animation test...
-
-			animation-name: contact-locations;
-			animation-duration: 0.35s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in-out;
-			animation-fill-mode: forwards;
-			animation-delay: 1.50s;	
-
-		}
-
-		@keyframes contact-locations {
-
-			to {
+			.section--is-visible & {
 
 				top: 0;
 				opacity: 1;
