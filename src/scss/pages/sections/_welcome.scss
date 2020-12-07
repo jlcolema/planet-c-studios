@@ -32,11 +32,11 @@ Section: Welcome
 
 		// background: rgba(pink, 0.50);
 
-		transition: max-width 0.35s ease-in-out;
+		transition: max-width 0.35s ease-in 1.25s;
 
 		// When a service item is selected...
 
-		&.welcome__inner-wrap--is-active {
+		.section__welcome--is-active & {
 
 			max-width: 1200px;
 
@@ -59,36 +59,22 @@ Section: Welcome
 			font-size: 3rem;
 			line-height: 1.40;
 			opacity: 0;
+			transition: all 0.35s ease-in 1.0s;
 
 			// background: rgba(pink, 0.50);
 
-			// Animation Order
-
-			// animation-name: welcome-header;
-			// animation-duration: 0.50s;
-			// animation-timing-function: ease-in-out;
-			// animation-delay: 1.0s;
-			// animation-direction: normal;
-			// animation-iteration-count: 1;
-			// animation-fill-mode: forwards;
-			// animation-play-state: running;
-
-			animation: welcome-header 0.50s ease-in-out 1.0s normal 1 forwards;
-
-			// When a service item is selected...
-
-			.welcome__inner-wrap--is-active & {}
-
-		}
-
-		@keyframes welcome-header {
-
-			from {}
-
-			to {
+			.section--is-visible & {
 
 				left: 0;
 				opacity: 1;
+
+			}
+
+			// When a service item is selected...
+
+			.section__welcome--is-active & {
+
+				opacity: 0;
 
 			}
 
@@ -113,36 +99,20 @@ Section: Welcome
 			padding: 0;
 			list-style: none;
 			opacity: 0;
+			transition: all 0.35s ease-in 1.25s;
 
-			// background: rgba(pink, 0.50);
-
-			// Animation Order
-
-			// animation-name: services-list;
-			// animation-duration: 0.50s;
-			// animation-timing-function: ease-in-out;
-			// animation-delay: 1.0s;
-			// animation-direction: normal;
-			// animation-iteration-count: 1;
-			// animation-fill-mode: forwards;
-			// animation-play-state: running;
-
-			animation: services-list 0.35s ease-in-out 1.25s normal 1 forwards running;
-
-			// When a service item is selected...
-
-			.welcome__inner-wrap--is-active & {}
-
-		}
-
-		@keyframes services-list {
-
-			from {}
-
-			to {
+			.section--is-visible & {
 
 				left: calc(100% - 163px);
 				opacity: 1;
+
+			}
+
+			// When a service item is selected...
+
+			.section__welcome--is-active & {
+
+				left: 0;
 
 			}
 
@@ -193,17 +163,18 @@ Section: Welcome
 
 					.service__item--is-active & {
 
-						padding: 0 35px 0 0;
-						font-size: 3rem;
+						// padding: 0 35px 0 0;
+						// font-size: 3rem;
 
 						&:after {
 
-							width: 12px;
-							height: 20px;
-							margin-top: -9px;
-							transform: rotate(90deg);
+							// width: 12px;
+							// height: 20px;
+							// margin-top: -9px;
+							// transform: rotate(90deg);
+							// background-size: 12px 20px;
+
 							// background-color: pink;
-							background-size: 12px 20px;
 
 						}
 
@@ -214,6 +185,7 @@ Section: Welcome
 				.service__description {
 
 					display: none;
+					max-width: 400px;
 
 					p {
 
@@ -227,8 +199,8 @@ Section: Welcome
 
 					.service__item--is-active & {
 
-						display: block;
-						margin: 0.5em 0 0 0;
+						// display: block;
+						// margin: 0.5em 0 0 0;
 
 					}
 

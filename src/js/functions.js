@@ -104,13 +104,11 @@
 
 		$('.service__item').click( function() {
 
-			// $(this).siblings().removeClass('service__item--is-active');
+			$('.section__welcome').addClass('section__welcome--is-active');
 
-			$(this).parent().parent().addClass('welcome__inner-wrap--is-active');
+			$(this).siblings().removeClass('service__item--is-active');
 
-			$(this).parent().addClass('services__list--is-active');
-
-			// $(this).addClass('service__item--is-active');
+			$(this).addClass('service__item--is-active').clearQueue();
 
 		});
 
