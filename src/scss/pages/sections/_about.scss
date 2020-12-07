@@ -71,21 +71,19 @@ Section: About
 				position: relative;
 				top: 2em;
 				opacity: 0;
-
-				// Animation test...
-
-				animation-name: about-mission-statement;
-				animation-duration: 0.35s;
-				animation-iteration-count: 1;
-				animation-direction: normal;
-				animation-timing-function: ease-in-out;
-				animation-fill-mode: forwards;
-				animation-delay: 0.75s;	
+				transition: all 0.35s ease-in;
 
 				@media screen and (min-width: 640px) {
 
 					width: calc(100% - 240px);
 					padding: 0 2.5em 0 0;
+
+				}
+
+				.section--is-visible & {
+
+					top: 0;
+					opacity: 1;
 
 				}
 
@@ -108,17 +106,6 @@ Section: About
 					}
 
 			}
-
-			@keyframes about-mission-statement {
-
-				to {
-
-					top: 0;
-					opacity: 1;
-
-				}
-
-			}
 			
 			.about__founded {
 
@@ -128,16 +115,7 @@ Section: About
 
 				margin: 2em 0 0 0;
 				text-align: right;
-
-				// Animation test...
-
-				animation-name: about-founded;
-				animation-duration: 0.35s;
-				animation-iteration-count: 1;
-				animation-direction: normal;
-				animation-timing-function: ease-in-out;
-				animation-fill-mode: forwards;
-				animation-delay: 1.50s;
+				transition: all 0.35s ease-in;
 
 				@media screen and (min-width: 640px) {
 
@@ -147,21 +125,17 @@ Section: About
 
 				}
 
+				.section--is-visible & {
+
+					top: 0;
+					opacity: 1;
+
+				}
+
 				span {
 
 					font-size: 4.0rem;
 					line-height: 0.75; // Adjustment to make sure this baseline aligns with the overview baseline.
-
-				}
-
-			}
-
-			@keyframes about-founded {
-
-				to {
-
-					top: 0;
-					opacity: 1;
 
 				}
 
@@ -203,24 +177,10 @@ Section: About
 				top: 2em;
 				width: 420px;
 				opacity: 0;
-
 				// background: gray;
+				transition: all 0.35s ease-in;
 
-				// Animation test...
-
-				animation-name: member-type-core-team;
-				animation-duration: 0.35s;
-				animation-iteration-count: 1;
-				animation-direction: normal;
-				animation-timing-function: ease-in-out;
-				animation-fill-mode: forwards;
-				animation-delay: 2.00s;
-
-			}
-
-			@keyframes member-type-core-team {
-
-				to {
+				.section--is-visible & {
 
 					top: 0;
 					opacity: 1;
@@ -237,16 +197,7 @@ Section: About
 				margin: 65px 0 0 0;
 				opacity: 0;
 				// background: darken(gray, 10%);
-
-				// Animation test...
-
-				animation-name: member-type-key-collaborators;
-				animation-duration: 0.35s;
-				animation-iteration-count: 1;
-				animation-direction: normal;
-				animation-timing-function: ease-in-out;
-				animation-fill-mode: forwards;
-				animation-delay: 1.00s;
+				transition: 0.35s ease-in;
 
 				@media screen and (min-width: 800px) {
 
@@ -255,11 +206,7 @@ Section: About
 
 				}
 
-			}
-
-			@keyframes member-type-key-collaborators {
-
-				to {
+				.section--is-visible & {
 
 					top: 0;
 					opacity: 1;
