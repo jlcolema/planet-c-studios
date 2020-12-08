@@ -38,44 +38,6 @@
 
 						</div>
 
-						<?php /* Samples */ ?>
-
-						<?php if ( have_rows( 'service_samples' ) ) : ?>
-
-							<?php
-
-								$number_of_samples = count( get_field( 'service_samples' ) );
-
-							?>
-
-							<div class="service__samples service__samples--<?php echo $number_of_samples; ?>-up">
-
-								<?php while ( have_rows( 'service_samples' ) ) : the_row(); ?>
-
-									<div class="service__sample service__sample--<?php echo get_row_index(); ?>">
-
-										<div class="service__img service__img--<?php echo get_row_index(); ?>" style="background-image: url(<?php the_sub_field( 'sample_image' ); ?>);"></div>
-
-										<?php /*
-
-											<img src="https://via.placeholder.com/2000x2000.png?text=Sample" alt="A placeholder sample image" class="service__img" />
-
-										*/ ?>
-
-										<?php /*
-
-											<img src="<?php the_sub_field( 'sample_image' ); ?>" alt="A sample title image" class="service__img" />
-
-										*/ ?>
-
-									</div>
-
-								<?php endwhile; ?>
-
-							</div>
-
-						<?php endif; ?>
-
 					</li>
 
 				<?php endforeach; ?>
@@ -95,6 +57,68 @@
 		</div>
 
 	</div>
+
+	<?php /* Service Samples */ ?>
+
+	<?php
+
+		$featured_service_samples = get_field( 's_welcome_featured_services' );
+
+	?>
+
+	<?php if ( $featured_service_samples ) : ?>
+
+		<div class="services__samples">
+
+			<?php foreach ( $featured_service_samples as $post ) : ?>
+
+				<?php setup_postdata( $post ); ?>
+
+				<?php /* Samples */ ?>
+
+				<?php if ( have_rows( 'service_samples' ) ) : ?>
+
+					<?php
+
+						$number_of_samples = count( get_field( 'service_samples' ) );
+
+					?>
+
+					<div class="service__samples service__samples--<?php echo $number_of_samples; ?>-up">
+
+						<?php while ( have_rows( 'service_samples' ) ) : the_row(); ?>
+
+							<div class="service__sample service__sample--<?php echo get_row_index(); ?>">
+
+								<div class="service__img service__img--<?php echo get_row_index(); ?>" style="background-image: url(<?php the_sub_field( 'sample_image' ); ?>);"></div>
+
+								<?php /*
+
+									<img src="https://via.placeholder.com/2000x2000.png?text=Sample" alt="A placeholder sample image" class="service__img" />
+
+								*/ ?>
+
+								<?php /*
+
+									<img src="<?php the_sub_field( 'sample_image' ); ?>" alt="A sample title image" class="service__img" />
+
+								*/ ?>
+
+							</div>
+
+						<?php endwhile; ?>
+
+					</div>
+
+				<?php endif; ?>
+
+			<?php endforeach; ?>
+
+		</div>
+
+		<?php wp_reset_postdata(); ?>
+
+	<?php endif; ?>
 
 	<?php /* Background Image */ ?>
 

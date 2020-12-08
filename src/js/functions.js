@@ -104,11 +104,25 @@
 
 		$('.service__item').click( function() {
 
+			// Section
+
 			$('.section__welcome').addClass('section__welcome--is-active');
+
+			// Service Item
 
 			$(this).siblings().removeClass('service__item--is-active');
 
-			$(this).addClass('service__item--is-active').clearQueue();
+			$(this).addClass('service__item--is-active');
+			
+			// Service Samples
+
+			$('.services__samples').find('.service__samples').removeClass('service__samples--is-visible');
+
+			$('.services__samples').find('.service__samples').eq(
+
+				$(this).index()
+
+			).addClass('service__samples--is-visible');
 
 		});
 
