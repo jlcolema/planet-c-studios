@@ -80,6 +80,12 @@
 
 					<?php
 
+						$service_featured_project = get_field( 'service_featured_project' );
+
+						$service_featured_project_url = get_permalink( $service_featured_project->ID );
+
+						$service_featured_project_title = get_the_title( $service_featured_project->ID );
+
 						$number_of_samples = count( get_field( 'service_samples' ) );
 
 					?>
@@ -107,6 +113,8 @@
 							</div>
 
 						<?php endwhile; ?>
+
+						<p class="service__highlighted-project">Highlighted Project: <a href="<?php echo esc_html( $service_featured_project_url ); ?>" class="service__highlighted-project-link"><?php echo esc_html( $service_featured_project_title ); ?></a></p>
 
 					</div>
 

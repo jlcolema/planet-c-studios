@@ -6,6 +6,7 @@ Section: Contact
 
 .section__contact {
 
+	position: relative;
 	padding: 0 1.25em;
 
 	// Gradient to use...
@@ -29,6 +30,8 @@ Section: Contact
 
 	background: url(../img/contact-gradient-small.png) center top no-repeat;
 	background-size: cover;
+
+	z-index: 5;
 
 }
 

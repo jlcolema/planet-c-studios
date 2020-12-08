@@ -101,6 +101,8 @@ Section: Welcome
 			opacity: 0;
 			transition: all 0.35s ease-in 1.25s;
 
+			z-index: 2;
+
 			.section--is-visible & {
 
 				left: calc(100% - 163px);
@@ -221,7 +223,7 @@ Section: Welcome
 			height: 100%;
 			// opacity: 0;
 			// transition: opacity 0.50s ease-in-out;
-			z-index: -1;
+			z-index: 1;
 
 			// background: rgba(pink, 0.50);
 
@@ -251,6 +253,24 @@ Section: Welcome
 				}
 
 			}
+
+				.service__highlighted-project {
+
+					position: absolute;
+					right: 2em;
+					bottom: 4em;
+					padding: 0.25em 0.50em;
+					background: rgba($color-base-black, 0.27);
+					border-radius: 8px;
+					z-index: 9999;
+
+				}
+
+					.service__highlighted-project-link {
+
+						color: $color-base-white;
+
+					}
 
 				.service__sample {
 

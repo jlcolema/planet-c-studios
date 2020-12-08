@@ -6,6 +6,7 @@ Section: Work
 
 .section__work {
 
+	position: relative;
 	margin-bottom: -4vw; // Pulls next section up so that curves overlap.
 	padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
 
@@ -27,6 +28,8 @@ Section: Work
 
 	background: url(../img/featured-work-gradient-small.png) center top no-repeat;
 	background-size: cover;
+
+	z-index: 3;
 
 }
 
