@@ -144,7 +144,7 @@ Section: Welcome
 					margin: 0;
 					padding: 0 20px 0 0;
 					font-size: 1.5rem;
-					transition: all 0.35s ease-in-out;
+					// transition: all 0.35s ease-in-out;
 
 					&:after {
 
@@ -219,15 +219,15 @@ Section: Welcome
 			top: 0;
 			width: 100%;
 			height: 100%;
-			opacity: 0;
-			transition: opacity 0.50s ease-in-out;
+			// opacity: 0;
+			// transition: opacity 0.50s ease-in-out;
 			z-index: -1;
 
-			background: rgba(pink, 0.50);
+			// background: rgba(pink, 0.50);
 
 			.section__welcome--is-active & {
 
-				opacity: 1;
+				// opacity: 1;
 
 			}
 
@@ -235,20 +235,18 @@ Section: Welcome
 
 			.service__samples {
 
+				display: none;
+
 				position: absolute;
 				right: 0;
 				top: 0;
 				width: 75%;
 				height: 100%;
-				opacity: 1;
-				transition: opacity 0.70s ease-in-out;
 				z-index: 1;
 
-				// background: rgba(pink, 0.65);
+				&.service__samples--is-visible {
 
-				.service__item--is-active & {
-
-					opacity: 1;
+					display: block;
 
 				}
 
