@@ -112,7 +112,7 @@
 
 			$(this).siblings().removeClass('service__item--is-active');
 
-			$(this).addClass('service__item--is-active');
+			$(this).toggleClass('service__item--is-active');
 			
 			// Service Samples
 
@@ -122,7 +122,7 @@
 
 				$(this).index()
 
-			).addClass('service__samples--is-visible');
+			).toggleClass('service__samples--is-visible');
 
 		});
 
