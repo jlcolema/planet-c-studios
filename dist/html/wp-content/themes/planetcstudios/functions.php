@@ -469,6 +469,10 @@ function planetcstudios_custom_upload_mimes( $planetcstudios_existing_mimes ) {
 
 	$planetcstudios_existing_mimes['svg'] = 'image/svg+xml';
 
+	// Add WebP to the list of mime types.
+
+	$planetcstudios_existing_mimes['webp'] = 'image/webp';
+
 	// Return the array back to the function with our added mime type.
 
 	return $planetcstudios_existing_mimes;
