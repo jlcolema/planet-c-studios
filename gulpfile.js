@@ -83,13 +83,13 @@ gulp.task('js', function() {
 		basePaths.dev + 'js/plugins/smooth-scroll-2.2.0.js',
 		basePaths.dev + 'js/plugins/infinite-slide-2.0.1.js',
 
-		// Output
+		// Functions
 
 		basePaths.dev + 'js/functions.js'
 
 	])
 
-	.pipe(concat('functions.js'))
+	.pipe(concat('scripts.js'))
 
 	// .pipe(rename({
 
