@@ -177,17 +177,13 @@ function planetcstudios_register_scripts() {
 
 		wp_deregister_script( 'jquery' );
 
-		// wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/libraries/jquery.3.5.1.js', array(), $theme_version, true );
+		wp_register_script( 'jquery', get_template_directory_uri() . '/assets/js/scripts.js', array(), $theme_version, true );
 
-		// wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'jquery' );
 
-		// wp_script_add_data( 'jquery', 'async', true );
+		wp_script_add_data( 'jquery', 'async', true );
 
 	}
-
-	wp_enqueue_script( 'functions', get_template_directory_uri() . '/assets/js/functions.js', array(), $theme_version, true );
-
-	wp_script_add_data( 'functions', 'async', true );
 
 }
 
