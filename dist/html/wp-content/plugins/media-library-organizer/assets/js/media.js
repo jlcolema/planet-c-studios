@@ -1,37 +1,5 @@
 var mediaLibraryOrganizerUploader = false;
 
-jQuery( document ).ready( function( $ ) {
-
-	/**
-	 * Initialize Selectize Instances
-	 */
-	if ( typeof mediaLibraryOrganizerSelectizeInit !== 'undefined' ) {
-		mediaLibraryOrganizerSelectizeInit();
-	}
-
-	/**
-	 * Category Tabs
-	 */
-	$( 'body' ).on( 'click', '#mlo-category-tabs a', function( e ) {
-
-		// Prevent default action (would jump down the page)
-		e.preventDefault();
-
-		var t = $( this ).attr( 'href' );
-
-		// Remove the tabs class from all tabs
-		$( this ).parent().addClass( 'tabs' ).siblings( 'li' ).removeClass( 'tabs' );
-
-		// Hide the tab panels
-		$( '.tabs-panel' ).hide();
-
-		// Show the selected tab panel
-		$( t ).show();
-
-	} );
-
-} );
-
 /**
  * Fetches the uploader instance, and fires events for the life cycle of an attachment being uploaded and deleted
  *
@@ -43,31 +11,24 @@ jQuery( document ).ready( function( $ ) {
 
 		_.extend( wp.Uploader.prototype, {
 			init: function() {
-				//console.log( 'mlo:grid:attachment:upload:init');
 				wp.media.events.trigger( 'mlo:grid:attachment:upload:init' );
 			},
 			added: function( file_attachment ) {
-				//console.log( 'mlo:grid:attachment:upload:added');
 				wp.media.events.trigger( 'mlo:grid:attachment:upload:added', file_attachment );
 			},
 			progress: function( file_attachment ) {
-				//console.log( 'mlo:grid:attachment:upload:progress');
 				wp.media.events.trigger( 'mlo:grid:attachment:upload:progress', file_attachment );
 			},
 			success: function( file_attachment ) {
-				//console.log( 'mlo:grid:attachment:upload:success');
 				wp.media.events.trigger( 'mlo:grid:attachment:upload:success', file_attachment );
 			},
 			error: function( error_message ) {
-				//console.log( 'mlo:grid:attachment:upload:error');
 				wp.media.events.trigger( 'mlo:grid:attachment:upload:error', error_message );
 			},
 			complete: function() {
-				//console.log( 'mlo:grid:attachment:upload:complete');
 				wp.media.events.trigger( 'mlo:grid:attachment:upload:complete' );
 			},
 			refresh: function() {
-				//console.log( 'mlo:grid:attachment:upload:refresh');
 				wp.media.events.trigger( 'mlo:grid:attachment:upload:refresh' );
 			}
 		} );
@@ -194,7 +155,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	if ( media_library_organizer_media.settings.orderby_enabled == 1 ) {
 		var MediaLibraryOrganizerTaxonomyOrderBy = wp.media.view.AttachmentFilters.extend( {
-			id: 'media-attachment-taxonomy-orderby',
+			id: 'media-attachment-orderby',
 
 			/**
 			 * Create Filters
@@ -202,6 +163,8 @@ jQuery( document ).ready( function( $ ) {
 			 * @since 	1.0.0
 			 */
 			createFilters: function() {
+
+				console.log( 'mlo createFilters' );
 
 				var filters = {};
 
@@ -222,18 +185,32 @@ jQuery( document ).ready( function( $ ) {
 				// Set this filter's data to the terms we've just built
 				this.filters = filters;
 
-				// If no orderby is defined, set one now from either the User Options (if enabled),
-				// or the Plugin's default
-				if ( ! this.model.get( 'orderby' ) ) {
-					// Set orderby using User Options, if they're enabled to persist for the User
-					if ( media_library_organizer_media.user_options.order_enabled == 1 ) {
-						this.model.set( 'orderby', media_library_organizer_media.user_options.orderby );
-					} else {
-						// Set orderby using plugin default
-						this.model.set( 'orderby', media_library_organizer_media.defaults.orderby );
-					}
-				}
+			},
 
+			/**
+			 * This has to be here for the filter dropdown to select the correct Order By
+			 * and Order User / Default.
+			 *
+			 * wp.media.view.AttachmentFilters calls this.select from initialize, but doesn't
+			 * seem to call its own select() function.
+			 */
+			select: function() {
+				
+				var model = this.model,
+					value = 'all',
+					props = model.toJSON();
+
+				_.find( this.filters, function( filter, id ) {
+					var equal = _.all( filter.props, function( prop, key ) {
+						return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
+					});
+
+					if ( equal ) {
+						return value = id;
+					}
+				});
+
+				this.$el.val( value );
 			}
 
 		} );
@@ -244,7 +221,7 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	if ( media_library_organizer_media.settings.order_enabled == 1 ) {
 		var MediaLibraryOrganizerTaxonomyOrder = wp.media.view.AttachmentFilters.extend( {
-			id: 'media-attachment-taxonomy-order',
+			id: 'media-attachment-order',
 
 			/**
 			 * Create Filter
@@ -271,17 +248,32 @@ jQuery( document ).ready( function( $ ) {
 				// Set this filter's data to the terms we've just built
 				this.filters = filters;
 
-				// If no order is defined, set one now from either the User Options (if enabled),
-				// or the Plugin's default
-				if ( ! this.model.get( 'order' ) ) {
-					// Set order using User Options, if they're enabled to persist for the User
-					if ( media_library_organizer_media.user_options.order_enabled == 1 ) {
-						this.model.set( 'order', media_library_organizer_media.user_options.order );
-					} else {
-						// Set order using plugin default
-						this.model.set( 'order', media_library_organizer_media.defaults.order );
+			},
+
+			/**
+			 * This has to be here for the filter dropdown to select the correct Order By
+			 * and Order User / Default.
+			 *
+			 * wp.media.view.AttachmentFilters calls this.select from initialize, but doesn't
+			 * seem to call its own select() function.
+			 */
+			select: function() {
+				
+				var model = this.model,
+					value = 'all',
+					props = model.toJSON();
+
+				_.find( this.filters, function( filter, id ) {
+					var equal = _.all( filter.props, function( prop, key ) {
+						return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
+					});
+
+					if ( equal ) {
+						return value = id;
 					}
-				}
+				});
+
+				this.$el.val( value );
 			}
 
 		} );
@@ -292,30 +284,6 @@ jQuery( document ).ready( function( $ ) {
 	 */
 	var AttachmentsBrowser = wp.media.view.AttachmentsBrowser;
 	wp.media.view.AttachmentsBrowser = wp.media.view.AttachmentsBrowser.extend( {
-
-		/**
-		 * When initializing the Attachments Browser, hook into the attachments:received
-		 * event and broadcast it to wp.media.events, so Addons can hook globally
-		 * and perform actions when the Grid View is reloaded in any way
-		 *
-		 * @since 	1.2.3
-		 */
-		initialize: function() {
-
-			// Make sure to load the original toolbar
-			AttachmentsBrowser.prototype.initialize.call( this );
-
-			// Fire the grid:attachments:received event that Addons can hook into and listen
-			this.collection.on( 'attachments:received', function( e ) {
-				wp.media.events.trigger( 'mlo:grid:attachments:received', e );
-			} );
-
-			// Fire the grid:attachments:bulk_actions:done event that Addons can hook into and listen
-			this.controller.on( 'selection:action:done', function() {
-				wp.media.events.trigger( 'mlo:grid:attachments:bulk_actions:done' );
-			} );
-
-		},
 
 		/**
 		 * When the toolbar is created, add our custom filters to it, which
@@ -339,6 +307,8 @@ jQuery( document ).ready( function( $ ) {
 
 			// Add the orderby filter to the toolbar
 			if ( media_library_organizer_media.settings.orderby_enabled == 1 ) {
+				console.log( this );
+
 				this.toolbar.set( 'MediaLibraryOrganizerTaxonomyOrderBy', new MediaLibraryOrganizerTaxonomyOrderBy( {
 					controller: this.controller,
 					model:      this.collection.props,
@@ -355,9 +325,45 @@ jQuery( document ).ready( function( $ ) {
 				} ).render() );
 			}
 
+		},
+
+		createAttachmentsHeading: function() {
+
+			// Make sure to load the original attachments heading
+			AttachmentsBrowser.prototype.createAttachmentsHeading.call( this );
+
+			console.log( this );
+
+			console.log( 'do something here?' );
 		}
 
 	} );
+
+
+	 
+	/**
+	 * Define Order By and Order Defaults on wp.media.query calls, which the Media Library
+	 * uses for Grid Views.
+	 *
+	 * If the query specifies either orderby or order, that is honored.
+	 * If the query is missing either orderby or order, the defaults are used.
+	 *
+	 * For Grid Views in the Edit Page/Post Screens (Classic Editor or Gutenberg), this also sets the correct Order By and Order dropdown values
+	 * based on the User / Plugin Defaults.
+	 *
+	 * Whilst this sets the correct Attachment order at Media > Library in the Grid View, it doesn't set the correct Order By
+	 * and Order doprdown values for the filters on that screen.
+	 */
+	wp.media.query = function( props ) {
+
+		return new wp.media.model.Attachments( null, {
+			props: _.extend( _.defaults( props || {}, { 
+				orderby: media_library_organizer_media.defaults.orderby,
+				order: media_library_organizer_media.defaults.order
+			} ), { query: true } )
+		} );
+
+	};
 
 	/**
 	 * Extend and override wp.media.model.Query to disable query caching, which prevents
@@ -367,6 +373,7 @@ jQuery( document ).ready( function( $ ) {
 	_.extend( Query, {
 
 		get: (function(){
+
 			/**
 			 * @static
 			 * @type Array
@@ -516,5 +523,40 @@ wp.media.events.on( 'mlo:grid:attachment:upload:success', function( attachment )
 		wp.media.frame.content.get().collection.props.set({ignore: (+ new Date())});
 		wp.media.frame.content.get().options.selection.reset();
 	}
+
+} );
+
+/**
+ * Bind Event Listeners
+ */
+jQuery( document ).ready( function( $ ) {
+
+	/**
+	 * Initialize Selectize Instances
+	 */
+	if ( typeof mediaLibraryOrganizerSelectizeInit !== 'undefined' ) {
+		mediaLibraryOrganizerSelectizeInit();
+	}
+
+	/**
+	 * Category Tabs
+	 */
+	$( 'body' ).on( 'click', '#mlo-category-tabs a', function( e ) {
+
+		// Prevent default action (would jump down the page)
+		e.preventDefault();
+
+		var t = $( this ).attr( 'href' );
+
+		// Remove the tabs class from all tabs
+		$( this ).parent().addClass( 'tabs' ).siblings( 'li' ).removeClass( 'tabs' );
+
+		// Hide the tab panels
+		$( '.tabs-panel' ).hide();
+
+		// Show the selected tab panel
+		$( t ).show();
+
+	} );
 
 } );

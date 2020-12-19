@@ -165,9 +165,15 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 
 == Changelog ==
 
+= 1.2.8 (2020-12-17) =
+* Added: Tree View: Display Attachment Count for each Category when Expand/Collapse is enabled
+* Fix: Edit Post/Page: Attachments Modal: Set and honor Order and Order By options when User Sorting / Sort Order = Remember
+* Fix: Grid View: Set and honor Order and Order By options when User Sorting / Sort Order = Remember
+* Fix: ACF: Image/Attachment Field: Set Order and Order By options in a way that doesn't conflict with ACF validation rules
+
 = 1.2.7 (2020-11-26) =
 * Added: Tree View: Option to expand/collapse Categories.  See Docs: https://wpmedialibrary.com/documentation/tree-view/setup/
-* Fix: Tree View: Preserve selected category when adding/editing/deleting Categories and child Categories.
+* Fix: Tree View: Preserve selected category when adding/editing/deleting Categories and child Categories
 
 = 1.2.6 (2020-11-19) =
 * Added: Localization support, with .pot file, translators comments and load_plugin_textdomain()

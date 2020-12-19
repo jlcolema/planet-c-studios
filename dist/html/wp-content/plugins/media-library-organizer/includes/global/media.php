@@ -253,16 +253,18 @@ class Media_Library_Organizer_Media {
             'taxonomy'      => get_taxonomy( $this->base->get_class( 'taxonomy' )->taxonomy_name ),
             'selected_term' => $this->get_selected_terms_slugs(),
 
-            // Defaults
-            'defaults'  => array(
-                'orderby'           => $this->base->get_class( 'common' )->get_orderby_default(),
-                'order'             => $this->base->get_class( 'common' )->get_order_default(),
-            ),
-
-            // User Options
-            'user_options' => array(
-                'orderby_enabled'   => $this->base->get_class( 'settings' )->get_setting( 'user-options', 'orderby_enabled' ),
-                'orderby'           => $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'orderby' ),
+            // Default Values for orderby and order, based on either the User Defaults or the Plugin / WordPress Defaults
+            'defaults'  => array( 
+                'orderby'           => (
+                    $this->base->get_class( 'settings' )->get_setting( 'user-options', 'orderby_enabled' ) ?
+                    $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'orderby' ) :
+                    $this->base->get_class( 'common' )->get_orderby_default()
+                ),
+                'order'             => (
+                    $this->base->get_class( 'settings' )->get_setting( 'user-options', 'order_enabled' ) ?
+                    $this->base->get_class( 'user_option' )->get_option( get_current_user_id(), 'order' ) :
+                    $this->base->get_class( 'common' )->get_order_default()
+                ),
             ),
 
             // Media View

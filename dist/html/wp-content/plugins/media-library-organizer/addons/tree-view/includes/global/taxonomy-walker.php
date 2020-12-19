@@ -43,8 +43,8 @@ class Media_Library_Organizer_Tree_View_Taxonomy_Walker extends Walker_Category 
 	 */
 	private function wrap_count( $output, $term ) {
 
-		$output = str_replace( '</a> (', '</a> <span class="count" data-term-id="' . $term->term_id . '">', $output );
-		$output .= '</span>';
+		$output = str_replace( '</a> (', ' <span class="count" data-term-id="' . $term->term_id . '">', $output );
+		$output .= '</span></a>';
 		$output = str_replace( ")\n</span>", '</span>', $output );
 
 		return $output;
