@@ -16,13 +16,13 @@ Section: Welcome
 
 	.welcome__inner-wrap {
 
-		position: relative;
+		// position: relative;
 
-		// display: flex;
-		// flex-direction: row;
-		// flex-wrap: nowrap;
-		// justify-content: space-between;
-		// align-items: center;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		align-items: center;
 
 		width: 100%;
 		max-width: 700px;
@@ -32,13 +32,13 @@ Section: Welcome
 
 		// background: rgba(pink, 0.50);
 
-		transition: max-width 0.35s ease-in 1.25s;
+		// transition: max-width 0.35s ease-in 1.25s;
 
 		// When a service item is selected...
 
 		.section__welcome--is-active & {
 
-			max-width: 1200px;
+			// max-width: 1200px;
 
 		}
 
@@ -46,8 +46,8 @@ Section: Welcome
 
 		.welcome__header {
 
-			position: absolute;
-			left: -1em;
+			// position: absolute;
+			// left: -1em;
 
 			display: flex;
 			flex-direction: column;
@@ -58,15 +58,15 @@ Section: Welcome
 			margin: 0;
 			font-size: 3rem;
 			line-height: 1.40;
-			opacity: 0;
-			transition: all 0.35s ease-in 1.0s;
+			// opacity: 0;
+			// transition: all 0.35s ease-in 1.0s;
 
 			// background: rgba(pink, 0.50);
 
 			.section--is-visible & {
 
-				left: 0;
-				opacity: 1;
+				// left: 0;
+				// opacity: 1;
 
 			}
 
@@ -74,7 +74,7 @@ Section: Welcome
 
 			.section__welcome--is-active & {
 
-				opacity: 0;
+				// opacity: 0;
 
 			}
 
@@ -82,8 +82,8 @@ Section: Welcome
 
 		.services__list {
 
-			position: absolute;
-			left: calc(100% - 163px - 1em);
+			// position: absolute;
+			// left: calc(100% - 163px - 1em);
 
 			display: flex;
 			flex-direction: column;
@@ -98,15 +98,15 @@ Section: Welcome
 			margin: 0;
 			padding: 0;
 			list-style: none;
-			opacity: 0;
-			transition: all 0.35s ease-in 1.25s;
+			// opacity: 0;
+			// transition: all 0.35s ease-in 1.25s;
 
 			z-index: 2;
 
 			.section--is-visible & {
 
-				left: calc(100% - 163px);
-				opacity: 1;
+				// left: calc(100% - 163px);
+				// opacity: 1;
 
 			}
 
@@ -114,7 +114,7 @@ Section: Welcome
 
 			.section__welcome--is-active & {
 
-				left: 0;
+				// left: 0;
 
 			}
 

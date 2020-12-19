@@ -71,10 +71,10 @@ Section: About
 
 			.about__mission-statement {
 
-				position: relative;
-				top: 2em;
-				opacity: 0;
-				transition: all 0.35s ease-in;
+				// position: relative;
+				// top: 2em;
+				// opacity: 0;
+				// transition: all 0.35s ease-in;
 
 				@media screen and (min-width: 640px) {
 
@@ -85,8 +85,8 @@ Section: About
 
 				.section--is-visible & {
 
-					top: 0;
-					opacity: 1;
+					// top: 0;
+					// opacity: 1;
 
 				}
 
@@ -112,13 +112,13 @@ Section: About
 			
 			.about__founded {
 
-				position: relative;
-				top: 2em;
-				opacity: 0;
+				// position: relative;
+				// top: 2em;
+				// opacity: 0;
 
 				margin: 2em 0 0 0;
 				text-align: right;
-				transition: all 0.35s ease-in 0.50s;
+				// transition: all 0.35s ease-in 0.50s;
 
 				@media screen and (min-width: 640px) {
 
@@ -130,8 +130,8 @@ Section: About
 
 				.section--is-visible & {
 
-					top: 0;
-					opacity: 1;
+					// top: 0;
+					// opacity: 1;
 
 				}
 
@@ -176,17 +176,17 @@ Section: About
 
 			.member__type--core-team {
 
-				position: relative;
-				top: 2em;
+				// position: relative;
+				// top: 2em;
 				width: 420px;
-				opacity: 0;
+				// opacity: 0;
 				// background: gray;
-				transition: all 0.35s ease-in 0.75s;
+				// transition: all 0.35s ease-in 0.75s;
 
 				.section--is-visible & {
 
-					top: 0;
-					opacity: 1;
+					// top: 0;
+					// opacity: 1;
 
 				}
 
@@ -194,13 +194,13 @@ Section: About
 
 			.member__type--key-collaborators {
 
-				position: relative;
-				top: 2em;
+				// position: relative;
+				// top: 2em;
 				width: 100%;
 				margin: 65px 0 0 0;
-				opacity: 0;
+				// opacity: 0;
 				// background: darken(gray, 10%);
-				transition: 0.35s ease-in 0.25s;
+				// transition: 0.35s ease-in 0.25s;
 
 				@media screen and (min-width: 800px) {
 
@@ -211,8 +211,8 @@ Section: About
 
 				.section--is-visible & {
 
-					top: 0;
-					opacity: 1;
+					// top: 0;
+					// opacity: 1;
 
 				}
 

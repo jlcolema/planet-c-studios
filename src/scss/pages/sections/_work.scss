@@ -45,16 +45,16 @@ Section: Work
 
 		.work__header {
 
-			position: relative;
-			top: 2em;
+			// position: relative;
+			// top: 2em;
 
 			margin: 0;
 			padding: 0 0.375em; // This helps match alignment on the left and right sides.
 			font-size: 1.125rem;
 			text-transform: none;
 			text-align: center;
-			transition: all 0.35s ease-in 0.25s;
-			opacity: 0;
+			// transition: all 0.35s ease-in 0.25s;
+			// opacity: 0;
 
 			@media screen and (min-width: 900px) {
 
@@ -64,8 +64,8 @@ Section: Work
 
 			.section--is-visible & {
 
-				top: 0;
-				opacity: 1;
+				// top: 0;
+				// opacity: 1;
 
 			}
 
@@ -73,8 +73,8 @@ Section: Work
 
 		.work__list {
 
-			position: relative;
-			top: 2em;
+			// position: relative;
+			// top: 2em;
 
 			display: flex;
 			flex-direction: row;
@@ -88,9 +88,9 @@ Section: Work
 			margin: 1em auto 0 auto;
 			padding: 0;
 			list-style: none;
-			transform: scale(0.75);
-			transition: all 0.35s ease-in;
-			opacity: 0;
+			// transform: scale(0.75);
+			// transition: all 0.35s ease-in;
+			// opacity: 0;
 
 			// background: darken(pink, 10%);
 
@@ -102,9 +102,9 @@ Section: Work
 
 			.section--is-visible & {
 
-				top: 0;
-				transform: scale(1);
-				opacity: 1;
+				// top: 0;
+				// transform: scale(1);
+				// opacity: 1;
 
 			}
 
@@ -327,19 +327,19 @@ Section: Work
 
 		.work__cta {
 
-			position: relative;
-			top: 1em;
+			// position: relative;
+			// top: 1em;
 			margin: 2.5em 0 0 0;
 			font-size: 1.75rem;
 			text-transform: uppercase;
 			text-align: center;
-			transition: all 0.35s ease-in 0.50s;
-			opacity: 0;
+			// transition: all 0.35s ease-in 0.50s;
+			// opacity: 0;
 
 			.section--is-visible & {
 
-				top: 0;
-				opacity: 1;
+				// top: 0;
+				// opacity: 1;
 
 			}
 

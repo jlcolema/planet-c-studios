@@ -66,8 +66,8 @@ Section: Clients
 
 		.clients__header {
 
-			position: relative;
-			top: 1em;
+			// position: relative;
+			// top: 1em;
 
 			width: 100%;
 			max-width: 560px;
@@ -76,13 +76,13 @@ Section: Clients
 			text-transform: none;
 			text-align: center;
 			// background: pink;
-			opacity: 0;
-			transition: all 0.35s ease-in;
+			// opacity: 0;
+			// transition: all 0.35s ease-in;
 
 			.section--is-visible & {
 
-				top: 0;
-				opacity: 1;
+				// top: 0;
+				// opacity: 1;
 
 			}
 
@@ -90,8 +90,8 @@ Section: Clients
 
 		.featured-clients__list {
 
-			position: relative;
-			top: 1em;
+			// position: relative;
+			// top: 1em;
 
 			display: grid;
 			grid-template-columns: 114px 114px;
@@ -107,9 +107,9 @@ Section: Clients
 			margin: 70px auto 0 auto;
 			padding: 0;
 			list-style: none;
-			transform: scale(0.75);
-			opacity: 0;
-			transition: all 0.35s ease-in 0.25s;
+			// transform: scale(0.75);
+			// opacity: 0;
+			// transition: all 0.35s ease-in 0.25s;
 
 			// background: darken(pink, 15%);
 
@@ -128,9 +128,9 @@ Section: Clients
 
 			.section--is-visible & {
 
-				top: 0;
-				transform: scale(1);
-				opacity: 1;
+				// top: 0;
+				// transform: scale(1);
+				// opacity: 1;
 
 			}
 
