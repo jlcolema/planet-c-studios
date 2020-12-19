@@ -185,6 +185,26 @@ function planetcstudios_register_scripts() {
 
 	}
 
+	/* Add three.js */
+
+	// wp_enqueue_script( 'threejs', get_template_directory_uri() . '/assets/js/libraries/three.min.js', array(), $theme_version, true );
+
+	// wp_script_add_data( 'threejs', 'async', true );
+
+	/* Add animated background */
+
+	// wp_enqueue_script( 'vanta', get_template_directory_uri() . '/assets/js/plugins/vanta.fog.min.js', array(), $theme_version, true );
+
+	// wp_script_add_data( 'vanta', 'async', true );
+
+	/* Add locomotive */
+
+	// Source: https://github.com/locomotivemtl/locomotive-scroll
+
+	wp_enqueue_script( 'locomotive', get_template_directory_uri() . '/assets/js/libraries/locomotive-scroll.min.js', array(), $theme_version, true );
+
+	wp_script_add_data( 'locomotive', 'async', true );
+
 }
 
 add_action( 'wp_enqueue_scripts', 'planetcstudios_register_scripts' );
