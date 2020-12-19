@@ -91,40 +91,92 @@
 
 	<script type="text/javascript">
 
-		const sections = document.querySelectorAll('.section');
+		// const sections = document.querySelectorAll('.section');
 
-		const config = {
+		// const config = {
 
-			// root: document.body,
-			rootMargin: '0px',
-			threshold: 0.30
+		// 	// root: document.body,
+		// 	rootMargin: '0px',
+		// 	threshold: 0.30
 
-		};
+		// };
 
-		observer = new IntersectionObserver((entries) => {
+		// observer = new IntersectionObserver((entries) => {
 
-			entries.forEach(entry => {
+		// 	entries.forEach(entry => {
 
-				if (entry.intersectionRatio > 0) {
+		// 		if (entry.intersectionRatio > 0) {
 					
-					entry.target.classList.add('section--is-visible');
+		// 			entry.target.classList.add('section--is-visible');
 	
-					observer.unobserve(entry.target);
+		// 			observer.unobserve(entry.target);
 	
-				} else {
+		// 		} else {
 
-					entry.target.classList.remove('section--is-visible');
+		// 			entry.target.classList.remove('section--is-visible');
 
-				}
-			});
+		// 		}
+		// 	});
 
-		}, config);
+		// }, config);
 
-		sections.forEach(section => {
+		// sections.forEach(section => {
 
-			observer.observe(section);
+		// 	observer.observe(section);
 
-		});
+		// });
+
+	</script>
+
+	<?php /* Animated Backgrounds */ ?>
+
+	<?php
+
+		// Examples that are close to what is needed...
+
+		// Example 01: https://codepen.io/kevinhufnagl/pen/YzwBemd
+		// Example 02: https://www.vantajs.com/?effect=fog
+		// Example 03: https://sarcadass.github.io/granim.js/index.html
+
+	?>
+
+	<script type="text/javascript">
+
+		/* Stripe */
+
+		/* Vanta */
+
+		// VANTA.FOG({
+
+		// 	el: ".section__clients",
+		// 	mouseControls: false,
+		// 	touchControls: false,
+		// 	gyroControls: false,
+		// 	minHeight: 200.00,
+		// 	minWidth: 200.00,
+		// 	highlightColor: 0x9d222f, // pink
+		// 	midtoneColor: 0xca9d2b, // yellow
+		// 	lowlightColor: 0x2a0a36, // purple
+		// 	baseColor: 0x205867, // blue
+		// 	blurFactor: 0.79,
+		// 	zoom: 0.50,
+		// 	speed: 0.50
+
+		// });
+
+		/* Granim */
+
+	</script>
+
+	<?php /* Locomotive Scroll */ ?>
+
+	<script type="text/javascript">
+
+		(function () {
+
+			var scroll = new LocomotiveScroll();
+
+		})();
 
 	</script>
 
