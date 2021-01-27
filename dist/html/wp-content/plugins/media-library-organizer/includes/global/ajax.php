@@ -179,7 +179,8 @@ class Media_Library_Organizer_AJAX {
         
         // Return the Attachment IDs and their Categories
         wp_send_json_success( array(
-            'attachments' => $return
+            'attachments'       => $return,
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
         ) );
 
     }

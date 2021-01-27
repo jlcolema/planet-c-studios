@@ -165,6 +165,18 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 
 == Changelog ==
 
+= 1.3.1 (2021-01-21) =
+* Fix: List View: Update Attachment counts in Categories dropdown filter counts when categorizing Attachments via drag and drop
+* Fix: Grid View: Update Attachment counts in Tree View Categories when uploading Attachments to a Category
+* Fix: Tree View: Reload Library if viewing a Category which is then deleted, so the deleted Category is no longer being viewed
+* Fix: Tree View: When editing a Category, ensure the prompt contains the correct Category Name
+
+= 1.3.0 (2021-01-14) =
+* Fix: Tree View: Grid View: Ensure drag and drop categorization always initializes and reinitializes
+
+= 1.2.9 (2021-01-07) =
+* Fix: Galleries: Don't change the sort order of Galleries
+
 = 1.2.8 (2020-12-17) =
 * Added: Tree View: Display Attachment Count for each Category when Expand/Collapse is enabled
 * Fix: Edit Post/Page: Attachments Modal: Set and honor Order and Order By options when User Sorting / Sort Order = Remember

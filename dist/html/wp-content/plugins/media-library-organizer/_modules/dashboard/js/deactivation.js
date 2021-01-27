@@ -27,30 +27,9 @@ jQuery( document ).ready( function( $ ) {
 		// Show the modal
 		$( '#wpzinc-deactivation-modal, #wpzinc-deactivation-modal-overlay' ).show();
 
-		// Resize the modal
-		$( '#wpzinc-deactivation-modal' ).outerHeight( 325 );
-
-	} );
-
-	/**
-	 * Show optional fields depending on the answer chosen
-	 */
-	$( 'body' ).on( 'change', 'form#wpzinc-deactivation-modal-form input[name=reason]', function() {
-
-		switch ( $( this ).val() ) {
-			case 'not_working':
-			case 'better_alternative':
-			case 'other':
-				$( '#wpzinc-deactivation-modal' ).outerHeight( 480 );
-				$( 'form#wpzinc-deactivation-modal-form div.additional-information' ).show();
-
-				break;
-
-			default:
-				$( '#wpzinc-deactivation-modal' ).outerHeight( 325 );
-				$( 'form#wpzinc-deactivation-modal-form div.additional-information' ).hide();
-				break;
-		}
+		// Resize and position the modal
+		$( '#wpzinc-deactivation-modal' ).css( 'margin-top', '-210px' );
+		$( '#wpzinc-deactivation-modal' ).outerHeight( 420 );
 
 	} );
 
@@ -75,6 +54,7 @@ jQuery( document ).ready( function( $ ) {
 		        data: 		{
 		        	action: 		'wpzinc_dashboard_deactivation_modal_submit',
 		        	product: 		wpzinc_dashboard.plugin.name,
+		        	version: 		wpzinc_dashboard.plugin.version,
 		        	reason: 		wpzinc_dashboard_deactivation_reason,
 		        	reason_text: 	wpzinc_dashboard_deactivation_reason_text,
 		        	reason_email: 	wpzinc_dashboard_deactivation_reason_email

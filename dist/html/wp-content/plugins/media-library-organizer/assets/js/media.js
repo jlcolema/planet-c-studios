@@ -164,8 +164,6 @@ var mediaLibraryOrganizerUploader = false;
 			 */
 			createFilters: function() {
 
-				console.log( 'mlo createFilters' );
-
 				var filters = {};
 
 				// Build an array of filters based on the Sorting options supplied in media_library_organizer_media.sorting,
@@ -307,8 +305,6 @@ var mediaLibraryOrganizerUploader = false;
 
 			// Add the orderby filter to the toolbar
 			if ( media_library_organizer_media.settings.orderby_enabled == 1 ) {
-				console.log( this );
-
 				this.toolbar.set( 'MediaLibraryOrganizerTaxonomyOrderBy', new MediaLibraryOrganizerTaxonomyOrderBy( {
 					controller: this.controller,
 					model:      this.collection.props,
@@ -332,15 +328,10 @@ var mediaLibraryOrganizerUploader = false;
 			// Make sure to load the original attachments heading
 			AttachmentsBrowser.prototype.createAttachmentsHeading.call( this );
 
-			console.log( this );
-
-			console.log( 'do something here?' );
 		}
 
 	} );
 
-
-	 
 	/**
 	 * Define Order By and Order Defaults on wp.media.query calls, which the Media Library
 	 * uses for Grid Views.

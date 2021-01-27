@@ -792,6 +792,9 @@ class UpdraftPlus_Admin {
 		$handlebars_js_enqueue_version = $updraftplus->use_unminified_scripts() ? '4.1.2'.'.'.time() : '4.1.2';
 		wp_enqueue_script('handlebars', UPDRAFTPLUS_URL.'/includes/handlebars/handlebars'.$min_or_not.'.js', array(), $handlebars_js_enqueue_version);
 		$this->enqueue_jstree();
+
+		$jqueryui_dialog_extended_version = $updraftplus->use_unminified_scripts() ? '1.0.3'.'.'.time() : '1.0.3';
+		wp_enqueue_script('jquery-ui.dialog.extended', UPDRAFTPLUS_URL.'/includes/jquery-ui.dialog.extended/jquery-ui.dialog.extended'.$updraft_min_or_not.'.js', array('jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-dialog'), $jqueryui_dialog_extended_version);
 		
 		do_action('updraftplus_admin_enqueue_scripts');
 		
@@ -1578,7 +1581,7 @@ class UpdraftPlus_Admin {
 
 			restore_error_handler();
 
-			@fclose($updraftplus->logfile_handle);// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+			if ($debug_mode) @fclose($updraftplus->logfile_handle);// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
 			if (!$debug_mode) @unlink($updraftplus->logfile_name);// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
 		}
 
@@ -3107,9 +3110,9 @@ class UpdraftPlus_Admin {
 		if ($exclude_js) {
 			$html .= '<button id="updraft_restore_resume" type="submit" class="button-primary">'.__('Continue restoration', 'updraftplus').'</button>';
 		} else {
-			$html .= '<button id="updraft_restore_resume" onclick="jQuery(\'#updraft_restore_continue_action\').val(\'updraft_restore_continue\'); jQuery(this).parent(\'form\').submit();" type="submit" class="button-primary">'.__('Continue restoration', 'updraftplus').'</button>';
+			$html .= '<button id="updraft_restore_resume" onclick="jQuery(\'#updraft_restore_continue_action\').val(\'updraft_restore_continue\'); jQuery(this).parent(\'form\').trigger(\'submit\');" type="submit" class="button-primary">'.__('Continue restoration', 'updraftplus').'</button>';
 		}
-		$html .= '<button id="updraft_restore_abort" onclick="jQuery(\'#updraft_restore_continue_action\').val(\'updraft_restore_abort\'); jQuery(this).parent(\'form\').submit();" class="button-secondary">'.__('Dismiss', 'updraftplus').'</button>';
+		$html .= '<button id="updraft_restore_abort" onclick="jQuery(\'#updraft_restore_continue_action\').val(\'updraft_restore_abort\'); jQuery(this).parent(\'form\').trigger(\'submit\');" class="button-secondary">'.__('Dismiss', 'updraftplus').'</button>';
 
 		$html .= '</form></div>';
 
@@ -5886,7 +5889,7 @@ ENDHERE;
 	 *
 	 * @return string - the clone UI widget
 	 */
-	public function updraftplus_clone_ui_widget($include_testing_ui = false, $supported_wp_versions, $supported_packages, $supported_regions) {
+	public function updraftplus_clone_ui_widget($include_testing_ui, $supported_wp_versions, $supported_packages, $supported_regions) {
 		global $updraftplus;
 
 		$output = '<p class="updraftplus-option updraftplus-option-inline php-version">';

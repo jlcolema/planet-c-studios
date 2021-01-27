@@ -1,5 +1,5 @@
 /**
- * Handles the Insert and Cancel events on TinyMCE Modals
+ * Handles the Insert and Cancel events on TinyMCE and QuickTag Modals
  *
  * @since   1.0.0
  */
@@ -8,13 +8,14 @@ jQuery( document ).ready( function( $ ) {
     // Cancel
     $( 'body' ).on( 'click', 'form.wpzinc-tinymce-popup button.close', function( e ) {
 
-        if ( $( '.mce-container-body' ).length > 0 ) {
-            // Visual Editor
+        // TinyMCE
+        if ( typeof tinyMCE !== 'undefined' && tinyMCE.activeEditor && ! tinyMCE.activeEditor.isHidden() ) {
             tinymce.activeEditor.windowManager.close();
-        } else {
-            // Text Editor
-            parent.tb_remove();
+            return;
         }
+
+        // Text Editor
+        wpZincQuickTagsModal.close();
 
     } );
 
@@ -46,6 +47,7 @@ jQuery( document ).ready( function( $ ) {
 
             // Get shortcode attribute
             var key = $( this ).data( 'shortcode' ),
+                trim = ( $( this ).data( 'trim' ) == '0' ? false : true ),
                 val = $( this ).val();
 
             // Skip if the shortcode is empty
@@ -75,8 +77,13 @@ jQuery( document ).ready( function( $ ) {
                 val = val.join( ',' );
             }
 
+            // Trim the value, unless the shortcode attribute disables string trimming
+            if ( trim ) {
+                val = val.trim();
+            }
+
             // Append attribute and value to shortcode string
-            shortcode += ' ' + key.trim() + '="' + val.trim() + '"';
+            shortcode += ' ' + key.trim() + '="' + val + '"';
         } );
 
         // Close Shortcode
@@ -84,12 +91,9 @@ jQuery( document ).ready( function( $ ) {
 
         /**
          * Finish building the link, and insert it, depending on whether we were initialized from
-         * the Visual Editor or not.
+         * the Visual Editor or Text Editor
          */
-        //if ( $( '.mce-container-body' ).length > 0 ) {
-            // TinyMCE
-            // tinyMCE.activeEditor will give you the TinyMCE editor instance that's being used.
-            
+        if ( typeof tinyMCE !== 'undefined' && tinyMCE.activeEditor && ! tinyMCE.activeEditor.isHidden() ) {
             // Insert into editor
             tinyMCE.activeEditor.execCommand( 'mceReplaceContent', false, shortcode );
 
@@ -98,19 +102,32 @@ jQuery( document ).ready( function( $ ) {
 
             // Done
             return;
-            /*
-        } else {
-            // Insert into text editor
-            editor.value += shortcode;
-
-            // Trigger a change event for scripts that watch for changes to the Text editor content
-            $( editor ).trigger( 'change' ); 
-
-            // Close popup
-            parent.tb_remove();
         }
-        */
+
+        // Text Editor
+        if ( typeof QTags !== 'undefined' ) {
+            // Insert into editor
+            QTags.insertContent( shortcode );
+
+            // Close modal
+            wpZincQuickTagsModal.close();
+
+            // Done
+            return;
+        }
 
     } );
 
 } );
+
+// QuickTags: Setup Backbone Modal and Template
+if ( typeof wp.media !== 'undefined' ) {
+    var wpZincQuickTagsModal = new wp.media.view.Modal( {
+        controller: { trigger: function() {} },
+        className: 'wpzinc-quicktags-modal'
+    } );
+    var wpZincQuickTagsModalContent = wp.Backbone.View.extend( {
+        template: wp.template( 'wpzinc-quicktags-modal' )
+    } );
+    wpZincQuickTagsModal.content( new wpZincQuickTagsModalContent() );
+}

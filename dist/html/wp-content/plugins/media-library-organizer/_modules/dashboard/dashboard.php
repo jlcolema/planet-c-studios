@@ -64,6 +64,13 @@ class WPZincDashboardWidget {
     private $show_support_menu = false;
 
     /**
+     * Flag to show the Review Request
+     *
+     * @since   1.0.0
+     */
+    private $show_review_request = true;
+
+    /**
      * Constructor
      *
      * @since   1.0.0
@@ -96,7 +103,7 @@ class WPZincDashboardWidget {
         // Reviews
         if ( $this->plugin->review_name != false ) {
             add_action( 'wp_ajax_' . str_replace( '-', '_', $this->plugin->name ) . '_dismiss_review', array( $this, 'dismiss_review' ) );
-            add_action( 'admin_notices', array( $this, 'display_review_request' ) );
+            add_action( 'admin_notices', array( $this, 'maybe_display_review_request' ) );
         }
 
         // Export and Support
@@ -171,6 +178,18 @@ class WPZincDashboardWidget {
     public function hide_upgrade_menu() {
 
         $this->show_upgrade_menu = false;
+
+    }
+
+    /**
+     * Disables the Review Request Notification, regardless of whether
+     * it has been set by the Plugin calling request_review()
+     *
+     * @since   1.0.0
+     */
+    public function disable_review_request() {
+
+        $this->show_review_request = false;
 
     }
 
@@ -445,6 +464,7 @@ class WPZincDashboardWidget {
         wp_localize_script( 'wpzinc-admin-deactivation', 'wpzinc_dashboard', array(
             'plugin'    => array(
                 'name'      => $this->plugin->name,
+                'version'   => $this->plugin->version,
             ),
         ) );
 
@@ -483,11 +503,8 @@ class WPZincDashboardWidget {
 
         // Define the deactivation reasons
         $reasons = array(
-            'upgrade_pro'       => __( 'I\'m upgrading to the Pro version', $this->plugin->name ),
             'not_working'       => __( 'The Plugin didn\'t work', $this->plugin->name ),
-            'not_required'      => __( 'I no longer need the Plugin', $this->plugin->name ),
             'better_alternative'=> __( 'I found a better Plugin', $this->plugin->name ),
-            'temporary'         => __( 'This is just a temporary deactivation', $this->plugin->name ),
             'other'             => __( 'Other', $this->plugin->name ),  
         );
 
@@ -522,6 +539,7 @@ class WPZincDashboardWidget {
         // Build args
         $args = array(
             'product'       => sanitize_text_field( $_REQUEST['product'] ),
+            'version'       => sanitize_text_field( $_REQUEST['version'] ),
             'reason'        => sanitize_text_field( $_REQUEST['reason'] ),
             'reason_text'   => sanitize_text_field( $_REQUEST['reason_text'] ),
             'reason_email'  => sanitize_text_field( $_REQUEST['reason_email'] ),
@@ -541,12 +559,17 @@ class WPZincDashboardWidget {
     }
 
     /**
-     * Displays a dismissible WordPress Administration notice requesting a review, if the main
-     * plugin's key action has been completed.
+     * Displays a dismissible WordPress Administration notice requesting a review, if requested
+     * by the main Plugin and the Review Request hasn't been disabled.
      *
      * @since   1.0.0
      */
-    public function display_review_request() {
+    public function maybe_display_review_request() {
+
+        // If the review request is disabled, bail.
+        if ( ! $this->show_review_request ) {
+            return;
+        }
 
         // If we're not an Admin user, bail
         if ( ! function_exists( 'current_user_can' ) ) {
@@ -580,6 +603,11 @@ class WPZincDashboardWidget {
      */
     public function requested_review() {
 
+        // If the review request is disabled, bail.
+        if ( ! $this->show_review_request ) {
+            return false;
+        }
+
         $time = get_option( $this->plugin->review_name . '-review-request' );
         if ( empty( $time ) ) {
             return false;
@@ -602,6 +630,11 @@ class WPZincDashboardWidget {
      * @since   1.0.0
      */
     public function request_review() {
+
+        // If the review request is disabled, bail.
+        if ( ! $this->show_review_request ) {
+            return;
+        }
 
         // If a review has already been requested, bail
         $time = get_option( $this->plugin->review_name . '-review-request' );

@@ -432,6 +432,30 @@ class Media_Library_Organizer_Media {
      */
     public function filter_attachments_list( $query ) {
 
+        // Bail if on the frontend site
+        if ( ! is_admin() ) {
+            return $query;
+        }
+
+        // Bail if we can't get the current screen
+        if ( ! function_exists( 'get_current_screen' ) ) {
+            return $query;
+        }
+
+        // Get current screen
+        $screen = get_current_screen();
+
+        // Bail if we're not on the Upload screen
+        if ( $screen->id != 'upload' ) {
+            return $query;
+        }
+
+        // Bail if we're not in List Mode
+        $mode = $this->base->get_class( 'common' )->get_media_view();
+        if ( $mode != 'list' ) {
+            return $query;
+        }
+
         // Don't filter the query if we're unable to determine the post type
         if ( ! isset( $query->query['post_type'] ) ) {
             return $query;

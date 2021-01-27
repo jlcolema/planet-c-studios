@@ -105,6 +105,7 @@ class Media_Library_Organizer_Tree_View_Media {
                 'nonce'         => wp_create_nonce( 'media_library_organizer_tree_view_get_tree_view' ),
             ),
             'selected_term'     => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_slugs(),
+            'selected_term_id'  => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_ids(),
             'media_view'        => Media_Library_Organizer()->get_class( 'common' )->get_media_view(), // list|grid
             'jstree'            => Media_Library_Organizer()->get_class( 'settings' )->get_setting( 'tree-view', 'expand_collapse' ),
         );
