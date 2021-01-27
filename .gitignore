@@ -24,6 +24,10 @@ dist/html/wp-content/themes/*
 
 dist/html/wp-content/themes/planetcstudios/assets/*
 
+# Ignore source files.
+
+src/ssl/
+
 # Ignore node dependency directories.
 
 node_modules/
