@@ -363,19 +363,19 @@ Section: Welcome
 			top: calc(100% - 400px);
 			width: 100%;
 			height: 644px;
-			opacity: 0;
+			// opacity: 0;
 			overflow: hidden;
 			z-index: -2;
 
 			// Animation test...
 
-			animation-name: welcome-background;
-			animation-duration: 1.50s;
-			animation-iteration-count: 1;
-			animation-direction: normal;
-			animation-timing-function: ease-in;
-			animation-fill-mode: forwards;
-			animation-delay: 0.75s;
+			// animation-name: welcome-background;
+			// animation-duration: 1.50s;
+			// animation-iteration-count: 1;
+			// animation-direction: normal;
+			// animation-timing-function: ease-in;
+			// animation-fill-mode: forwards;
+			// animation-delay: 0.75s;
 
 		}
 
@@ -383,14 +383,14 @@ Section: Welcome
 
 			from {
 
-				top: 100%;
+				// top: 100%;
 
 			}
 
 			to {
 
-				top: calc(100% - 400px);
-				opacity: 1;
+				// top: calc(100% - 400px);
+				// opacity: 1;
 
 			}
 
