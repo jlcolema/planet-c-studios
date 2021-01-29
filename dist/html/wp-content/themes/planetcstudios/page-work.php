@@ -234,7 +234,95 @@
 			?>
 
 			<ul class="projects__list">
-				
+
+				<?php
+
+					$featured_projects = get_field( 'work_featured_projects' );
+
+				?>
+
+				<?php if ( $featured_projects ) : ?>
+
+					<?php foreach( $featured_projects as $post ) : ?>
+
+						<?php
+
+							/* Fields */
+
+							// Category
+
+							$project_categories = get_field( 'project_category', $project->ID );
+
+							// Tag
+
+							// Cover
+
+							$project_cover_attachment_id = get_field( 'project_cover', $project->ID );
+
+							// Size Labels
+
+							$project_cover_size_large = 'cover-large';
+							$project_cover_size_small = 'cover-small';
+
+							// Image Sizes
+
+							$project_cover_large = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_large );
+							$project_cover_small = wp_get_attachment_image_src( $project_cover_attachment_id, $project_cover_size_small );
+
+							// Title
+
+							$project_cover = get_field( 'project_cover', $project->ID );
+
+						?>
+
+						<li class="project__item project__item--is-featured" data-category="<?php if ( $project_categories ) : ?><?php foreach ( $project_categories as $project_category ) : ?><?php echo esc_html( $project_category->slug ); ?> <?php endforeach; ?><?php endif; ?>">
+
+							<a href="<?php the_permalink(); ?>" class="project__link">
+
+								<div class="project__cover">
+
+									<?php if ( $project_cover ) : ?>
+
+										<img src="<?php echo $project_cover_small[0]; ?>" srcset="<?php echo $project_cover_large[0]; ?> 2x" alt="The cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img" />
+
+									<?php else : ?>
+
+										<img src="https://via.placeholder.com/190x280.png?text=Placeholder+Cover" srcset="https://via.placeholder.com/380x560.png?text=Placeholder-Cover 2x" alt="The placeholder cover image for <?php the_title(); ?>" width="190" height="280" decoding="async" loading="lazy" class="project__img project__img--is-placeholder" />
+
+									<?php endif; ?>
+
+								</div>
+
+								<h3 class="project__title">
+
+									<?php if ( get_field( 'project_short_title' ) ) : ?>
+
+										<?php the_field( 'project_short_title' ); ?>
+
+									<?php else : ?>
+
+										<?php the_title(); ?>
+									
+									<?php endif; ?>
+
+								</h3>
+
+							</a>
+
+						</li>
+
+					<?php endforeach; ?>
+
+					<?php
+					
+						// Reset the global post object so that the rest of the page works correctly.
+
+						wp_reset_postdata();
+						
+					?>
+
+				<?php endif; ?>
+
 				<?php foreach ( $projects as $project ) : ?>
 
 					<?php
