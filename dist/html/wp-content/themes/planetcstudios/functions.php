@@ -70,6 +70,9 @@ function planetcstudios_theme_support() {
 
 	add_image_size( 'photo-small', 60, 60, true );
 
+	// Add custom image sizes for sample thumbnails.
+
+	add_image_size( 'sample-thumbnail', 110, 60, true );
 
 	// Add custom image sizes for background image within the Welcome section.
 
