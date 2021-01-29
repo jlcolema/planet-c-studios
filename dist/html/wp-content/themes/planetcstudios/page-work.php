@@ -64,7 +64,7 @@
 
 			<!-- Need to Organize into `projects__nav` section above. -->
 
-			<input type="radio" id="all" class="filter__input filter__input--radio" name="project-categories" value="See All" checked="checked" />
+			<input type="radio" id="all" class="filter__input filter__input--radio" name="project-categories" value="All" checked="checked" />
 			<input type="radio" id="animation" class="filter__input filter__input--radio" name="project-categories" value="Animation" />
 			<input type="radio" id="branding" class="filter__input filter__input--radio" name="project-categories" value="Branding" />
 			<input type="radio" id="comedy" class="filter__input filter__input--radio" name="project-categories" value="Comedy" />
@@ -93,7 +93,7 @@
 					
 					<li class="filter__item">
 				
-						<label for="all" aria-label="See All" class="filter__label">See All</label>
+						<label for="all" aria-label="All" class="filter__label">All</label>
 			
 					</li>
 
