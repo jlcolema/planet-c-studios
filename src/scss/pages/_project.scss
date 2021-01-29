@@ -19,6 +19,9 @@ Entry: Project
 
 	// background-blend-mode: overlay, overlay, overlay, difference, difference, normal;
 
+	background: url(../img/project-overview-gradient-small.png) center top no-repeat;
+	background-size: cover;
+
 }
 
 	.project__inner-wrap {
@@ -33,9 +36,6 @@ Entry: Project
 
 			margin-bottom: -4vw; // Pulls next section up so that curves overlap.
 			padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
-
-			background: url(../img/project-overview-gradient-small.png) center top no-repeat;
-			background-size: cover;
 
 			// background: pink;
 
@@ -209,11 +209,11 @@ Entry: Project
 
 			// Top curve...
 
-			mask: url(../img/section-curve.svg) center top no-repeat;
-			mask-size: cover;
+			// mask: url(../img/section-curve.svg) center top no-repeat;
+			// mask-size: cover;
 
-			background: url(../img/project-samples-gradient-small.png) center top no-repeat;
-			background-size: cover;
+			// background: url(../img/project-samples-gradient-small.png) center top no-repeat;
+			// background-size: cover;
 
 			// background: darken(pink, 15%);
 
@@ -224,7 +224,7 @@ Entry: Project
 				width: 100%;
 				max-width: 820px;
 				margin: 0 auto;
-				padding: 120px 50px 220px 50px; // Left and right padding gives some room for the navigation arrows.
+				padding: 0 50px 220px 50px; // Left and right padding gives some room for the navigation arrows.
 
 				// background: darken(pink, 5%);
 
