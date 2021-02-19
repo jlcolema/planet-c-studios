@@ -10,17 +10,6 @@ Section: About
 	margin-bottom: -4vw; // Pulls next section up so that curves overlap.
 	padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
 
-	// Gradient to use...
-
-	// background: linear-gradient(120deg, #FF00C7 0%, #51003F 100%),
-	// 			linear-gradient(120deg, #0030AD 0%, #00071A 100%),
-	// 			linear-gradient(180deg, #000346 0%, #FF0000 100%),
-	// 			linear-gradient(60deg, #0029FF 0%, #AA0014 100%),
-	// 			radial-gradient(100% 165% at 100% 100%, #FF00A8 0%, #00FF47 100%),
-	// 			radial-gradient(100% 150% at 0% 0%, #FFF500 0%, #51D500 100%);
-
-	// background-blend-mode: overlay, color-dodge, overlay, overlay, difference, normal;
-
 	// Top curve...
 
 	mask: url(../img/section-curve.svg) center top no-repeat;
@@ -71,10 +60,10 @@ Section: About
 
 			.about__mission-statement {
 
-				// position: relative;
-				// top: 2em;
-				// opacity: 0;
-				// transition: all 0.35s ease-in;
+				position: relative;
+				top: 2em;
+				opacity: 0;
+				transition: all 0.35s ease-in;
 
 				@media screen and (min-width: 640px) {
 
@@ -85,8 +74,8 @@ Section: About
 
 				.section--is-visible & {
 
-					// top: 0;
-					// opacity: 1;
+					top: 0;
+					opacity: 1;
 
 				}
 
@@ -112,13 +101,13 @@ Section: About
 			
 			.about__founded {
 
-				// position: relative;
-				// top: 2em;
-				// opacity: 0;
+				position: relative;
+				top: 2em;
+				opacity: 0;
 
 				margin: 2em 0 0 0;
 				text-align: right;
-				// transition: all 0.35s ease-in 0.50s;
+				transition: all 0.35s ease-in 0.50s;
 
 				@media screen and (min-width: 640px) {
 
@@ -130,8 +119,8 @@ Section: About
 
 				.section--is-visible & {
 
-					// top: 0;
-					// opacity: 1;
+					top: 0;
+					opacity: 1;
 
 				}
 
@@ -176,17 +165,17 @@ Section: About
 
 			.member__type--core-team {
 
-				// position: relative;
-				// top: 2em;
+				position: relative;
+				top: 2em;
 				width: 420px;
-				// opacity: 0;
+				opacity: 0;
 				// background: gray;
-				// transition: all 0.35s ease-in 0.75s;
+				transition: all 0.35s ease-in 0.75s;
 
 				.section--is-visible & {
 
-					// top: 0;
-					// opacity: 1;
+					top: 0;
+					opacity: 1;
 
 				}
 
@@ -194,13 +183,13 @@ Section: About
 
 			.member__type--key-collaborators {
 
-				// position: relative;
-				// top: 2em;
+				position: relative;
+				top: 2em;
 				width: 100%;
 				margin: 65px 0 0 0;
-				// opacity: 0;
+				opacity: 0;
 				// background: darken(gray, 10%);
-				// transition: 0.35s ease-in 0.25s;
+				transition: 0.35s ease-in 0.25s;
 
 				@media screen and (min-width: 800px) {
 
@@ -211,8 +200,8 @@ Section: About
 
 				.section--is-visible & {
 
-					// top: 0;
-					// opacity: 1;
+					top: 0;
+					opacity: 1;
 
 				}
 
