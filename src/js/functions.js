@@ -131,13 +131,13 @@
 
 		// Notes...
 
-		$('.member__photo').click( function() {
+		// $('.member__photo').click( function() {
 
-			$(this).parent().toggleClass('member__item--is-active');
+			// $(this).parent().toggleClass('member__item--is-active');
 
 			// $(this).addClass('service__item--is-active');
 
-		});
+		// });
 
 		/* Form Toggle
 		--------------------------------------*/
