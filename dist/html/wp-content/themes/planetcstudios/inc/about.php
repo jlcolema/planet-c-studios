@@ -198,7 +198,7 @@
 
 			<div class="member__type member__type--key-collaborators">
 
-				<h3 class="member__subheader member__subheader--key-collaborators">Key Collaborators</h3>
+				<h3 class="member__subheader member__subheader--key-collaborators">Featured Collaborators</h3>
 
 				<?php /* List of Key Collaborators */ ?>
 
