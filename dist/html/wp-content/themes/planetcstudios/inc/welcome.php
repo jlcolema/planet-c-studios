@@ -114,7 +114,7 @@
 
 						<?php endwhile; ?>
 
-						<p class="service__highlighted-project">Highlighted Project: <a href="<?php echo esc_html( $service_featured_project_url ); ?>" class="service__highlighted-project-link"><?php echo esc_html( $service_featured_project_title ); ?></a></p>
+						<p class="service__highlighted-project">Featured Project: <a href="<?php echo esc_html( $service_featured_project_url ); ?>" class="service__highlighted-project-link"><?php echo esc_html( $service_featured_project_title ); ?></a></p>
 
 					</div>
 
