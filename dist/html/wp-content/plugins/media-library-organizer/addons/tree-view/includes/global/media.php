@@ -75,6 +75,9 @@ class Media_Library_Organizer_Tree_View_Media {
         wp_enqueue_script( $this->base->plugin->name . '-jquery-ui-contextmenu', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'jquery.ui-contextmenu' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'jquery' ), $this->base->plugin->version, true );
         wp_enqueue_script( $this->base->plugin->name . '-media', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'media' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'jquery' ), $this->base->plugin->version, true );
         
+        // Get Tree View Taxonomy
+        $taxonomy = $this->get_tree_view_taxonomy();
+
         // Define Media Settings
         $media_settings = array(
             'ajaxurl'       => admin_url( 'admin-ajax.php' ),
@@ -82,19 +85,39 @@ class Media_Library_Organizer_Tree_View_Media {
             'create_term'   => array(
                 'action'        => 'media_library_organizer_add_term',
                 'nonce'         => wp_create_nonce( 'media_library_organizer_add_term' ),
-                'prompt'        => __( 'Enter a Category Name', 'media-library-organizer-pro' ),
+                'prompt'        => sprintf(
+                    /* translators: Taxonomy Name, Singular */
+                    __( 'Enter a %s Name', 'media-library-organizer' ),
+                    $taxonomy->labels->singular_name
+                ),
             ),
             'edit_term'     => array(
                 'action'        => 'media_library_organizer_edit_term',
                 'nonce'         => wp_create_nonce( 'media_library_organizer_edit_term' ),
-                'prompt'        => __( 'Edit Category Name', 'media-library-organizer-pro' ),
-                'no_selection'  => __( 'You must select a Category first', 'media-library-organizer-pro' ),
+                'prompt'        => sprintf(
+                    /* translators: Taxonomy Name, Singular */
+                    __( 'Edit %s Name', 'media-library-organizer' ),
+                    $taxonomy->labels->singular_name
+                ),
+                'no_selection' => sprintf(
+                    /* translators: Taxonomy Name, Singular */
+                    __( 'You must select a %s first', 'media-library-organizer' ),
+                    $taxonomy->labels->singular_name
+                ),
             ),
             'delete_term'   => array(
                 'action'        => 'media_library_organizer_delete_term',
                 'nonce'         => wp_create_nonce( 'media_library_organizer_delete_term' ),
-                'prompt'        => __( 'Delete Category?', 'media-library-organizer-pro' ),
-                'no_selection'  => __( 'You must select a Category first', 'media-library-organizer-pro' ),
+                'prompt'        => sprintf(
+                    /* translators: Taxonomy Name, Singular */
+                    __( 'Delete %s?', 'media-library-organizer' ),
+                    $taxonomy->labels->singular_name
+                ),
+                'no_selection'  => sprintf(
+                    /* translators: Taxonomy Name, Singular */
+                    __( 'You must select a %s first', 'media-library-organizer' ),
+                    $taxonomy->labels->singular_name
+                ),
             ),
             'categorize_attachments' => array(
                 'action'        => 'media_library_organizer_categorize_attachments',
@@ -104,8 +127,9 @@ class Media_Library_Organizer_Tree_View_Media {
                 'action'        => 'media_library_organizer_tree_view_get_tree_view',
                 'nonce'         => wp_create_nonce( 'media_library_organizer_tree_view_get_tree_view' ),
             ),
-            'selected_term'     => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_slugs(),
-            'selected_term_id'  => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_ids(),
+            'taxonomy'          => $taxonomy,
+            'selected_term'     => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_slugs( $taxonomy->name ),
+            'selected_term_id'  => Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_ids( $taxonomy->name ),
             'media_view'        => Media_Library_Organizer()->get_class( 'common' )->get_media_view(), // list|grid
             'jstree'            => Media_Library_Organizer()->get_class( 'settings' )->get_setting( 'tree-view', 'expand_collapse' ),
         );
@@ -114,15 +138,15 @@ class Media_Library_Organizer_Tree_View_Media {
         if ( current_user_can( 'manage_categories' ) ) {
             $media_settings['context_menu'] = array(
                 array(
-                    'title'     => __( 'Add Child Category', 'media-library-organizer-pro' ),
+                    'title'     => __( 'Add Child', 'media-library-organizer' ),
                     'cmd'       => 'create_term',
                 ),
                 array(
-                    'title'     => __( 'Edit', 'media-library-organizer-pro' ),
+                    'title'     => __( 'Edit', 'media-library-organizer' ),
                     'cmd'       => 'edit_term',
                 ),
                 array(
-                    'title'     => __( 'Delete', 'media-library-organizer-pro' ),
+                    'title'     => __( 'Delete', 'media-library-organizer' ),
                     'cmd'       => 'delete_term',
                 ),
             );
@@ -209,8 +233,11 @@ class Media_Library_Organizer_Tree_View_Media {
             return;
         }
 
+        // Get Taxonomy
+        $taxonomy = $this->get_tree_view_taxonomy();
+
         // Get Tree View
-        $output = $this->get_tree_view( Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_ids() );
+        $output = $this->get_tree_view( $taxonomy->name, Media_Library_Organizer()->get_class( 'media' )->get_selected_terms_ids( $taxonomy->name ) );
 
         // Check is JSTree enabled
         $jstree_enabled = Media_Library_Organizer()->get_class( 'settings' )->get_setting( 'tree-view', 'jstree_enabled' );
@@ -224,13 +251,37 @@ class Media_Library_Organizer_Tree_View_Media {
     }
 
     /**
-     * Gets the Tree View markupr
+     * Returns the Taxonomy object to be used in the Tree View
+     *
+     * @since   1.3.2
+     *
+     * @return  WP_Taxonomy     Taxonomy
+     */
+    public function get_tree_view_taxonomy() {
+
+        /**
+         * Defines the Taxonomy to display Terms for in the Tree View
+         *
+         * @since   1.3.2
+         *
+         * @param   string  $taxonomy_name      Taxonomy Name
+         */
+        $taxonomy_name = apply_filters( 'media_library_organizer_tree_view_media_get_tree_view_taxonomy', 'mlo-category' );
+
+        // Return taxonomy object
+        return Media_Library_Organizer()->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
+
+    }
+
+    /**
+     * Gets the Tree View markup
      *
      * @since   1.1.1
      *
-     * @param   array   $selected_term_ids    Selected Term ID(s) (false | int | array of integers)
+     * @param   string  $taxonomy_name          Taxonomy Name
+     * @param   array   $selected_term_ids      Selected Term ID(s) (false | int | array of integers)
      */
-    public function get_tree_view( $selected_term_ids = false ) {
+    public function get_tree_view( $taxonomy_name, $selected_term_ids = false ) {
 
         // Define walker class to use for this Tree View
         $walker = new Media_Library_Organizer_Tree_View_Taxonomy_Walker();
@@ -240,7 +291,7 @@ class Media_Library_Organizer_Tree_View_Media {
             'echo'              => 0,
             'hide_empty'        => 0,
             'show_count'        => 1,
-            'taxonomy'          => Media_Library_Organizer()->get_class( 'taxonomy' )->taxonomy_name,
+            'taxonomy'          => $taxonomy_name,
             'title_li'          => 0,
             'walker'            => $walker,
         );
@@ -262,10 +313,10 @@ class Media_Library_Organizer_Tree_View_Media {
         // Output
         $output = '<ul>
             <li class="cat-item-all">
-                <a href="' . $this->get_all_terms_link() . '">' . sprintf( __( 'All %s', 'media-library-organizer-pro' ), Media_Library_Organizer()->get_class( 'taxonomy' )->taxonomy_label_short_plural ) . '</a>
+                <a href="' . $this->get_all_terms_link() . '">' . __( 'All', 'media-library-organizer' ) . '</a>
             </li>
             <li class="cat-item-unassigned">
-                <a href="' . $this->get_unassigned_term_link() . '">' . __( '(Unassigned)' ) . '</a>
+                <a href="' . $this->get_unassigned_term_link( $taxonomy_name ) . '">' . __( '(Unassigned)', 'media-library-organizer' ) . '</a>
             </li>' .
             wp_list_categories( $args ) . '
         </ul>';
@@ -295,12 +346,13 @@ class Media_Library_Organizer_Tree_View_Media {
      *
      * @since   1.1.1
      *
-     * @return  string  URL
+     * @param   string  $taxonomy_name  Taxonomy Name
+     * @return  string                  URL
      */
-    public function get_unassigned_term_link() {
+    public function get_unassigned_term_link( $taxonomy_name ) {
 
         return add_query_arg( array_merge( $this->get_filters(), array(
-            Media_Library_Organizer()->get_class( 'taxonomy' )->taxonomy_name => -1,
+            $taxonomy_name => -1,
         ) ), 'upload.php' );
 
     }

@@ -42,7 +42,7 @@ class Media_Library_Organizer_Tree_View {
         // Plugin Details
         $this->plugin               = new stdClass;
         $this->plugin->name         = 'media-library-organizer-tree-view';
-        $this->plugin->displayName  = __( 'Tree View', 'media-library-organizer-pro' );
+        $this->plugin->displayName  = __( 'Tree View', 'media-library-organizer' );
         $this->plugin->version      = '1.1.1';
         $this->plugin->folder       = plugin_dir_path( __FILE__ );
         $this->plugin->url          = plugin_dir_url( __FILE__ );
@@ -159,14 +159,21 @@ class Media_Library_Organizer_Tree_View {
         // to avoid a PHP fatal error.
         if ( ! isset( $this->classes->{ $name } ) ) {
             // Define the error
-            $error = new WP_Error( 'media_library_organizer_tree_view_get_class', sprintf( __( 'Media Library Organizer Pro: Tree View: Error: Could not load Plugin class <strong>%s</strong>', 'media-library-organizer-pro' ), $name ) );
+            $error = new WP_Error( 
+                'media_library_organizer_tree_view_get_class',
+                sprintf(
+                    /* translators: PHP class name */
+                    __( 'Media Library Organizer: Tree View: Error: Could not load Plugin class <strong>%s</strong>', 'media-library-organizer' ),
+                    $name
+                )
+            );
              
             // Depending on the request, return or display an error
             // Admin UI
             if ( is_admin() ) {  
                 wp_die(
                     $error,
-                    __( 'Media Library Organize Pro: Tree View: Error', 'media-library-organizer-pro' ),
+                    __( 'Media Library Organizer: Tree View: Error', 'media-library-organizer' ),
                     array(
                         'back_link' => true,
                     )

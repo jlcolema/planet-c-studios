@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Media Library Organizer plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Media Library Organizer 1.3.1\n"
+"Project-Id-Version: Media Library Organizer 1.3.3\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/media-library-organizer\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-01-21T17:26:11+00:00\n"
+"POT-Creation-Date: 2021-02-10T16:39:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0-alpha\n"
 "X-Domain: media-library-organizer\n"
@@ -31,6 +31,99 @@ msgstr ""
 msgid "WP Media Library"
 msgstr ""
 
+#. translators: Taxonomy Name, Singular
+#: addons/tree-view/includes/global/media.php:90
+msgid "Enter a %s Name"
+msgstr ""
+
+#. translators: Taxonomy Name, Singular
+#: addons/tree-view/includes/global/media.php:99
+msgid "Edit %s Name"
+msgstr ""
+
+#. translators: Taxonomy Name, Singular
+#: addons/tree-view/includes/global/media.php:104
+#: addons/tree-view/includes/global/media.php:118
+msgid "You must select a %s first"
+msgstr ""
+
+#. translators: Taxonomy Name, Singular
+#: addons/tree-view/includes/global/media.php:113
+msgid "Delete %s?"
+msgstr ""
+
+#: addons/tree-view/includes/global/media.php:141
+msgid "Add Child"
+msgstr ""
+
+#: addons/tree-view/includes/global/media.php:145
+#: addons/tree-view/views/admin/media.php:11
+msgid "Edit"
+msgstr ""
+
+#: addons/tree-view/includes/global/media.php:149
+#: addons/tree-view/views/admin/media.php:12
+msgid "Delete"
+msgstr ""
+
+#: addons/tree-view/includes/global/media.php:316
+#: includes/global/common.php:107
+msgid "All"
+msgstr ""
+
+#: addons/tree-view/includes/global/media.php:319
+#: includes/global/media.php:194
+msgid "(Unassigned)"
+msgstr ""
+
+#: addons/tree-view/tree-view.php:45
+msgid "Tree View"
+msgstr ""
+
+#. translators: PHP class name
+#: addons/tree-view/tree-view.php:166
+msgid "Media Library Organizer: Tree View: Error: Could not load Plugin class <strong>%s</strong>"
+msgstr ""
+
+#: addons/tree-view/tree-view.php:176
+msgid "Media Library Organizer: Tree View: Error"
+msgstr ""
+
+#: addons/tree-view/views/admin/media.php:10
+#: includes/global/media.php:878
+#: includes/global/media.php:921
+msgid "Add"
+msgstr ""
+
+#: addons/tree-view/views/admin/settings.php:4
+msgid "Tree View Settings"
+msgstr ""
+
+#: addons/tree-view/views/admin/settings.php:7
+msgid "Display a Category Tree sidebar when viewing the Media Library."
+msgstr ""
+
+#: addons/tree-view/views/admin/settings.php:13
+#: addons/tree-view/views/admin/settings.php:18
+#: addons/tree-view/views/admin/settings.php:35
+#: views/admin/settings-general.php:64
+#: views/admin/settings-general.php:89
+#: views/admin/settings-general.php:105
+msgid "Enabled"
+msgstr ""
+
+#: addons/tree-view/views/admin/settings.php:21
+#: addons/tree-view/views/admin/settings.php:38
+#: views/admin/settings-general.php:65
+#: views/admin/settings-general.php:90
+#: views/admin/settings-general.php:106
+msgid "Disabled"
+msgstr ""
+
+#: addons/tree-view/views/admin/settings.php:30
+msgid "Expand/Collapse"
+msgstr ""
+
 #: addons/tree-view/views/admin/settings.php:43
 msgid "If enabled, only top level Categories are displayed in the Tree View. Clicking the icon next to them will reveal Subcategories."
 msgstr ""
@@ -44,65 +137,65 @@ msgid "No settings data detected."
 msgstr ""
 
 #: includes/admin/admin-ajax.php:78
-#: includes/admin/admin.php:788
-#: includes/admin/admin.php:817
+#: includes/admin/admin.php:763
+#: includes/admin/admin.php:792
 msgid "Settings saved."
 msgstr ""
 
-#: includes/admin/admin.php:302
+#: includes/admin/admin.php:274
 msgid "Saving"
 msgstr ""
 
-#: includes/admin/admin.php:303
+#: includes/admin/admin.php:275
 msgid "Saved!"
 msgstr ""
 
-#: includes/admin/admin.php:401
+#: includes/admin/admin.php:373
 msgid "Settings"
 msgstr ""
 
-#: includes/admin/admin.php:402
+#: includes/admin/admin.php:374
 msgid "Defines Plugin-wide settings for Media Library Organizer."
 msgstr ""
 
-#: includes/admin/admin.php:455
+#: includes/admin/admin.php:427
 msgid "The requested administration screen does not exist"
 msgstr ""
 
-#: includes/admin/admin.php:552
+#: includes/admin/admin.php:524
 msgid "Filters"
 msgstr ""
 
-#: includes/admin/admin.php:558
+#: includes/admin/admin.php:530
 msgid "User Options"
 msgstr ""
 
-#: includes/admin/admin.php:596
+#: includes/admin/admin.php:568
 msgid "Auto Categorization"
 msgstr ""
 
-#: includes/admin/admin.php:603
+#: includes/admin/admin.php:575
 msgid "Defaults"
 msgstr ""
 
-#: includes/admin/admin.php:609
+#: includes/admin/admin.php:581
 msgid "EXIF"
 msgstr ""
 
-#: includes/admin/admin.php:616
+#: includes/admin/admin.php:588
 msgid "IPTC"
 msgstr ""
 
-#: includes/admin/admin.php:623
+#: includes/admin/admin.php:595
 #: views/admin/settings-upgrade.php:76
 msgid "Output"
 msgstr ""
 
-#: includes/admin/admin.php:629
+#: includes/admin/admin.php:601
 msgid "ZIP"
 msgstr ""
 
-#: includes/admin/admin.php:747
+#: includes/admin/admin.php:722
 msgid "Invalid nonce specified. Settings NOT saved."
 msgstr ""
 
@@ -168,13 +261,16 @@ msgstr ""
 msgid "Terms were imported, however some errors were encountered.  They may have no impact on the import, but you'll need to check: %s"
 msgstr ""
 
-#: includes/global/ajax.php:87
-#: includes/global/ajax.php:123
+#: includes/global/ajax.php:103
 msgid "Category does not exist, so cannot be deleted"
 msgstr ""
 
-#: includes/global/common.php:107
-msgid "All"
+#: includes/global/ajax.php:150
+msgid "Term does not exist, so cannot be deleted"
+msgstr ""
+
+#: includes/global/ajax.php:291
+msgid "The taxonomy_name or args[taxonomy_name] parameter must be included in the request."
 msgstr ""
 
 #: includes/global/common.php:108
@@ -222,6 +318,7 @@ msgid "Title"
 msgstr ""
 
 #: includes/global/common.php:213
+#: includes/global/dynamic-tags.php:56
 msgid "Uploaded Date"
 msgstr ""
 
@@ -280,6 +377,80 @@ msgstr ""
 msgid "Link to Attachment Page"
 msgstr ""
 
+#: includes/global/dynamic-tags.php:47
+msgid "File Name"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:48
+msgid "File Name, Prettified"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:49
+msgid "File Extension"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:50
+msgid "File Type"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:51
+msgid "File Extension and Type"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:52
+msgid "File Size"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:53
+msgid "Image Width and Height"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:54
+msgid "Image Width"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:55
+msgid "Image Height"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:57
+msgid "Uploaded Time"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:58
+msgid "Uploaded Date and Time"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:61
+msgid "Author Login"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:62
+msgid "Author Nice Name"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:63
+msgid "Author Email"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:64
+msgid "Author URL"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:65
+msgid "Author Display Name"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:66
+msgid "Author Meta Field"
+msgstr ""
+
+#: includes/global/dynamic-tags.php:160
+#: includes/global/dynamic-tags.php:161
+#: includes/global/dynamic-tags.php:162
+msgid "pixels"
+msgstr ""
+
 #. translators: Folder name
 #: includes/global/filesystem.php:134
 #: includes/global/filesystem.php:155
@@ -296,12 +467,10 @@ msgstr ""
 msgid "Unable to delete %s"
 msgstr ""
 
-#: includes/global/media.php:162
-msgid "All Media Categories"
-msgstr ""
-
-#: includes/global/media.php:163
-msgid "(Unassigned)"
+#. translators: Taxonomy Label, Plural
+#: includes/global/media.php:191
+#: includes/global/taxonomies.php:81
+msgid "All %s"
 msgstr ""
 
 #: includes/global/mime.php:84
@@ -340,61 +509,47 @@ msgstr ""
 msgid "Other"
 msgstr ""
 
-#: includes/global/taxonomy.php:80
-msgid "Media Category"
-msgstr ""
-
-#: includes/global/taxonomy.php:81
-#: views/admin/settings-general.php:57
-msgid "Media Categories"
-msgstr ""
-
-#: includes/global/taxonomy.php:82
-msgid "Category"
-msgstr ""
-
-#: includes/global/taxonomy.php:83
-msgid "Categories"
-msgstr ""
-
-#. translators: Taxonomy Label, Plural ("Categories")
-#: includes/global/taxonomy.php:103
+#. translators: Taxonomy Label, Plural
+#: includes/global/taxonomies.php:79
 msgid "Search %s"
 msgstr ""
 
-#. translators: Taxonomy Label, Plural ("Categories")
-#: includes/global/taxonomy.php:105
-msgid "All %s"
-msgstr ""
-
-#. translators: Taxonomy Label, Singular ("Category")
-#: includes/global/taxonomy.php:107
+#. translators: Taxonomy Label, Singular
+#: includes/global/taxonomies.php:83
 msgid "Parent %s"
 msgstr ""
 
-#. translators: Taxonomy Label, Singular ("Category")
-#: includes/global/taxonomy.php:109
+#. translators: Taxonomy Label, Singular
+#: includes/global/taxonomies.php:85
 msgid "Parent %s:"
 msgstr ""
 
-#. translators: Taxonomy Label, Singular ("Category")
-#: includes/global/taxonomy.php:111
+#. translators: Taxonomy Label, Singular
+#: includes/global/taxonomies.php:87
 msgid "Edit %s"
 msgstr ""
 
-#. translators: Taxonomy Label, Singular ("Category")
-#: includes/global/taxonomy.php:113
+#. translators: Taxonomy Label, Singular
+#: includes/global/taxonomies.php:89
 msgid "Update %s"
 msgstr ""
 
-#. translators: Taxonomy Label, Singular ("Category")
-#: includes/global/taxonomy.php:115
+#. translators: Taxonomy Label, Singular
+#: includes/global/taxonomies.php:91
 msgid "Add New %s"
 msgstr ""
 
-#. translators: Taxonomy Label, Singular ("Category")
-#: includes/global/taxonomy.php:117
+#. translators: Taxonomy Label, Singular
+#: includes/global/taxonomies.php:93
 msgid "New %s"
+msgstr ""
+
+#: includes/global/taxonomies.php:150
+msgid "Media Categories"
+msgstr ""
+
+#: includes/global/taxonomies.php:151
+msgid "Media Category"
 msgstr ""
 
 #: views/admin/import-enhanced-media-library.php:11
@@ -469,63 +624,52 @@ msgstr ""
 msgid "Determines which filters should be displayed on list and grid Media Library views."
 msgstr ""
 
-#: views/admin/settings-general.php:61
-#: views/admin/settings-general.php:77
-#: views/admin/settings-general.php:93
-msgid "Enabled"
+#. translators: Taxonomy Label, Singular
+#: views/admin/settings-general.php:72
+msgid "If enabled, displays a dropdown option to filter Media Library items by %s"
 msgstr ""
 
-#: views/admin/settings-general.php:62
-#: views/admin/settings-general.php:78
-#: views/admin/settings-general.php:94
-msgid "Disabled"
-msgstr ""
-
-#: views/admin/settings-general.php:66
-msgid "If enabled, displays a dropdown option to filter Media Library items by Category"
-msgstr ""
-
-#: views/admin/settings-general.php:73
-#: views/admin/settings-general.php:119
+#: views/admin/settings-general.php:85
+#: views/admin/settings-general.php:131
 msgid "Sorting"
 msgstr ""
 
-#: views/admin/settings-general.php:82
+#: views/admin/settings-general.php:94
 msgid "If enabled, displays a dropdown option to select how to order Media Library items"
 msgstr ""
 
-#: views/admin/settings-general.php:89
-#: views/admin/settings-general.php:135
+#: views/admin/settings-general.php:101
+#: views/admin/settings-general.php:147
 msgid "Sort Order"
 msgstr ""
 
-#: views/admin/settings-general.php:98
+#: views/admin/settings-general.php:110
 msgid "If enabled, displays a dropdown option to select whether to order Media Library items ascending or descending"
 msgstr ""
 
-#: views/admin/settings-general.php:111
+#: views/admin/settings-general.php:123
 msgid "User Settings"
 msgstr ""
 
-#: views/admin/settings-general.php:113
+#: views/admin/settings-general.php:125
 msgid "Determines which filter settings should persist across different screens for the logged in WordPress User."
 msgstr ""
 
-#: views/admin/settings-general.php:123
-#: views/admin/settings-general.php:139
+#: views/admin/settings-general.php:135
+#: views/admin/settings-general.php:151
 msgid "Remember"
 msgstr ""
 
-#: views/admin/settings-general.php:124
-#: views/admin/settings-general.php:140
+#: views/admin/settings-general.php:136
+#: views/admin/settings-general.php:152
 msgid "Don't Remember"
 msgstr ""
 
-#: views/admin/settings-general.php:128
+#: views/admin/settings-general.php:140
 msgid "When set to Remembered, the User's last chosen Order By filter option will be remembered across all Media Views.  When set to Don't Remember, the filters will reset when switching between WordPress Administration screens."
 msgstr ""
 
-#: views/admin/settings-general.php:144
+#: views/admin/settings-general.php:156
 msgid "When set to Remembered, the User's last chosen Order filter option will be remembered across all Media Views.  When set to Don't Remember, the filters will reset when switching between WordPress Administration screens."
 msgstr ""
 

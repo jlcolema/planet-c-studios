@@ -171,7 +171,7 @@ var MediaLibraryOrganizerViewContainer = wp.Backbone.View.extend( {
 
             default:
                 // event.target.value is stale and out of date when using e.g. selectize
-                value = $( event.target ).val();
+                value = jQuery( event.target ).val();
                 break;
         }
 

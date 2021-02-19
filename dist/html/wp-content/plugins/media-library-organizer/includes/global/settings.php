@@ -290,7 +290,7 @@ class Media_Library_Organizer_Settings {
         $defaults = array(
             // General
             'general'   => array(
-                'taxonomy_enabled'      => 1,
+                'mlo-category'          => 1,
                 'orderby_enabled'       => 1,
                 'order_enabled'         => 1,
             ),
@@ -301,7 +301,7 @@ class Media_Library_Organizer_Settings {
                 'order_enabled'         => 1,
             ),
         );
-
+ 
         /**
          * Defines the default settings for the given type.
          *

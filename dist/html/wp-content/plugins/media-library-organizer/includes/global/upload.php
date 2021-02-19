@@ -69,14 +69,13 @@ class Media_Library_Organizer_Upload {
      */
     public function plupload_options( $options ) {
 
-        // Get taxonomy
-        $taxonomy = $this->base->get_class( 'taxonomy' )->get_taxonomy();
-
-        // Define form fields to send with file uploads
-        // The field values must be updated when the user updates the form, which is done at assets/js/upload.js
-        $fields = array( 
-            $taxonomy->name => $this->base->get_class( 'media' )->get_selected_terms_slugs(),
-        );
+        // Iterate through Registered Taxonomies
+        $fields = array();
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Define form fields to send with file uploads
+            // The field values must be updated when the user updates the form, which is done at assets/js/upload.js
+            $fields[ $taxonomy_name ] = $this->base->get_class( 'media' )->get_selected_terms_slugs( $taxonomy_name );
+        }
 
         // Define a multipart_params array if not defined
         if ( ! is_array( $options['multipart_params'] ) ) {
@@ -151,26 +150,36 @@ class Media_Library_Organizer_Upload {
      */
     public function add_attachment( $attachment_id ) {
 
-        // Get taxonomy
-        $taxonomy = Media_Library_Organizer()->get_class( 'taxonomy' )->get_taxonomy();
+        // Get Attachment
+        $attachment = new Media_Library_Organizer_Attachment( $attachment_id );
 
-        // Conditionally set Media Categories, as they won't be included in the request if no checkboxes were selected
-        if ( isset( $_REQUEST['media_library_organizer'] ) && isset( $_REQUEST['media_library_organizer'][ $taxonomy->name ] ) && ! empty( $_REQUEST['media_library_organizer'][ $taxonomy->name ] ) ) {
-            // Get Attachment
-            $attachment = new Media_Library_Organizer_Attachment( $attachment_id );
-
-            // Set Category
-            $term = get_term_by( 'slug', sanitize_text_field( $_REQUEST['media_library_organizer'][ $taxonomy->name ] ), $taxonomy->name );
-            if ( $term ) {
-                $attachment->set_media_categories( array( $term->term_id ) );
-
-                // Update the Attachment
-                $attachment->update();
-
-                // Destroy the class
-                unset( $attachment );
+        // Iterate through Registered Taxonomies
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Conditionally set Media Categories, as they won't be included in the request if no checkboxes were selected
+            if ( ! isset( $_REQUEST['media_library_organizer'] ) ) {
+                continue;
             }
+            if ( ! isset( $_REQUEST['media_library_organizer'][ $taxonomy_name ] ) ) {
+                continue;
+            }
+            if ( empty( $_REQUEST['media_library_organizer'][ $taxonomy_name ] ) ) {
+                continue;
+            }
+
+            // Set Terms
+            $term = get_term_by( 'slug', sanitize_text_field( $_REQUEST['media_library_organizer'][ $taxonomy_name ] ), $taxonomy_name );
+            if ( ! $term ) {
+                continue;
+            }
+
+            $attachment->set_terms( $taxonomy_name, array( $term->term_id ) );
         }
+
+        // Update the Attachment
+        $attachment->update();
+
+        // Destroy the class
+        unset( $attachment );
 
         /**
          * Allows Addons to run actions on an attachment that has just been

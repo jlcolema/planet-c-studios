@@ -351,7 +351,7 @@ class Media_Library_Organizer_Import {
                 }
 
                 // Assign the Plugin Taxonomy Term IDs to the Attachment
-                $result = wp_set_object_terms( $attachment_id, $term_ids, $this->base->get_class( 'taxonomy' )->taxonomy_name, false );
+                $result = wp_set_object_terms( $attachment_id, $term_ids, 'mlo-category', false );
 
                 // Store error if something went wrong
                 if ( is_wp_error( $result ) ) {
@@ -397,14 +397,14 @@ class Media_Library_Organizer_Import {
 
         // Check if this Term Name already exists in this Plugin's Taxonomy
         // If so, return its ID
-        $existing_term = get_term_by( 'name', $term_name, $this->base->get_class( 'taxonomy' )->taxonomy_name );
+        $existing_term = get_term_by( 'name', $term_name, 'mlo-category' );
         if ( $existing_term != false ) {
             return $existing_term->term_id;
         }
 
         // Term Name does not exist.
         // Create Term for this Plugin's Taxonomy
-        $result = wp_insert_term( $term_name, $this->base->get_class( 'taxonomy' )->taxonomy_name, array(
+        $result = wp_insert_term( $term_name, 'mlo-category', array(
             'description' => $description,
             'parent'      => $parent_id,
         ) );

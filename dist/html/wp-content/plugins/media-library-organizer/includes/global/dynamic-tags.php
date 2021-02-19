@@ -44,26 +44,26 @@ class Media_Library_Organizer_Dynamic_Tags {
         // Get tags
         $tags = array(
             // File
-            '{file_name}'               => __( 'File Name', 'media-library-organizer-pro' ), 
-            '{file_name_prettified}'    => __( 'File Name, Prettified', 'media-library-organizer-pro' ), 
-            '{file_extension}'          => __( 'File Extension', 'media-library-organizer-pro' ), 
-            '{file_type}'               => __( 'File Type', 'media-library-organizer-pro' ), 
-            '{file_mime}'               => __( 'File Extension and Type', 'media-library-organizer-pro' ), 
-            '{file_size}'               => __( 'File Size', 'media-library-organizer-pro' ), 
-            '{file_dimensions}'         => __( 'Image Width and Height', 'media-library-organizer-pro' ), 
-            '{file_width}'              => __( 'Image Width', 'media-library-organizer-pro' ), 
-            '{file_height}'             => __( 'Image Height', 'media-library-organizer-pro' ), 
-            '{uploaded_date}'           => __( 'Uploaded Date', 'media-library-organizer-pro' ), 
-            '{uploaded_time}'           => __( 'Uploaded Time', 'media-library-organizer-pro' ), 
-            '{uploaded_date_time}'      => __( 'Uploaded Date and Time', 'media-library-organizer-pro' ), 
+            '{file_name}'               => __( 'File Name', 'media-library-organizer' ), 
+            '{file_name_prettified}'    => __( 'File Name, Prettified', 'media-library-organizer' ), 
+            '{file_extension}'          => __( 'File Extension', 'media-library-organizer' ), 
+            '{file_type}'               => __( 'File Type', 'media-library-organizer' ), 
+            '{file_mime}'               => __( 'File Extension and Type', 'media-library-organizer' ), 
+            '{file_size}'               => __( 'File Size', 'media-library-organizer' ), 
+            '{file_dimensions}'         => __( 'Image Width and Height', 'media-library-organizer' ), 
+            '{file_width}'              => __( 'Image Width', 'media-library-organizer' ), 
+            '{file_height}'             => __( 'Image Height', 'media-library-organizer' ), 
+            '{uploaded_date}'           => __( 'Uploaded Date', 'media-library-organizer' ), 
+            '{uploaded_time}'           => __( 'Uploaded Time', 'media-library-organizer' ), 
+            '{uploaded_date_time}'      => __( 'Uploaded Date and Time', 'media-library-organizer' ), 
 
             // Author
-            '{author_user_login}'       => __( 'Author Login', 'media-library-organizer-pro' ), 
-            '{author_user_nicename}'    => __( 'Author Nice Name', 'media-library-organizer-pro' ), 
-            '{author_user_email}'       => __( 'Author Email', 'media-library-organizer-pro' ), 
-            '{author_user_url}'         => __( 'Author URL', 'media-library-organizer-pro' ), 
-            '{author_display_name}'     => __( 'Author Display Name', 'media-library-organizer-pro' ), 
-            '{author_field_NAME}'       => __( 'Author Meta Field', 'media-library-organizer-pro' ), 
+            '{author_user_login}'       => __( 'Author Login', 'media-library-organizer' ), 
+            '{author_user_nicename}'    => __( 'Author Nice Name', 'media-library-organizer' ), 
+            '{author_user_email}'       => __( 'Author Email', 'media-library-organizer' ), 
+            '{author_user_url}'         => __( 'Author URL', 'media-library-organizer' ), 
+            '{author_display_name}'     => __( 'Author Display Name', 'media-library-organizer' ), 
+            '{author_field_NAME}'       => __( 'Author Meta Field', 'media-library-organizer' ), 
         );
 
         /**
@@ -157,9 +157,9 @@ class Media_Library_Organizer_Dynamic_Tags {
         $searches_replacements['{file_type}'] = Media_Library_Organizer()->get_class( 'mime' )->get_file_type( $post->ID );
         $searches_replacements['{file_mime}'] = $searches_replacements['{file_type}'] . '/' . $searches_replacements['{file_extension}'];
         $searches_replacements['{file_size}'] = size_format( filesize( $file ) );
-        $searches_replacements['{file_dimensions}'] = ( isset( $meta['width'] ) && isset( $meta['height'] ) ? $meta['width'] . ' x ' . $meta['height'] . ' ' . __( 'pixels', 'media-library-organizer-pro' ) : '' );
-        $searches_replacements['{image_width}'] = ( isset( $meta['width'] ) ? $meta['width'] . ' ' . __( 'pixels', 'media-library-organizer-pro' ) : '' );
-        $searches_replacements['{image_height}'] = ( isset( $meta['height'] ) ? $meta['height'] . ' ' . __( 'pixels', 'media-library-organizer-pro' ) : '' );
+        $searches_replacements['{file_dimensions}'] = ( isset( $meta['width'] ) && isset( $meta['height'] ) ? $meta['width'] . ' x ' . $meta['height'] . ' ' . __( 'pixels', 'media-library-organizer' ) : '' );
+        $searches_replacements['{image_width}'] = ( isset( $meta['width'] ) ? $meta['width'] . ' ' . __( 'pixels', 'media-library-organizer' ) : '' );
+        $searches_replacements['{image_height}'] = ( isset( $meta['height'] ) ? $meta['height'] . ' ' . __( 'pixels', 'media-library-organizer' ) : '' );
         $searches_replacements['{uploaded_date}'] = date_i18n( get_option( 'date_format' ), strtotime( $post->post_date ) );
         $searches_replacements['{uploaded_time}'] = date_i18n( get_option( 'time_format' ), strtotime( $post->post_date ) );
         $searches_replacements['{uploaded_date_time}'] = date_i18n( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), strtotime( $post->post_date ) );

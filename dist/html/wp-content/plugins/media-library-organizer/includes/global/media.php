@@ -80,6 +80,26 @@ class Media_Library_Organizer_Media {
     }
 
     /**
+     * Fetches the Grid Edit Attachment Taxonomy Term Checkbox HTML for the given Taxonomy
+     *
+     * @since   1.3.3
+     *
+     * @param   string      $taxonomy_name  Taxonomy Name
+     * @param   WP_Term     $term           Term
+     * @return  string                      <li> Checkbox Output
+     */
+    public function get_grid_edit_attachment_checkbox( $taxonomy_name, $term ) {
+
+        return '<li id="' . $taxonomy_name . '-' . $term->term_id . '">
+            <label class="selectit">
+                <input value="1" type="checkbox" name="' . $taxonomy_name . '_' . $term->term_id . '" class="check" id="in-' . $taxonomy_name . '-' . $term->term_id . '" checked="checked">' . 
+                $term->name . '
+            </label>
+        </li>';
+
+    }
+
+    /**
      * Outputs Taxonomy Filters and Sorting in the Attachment WP_List_Table
      *
      * @since   1.0.0
@@ -127,9 +147,14 @@ class Media_Library_Organizer_Media {
             }
         }
 
-        // Taxonomy Filter
-        if ( $this->base->get_class( 'settings' )->get_setting( 'general', 'taxonomy_enabled' ) ) {
-            echo $this->get_list_table_category_filter();
+        // Taxonomy Filters
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Skip if this Taxonomy Filter isn't enabled
+            if ( ! $this->base->get_class( 'settings' )->get_setting( 'general', $taxonomy_name . '_enabled' ) ) {
+                continue;
+            }
+
+            echo $this->get_list_table_category_filter( $taxonomy_name, $taxonomy['plural_name'] );
         }
 
         /**
@@ -154,24 +179,30 @@ class Media_Library_Organizer_Media {
      *
      * @since   1.2.6
      *
-     * @return  string  <select> Output
+     * @param   string  $taxonomy_name      Taxonomy Name
+     * @param   string  $taxonomy_label     Taxonomy Label, Plural
+     * @return  string                      <select> Output
      */
-    public function get_list_table_category_filter() {
+    public function get_list_table_category_filter( $taxonomy_name, $taxonomy_label ) {
 
         $taxonomy_filter_args = array(
-            'show_option_all'   => __( 'All Media Categories', 'media-library-organizer' ),
-            'show_option_none'   => __( '(Unassigned)', 'media-library-organizer' ),
+            'show_option_all'   => sprintf(
+                /* translators: Taxonomy Label, Plural */
+                __( 'All %s', 'media-library-organizer' ),
+                $taxonomy_label
+            ),
+            'show_option_none'  => __( '(Unassigned)', 'media-library-organizer' ),
             'option_none_value' => -1,
             'orderby'           => 'name',
             'order'             => 'ASC',
             'show_count'        => true,
             'hide_empty'        => false,
             'echo'              => false,
-            'selected'          => $this->get_selected_terms_slugs(),
+            'selected'          => $this->get_selected_terms_slugs( $taxonomy_name ),
             'hierarchical'      => true,
-            'name'              => $this->base->get_class( 'taxonomy' )->taxonomy_name,
-            'id'                => $this->base->get_class( 'taxonomy' )->taxonomy_name,
-            'taxonomy'          => $this->base->get_class( 'taxonomy' )->taxonomy_name,
+            'name'              => $taxonomy_name,
+            'id'                => $taxonomy_name,
+            'taxonomy'          => $taxonomy_name,
             'value_field'       => 'slug',
         );
 
@@ -181,9 +212,10 @@ class Media_Library_Organizer_Media {
          *
          * @since   1.1.1
          *
-         * @param   array $taxonomy_filters_args    wp_dropdown_categories() compatible arguments
+         * @param   array   $taxonomy_filters_args      wp_dropdown_categories() compatible arguments
+         * @param   string  $taxonomy_name              Taxonomy Name
          */
-        $taxonomy_filter_args = apply_filters( 'media_library_organizer_media_output_list_table_filters_taxonomy_filter_args', $taxonomy_filter_args );
+        $taxonomy_filter_args = apply_filters( 'media_library_organizer_media_output_list_table_filters_taxonomy_filter_args', $taxonomy_filter_args, $taxonomy_name );
 
         // Filter the output of wp_dropdown_categories()
         add_filter( 'wp_dropdown_cats', array( $this, 'output_list_table_filters_taxonomy' ), 10, 2 );
@@ -243,16 +275,28 @@ class Media_Library_Organizer_Media {
             $ext = 'min';
         }
 
+        // JS: Register selectize
+        $this->register_selectize_js_css( $ext );
+
+        // Iterate through Registered Taxonomies
+        // Build Taxonomies data, including each Taxonomy's Terms and Selected Term(s)
+        $taxonomies = array();
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            $taxonomies[ $taxonomy_name ] = array(
+                'terms'         => $this->base->get_class( 'common' )->get_terms_hierarchical( $taxonomy_name ), // @TODO Only if hierarchical
+                'taxonomy'      => get_taxonomy( $taxonomy_name ),
+                'selected_term' => $this->get_selected_terms_slugs( $taxonomy_name ),
+            );
+        }
+
         // JS: Enqueue
         wp_enqueue_script( $this->base->plugin->name . '-media', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'media' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'media-editor', 'media-views' ), $this->base->plugin->version, true );
         wp_localize_script( $this->base->plugin->name . '-media', 'media_library_organizer_media', array(
             'order'         => $this->base->get_class( 'common' )->get_order_options(),
             'orderby'       => $this->base->get_class( 'common' )->get_orderby_options(),
             'settings'      => $this->base->get_class( 'settings' )->get_settings( 'general' ),
-            'terms'         => $this->base->get_class( 'common' )->get_terms_hierarchical( $this->base->get_class( 'taxonomy' )->taxonomy_name ),
-            'taxonomy'      => get_taxonomy( $this->base->get_class( 'taxonomy' )->taxonomy_name ),
-            'selected_term' => $this->get_selected_terms_slugs(),
-
+            'taxonomies'    => $taxonomies,
+            
             // Default Values for orderby and order, based on either the User Defaults or the Plugin / WordPress Defaults
             'defaults'  => array( 
                 'orderby'           => (
@@ -269,11 +313,30 @@ class Media_Library_Organizer_Media {
 
             // Media View
             'media_view' => Media_Library_Organizer()->get_class( 'common' )->get_media_view(), // list|grid
+
+            // Add New Taxonomy Term
+            'ajaxurl'       => admin_url( 'admin-ajax.php' ),
+            'create_term'   => array(
+                'action'        => 'media_library_organizer_add_term',
+                'nonce'         => wp_create_nonce( 'media_library_organizer_add_term' ),
+            ),
+
+            // Get Taxonomies Terms
+            'get_taxonomies_terms'   => array(
+                'action'        => 'media_library_organizer_get_taxonomies_terms',
+                'nonce'         => wp_create_nonce( 'media_library_organizer_get_taxonomies_terms' ),
+            ),
+
+            // Get Taxonomy Terms
+            'get_taxonomy_terms'   => array(
+                'action'        => 'media_library_organizer_get_taxonomy_terms',
+                'nonce'         => wp_create_nonce( 'media_library_organizer_get_taxonomy_terms' ),
+            ),
         ) );
 
         // JS: Register
         wp_register_script( $this->base->plugin->name . '-modal', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'modal' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'media-editor', 'media-views' ), $this->base->plugin->version, true );
-
+        
         // CSS
         wp_enqueue_style( $this->base->plugin->name . '-media', $this->base->plugin->url . 'assets/css/media.css' );
         wp_enqueue_style( 'wpzinc-admin-selectize' );
@@ -286,6 +349,60 @@ class Media_Library_Organizer_Media {
          * @param   string  $ext    If defined, output minified JS and CSS
          */
         do_action( 'media_library_organizer_media_enqueue_js_css', $ext );
+
+    }
+
+    /**
+     * Registers selectize JS, ready for enqueuing
+     *
+     * As both wp_enqueue_media, admin_enqueue_scripts and wp_enqueue_scripts hooks
+     * might enqueue selectize, each of the above hooks calls this function to ensure
+     * that selectize is readily available
+     *
+     * @since   1.3.2
+     *
+     * @param   string  $ext    Whether to load minified versions or not
+     */
+    public function register_selectize_js_css( $ext ) {
+
+        // If selectize is already registered, bail as we don't need to register it again
+        if ( wp_script_is( $this->base->plugin->name . '-selectize', 'registered' ) ) {
+            return;
+        }
+
+        // JS: Register
+        wp_register_script( $this->base->plugin->name . '-selectize', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'selectize' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'wpzinc-admin-selectize', 'jquery', 'jquery-ui-sortable' ), $this->base->plugin->version, true );
+        
+        // Define the selectize DOM selectors
+        $selectize_selectors = array(
+            'simple'    => array( 
+                '.media-library-organizer-selectize',
+            ),
+            'multiple'  => array(
+                '.media-library-organizer-selectize-multiple',
+            ),
+            'ajax'      => array(
+                '.media-library-organizer-selectize-search',
+            ),
+        );
+
+        /**
+         * Defines the selectize DOM selectors for various Selectize JS instances, such as
+         * Simple and AJAX implementations
+         *
+         * @since   1.1.1
+         *
+         * @param   array   $selectize_selectors    Selectize DOM Selectors
+         */
+        $selectize_selectors = apply_filters( 'media_library_organizer_media_enqueue_js_css_selectize_selectors', $selectize_selectors );
+
+        // JS: Localize
+        wp_localize_script( $this->base->plugin->name . '-selectize', 'media_library_organizer_selectize', array(
+            'selectors' => $selectize_selectors,
+        ) );
+
+        // CSS: Register
+        wp_register_style( 'wpzinc-admin-selectize', $this->base->dashboard->dashboard_url . 'css/selectize.css' ); 
 
     }
 
@@ -382,28 +499,34 @@ class Media_Library_Organizer_Media {
             $this->base->get_class( 'user_option' )->update_option( get_current_user_id(), 'order', $args['order'] );
         }
 
-        // Don't filter the query if our Taxonomy is not set
-        if ( ! isset( $args[ $this->base->get_class( 'taxonomy' )->taxonomy_name ] ) ) {
-            return $args;
-        }
+        // Iterate through Registered Taxonomies
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Don't filter the query if our Taxonomy is not set
+            if ( ! isset( $args[ $taxonomy_name ] ) ) {
+                continue;
+            }
 
-        // Don't filter the query if our Taxonomy Term isn't -1 (i.e. Unassigned)
-        $term = sanitize_text_field( $args[ $this->base->get_class( 'taxonomy' )->taxonomy_name ] );
-        if ( $term != "-1" ) {
-            return $args;
-        }
+            // Don't filter the query if our Taxonomy Term isn't -1 (i.e. Unassigned)
+            $term = sanitize_text_field( $args[ $taxonomy_name ] );
+            if ( $term != "-1" ) {
+                continue;
+            }
 
-        // Filter the query to include Attachments with no Term
-        // Unset the Taxonomy query var, as we'll be using tax_query 
-        unset( $args[ $this->base->get_class( 'taxonomy' )->taxonomy_name ] );
+            // Unset the Taxonomy query var, as we'll be using tax_query 
+            unset( $args[ $taxonomy_name ] );
 
-        $args['tax_query'] = array(
-            array(
-                'taxonomy'  => $this->base->get_class( 'taxonomy' )->taxonomy_name,
+            // Register tax_query if it doesn't exist
+            if ( ! isset( $args['tax_query'] ) ) {
+                $args['tax_query'] = array();
+            }
+
+            // Filter the query to include Attachments with no Term
+            $args['tax_query'][] = array(
+                'taxonomy'  => $taxonomy_name,
                 'operator'  => 'NOT EXISTS',
-            ),
-        );
-        
+            );
+        }
+            
         /**
          * Defines the arguments used when querying for Media in the Media Grid View.
          *
@@ -446,6 +569,9 @@ class Media_Library_Organizer_Media {
         $screen = get_current_screen();
 
         // Bail if we're not on the Upload screen
+        if ( ! $screen ) {
+            return $query;
+        }
         if ( $screen->id != 'upload' ) {
             return $query;
         }
@@ -549,30 +675,37 @@ class Media_Library_Organizer_Media {
             $query->query['order'] = $order;
         }
 
-        // Don't filter the query if our Taxonomy is not set
-        if ( ! isset( $_REQUEST[ $this->base->get_class( 'taxonomy' )->taxonomy_name ] ) ) {
-            return $query;
+        // Iterate through Registered Taxonomies
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Don't filter the query if our Taxonomy is not set
+            if ( ! isset( $_REQUEST[ $taxonomy_name ] ) ) {
+                continue;
+            }
+
+            // Don't filter the query if our Taxonomy Term isn't -1 (i.e. Unassigned)
+            $term = sanitize_text_field( $_REQUEST[ $taxonomy_name ] );
+            if ( $term != "-1" ) {
+                continue;
+            }
+
+            // Unset the Taxonomy query var, as we'll be using tax_query 
+            unset( $query->query_vars[ $taxonomy_name ] );
+
+            // Filter the query to include Attachments with no Term
+            if ( ! isset( $tax_query ) ) {
+                $tax_query = array();
+            }
+            $tax_query[] = array(
+                'taxonomy'  => $taxonomy_name,
+                'operator'  => 'NOT EXISTS',
+            );
         }
 
-        // Don't filter the query if our Taxonomy Term isn't -1 (i.e. Unassigned)
-        $term = sanitize_text_field( $_REQUEST[ $this->base->get_class( 'taxonomy' )->taxonomy_name ] );
-        if ( $term != "-1" ) {
-            return $query;
+        // If a Taxonomy Query exists, Assign it to both the WP_Query and tax_query objects
+        if ( isset( $tax_query ) ) {
+            $query->set( 'tax_query', $tax_query );
+            $query->tax_query = new WP_Tax_Query( $tax_query );
         }
-
-        // Filter the query to include Attachments with no Term
-        // Unset the Taxonomy query var, as we'll be using tax_query 
-        unset( $query->query_vars[ $this->base->get_class( 'taxonomy' )->taxonomy_name ] );
-
-        // Define the tax_query
-        $tax_query = array(
-            'taxonomy'  => $this->base->get_class( 'taxonomy' )->taxonomy_name,
-            'operator'  => 'NOT EXISTS',
-        );
-
-        // Assign it to both the WP_Query and tax_query objects
-        $query->set( 'tax_query', array( $tax_query ) );
-        $query->tax_query = new WP_Tax_Query( array( $tax_query ) );
 
         /**
          * Defines the arguments used when querying for Media in the Media List View.
@@ -659,23 +792,21 @@ class Media_Library_Organizer_Media {
         $screen = get_current_screen();
 
         // Bail if we're on the attachment post screen, as this screen outputs
-        // the taxonomy correctly.
+        // taxonomies form fo correctly.
         if ( isset( $screen->base ) && $screen->base == 'post' ) {
             return $form_fields;
         }
 
-        // Get Taxonomy
-        if ( empty( $this->taxonomy ) ) {
-            $this->taxonomy = get_taxonomy( $this->base->get_class( 'taxonomy' )->taxonomy_name );
+        // Iterate through Registered Taxonomies
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Define the Taxonomy Field as a Checkbox list
+            $form_fields[ $taxonomy_name ] = array(
+                'label'     => $taxonomy['plural_name'],
+                'input'     => 'html',
+                'html'      => $this->terms_checkbox_modal( $taxonomy_name, $post ),
+            ); 
         }
-
-        // Define the Taxonomy Field as a Checkbox list
-        $form_fields[ $this->taxonomy->name ] = array(
-            'label'     => $this->taxonomy->label,
-            'input'     => 'html',
-            'html'      => $this->terms_checkbox_modal( $this->taxonomy->name, $post ),
-        );
-
+        
         /**
          * Defines the fields to display when editing an Attachment in the modal.
          *
@@ -698,28 +829,120 @@ class Media_Library_Organizer_Media {
      *
      * @since   1.0.0
      *
-     * @param   string      $taxonomy   Taxonomy
-     * @param   WP_Post     $post       Post (false  = no Post)
-     * @return  string                  Taxonomy HTML Checkboxes
+     * @param   string      $taxonomy_name   Taxonomy Name
+     * @param   WP_Post     $post           Post (false  = no Post)
+     * @return  string                      Taxonomy HTML Checkboxes
      */
-    public function terms_checkbox_modal( $taxonomy, $post = false ) {
+    public function terms_checkbox_modal( $taxonomy_name, $post = false ) {
 
         // Define Post ID
         $post_id = ( ! $post ? 0 : $post->ID );
 
+        // Get Taxonomy
+        $taxonomy = $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
+
+        // Get Parent Taxonomy Dropdown Args
+        $parent_dropdown_args = array(
+            'taxonomy'         => $taxonomy_name,
+            'hide_empty'       => 0,
+            'name'             => 'new' . $taxonomy_name . '_parent',
+            'orderby'          => 'name',
+            'hierarchical'     => 1,
+            'show_option_none' => '&mdash; ' . $taxonomy->labels->parent_item . ' &mdash;',
+        );
+
         // Build HTML Output, using our custom Taxonomy Walker for wp_terms_checklist()
         $html = '
-        <div id="taxonomy-' . $taxonomy . '" class="categorydiv">
-            <div id="' . $taxonomy . '-all" class="tabs-panel">
-                <ul id="' . $taxonomy . 'checklist" data-wp-lists="list:' . $taxonomy . '" class="categorychecklist form-no-clear"> ' . 
-                    $this->base->get_class( 'taxonomy' )->get_terms_checklist( $post_id, array(
-                        'taxonomy'      => $taxonomy,
+        <div id="taxonomy-' . $taxonomy_name . '" class="categorydiv">
+            <div id="' . $taxonomy_name . '-all" class="tabs-panel">
+                <ul id="' . $taxonomy_name . 'checklist" class="categorychecklist"> ' . 
+                    $this->base->get_class( 'taxonomies' )->get_terms_checklist( $post_id, array(
+                        'taxonomy'      => $taxonomy_name,
                         'echo'          => false,
                         'walker'        => new Media_Library_Organizer_Taxonomy_Walker,
                     ) )
                     . '
                 </ul>
+            </div>';
+
+        // Include Add New Taxonomy option, if the user has the capability to do this
+        if ( current_user_can( $taxonomy->cap->edit_terms ) ) {
+            $html .= '
+            <div id="mlo-taxonomy-term-add">
+                <a href="#" class="taxonomy-add-new" data-taxonomy="' . $taxonomy_name . '">' .
+                    /* translators: %s: Add New taxonomy label. */
+                    sprintf( __( '+ %s' ), $taxonomy->labels->add_new_item ) . '
+                </a>
+                <div class="mlo-taxonomy-term-add-fields hidden ' . $taxonomy_name . '">
+                    <input type="text" name="' . $taxonomy_name . '-add" placeholder="' . esc_attr( $taxonomy->labels->new_item_name ) . '" value="" />
+                    <input type="button" data-taxonomy="' . $taxonomy_name . '" class="button" value="' . __( 'Add', 'media-library-organizer' ) . '" />
+                </div>
+            </div>';
+        }
+        
+        $html .= '</div>';
+
+        // Return output
+        return $html;
+
+    }
+
+    /**
+     * Similar to post_tags_meta_box() but returns the output
+     * instead of immediately outputting it for Backbone Modal views.
+     *
+     * @since   1.3.2
+     *
+     * @param   string      $taxonomy_name  Taxonomy Name
+     * @param   WP_Post     $post           Post (false  = no Post)
+     * @return  string                      Taxonomy HTML Tag Box
+     */
+    public function terms_tag_modal( $taxonomy_name, $post = false ) {
+
+        // Define Post ID
+        $post_id = ( ! $post ? 0 : $post->ID );
+
+        // Get Taxonomy
+        $taxonomy = $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
+        $user_can_assign_terms = current_user_can( $taxonomy->cap->assign_terms );
+        $comma = _x( ',', 'tag delimiter' );
+        $terms = get_the_terms( $post_id, $taxonomy_name );
+
+        // Define HTML
+        $html = '
+        <div id="' . $taxonomy_name . '" class="tagsdiv">
+            <div class="jaxtag">';
+
+        if ( $user_can_assign_terms ) {
+            $html .= '
+            <div class="ajaxtag hide-if-no-js">
+                <label class="screen-reader-text" for="new-tag-' . $taxonomy_name . '">' . $taxonomy->labels->add_new_item . '</label>
+                <input data-wp-taxonomy="' . $taxonomy_name . '" type="text" id="new-tag-' . $taxonomy_name . '" name="' . $taxonomy_name . '_newtag" class="newtag form-input-tip" size="16" autocomplete="off" aria-describedby="new-tag-' . $taxonomy_name . '-desc" value="" />
+                <input type="button" class="button tagadd" value="' . __( 'Add', 'media-library-organizer' ) . '" />
             </div>
+            <p class="howto" id="new-tag-' . $taxonomy_name . '-desc">' . $taxonomy->labels->separate_items_with_commas . '</p>';
+        }
+    
+        $html .= '
+            </div>
+            <ul class="tagchecklist" role="list">';
+
+        // Output existing Tags, if any exist
+        if ( $terms ) {
+            foreach ( $terms as $index => $term ) {
+                $html .= '<li>
+                    <button type="button" id="' . $taxonomy_name . '-check-num-' . $index . '" class="ntdelbutton">
+                        <span class="remove-tag-icon" aria-hidden="true"></span>
+                        <span class="screen-reader-text">Remove term: ' . $term->name . '</span>
+                    </button>
+                    ' . $term->name . '
+                    <input type="hidden" name="' . $taxonomy_name . '[' . $term->term_id . ']" value="1" />
+                </li>';
+            }
+        }
+
+        $html .= '
+            </ul>
         </div>';
 
         // Return output
@@ -733,27 +956,27 @@ class Media_Library_Organizer_Media {
      *
      * @since   1.0.0
      *
-     * @param   string      $taxonomy                       Taxonomy
+     * @param   string      $taxonomy_name                  Taxonomy Name
      * @param   string      $field_name                     Field Name
      * @param   array       $selected_term_ids              Selected Term IDs
      * @return  string                                      Taxonomy HTML Checkboxes
      */
-    public function terms_checkbox( $taxonomy, $field_name, $selected_term_ids = array() ) {
+    public function terms_checkbox( $taxonomy_name, $field_name, $selected_term_ids = array() ) {
 
         // Get Taxonomy Terms
         $terms = get_terms( array(
-            'taxonomy'  => $taxonomy,
+            'taxonomy'  => $taxonomy_name,
             'hide_empty'=> false,
         ) );
 
         // Build HTML Output, using our custom Taxonomy Walker for wp_terms_checklist()
         $html = '
-        <div id="taxonomy-' . $taxonomy . '" class="categorydiv">
+        <div id="taxonomy-' . $taxonomy_name . '" class="categorydiv">
             <div class="tax-selection">
                 <div class="tabs-panel" style="height: 70px;">
                     <ul class="list:category categorychecklist form-no-clear" style="margin: 0; padding: 0;">' . 
-                        $this->base->get_class( 'taxonomy' )->get_terms_checklist( 0, array(
-                            'taxonomy'      => $taxonomy,
+                        $this->base->get_class( 'taxonomies' )->get_terms_checklist( 0, array(
+                            'taxonomy'      => $taxonomy_name,
                             'echo'          => false,
                         ), $field_name )
                         . '
@@ -790,30 +1013,35 @@ class Media_Library_Organizer_Media {
             return $post;
         }
 
-        // Build an array of Term IDs that have been selected
-        $term_ids = array();
-        foreach ( $_REQUEST as $key => $value ) {
-            // Sanitize the key
-            $key = sanitize_text_field( $key );
-            
-            // Skip if the key doesn't contain our taxonomy name
-            if ( strpos( $key, $this->base->get_class( 'taxonomy' )->taxonomy_name . '_' ) === false ) {
-                continue;
+        // Iterate through Registered Taxonomies
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Build an array of Term IDs that have been selected
+            $term_ids = array();
+
+            foreach ( $_REQUEST as $key => $value ) {
+                // Sanitize the key
+                $key = sanitize_text_field( $key );
+                
+                // Skip if the key doesn't contain our taxonomy name
+                if ( strpos( $key, $taxonomy_name . '_' ) === false ) {
+                    continue;
+                }
+
+                // Extract the Term ID
+                list( $prefix, $term_id ) = explode( '_', $key );
+
+                // Add the Term ID to the array, as an integer
+                $term_ids[] = absint( $term_id );
             }
 
-            // Extract the Term ID
-            list( $prefix, $term_id ) = explode( '_', $key );
-
-            // Add the Term ID to the array, as an integer
-            $term_ids[] = absint( $term_id );
-        }
-
-        // If no Term IDs exist, delete all Terms associated with this Attachment
-        if ( empty( $term_ids ) ) {
-            wp_delete_object_term_relationships( $post['ID'], $this->base->get_class( 'taxonomy' )->taxonomy_name );
-        } else {
+            // If no Term IDs exist, delete all Terms associated with this Attachment
+            if ( empty( $term_ids ) ) {
+                wp_delete_object_term_relationships( $post['ID'], $taxonomy_name );
+                continue;
+            }
+            
             // Term IDs were selected, so associate them with this Attachment
-            wp_set_object_terms( $post['ID'], $term_ids, $this->base->get_class( 'taxonomy' )->taxonomy_name, false );
+            wp_set_object_terms( $post['ID'], $term_ids, $taxonomy_name, false );
         }
 
         /**
@@ -870,18 +1098,18 @@ class Media_Library_Organizer_Media {
     /**
      * Returns the selected term ID, covering several different ways that WordPress might
      * filter by Taxonomy Term:
-     * - List View: mlo-category=slug (via Dropdown or Tree View)
-     * - List View: taxonomy=mlo-category&term=slug (via WP_List_Table)
-     * - Grid View: mlo-category=slug (via Tree View)
+     * - List View: $taxonomy_name=slug (via Dropdown or Tree View)
+     * - List View: taxonomy=$taxonomy_name&term=slug (via WP_List_Table)
+     * - Grid View: $taxonomy_name=slug (via Tree View)
      *
      * @since   1.1.4
      *
      * @return  mixed   false | int
      */
-    public function get_selected_terms_ids() {
+    public function get_selected_terms_ids( $taxonomy_name ) {
 
         // Get selected Terms
-        $selected_terms = $this->get_selected_terms();
+        $selected_terms = $this->get_selected_terms( $taxonomy_name );
 
         // Bail if no selected Terms
         if ( ! $selected_terms ) {
@@ -905,19 +1133,19 @@ class Media_Library_Organizer_Media {
     /**
      * Returns the selected term slug, covering several different ways that WordPress might
      * filter by Taxonomy Term:
-     * - List View: mlo-category=slug (via Dropdown or Tree View)
-     * - List View: mlo-category[]=slug&mlo-category[]=anotherslug (via Dropdown)
-     * - List View: taxonomy=mlo-category&term=slug (via WP_List_Table)
-     * - Grid View: mlo-category=slug (via Tree View)
+     * - List View: $taxonomy_name=slug (via Dropdown or Tree View)
+     * - List View: $taxonomy_name[]=slug&$taxonomy_name[]=anotherslug (via Dropdown)
+     * - List View: taxonomy=$taxonomy_name&term=slug (via WP_List_Table)
+     * - Grid View: $taxonomy_name=slug (via Tree View)
      *
      * @since   1.1.4
      *
      * @return  mixed   false | string
      */
-    public function get_selected_terms_slugs() {
+    public function get_selected_terms_slugs( $taxonomy_name ) {
 
         // Get selected Terms
-        $selected_terms = $this->get_selected_terms();
+        $selected_terms = $this->get_selected_terms( $taxonomy_name );
 
         // Bail if no selected Terms
         if ( ! $selected_terms ) {
@@ -941,27 +1169,28 @@ class Media_Library_Organizer_Media {
     /**
      * Returns the selected term, covering several different ways that WordPress might
      * filter by Taxonomy Term:
-     * - List View: mlo-category=slug (via Dropdown or Tree View)
-     * - List View: mlo-category[]=slug&mlo-category[]=anotherslug (via Dropdown)
-     * - List View: taxonomy=mlo-category&term=slug (via WP_List_Table)
-     * - Grid View: mlo-category=slug (via Tree View)
+     * - List View: $taxonomy_name=slug (via Dropdown or Tree View)
+     * - List View: $taxonomy_name[]=slug&$taxonomy_name[]=anotherslug (via Dropdown)
+     * - List View: taxonomy=$taxonomy_name&term=slug (via WP_List_Table)
+     * - Grid View: $taxonomy_name=slug (via Tree View)
      *
      * @since   1.1.4
      *
-     * @return  mixed   false | array of WP_Term | single WP_Term
+     * @param   string  $taxonomy_name  Taxonomy Name
+     * @return  mixed                   false | array of WP_Term | single WP_Term
      */
-    public function get_selected_terms() {
+    public function get_selected_terms( $taxonomy_name ) {
 
         // Assume no Term is selected
         $selected_terms = false;
 
         // Check some request variables
-        if ( isset( $_REQUEST[ $this->base->get_class( 'taxonomy' )->taxonomy_name ] ) ) {
-            $selected_terms = $_REQUEST[ $this->base->get_class( 'taxonomy' )->taxonomy_name ];
+        if ( isset( $_REQUEST[ $taxonomy_name ] ) ) {
+            $selected_terms = $_REQUEST[ $taxonomy_name ];
         }
 
         if ( isset( $_REQUEST['taxonomy'] ) && isset( $_REQUEST['term'] ) ) {
-            if ( sanitize_text_field( $_REQUEST['taxonomy'] ) == $this->base->get_class( 'taxonomy' )->taxonomy_name ) {
+            if ( sanitize_text_field( $_REQUEST['taxonomy'] ) == $taxonomy_name ) {
                 $selected_terms = sanitize_text_field( $_REQUEST['term'] );
             }
         }
@@ -977,12 +1206,12 @@ class Media_Library_Organizer_Media {
             foreach ( $selected_terms as $selected_term ) {
                 // If Term is numeric, get Term by ID
                 if ( is_numeric( $selected_term ) ) {
-                    $terms[] = get_term_by( 'term_id', absint( $selected_term ), $this->base->get_class( 'taxonomy' )->taxonomy_name );
+                    $terms[] = get_term_by( 'term_id', absint( $selected_term ), $taxonomy_name );
                     continue;
                 }
 
                 // Get Term by Slug
-                $terms[] = get_term_by( 'slug', $selected_term, $this->base->get_class( 'taxonomy' )->taxonomy_name );
+                $terms[] = get_term_by( 'slug', $selected_term, $taxonomy_name );
             }
 
             return $terms;
@@ -991,11 +1220,11 @@ class Media_Library_Organizer_Media {
         // A single Term was selected
         // If Term is numeric, get Term by ID
         if ( is_numeric( $selected_terms ) ) {
-            return get_term_by( 'term_id', absint( $selected_terms ), $this->base->get_class( 'taxonomy' )->taxonomy_name );
+            return get_term_by( 'term_id', absint( $selected_terms ), $taxonomy_name );
         }
 
         // Get Term by Slug
-        return get_term_by( 'slug', $selected_terms, $this->base->get_class( 'taxonomy' )->taxonomy_name );
+        return get_term_by( 'slug', $selected_terms, $taxonomy_name );
 
     }
 

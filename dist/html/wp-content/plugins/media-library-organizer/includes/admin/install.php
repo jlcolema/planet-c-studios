@@ -60,6 +60,16 @@ class Media_Library_Organizer_Install {
             return;
         }
 
+        /**
+         * 1.3.2: Migrate general[taxonomy_enabled] to general[mlo-category_enabled]
+         */
+        if ( ! $installed_version || $installed_version < '1.3.2' ) {
+            $settings = $this->base->get_class( 'settings' )->get_settings( 'general' );
+            $settings['mlo-category_enabled'] = $settings['taxonomy_enabled'];
+            unset( $settings['taxonomy_enabled'] );
+            $this->base->get_class( 'settings' )->update_settings( 'general', $settings );
+        }
+
         // Update the version number
         update_option( $this->base->plugin->name . '-version', $this->base->plugin->version );  
 

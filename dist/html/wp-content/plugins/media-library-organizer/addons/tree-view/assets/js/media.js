@@ -51,16 +51,20 @@ function mediaLibraryOrganizerTreeViewAddCategory( term_id ) {
 			return;
 	  	}
 
+		// Build args
+		var args = {
+			'action':                media_library_organizer_tree_view.create_term.action,
+			'nonce':                 media_library_organizer_tree_view.create_term.nonce,
+			'taxonomy_name': 		 media_library_organizer_tree_view.taxonomy.name,
+			'term_name':             new_term_name,
+			'term_parent_id':        term_id
+		};
+		args[ media_library_organizer_tree_view.taxonomy.name ] = media_library_organizer_tree_view.selected_term;
+
+		// Send request
 	  	$.post(
 			media_library_organizer_tree_view.ajaxurl, 
-		 	{
-				'action':                media_library_organizer_tree_view.create_term.action,
-				'nonce':                 media_library_organizer_tree_view.create_term.nonce,
-				'term_name':             new_term_name,
-				'term_parent_id':        term_id,
-				// Currently selected Term, so it's given .current-cat in the response data
-				'mlo-category': 		 media_library_organizer_tree_view.selected_term, 
-		 	},
+		 	args,
 		 	function( response ) {
 
 				// Bail if an error occured
@@ -69,34 +73,16 @@ function mediaLibraryOrganizerTreeViewAddCategory( term_id ) {
 				   return;
 				}
 
-				// Fire the mlo:grid:tree-view:added:mlo-category event that Addons can hook into and listen
-				wp.media.events.trigger( 'mlo:grid:tree-view:added:mlo-category', {
-					term: response.data.term
-				} );
+				// Build attributes to send to wp.media.events
+				var atts = response.data;
+				atts.selected_term = media_library_organizer_tree_view.selected_term;
+				atts.media_view = media_library_organizer_tree_view.media_view;
 
-				// Add this Category to the dropdown
-				switch ( media_library_organizer_tree_view.media_view ) {
-					/**
-					 * List View
-					 */
-					case 'list':
-						// Replace <select> category dropdown to reflect changes
-						$( 'select#mlo-category' ).replaceWith( response.data.dropdown_filter );
-						if ( media_library_organizer_tree_view.selected_term.length > 0 ) {
-							$( 'select#mlo-category' ).val( media_library_organizer_tree_view.selected_term );
-						}
-						break;
-
-					/**
-					 * Grid View
-					 */
-					case 'grid':
-						
-						break;
-				}
+				// Fire the mlo:grid:tree-view:added:term event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:added:term', atts );
 
 				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
+				mediaLibraryOrganizerTreeViewGet( atts.taxonomy.name, atts.selected_term );
 
 		 	}
 	  	);
@@ -129,16 +115,20 @@ function mediaLibraryOrganizerTreeViewEditCategory( term_id, term_name ) {
 			return;
 		}
 
+		// Build args
+		var args = {
+			'action':                media_library_organizer_tree_view.edit_term.action,
+			'nonce':                 media_library_organizer_tree_view.edit_term.nonce,
+			'taxonomy_name': 		 media_library_organizer_tree_view.taxonomy.name,
+			'term_id':               term_id,
+			'term_name':             new_term_name,
+		};
+		args[ media_library_organizer_tree_view.taxonomy.name ] = media_library_organizer_tree_view.selected_term;
+
+		// Send request
 		$.post( 
 			media_library_organizer_tree_view.ajaxurl, 
-			{
-				'action':                media_library_organizer_tree_view.edit_term.action,
-				'nonce':                 media_library_organizer_tree_view.edit_term.nonce,
-				'term_id':               term_id,
-				'term_name':             new_term_name,
-				// Currently selected Term, so it's given .current-cat in the response data
-				'mlo-category': 		 media_library_organizer_tree_view.selected_term, 
-			},
+			args,
 			function( response ) {
 
 				// Bail if an error occured
@@ -147,48 +137,16 @@ function mediaLibraryOrganizerTreeViewEditCategory( term_id, term_name ) {
 				   return;
 				}
 
-				// Fire the mlo:grid:tree-view:edited:mlo-category event that Addons can hook into and listen
-				wp.media.events.trigger( 'mlo:grid:tree-view:edited:mlo-category', {
-					term: response.data.term
-				} );
+				// Build attributes to send to wp.media.events
+				var atts = response.data;
+				atts.selected_term = media_library_organizer_tree_view.selected_term;
+				atts.media_view = media_library_organizer_tree_view.media_view;
 
-				// Update this Category for any Attachments in the Media Library View that are assigned to it
-				switch ( media_library_organizer_tree_view.media_view ) {
-					/**
-					 * List View
-					 */
-					case 'list':
-						// Replace <select> category dropdown to reflect changes
-						$( 'select#mlo-category' ).replaceWith( response.data.dropdown_filter );
-						if ( media_library_organizer_tree_view.selected_term.length > 0 ) {
-							$( 'select#mlo-category' ).val( media_library_organizer_tree_view.selected_term );
-						}
-
-						// Iterate through all Terms listed in the WP_List_Table for each Attachment
-						$( 'td.taxonomy-' + response.data.term.taxonomy + ' a' ).each( function() {
-							// If this Term matches the one just updated, update it in the DOM
-							if ( $( this ).text() == response.data.old_term.name ) {
-								$( this ).text( response.data.term.name );
-								$( this ).attr( 'href', 'upload.php?taxonomy=' + response.data.term.taxonomy + '&term=' + response.data.term.slug );
-							}
-						} );
-						break;
-
-					/**
-					 * Grid View
-					 */
-					case 'grid':
-						if ( typeof wp.media.frame.library !== 'undefined' ) {
-							wp.media.frame.library.props.set ({ignore: (+ new Date())});
-						} else {
-							wp.media.frame.content.get().collection.props.set({ignore: (+ new Date())});
-							wp.media.frame.content.get().options.selection.reset();
-						}
-						break;
-				}
+				// Fire the mlo:grid:tree-view:edited:term event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:edited:term', atts );
 
 				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
+				mediaLibraryOrganizerTreeViewGet( atts.taxonomy.name, atts.selected_term );
 
 			}
 		);
@@ -220,15 +178,19 @@ function mediaLibraryOrganizerTreeViewDeleteCategory( term_id, term_name ) {
 			return;
 		}
 
+		// Build args
+		var args = {
+			'action':                media_library_organizer_tree_view.delete_term.action,
+			'nonce':                 media_library_organizer_tree_view.delete_term.nonce,
+			'taxonomy_name': 		 media_library_organizer_tree_view.taxonomy.name,
+			'term_id':               term_id
+		};
+		args[ media_library_organizer_tree_view.taxonomy.name ] = media_library_organizer_tree_view.selected_term;
+
+		// Send request
 		$.post( 
 			media_library_organizer_tree_view.ajaxurl, 
-			{
-				'action':                media_library_organizer_tree_view.delete_term.action,
-				'nonce':                 media_library_organizer_tree_view.delete_term.nonce,
-				'term_id':               term_id,
-				// Currently selected Term, so it's given .current-cat in the response data
-				'mlo-category': 		 media_library_organizer_tree_view.selected_term, 
-			},
+			args,
 			function( response ) {
 
 				// Bail if an error occured
@@ -237,67 +199,16 @@ function mediaLibraryOrganizerTreeViewDeleteCategory( term_id, term_name ) {
 				   	return;
 				}
 
-				// Fire the mlo:grid:tree-view:deleted:mlo-category event that Addons can hook into and listen
-				wp.media.events.trigger( 'mlo:grid:tree-view:deleted:mlo-category', {
-					term: 				response.data.term
-				} );
+				// Build attributes to send to wp.media.events
+				var atts = response.data;
+				atts.selected_term = media_library_organizer_tree_view.selected_term;
+				atts.media_view = media_library_organizer_tree_view.media_view;
 
-				// Remove this Category from any Attachments in the Media Library View
-				switch ( media_library_organizer_tree_view.media_view ) {
-					/**
-					 * List View
-					 */
-					case 'list':
-						// If we're viewing the Category we just deleted, reset the view
-						if ( media_library_organizer_tree_view.selected_term_id == term_id ) {
-							window.location.href = 'upload.php?mode=list';
-							return;
-						}
-
-						// Replace <select> category dropdown to reflect changes
-						$( 'select#mlo-category' ).replaceWith( response.data.dropdown_filter );
-						if ( media_library_organizer_tree_view.selected_term.length > 0 ) {
-							$( 'select#mlo-category' ).val( media_library_organizer_tree_view.selected_term );
-						}
-
-						// Iterate through all Terms listed in the WP_List_Table for each Attachment
-						$( 'td.taxonomy-' + response.data.term.taxonomy + ' a' ).each( function() {
-							// If this Term matches the one just deleted, remove it from the DOM
-							if ( $( this ).text() == response.data.term.name ) {
-								$( this ).remove();
-							}
-						} );
-
-						// Remove leading and trailing commas which may appear as a result of removing a Term
-						$( 'td.taxonomy-' + response.data.term.taxonomy ).each( function() {
-							$( this ).html( $( this ).html().replace( /(^\s*,)|(,\s*$)/g, '' ) );
-						} );
-						break;
-
-					/**
-					 * Grid View
-					 */
-					case 'grid':
-						// If we're viewing the Category we just deleted, reset the view
-						if ( media_library_organizer_tree_view.selected_term_id == term_id ) {
-							window.location.href = 'upload.php?mode=grid';
-							return;
-						}
-
-						// Iterate through the currently displayed collection, fetching it again
-						// so that the changes
-
-						if ( typeof wp.media.frame.library !== 'undefined' ) {
-							wp.media.frame.library.props.set ({ignore: (+ new Date())});
-						} else {
-							wp.media.frame.content.get().collection.props.set({ignore: (+ new Date())});
-							wp.media.frame.content.get().options.selection.reset();
-						}
-						break;
-				}
+				// Fire the mlo:grid:tree-view:edited:term event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:deleted:term', atts );
 
 				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
+				mediaLibraryOrganizerTreeViewGet( atts.taxonomy.name, atts.selected_term );
 
 			}
 		);
@@ -331,6 +242,7 @@ function mediaLibraryOrganizerTreeViewAssignAttachmentsToCategory( attachment_id
 			{
 				'action':                media_library_organizer_tree_view.categorize_attachments.action,
 				'nonce':                 media_library_organizer_tree_view.categorize_attachments.nonce,
+				'taxonomy_name': 		 media_library_organizer_tree_view.taxonomy.name,
 				'attachment_ids':        attachment_ids,
 				'term_id':               term_id
 			},
@@ -338,67 +250,20 @@ function mediaLibraryOrganizerTreeViewAssignAttachmentsToCategory( attachment_id
 
 				// Bail if an error occured
 				if ( ! response.success ) {
-					alert( response.data );
 				   	wpzinc_notification_show_error_message( response.data );
 				   	return;
 				}
 
-				// Fire the mlo:grid:tree-view:assigned:attachments:mlo-category event that Addons can hook into and listen
-				wp.media.events.trigger( 'mlo:grid:tree-view:assigned:attachments:mlo-category', {
-					term_id: 		term_id,
-					attachment_ids: attachment_ids,
-					attachments: 	response.data.attachments
-				} );
-
 				// Show notification
 				wpzinc_notification_show_success_message( response.data.attachments.length + ' Attachments Categorized.' );
 
-				// If the response contains Attachments, update each Attachment in the UI with the new Categories
-				if ( response.data.attachments.length > 0 ) {
-					for ( i = 0; i < response.data.attachments.length; i++ ) {
-						// Define attachment
-						var attachment = response.data.attachments[ i ];
+				// Build attributes to send to wp.media.events
+				var atts = response.data;
+				atts.selected_term = media_library_organizer_tree_view.selected_term;
+				atts.media_view = media_library_organizer_tree_view.media_view;
 
-						// Depending on the view, update the Attachment
-						switch ( media_library_organizer_tree_view.media_view ) {
-							/**
-							 * List View
-							 */
-							case 'list':
-								// Replace <select> category dropdown to reflect changes
-								$( 'select#mlo-category' ).replaceWith( response.data.dropdown_filter );
-								if ( media_library_organizer_tree_view.selected_term.length > 0 ) {
-									$( 'select#mlo-category' ).val( media_library_organizer_tree_view.selected_term );
-								}
-
-								// Build Term Links
-								var terms = []
-								for ( j = 0; j < attachment.terms.length; j++ ) {
-									terms.push( '<a href="upload.php?taxonomy=' + attachment.terms[ j ].taxonomy + '&term=' + attachment.terms[ j ].slug + '">' + attachment.terms[ j ].name + '</a>' );
-								}
-
-								// Set HTML in Terms column of this Attachment's row
-								$( 'tr#post-' + attachment.id + ' td.taxonomy-' + attachment.terms[0].taxonomy ).html( terms.join( ', ' ) );
-								break;
-
-							/**
-							 * Grid View
-							 */
-							case 'grid':
-								if ( typeof wp.media.frame.library !== 'undefined' ) {
-									wp.media.frame.library.props.set ({ignore: (+ new Date())});
-								} else {
-									wp.media.frame.content.get().collection.props.set({ignore: (+ new Date())});
-									wp.media.frame.content.get().options.selection.reset();
-								}
-								break;
-						
-						}
-					}
-				}
-
-				// Reload Tree View
-				mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
+				// Fire the mlo:grid:tree-view:assigned:attachments:term event that Addons can hook into and listen
+				wp.media.events.trigger( 'mlo:grid:tree-view:assigned:attachments:term', atts );
 
 			}
 		);
@@ -435,9 +300,10 @@ function mediaLibraryOrganizerTreeViewContextualButtons() {
  *
  * @since   1.1.1
  *
- * @param   int   current_term   The current Term ID or Slug that is selected
+ * @param 	string 	taxonomy_name 	Taxonomy Name
+ * @param   int   	current_term   	The current Term ID or Slug that is selected
  */
-function mediaLibraryOrganizerTreeViewGet( current_term ) {
+function mediaLibraryOrganizerTreeViewGet( taxonomy_name, current_term ) {
 
    ( function( $ ) {
 
@@ -446,6 +312,7 @@ function mediaLibraryOrganizerTreeViewGet( current_term ) {
 			{
 				'action':             media_library_organizer_tree_view.get_tree_view.action,
 				'nonce':              media_library_organizer_tree_view.get_tree_view.nonce,
+				'taxonomy_name': 	  taxonomy_name,
 				'current_term':       current_term
 			},
 			function( response ) {
@@ -837,6 +704,291 @@ jQuery( document ).ready( function( $ ) {
 } );
 
 /**
+ * Tree View: When a Taxonomy Term is added, refresh the Taxonomy Dropdown Filter
+ *
+ * @since   1.3.3
+ *
+ * @param   obj   atts 	Attributes
+ */
+wp.media.events.on( 'mlo:grid:tree-view:added:term', function( atts ) {
+
+	( function( $ ) {
+
+		switch ( atts.media_view ) {
+			/**
+			 * List View
+			 */
+			case 'list':
+				// Replace <select> Taxonomy dropdown to reflect changes
+				mediaLibraryOrganizerListViewReplaceTaxonomyFilter( 
+					atts.taxonomy.name,
+					atts.dropdown_filter,
+					atts.selected_term
+				);
+				break;
+
+			/**
+			 * Grid View
+			 */
+			case 'grid':
+				// Replace Taxonomy Filter to reflect changes, if we're not in Bulk Select mode
+				// (otherwise the Taxonomy Filters display between the 'Delete permanently' and 'Cancel' buttons)
+				if ( ! MediaLibraryOrganizerAttachmentsBrowser.controller.isModeActive( 'select' ) ) {
+					mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
+						atts.taxonomy.name,
+						atts.terms,
+						atts.taxonomy.labels.all_items
+					);
+				}
+				break;
+		}
+
+	} )( jQuery );
+
+} );
+
+/**
+ * Tree View: When a Taxonomy Term is edited, refresh the Taxonomy Dropdown Filter
+ *
+ * @since   1.3.3
+ *
+ * @param   obj   atts 	Attributes
+ */
+wp.media.events.on( 'mlo:grid:tree-view:edited:term', function( atts ) {
+
+	( function( $ ) {
+
+		// Update this Taxonomy for any Attachments in the Media Library View that are assigned to it
+		switch ( atts.media_view ) {
+			/**
+			 * List View
+			 */
+			case 'list':
+				// Replace <select> Taxonomy dropdown to reflect changes
+				mediaLibraryOrganizerListViewReplaceTaxonomyFilter( 
+					atts.taxonomy.name,
+					atts.dropdown_filter,
+					atts.selected_term
+				);
+
+				// Iterate through all Terms listed in the WP_List_Table for each Attachment, replacing the old Term with the New Term
+				mediaLibraryOrganizerListViewUpdateAttachmentTerms(
+					atts.taxonomy.name,
+					atts.old_term,
+					atts.term
+				);
+				break;
+
+			/**
+			 * Grid View
+			 */
+			case 'grid':
+				// Replace Taxonomy Filter to reflect changes, if we're not in Bulk Select mode
+				// (otherwise the Taxonomy Filters display between the 'Delete permanently' and 'Cancel' buttons)
+				if ( ! MediaLibraryOrganizerAttachmentsBrowser.controller.isModeActive( 'select' ) ) {
+					mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
+						atts.taxonomy.name,
+						atts.terms,
+						atts.taxonomy.labels.all_items
+					);
+				}
+
+				// Refresh the Library to reflect the changed Term Name
+				if ( typeof wp.media.frame.library !== 'undefined' ) {
+					wp.media.frame.library.props.set ({ignore: (+ new Date())});
+				} else {
+					wp.media.frame.content.get().collection.props.set({ignore: (+ new Date())});
+					wp.media.frame.content.get().options.selection.reset();
+				}
+				break;
+		}
+
+	} )( jQuery );
+
+} );
+
+/**
+ * Tree View: When a Taxonomy Term is deleted, refresh the Taxonomy Dropdown Filter
+ *
+ * @since   1.3.3
+ *
+ * @param   obj   atts 	Attributes
+ */
+wp.media.events.on( 'mlo:grid:tree-view:deleted:term', function( atts ) {
+
+	( function( $ ) {
+
+		// Remove this Term from any Attachments in the Media Library View
+		switch ( atts.media_view ) {
+			/**
+			 * List View
+			 */
+			case 'list':
+				// If we're viewing the Term we just deleted, reset the view
+				if ( atts.selected_term == atts.term.slug ) {
+					window.location.href = 'upload.php?mode=list';
+					return;
+				}
+
+				// Replace <select> Taxonomy dropdown to reflect changes
+				mediaLibraryOrganizerListViewReplaceTaxonomyFilter( 
+					atts.taxonomy.name,
+					atts.dropdown_filter,
+					atts.selected_term
+				);
+
+				// Iterate through all Terms listed in the WP_List_Table for each Attachment, remov the Term
+				mediaLibraryOrganizerListViewUpdateAttachmentTerms(
+					atts.taxonomy.name,
+					atts.term,
+					false
+				);
+				break;
+
+			/**
+			 * Grid View
+			 */
+			case 'grid':
+				// If we're viewing the Category we just deleted, reset the view
+				if ( atts.selected_term == atts.term.slug ) {
+					window.location.href = 'upload.php?mode=grid';
+					return;
+				}
+
+				// Replace Taxonomy Filter to reflect changes, if we're not in Bulk Select mode
+				// (otherwise the Taxonomy Filters display between the 'Delete permanently' and 'Cancel' buttons)
+				if ( ! MediaLibraryOrganizerAttachmentsBrowser.controller.isModeActive( 'select' ) ) {
+					mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
+						atts.taxonomy.name,
+						atts.terms,
+						atts.taxonomy.labels.all_items
+					);
+				}
+
+				// Refresh the Library to reflect the deleted Term
+				if ( typeof wp.media.frame.library !== 'undefined' ) {
+					wp.media.frame.library.props.set ({ignore: (+ new Date())});
+				} else {
+					wp.media.frame.content.get().collection.props.set({ignore: (+ new Date())});
+					wp.media.frame.content.get().options.selection.reset();
+				}
+				break;
+		}
+
+	} )( jQuery );
+	
+} );
+
+/**
+ * List or Grid View: When attachment(s) are dragged and dropped onto a Category in the Tree View:
+ * -
+ * -
+ *
+ * @since   1.3.3
+ *
+ * @param   obj   atts  Attributes
+ */
+wp.media.events.on( 'mlo:grid:tree-view:assigned:attachments:term', function( atts ) {
+
+	( function( $ ) {
+
+		switch ( atts.media_view ) {
+			/**
+			 * List View
+			 */
+			case 'list':
+				// Replace <select> Taxonomy dropdown to reflect changes
+				mediaLibraryOrganizerListViewReplaceTaxonomyFilter( 
+					atts.taxonomy.name,
+					atts.dropdown_filter,
+					media_library_organizer_tree_view.selected_term
+				);
+
+				// For each Attachment, build Term Links
+				for ( let attachment in atts.attachments ) {
+					var terms = [];
+					for ( j = 0; j < atts.attachments[ attachment ].terms.length; j++ ) {
+						terms.push( '<a href="upload.php?taxonomy=' + atts.attachments[ attachment ].terms[ j ].taxonomy + '&term=' + atts.attachments[ attachment ].terms[ j ].slug + '">' + atts.attachments[ attachment ].terms[ j ].name + '</a>' );
+					}
+
+					// Set HTML in Terms column of this Attachment's row
+					$( 'tr#post-' + atts.attachments[ attachment ].id + ' td.taxonomy-' + atts.taxonomy.name ).html( terms.join( ', ' ) );
+				}
+				break;
+
+			/**
+			 * Grid View
+			 */
+			case 'grid':
+				// Replace Taxonomy Filter to reflect changes, if we're not in Bulk Select mode
+				// (otherwise the Taxonomy Filters display between the 'Delete permanently' and 'Cancel' buttons)
+				if ( ! MediaLibraryOrganizerAttachmentsBrowser.controller.isModeActive( 'select' ) ) {
+					mediaLibraryOrganizerGridViewReplaceTaxonomyFilter(
+						atts.taxonomy.name,
+						atts.terms,
+						atts.taxonomy.labels.all_items
+					);
+				}
+				break;
+		}
+
+		// Don't reload Tree View if the Term that was added isn't for the Taxonomy displayed in the Tree View
+		if ( atts.taxonomy.name != media_library_organizer_tree_view.taxonomy.name ) {
+			return;
+		}
+
+		// Reload Tree View
+		mediaLibraryOrganizerTreeViewGet( atts.taxonomy.name, atts.selected_term );
+
+	} )( jQuery );
+
+} );
+
+/**
+ * Grid View: When an attachment is edited in the Grid View, and has a Taxonomy Term added to it using the
+ * inline 'Add New' option, reload the Tree View to reflect the new Taxonomy Term
+ *
+ * @since   1.3.3
+ *
+ * @param   obj   atts  Attributes
+ */
+wp.media.events.on( 'mlo:grid:edit-attachment:added:term', function( atts ) {
+
+	// Don't reload Tree View if the Term that was added isn't for the Taxonomy displayed in the Tree View
+	if ( atts.taxonomy.name != media_library_organizer_tree_view.taxonomy.name ) {
+		return;
+	}
+
+	// Reload Tree View
+	mediaLibraryOrganizerTreeViewGet( atts.taxonomy.name, media_library_organizer_tree_view.selected_term );
+
+} );
+
+/**
+ * Grid View: When Taxonomy Term(s) are assigned or unassigned to an Attachment in the Grid View
+ * reload the Tree View for the Taxonomy where changes were made.
+ *
+ * @since   1.3.3
+ *
+ * @param   obj   atts  Attributes
+ */
+wp.media.events.on( 'mlo:grid:edit-attachment:edited', function( atts ) {
+
+	( function( $ ) {
+
+		// Bail if no Taxonomy Terms were changed in the Attachment
+		if ( ! atts.taxonomy_term_changed ) {
+			return;
+		}
+
+		// Reload Tree View
+		mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.taxonomy.name, media_library_organizer_tree_view.selected_term );
+
+	} )( jQuery );
+
+} );
+
+/**
  * Grid View: When the Grid View's Taxonomy Filter's value is changed, reflect the change
  * of selected Category in the Tree View
  *
@@ -845,9 +997,18 @@ jQuery( document ).ready( function( $ ) {
  * @param   obj   atts  Filter Attributes
  *                        slug: term-slug
  */
-wp.media.events.on( 'mlo:grid:filter:change:mlo-category', function( atts ) { 
+wp.media.events.on( 'mlo:grid:filter:change:term', function( atts ) { 
 
-	mediaLibraryOrganizerTreeViewGet( atts.slug );
+	// Don't reload Tree View if the Term that was changed isn't the Taxonomy displayed in the Tree View
+	if ( atts.taxonomy_name != media_library_organizer_tree_view.taxonomy.name ) {
+		return;
+	}
+
+	// Update the selected term
+	media_library_organizer_tree_view.selected_term = atts.slug;
+
+	// Reload Tree View
+	mediaLibraryOrganizerTreeViewGet( atts.taxonomy_name, atts.slug );
 
 } );	
 
@@ -861,19 +1022,34 @@ wp.media.events.on( 'mlo:grid:filter:change:mlo-category', function( atts ) {
  */
 wp.media.events.on( 'mlo:grid:attachment:upload:success', function( attachment ) { 
 
-	mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
+	mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.taxonomy.name, media_library_organizer_tree_view.selected_term );
 
 } );
 
 /**
- * Grid View: When Bulk Actions complete on Attachments in the Grid View, refresh the Tree View to get the new Category counts
+ * Grid View: When an attachment is deleted in the Grid View > Edit Attachment modal,
+ * refresh the Tree View to get the new Term Counts.
+ *
+ * @TODO Optimize this so it just updates Term Counts, without performing a potentially
+ * expensive AJAX query.
+ *
+ * @since   1.3.3
+ */
+wp.media.events.on( 'mlo:grid:edit-attachment:deleted', function( atts ) {
+
+	mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.taxonomy.name, media_library_organizer_tree_view.selected_term );
+
+} );
+
+/**
+ * Grid View: When Bulk Actions complete on Attachments in the Grid View,
+ * refresh the Tree View to get the new Term counts
  *
  * @since   1.2.3
  */
 wp.media.events.on( 'mlo:grid:attachments:bulk_actions:done', function() { 
 
-	setTimeout( function() {
-  		mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.selected_term );
-  	}, 500 );
-
+	console.log( 'mlo:grid:attachments:bulk_actions:done' );
+  	mediaLibraryOrganizerTreeViewGet( media_library_organizer_tree_view.taxonomy.name, media_library_organizer_tree_view.selected_term );
+  
 } );

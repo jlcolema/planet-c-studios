@@ -3,7 +3,7 @@ Contributors: wpmedialibrary
 Donate link: https://wpmedialibrary.com
 Tags: media categories, media library, media tags, images, organizer
 Requires at least: 5.0
-Tested up to: 5.6
+Tested up to: 5.6.1
 Requires PHP: 5.6
 Stable tag: trunk
 License: GPLv2 or later
@@ -62,6 +62,7 @@ Instead, Media Library Organizer enhances WordPress' native user interface, addi
 > - **<a href="https://wpmedialibrary.com/features/dynamic-galleries/" rel="friend" title="Dynamic Galleries">Dynamic Galleries</a>:**<br />Extend WordPress' [gallery] shortcode, building paginated, dynamic galleries by Media Category, Author, Search Terms and more.<br />
 > - **<a href="https://wpmedialibrary.com/features/exif-iptc/" rel="friend" title="EXIF and IPTC">EXIF and IPTC</a>:**<br />Read, write and display EXIF, GPS and IPTC (IIM and XMP) image data, and map this data to newly uploaded images<br />
 > - **<a href="https://wpmedialibrary.com/documentation/output/setup/" rel="friend" title="Customize Media Library Output">Output</a>:**<br />Change the size of thumbnails in the Media Library<br />
+> - **<a href="https://wpmedialibrary.com/documentation/taxonomy-manager/setup/" rel="friend" title="Manage Attachment Taxonomies">Taxonomy Manager</a>:**<br />Define additional Taxonomies alongside Media Categories - for example, Size, Color, Product Make<br />
 > - **<a href="https://wpmedialibrary.com/features/zip-unzip/" rel="friend" title="Auto ZIP and Unzip">ZIP and Unzip</a>:**<br />Automatically unzip files when uploaded to the Media Library, and zip multiple Media Library files<br />
 >
 > - **<a href="https://wpmedialibrary.com/support" rel="friend" title="WordPress Media Library Support">Support</a>**: Access to one on one email support<br />
@@ -164,6 +165,20 @@ To auto categorize attachments, bulk edit other attributes, manage EXIF, GPS and
 4. Plugin-wide Settings
 
 == Changelog ==
+
+= 1.3.3 (2021-02-10) =
+* Added: Grid View: Edit / Select Attachment: Option to add new Media Categories.  See Docs: https://wpmedialibrary.com/documentation/media-library-organizer/assigning-media-categories-to-media/
+* Added: Grid View: Update Dropdown Category Filter when a Category is added, edited or deleted in the Tree View or when editing an Attachment
+* Fix: Grid View: Update Category Dropdown Filter's Category Counts when Attachment(s) edited and deleted
+* Fix: Tree View: Grid View: Update Tree View Category Counts when Attachment(s) edited and deleted
+* Fix: Tree View: List View: Category Dropdown Filter's "All Media Categories" option would wrongly change to "All mlo-category" when a Category was added, edited or deleted in Tree View
+* Fix: Tree View: Retain Attachment's existing Categories when dragging and dropping an Attachment to a new Category
+
+= 1.3.2 (2021-02-01) =
+* Fix: Settings: Filters: Always correctly show if Media Categories filter is enabled or disabled
+* Fix: PHP Error: Trying to get property id of non-object
+* Fix: PHP Error: Required parameter $mode follows optional parameter $screens
+* Fix: Translations: Some strings used the incorrect textdomain
 
 = 1.3.1 (2021-01-21) =
 * Fix: List View: Update Attachment counts in Categories dropdown filter counts when categorizing Attachments via drag and drop

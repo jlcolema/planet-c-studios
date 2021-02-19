@@ -44,6 +44,7 @@ class Media_Library_Organizer_Tree_View_AJAX {
         check_ajax_referer( 'media_library_organizer_tree_view_get_tree_view', 'nonce' );
 
         // Get inputs
+        $taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] );
         $current_term = ( isset( $_REQUEST['current_term'] ) ? sanitize_text_field( $_REQUEST['current_term'] ) : false );
         $current_term_id = false;
 
@@ -53,7 +54,7 @@ class Media_Library_Organizer_Tree_View_AJAX {
                 $current_term_id = absint( $current_term );
             } else {
                 // Get Term ID from Slug
-                $term = get_term_by( 'slug', $current_term, Media_Library_Organizer()->get_class( 'taxonomy' )->taxonomy_name );
+                $term = get_term_by( 'slug', $current_term, $taxonomy_name );
                 if ( $term ) {
                     $current_term_id = $term->term_id;
                 }
@@ -61,7 +62,7 @@ class Media_Library_Organizer_Tree_View_AJAX {
         }
 
         // Get Output
-        $output = $this->base->get_class( 'media' )->get_tree_view( $current_term_id );
+        $output = $this->base->get_class( 'media' )->get_tree_view( $taxonomy_name, $current_term_id );
     
         // Done
         wp_send_json_success( $output );

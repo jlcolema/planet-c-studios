@@ -304,6 +304,7 @@ class WPZincDashboardWidget {
         wp_register_script( 'wpzinc-admin-notification', $this->dashboard_url . 'js/' . ( $ext ? 'min/' : '' ) . 'notification' . ( $ext ? '-min' : '' ) . '.js', array( 'jquery' ), $this->plugin->version, true );
         wp_register_script( 'wpzinc-admin-selectize', $this->dashboard_url . 'js/' . ( $ext ? 'min/' : '' ) . 'selectize' . ( $ext ? '-min' : '' ) . '.js', array( 'jquery' ), $this->plugin->version, true );
         wp_register_script( 'wpzinc-admin-synchronous-ajax', $this->dashboard_url . 'js/' . ( $ext ? 'min/' : '' ) . 'synchronous-ajax' . ( $ext ? '-min' : '' ) . '.js', array( 'jquery' ), $this->plugin->version, true );
+        wp_register_script( 'wpzinc-admin-tables', $this->dashboard_url . 'js/' . ( $ext ? 'min/' : '' ) . 'tables' . ( $ext ? '-min' : '' ) . '.js', array( 'jquery' ), $this->plugin->version, true );
         wp_register_script( 'wpzinc-admin-tabs', $this->dashboard_url . 'js/' . ( $ext ? 'min/' : '' ) . 'tabs' . ( $ext ? '-min' : '' ) . '.js', array( 'jquery' ), $this->plugin->version, true );
         wp_register_script( 'wpzinc-admin-tags', $this->dashboard_url . 'js/' . ( $ext ? 'min/' : '' ) . 'tags' . ( $ext ? '-min' : '' ) . '.js', array( 'jquery' ), $this->plugin->version, true );
         wp_register_script( 'wpzinc-admin-tinymce-modal', $this->dashboard_url . 'js/' . ( $ext ? 'min/' : '' ) . 'tinymce-modal' . ( $ext ? '-min' : '' ) . '.js', array( 'jquery' ), $this->plugin->version, true );

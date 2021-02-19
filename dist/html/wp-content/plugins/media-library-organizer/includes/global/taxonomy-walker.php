@@ -8,7 +8,7 @@
  */
 class Media_Library_Organizer_Taxonomy_Walker extends Walker {
 
-	public $tree_type = 'mlo-category';
+	public $tree_type = 'mlo-category'; // @TODO Change?
 	public $db_fields = array(
 		'parent' => 'parent',
 		'id'     => 'term_id',
@@ -69,11 +69,7 @@ class Media_Library_Organizer_Taxonomy_Walker extends Walker {
 	 */
 	public function start_el( &$output, $category, $depth = 0, $args = array(), $id = 0 ) {
 
-		if ( empty( $args['taxonomy'] ) ) {
-			$taxonomy = 'mlo-category';
-		} else {
-			$taxonomy = $args['taxonomy'];
-		}
+		$taxonomy = $args['taxonomy'];
 
 		$args['popular_cats'] = empty( $args['popular_cats'] ) ? array() : $args['popular_cats'];
 		$class = in_array( $category->term_id, $args['popular_cats'] ) ? ' class="popular-category"' : '';
@@ -98,7 +94,7 @@ class Media_Library_Organizer_Taxonomy_Walker extends Walker {
 			/** This filter is documented in wp-includes/category-template.php */
 			// Note: <input> is modified here.
 			$output .= "\n<li id='{$taxonomy}-{$category->term_id}'$class>" .
-				'<label class="selectit"><input value="1" type="checkbox" name="' . $taxonomy . '_' . $category->term_id . '" class="check" id="in-'  .$taxonomy . '-' . $category->term_id . '"' .
+				'<label class="selectit"><input value="1" type="checkbox" name="' . $taxonomy . '_' . $category->term_id . '" class="check" data-taxonomy="' . $taxonomy . '"' .
 				checked( in_array( $category->term_id, $args['selected_cats'] ), true, false ) .
 				disabled( empty( $args['disabled'] ), false, false ) . ' /> ' .
 				esc_html( apply_filters( 'the_category', $category->name ) ) . '</label>';

@@ -52,21 +52,33 @@
                     </p>
                 </header>
 
-                <div class="wpzinc-option">
-                    <div class="left">
-                        <label for="general_taxonomy_enabled"><?php _e( 'Media Categories', 'media-library-organizer' ); ?></label>
-                    </div>
-                    <div class="right">
-                        <select name="general[taxonomy_enabled]" id="general_taxonomy_enabled" size="1">
-                            <option value="1"<?php selected( $this->get_setting( 'general', 'taxonomy_enabled' ), 1 ); ?>><?php _e( 'Enabled', 'media-library-organizer' ); ?></option>
-                            <option value="0"<?php selected( $this->get_setting( 'general', 'taxonomy_enabled' ), 0 ); ?>><?php _e( 'Disabled', 'media-library-organizer' ); ?></option>
-                        </select>
+                <?php
+                foreach ( $taxonomies as $taxonomy_name => $taxonomy ) {
+                    ?>
+                    <div class="wpzinc-option">
+                        <div class="left">
+                            <label for="general_<?php echo $taxonomy_name; ?>_enabled"><?php echo $taxonomy['plural_name']; ?></label>
+                        </div>
+                        <div class="right">
+                            <select name="general[<?php echo $taxonomy_name; ?>_enabled]" id="general_<?php echo $taxonomy_name; ?>_enabled" size="1">
+                                <option value="1"<?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), 1 ); ?>><?php _e( 'Enabled', 'media-library-organizer' ); ?></option>
+                                <option value="0"<?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), 0 ); ?><?php selected( $this->get_setting( 'general', $taxonomy_name . '_enabled' ), '' ); ?>><?php _e( 'Disabled', 'media-library-organizer' ); ?></option>
+                            </select>
 
-                        <p class="description">
-                            <?php _e( 'If enabled, displays a dropdown option to filter Media Library items by Category', 'media-library-organizer' ); ?>
-                        </p>
+                            <p class="description">
+                                <?php 
+                                echo sprintf(
+                                    /* translators: Taxonomy Label, Singular */
+                                    __( 'If enabled, displays a dropdown option to filter Media Library items by %s', 'media-library-organizer' ),
+                                    $taxonomy['singular_name']
+                                );
+                                ?>
+                            </p>
+                        </div>
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
 
                 <div class="wpzinc-option">
                     <div class="left">

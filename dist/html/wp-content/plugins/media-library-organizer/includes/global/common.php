@@ -443,7 +443,7 @@ class Media_Library_Organizer_Common {
      * @since   1.0.0
      *
      * @param   string   $taxonomy  Taxonomy
-     * @return  mixed           false | array of Terms
+     * @return  mixed               false | array of Terms
      */
     public function get_terms_hierarchical( $taxonomy ) {
 

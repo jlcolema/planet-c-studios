@@ -2,7 +2,7 @@
 /**
  * Taxonomy Walker for Tree View
  *
- * @package   Media_Library_Organizer_Pro
+ * @package   Media_Library_Organizer
  * @author    WP Media Library
  * @version   1.1.1
  */
@@ -75,8 +75,8 @@ class Media_Library_Organizer_Tree_View_Taxonomy_Walker extends Walker_Category 
 
 		// Build URL arguments
 		$args = array(
-			'mode' 				=> Media_Library_Organizer()->get_class( 'common' )->get_media_view(),
-			Media_Library_Organizer()->get_class( 'taxonomy' )->taxonomy_name => $term->slug,
+			'mode' 			=> Media_Library_Organizer()->get_class( 'common' )->get_media_view(),
+			$term->taxonomy => $term->slug, 
 		);
 		$conditions = array(
 			'attachment-filter',

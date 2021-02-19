@@ -35,6 +35,8 @@ class Media_Library_Organizer_AJAX {
         add_action( 'wp_ajax_media_library_organizer_categorize_attachments', array( $this, 'categorize_attachments' ) );
         add_action( 'wp_ajax_media_library_organizer_search_authors', array( $this, 'search_authors' ) );
         add_action( 'wp_ajax_media_library_organizer_search_taxonomy_terms', array( $this, 'search_taxonomy_terms' ) );
+        add_action( 'wp_ajax_media_library_organizer_get_taxonomies_terms', array( $this, 'get_taxonomies_terms' ) );
+        add_action( 'wp_ajax_media_library_organizer_get_taxonomy_terms', array( $this, 'get_taxonomy_terms' ) );
 
     }
 
@@ -49,18 +51,31 @@ class Media_Library_Organizer_AJAX {
         check_ajax_referer( 'media_library_organizer_add_term', 'nonce' );
 
         // Get vars
+        $taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] );
         $term_name = sanitize_text_field( $_REQUEST['term_name'] );
         $term_parent_id = sanitize_text_field( $_REQUEST['term_parent_id'] );
 
-        $term_id = $this->base->get_class( 'taxonomy' )->create_term( $term_name, $term_parent_id );
+        $term_id = $this->base->get_class( 'taxonomies' )->create_term( $taxonomy_name, $term_name, $term_parent_id );
         if ( is_wp_error( $term_id ) ) {
             wp_send_json_error( $term_id->get_error_message() );
         }
 
-        // Return success with created Term and List View compatible dropdown filter reflecting changes
+        // Get Taxonomy and Term
+        $taxonomy = $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
+        $term = get_term_by( 'id', $term_id, $taxonomy_name );
+
+        // Return success with created Term, List View compatible dropdown filter and Grid View Edit Attachment checkbox reflecting changes
         wp_send_json_success( array(
-            'term'              => get_term_by( 'id', $term_id, $this->base->get_class( 'taxonomy' )->taxonomy_name ),
-            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
+            // The Created Term
+            'term'              => $term,
+            // The List View <select> dropdown filter, reflecting the changes i.e. the new Term
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter( $taxonomy_name, $taxonomy->label ),
+            // The Grid View Edit Attachment <li> checkbox, which can be injected into the Edit Attachment Backbone modal
+            'checkbox'          => $this->base->get_class( 'media' )->get_grid_edit_attachment_checkbox( $taxonomy_name, $term ),
+            // The Taxonomy
+            'taxonomy'          => $taxonomy,
+            // All Terms
+            'terms'             => $this->base->get_class( 'common' )->get_terms_hierarchical( $taxonomy_name ),
         ) );
 
     }
@@ -76,11 +91,12 @@ class Media_Library_Organizer_AJAX {
         check_ajax_referer( 'media_library_organizer_edit_term', 'nonce' );
 
         // Get vars
+        $taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] );
         $term_id = absint( $_REQUEST['term_id'] );
         $term_name = sanitize_text_field( $_REQUEST['term_name'] );
 
         // Get what will become the Old Term
-        $old_term = get_term_by( 'id', $term_id, $this->base->get_class( 'taxonomy' )->taxonomy_name );
+        $old_term = get_term_by( 'id', $term_id, $taxonomy_name );
 
         // Bail if the (Old) Term doesn't exist
         if ( ! $old_term ) {
@@ -88,16 +104,26 @@ class Media_Library_Organizer_AJAX {
         }
         
         // Update Term
-        $result = $this->base->get_class( 'taxonomy' )->update_term( $term_id, $term_name );
+        $result = $this->base->get_class( 'taxonomies' )->update_term( $taxonomy_name, $term_id, $term_name );
         if ( is_wp_error( $result ) ) {
             wp_send_json_error( $result->get_error_message() );
         }
 
+        // Get Taxonomy
+        $taxonomy = $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
+
         // Return success with old term, edited Term and List View compatible dropdown filter reflecting changes
         wp_send_json_success( array(
+            // Old Term
             'old_term'          => $old_term,
-            'term'              => get_term_by( 'id', $term_id, $this->base->get_class( 'taxonomy' )->taxonomy_name ),
-            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
+            // New (Edited) Term
+            'term'              => get_term_by( 'id', $term_id, $taxonomy_name ),
+            // The List View <select> dropdown filter, reflecting the changes i.e. the edited Term
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter( $taxonomy_name, $taxonomy->label ),
+            // The Taxonomy
+            'taxonomy'          => $taxonomy,
+            // All Terms
+            'terms'             => $this->base->get_class( 'common' )->get_terms_hierarchical( $taxonomy_name ),
         ) );
 
     }
@@ -113,26 +139,36 @@ class Media_Library_Organizer_AJAX {
         check_ajax_referer( 'media_library_organizer_delete_term', 'nonce' );
 
         // Get vars
+        $taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] );
         $term_id = absint( $_REQUEST['term_id'] );
 
         // Get Term
-        $term = get_term_by( 'id', $term_id, $this->base->get_class( 'taxonomy' )->taxonomy_name );
+        $term = get_term_by( 'id', $term_id, $taxonomy_name );
 
         // Bail if the Term doesn't exist
         if ( ! $term ) {
-            wp_send_json_error( __( 'Category does not exist, so cannot be deleted', 'media-library-organizer' ) );
+            wp_send_json_error( __( 'Term does not exist, so cannot be deleted', 'media-library-organizer' ) );
         }
       
         // Delete Term
-        $result = $this->base->get_class( 'taxonomy' )->delete_term( $term_id );
+        $result = $this->base->get_class( 'taxonomies' )->delete_term( $taxonomy_name, $term_id );
         if ( is_wp_error( $result ) ) {
             wp_send_json_error( $result->get_error_message() );
         }
 
+        // Get Taxonomy
+        $taxonomy = $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
+
         // Return success with deleted Term and List View compatible dropdown filter reflecting changes
         wp_send_json_success( array(
+            // Deleted Term
             'term'              => $term,
-            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
+            // The List View <select> dropdown filter, reflecting the changes i.e. the deleted Term
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter( $taxonomy_name, $taxonomy->label ),
+            // The Taxonomy
+            'taxonomy'          => $taxonomy,
+            // All Terms
+            'terms'             => $this->base->get_class( 'common' )->get_terms_hierarchical( $taxonomy_name ),
         ) );
 
     }
@@ -148,16 +184,17 @@ class Media_Library_Organizer_AJAX {
         check_ajax_referer( 'media_library_organizer_categorize_attachments', 'nonce' );
 
         // Get vars
+        $taxonomy_name  = sanitize_text_field( $_REQUEST['taxonomy_name'] );
+        $term_id        = absint( $_REQUEST['term_id'] );
         $attachment_ids = $_REQUEST['attachment_ids'];
-        $term_id = sanitize_text_field( $_REQUEST['term_id'] );
-
-        $return = array();
+        
+        $attachments = array();
         foreach ( $attachment_ids as $attachment_id ) {
             // Get attachment
             $attachment = new Media_Library_Organizer_Attachment( absint( $attachment_id ) );
 
-            // Set Categories
-            $attachment->append_media_categories( array( $term_id ) );
+            // Set Terms
+            $attachment->append_terms( $taxonomy_name, array( $term_id ) );
             
             // Update the Attachment
             $result = $attachment->update();
@@ -168,19 +205,30 @@ class Media_Library_Organizer_AJAX {
             }
 
             // Add to return data
-            $return[] = array(
+            $attachments[] = array(
                 'id'    => $attachment_id,
-                'terms' => wp_get_post_terms( $attachment_id, Media_Library_Organizer()->get_class( 'taxonomy' )->taxonomy_name ),
+                'terms' => wp_get_post_terms( $attachment_id, $taxonomy_name ),
             );
 
             // Destroy the class
             unset( $attachment );
         }
+
+        // Get Taxonomy
+        $taxonomy = $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name );
         
         // Return the Attachment IDs and their Categories
         wp_send_json_success( array(
-            'attachments'       => $return,
-            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter(),
+            // Attachments updated, with Terms
+            'attachments'       => $attachments,
+            // Term Assigned to Attachments
+            'term'              => get_term_by( 'id', $term_id, $taxonomy_name ),
+            // The List View <select> dropdown filter, reflecting the changes i.e. the edited Term
+            'dropdown_filter'   => $this->base->get_class( 'media' )->get_list_table_category_filter( $taxonomy_name, $taxonomy->label ),
+            // The Taxonomy
+            'taxonomy'          => $taxonomy,
+            // All Terms
+            'terms'             => $this->base->get_class( 'common' )->get_terms_hierarchical( $taxonomy_name ),
         ) );
 
     }
@@ -230,11 +278,22 @@ class Media_Library_Organizer_AJAX {
     public function search_taxonomy_terms() {
 
         // Get vars
+        $taxonomy_name = false;
+        if ( isset( $_REQUEST['taxonomy_name'] ) ) {
+            $taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] );
+        } elseif ( isset( $_REQUEST['args'] ) && isset( $_REQUEST['args']['taxonomy_name'] ) ) {
+            $taxonomy_name = sanitize_text_field( $_REQUEST['args']['taxonomy_name'] );
+        }
         $query = sanitize_text_field( $_REQUEST['query'] );
+
+        // Bail if no Taxonomy Name specified
+        if ( ! $taxonomy_name ) {
+            return wp_send_json_error( __( 'The taxonomy_name or args[taxonomy_name] parameter must be included in the request.', 'media-library-organizer' ) );
+        }
 
         // Get results
         $terms = new WP_Term_Query( array(
-            'taxonomy'      => Media_Library_Organizer()->get_class( 'taxonomy' )->taxonomy_name,
+            'taxonomy'      => $taxonomy_name,
             'search'        => $query,
             'hide_empty'    => false,
         ) );
@@ -258,6 +317,51 @@ class Media_Library_Organizer_AJAX {
 
         // Done
         wp_send_json_success( $terms_array );
+
+    }
+
+    /**
+     * Returns all Terms for all Taxonomies
+     *
+     * @since   1.3.3
+     */
+    public function get_taxonomies_terms() {
+
+        // Check nonce
+        check_ajax_referer( 'media_library_organizer_get_taxonomies_terms', 'nonce' );
+
+        // Iterate through Taxonomies
+        $response = array();
+        foreach ( $this->base->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            $response[ $taxonomy_name ] = array(
+                'taxonomy'          => $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name ),
+                'terms'             => $this->base->get_class( 'common' )->get_terms_hierarchical( $taxonomy_name ),
+            );
+        }
+
+        // Return success with Taxonomies and Terms
+        wp_send_json_success( $response );
+
+    }
+
+    /**
+     * Returns all Terms for the given Taxonomy
+     *
+     * @since   1.3.3
+     */
+    public function get_taxonomy_terms() {
+
+        // Check nonce
+        check_ajax_referer( 'media_library_organizer_get_taxonomy_terms', 'nonce' );
+
+        // Get vars
+        $taxonomy_name = sanitize_text_field( $_REQUEST['taxonomy_name'] );
+        
+        // Return success with Taxonomy and Terms
+        wp_send_json_success( array(
+            'taxonomy'          => $this->base->get_class( 'taxonomies' )->get_taxonomy( $taxonomy_name ),
+            'terms'             => $this->base->get_class( 'common' )->get_terms_hierarchical( $taxonomy_name ),
+        ) );
 
     }
 

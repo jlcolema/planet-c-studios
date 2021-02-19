@@ -2,7 +2,7 @@
 /**
 * Plugin Name: Media Library Organizer
 * Plugin URI: https://wpmedialibrary.com
-* Version: 1.3.1
+* Version: 1.3.3
 * Author: WP Media Library
 * Author URI: https://wpmedialibrary.com
 * Description: Organize and Search your Media Library, quicker and easier.
@@ -65,10 +65,10 @@ class Media_Library_Organizer {
         $this->plugin->name             = 'media-library-organizer';
         $this->plugin->displayName      = 'Media Library Organizer';
         $this->plugin->author_name      = 'Media Library Organizer';
-        $this->plugin->version          = '1.3.1';
-        $this->plugin->buildDate        = '2021-01-21 18:00:00';
+        $this->plugin->version          = '1.3.3';
+        $this->plugin->buildDate        = '2021-02-10 15:00:00';
         $this->plugin->requires         = '5.0';
-        $this->plugin->tested           = '5.6';
+        $this->plugin->tested           = '5.6.1';
         $this->plugin->folder           = plugin_dir_path( __FILE__ );
         $this->plugin->url              = plugin_dir_url( __FILE__ );
         $this->plugin->documentation_url= 'https://wpmedialibrary.com/documentation';
@@ -219,7 +219,7 @@ class Media_Library_Organizer {
         $this->classes->ajax            = new Media_Library_Organizer_AJAX( self::$instance );
         $this->classes->editor          = new Media_Library_Organizer_Editor( self::$instance );
         $this->classes->page_builders   = new Media_Library_Organizer_Page_Builders( self::$instance );
-        $this->classes->taxonomy_walker = new Media_Library_Organizer_Taxonomy_Walker( self::$instance );
+        // $this->classes->taxonomy_walker = new Media_Library_Organizer_Taxonomy_Walker( self::$instance ); // @TODO Do we need this?
         $this->classes->upload          = new Media_Library_Organizer_Upload( self::$instance );
         
     }
@@ -238,7 +238,7 @@ class Media_Library_Organizer {
         $this->classes->mime                = new Media_Library_Organizer_MIME( self::$instance );
         $this->classes->settings            = new Media_Library_Organizer_Settings( self::$instance );
         $this->classes->shortcode           = new Media_Library_Organizer_Shortcode( self::$instance );
-        $this->classes->taxonomy            = new Media_Library_Organizer_Taxonomy( self::$instance );
+        $this->classes->taxonomies          = new Media_Library_Organizer_Taxonomies( self::$instance );
         $this->classes->user_option         = new Media_Library_Organizer_User_Option( self::$instance );
 
     }

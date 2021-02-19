@@ -22,13 +22,7 @@ function mediaLibraryOrganizerSelectizeInit( container ) {
 			}
 
 			$( this ).selectize( {
-				delimiter: delimiter,
-				create: function(input) {
-			        return {
-			            value: input,
-			            text: input
-			        }
-			    }
+				delimiter: delimiter
 			} );
 			
 		} );
@@ -50,6 +44,7 @@ function mediaLibraryOrganizerSelectizeInit( container ) {
 		$( media_library_organizer_selectize.selectors.ajax.join( ', ' ), $( media_library_organizer_selectize_container ) ).each( function() {
 
 			var action 			= $( this ).data( 'action' ),
+				args 			= $( this ).data( 'args' ),
 				name 			= $( this ).attr( 'name' ),
 				name_field 		= $( this ).data( 'name-field' ),
 				value_field 	= $( this ).data( 'value-field' ),
@@ -94,6 +89,7 @@ function mediaLibraryOrganizerSelectizeInit( container ) {
 				        data: 	{
 				            'action': 		action,
 				            'query': 		query,
+				            'args': 		args
 				        },
 				        error: function() {
 

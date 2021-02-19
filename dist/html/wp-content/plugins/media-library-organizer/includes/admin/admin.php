@@ -133,36 +133,8 @@ class Media_Library_Organizer_Admin {
             $ext = 'min';
         }
 
-        // JS: Register
-        wp_register_script( $this->base->plugin->name . '-selectize', $this->base->plugin->url . 'assets/js/' . ( $ext ? $ext . '/' : '' ) . 'selectize' . ( $ext ? '-' . $ext : '' ) . '.js', array( 'wpzinc-admin-selectize', 'jquery', 'jquery-ui-sortable' ), $this->base->plugin->version, true );
-        
-        // Define the selectize DOM selectors
-        $selectize_selectors = array(
-            'simple'    => array( 
-                '.media-library-organizer-selectize',
-            ),
-            'multiple'  => array(
-                '.media-library-organizer-selectize-multiple',
-            ),
-            'ajax'      => array(
-                '.media-library-organizer-selectize-search',
-            ),
-        );
-
-        /**
-         * Defines the selectize DOM selectors for various Selectize JS instances, such as
-         * Simple and AJAX implementations
-         *
-         * @since   1.1.1
-         *
-         * @param   array   $selectize_selectors    Selectize DOM Selectors
-         */
-        $selectize_selectors = apply_filters( 'media_library_organizer_media_enqueue_js_css_selectize_selectors', $selectize_selectors );
-
-        // JS: Localize
-        wp_localize_script( $this->base->plugin->name . '-selectize', 'media_library_organizer_selectize', array(
-            'selectors' => $selectize_selectors,
-        ) );
+        // JS: Register Selectize
+        $this->base->get_class( 'media' )->register_selectize_js_css( $ext );
 
         // Get current screen, registered plugin screens and the media view (list or grid)
         $screen = get_current_screen();
@@ -216,7 +188,7 @@ class Media_Library_Organizer_Admin {
      * @param   string      $mode                   Media View Mode (list|grid)
      * @param   string      $ext                    If defined, load minified JS
      */
-    public function enqueue_scripts_css( $plugin_screen_name, $screen, $screens = '', $mode, $ext = '' ) {
+    public function enqueue_scripts_css( $plugin_screen_name, $screen, $screens = '', $mode = 'list', $ext = '' ) {
 
         global $post;
 
@@ -683,6 +655,9 @@ class Media_Library_Organizer_Admin {
         // Get the current tab
         // If no tab specified, get the first tab
         $tab = $this->get_current_screen_tab( $tabs );
+
+        // Get Taxonomies
+        $taxonomies = $this->base->get_class( 'taxonomies' )->get_taxonomies();
 
         // Load View
         require_once( $this->base->plugin->folder . '/views/admin/settings.php' ); 

@@ -54,22 +54,13 @@ class Media_Library_Organizer_Attachment {
     private $description;
 
     /**
-     * Holds the Attachment Media Categories
+     * Holds the Attachment Terms
      *
      * @since   1.0.6
      *
      * @var     array
      */
-    private $media_categories;
-
-    /**
-     * Holds the Attachment Taxonomy
-     *
-     * @since   1.0.6
-     *
-     * @var     string
-     */
-    private $taxonomy;
+    private $terms;
 
     /**
      * Creates a new Attachment object, representing the given Attachment ID.
@@ -80,9 +71,6 @@ class Media_Library_Organizer_Attachment {
      */
     public function __construct( $attachment_id ) {
 
-        // Get taxonomy
-        $this->taxonomy = Media_Library_Organizer()->get_class( 'taxonomy' )->get_taxonomy();
-
         // Get attachment
         $attachment = get_post( $attachment_id );
 
@@ -92,10 +80,14 @@ class Media_Library_Organizer_Attachment {
         $this->set_alt_text( get_post_meta( $this->attachment_id, '_wp_attachment_image_alt', true ) );
         $this->set_caption( $attachment->post_excerpt );
         $this->set_description( $attachment->post_content );
-        $this->set_media_categories( wp_get_object_terms( $this->attachment_id, $this->taxonomy->name, array(
-            'fields' => 'ids',
-        ) ) );
         $this->set_filename( basename( get_attached_file( $attachment_id ) ) );
+
+        // Iterate through Registered Taxonomies
+        foreach ( Media_Library_Organizer()->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            $this->set_terms( $taxonomy_name, wp_get_object_terms( $this->attachment_id, $taxonomy_name, array(
+                'fields' => 'ids',
+            ) ) );
+        }
 
     }
 
@@ -165,15 +157,16 @@ class Media_Library_Organizer_Attachment {
     }
 
     /**
-     * Returns the Media Categories for the current Attachment
+     * Returns the Terms for the current Attachment
      *
      * @since   1.0.5
      *
-     * @return  array   Media Categories
+     * @param   string  $taxonomy_name  Taxonomy Name
+     * @return  array                   Terms
      */
-    public function get_media_categories() {
+    public function get_terms( $taxonomy_name ) {
 
-        return $this->media_categories;
+        return $this->terms[ $taxonomy_name ];
 
     }
 
@@ -252,26 +245,33 @@ class Media_Library_Organizer_Attachment {
      *
      * @since   1.0.5
      *
+     * @param   string  $taxonomy_name  
      * @param   array   $media_categories   Media Categories
      */
-    public function set_media_categories( $media_categories ) {
+    public function set_terms( $taxonomy_name, $terms ) {
 
-        // Bail if no media categories were assigned
-        if ( ! is_array( $media_categories ) ) {
-            $this->media_categories = array();
+        // Set this Taxonomy's Terms array if it hasn't been set
+        if ( ! isset( $this->terms[ $taxonomy_name ] ) ) {
+            $this->terms[ $taxonomy_name ] = array();
+        }
+
+        // Bail if no Terms were assigned
+        if ( ! is_array( $terms ) ) {
+            $this->terms[ $taxonomy_name ] = array();
             return;
         }
-        if ( count( $media_categories ) == 0 ) {
-            $this->media_categories = array();
+        if ( ! count( $terms ) ) {
+            $this->terms[ $taxonomy_name ] = array();
             return;
         }
 
-        // Cast media categories as Term IDs
-        foreach ( $media_categories as $index => $term_id ) {
-            $media_categories[ $index ] = absint( sanitize_text_field( $term_id ) );
+        // Cast Terms as Term IDs
+        foreach ( $terms as $index => $term_id ) {
+            $terms[ $index ] = absint( sanitize_text_field( $term_id ) );
         }
 
-        $this->media_categories = $media_categories;
+        // Assign Term IDs
+        $this->terms[ $taxonomy_name ] = $terms;
         
     }
 
@@ -289,30 +289,38 @@ class Media_Library_Organizer_Attachment {
     }
 
     /**
-     * Appends Media Categories for the current Attachment, preseving
-     * any existing Media Categories.
+     * Appends Terms for the current Attachment, preseving
+     * any existing Terms.
      *
-     * To save the Media Categories, subsequently call update().
+     * To save the Terms, subsequently call update().
      *
      * @since   1.1.1
      *
-     * @param   array   $media_categories   Media Categories
+     * @param   array   $terms  Terms
      */
-    public function append_media_categories( $media_categories ) {
+    public function append_terms( $taxonomy_name, $terms ) {
 
-        // Bail if no media categories were assigned
-        if ( ! is_array( $media_categories ) ) {
-            return;
-        }
-        if ( count( $media_categories ) == 0 ) {
-            return;
+        // Set this Taxonomy's Terms array if it hasn't been set
+        if ( ! isset( $this->terms[ $taxonomy_name ] ) ) {
+            $this->terms[ $taxonomy_name ] = array();
         }
 
-        // Cast media categories as Term IDs
-        foreach ( $media_categories as $index => $term_id ) {
-            $this->media_categories[] = absint( sanitize_text_field( $term_id ) );
+        // Bail if no Terms were assigned
+        if ( ! is_array( $terms ) ) {
+            return;
         }
-        
+        if ( ! count( $terms ) ) {
+            return;
+        }
+
+        // Cast Terms as Term IDs
+        foreach ( $terms as $index => $term_id ) {
+            $terms[ $index ] = absint( sanitize_text_field( $term_id ) );
+        }
+
+        // Append
+        $this->terms[ $taxonomy_name ] = array_merge( $this->terms[ $taxonomy_name ], $terms );
+
     }
 
     /**
@@ -372,15 +380,19 @@ class Media_Library_Organizer_Attachment {
      *
      * @since   1.0.5
      *
-     * @return  bool    Has Media Categories
+     * @param   string  $taxonomy_name  Taxonomy Name
+     * @return  bool                    Has Terms
      */
-    public function has_media_categories() {
+    public function has_terms( $taxonomy_name ) {
 
-        if ( ! $this->media_categories ) {
+        if ( ! isset( $this->terms[ $taxonomy_name ] ) ) {
+            return false;
+        }
+        if ( ! count( $this->terms[ $taxonomy_name ] ) ) {
             return false;
         }
 
-        return ( ( count( $this->media_categories ) > 0 ) ? true : false );
+        return true;
 
     }
 
@@ -409,15 +421,18 @@ class Media_Library_Organizer_Attachment {
         // Update the Alt Tag
         update_post_meta( $this->attachment_id, '_wp_attachment_image_alt', $this->alt_text );
 
-        // Exit if we don't need to update the Media Categories
-        if ( ! $this->has_media_categories() ) {
-            return true;
-        }
-        
-        // Update Media Categories
-        $result = wp_set_object_terms( $this->attachment_id, $this->media_categories, $this->taxonomy->name, false );
-        if ( is_wp_error( $result ) ) {
-            return $result;
+        // Iterate through Registered Taxonomies
+        foreach ( Media_Library_Organizer()->get_class( 'taxonomies' )->get_taxonomies() as $taxonomy_name => $taxonomy ) {
+            // Skip if no Terms to assign to this Taxonomy
+            if ( ! $this->has_terms( $taxonomy_name ) ) {
+                continue;
+            }
+            
+            // Update Terms
+            $result = wp_set_object_terms( $this->attachment_id, $this->terms[ $taxonomy_name ], $taxonomy_name, false );
+            if ( is_wp_error( $result ) ) {
+                return $result;
+            }
         }
 
         return true;
