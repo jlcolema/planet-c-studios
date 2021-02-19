@@ -9,18 +9,6 @@ Section: Contact
 	position: relative;
 	padding: 0 1.25em;
 
-	// Gradient to use...
-
-	// background: radial-gradient(50% 123.47% at 50% 50%, #000000 0%, #FFFFFF 100%),
-	// 			radial-gradient(100% 100% at 50% 100%, #E9FFD8 0%, #001356 100%),
-	// 			linear-gradient(238.72deg, #0066FF 0%, #00CD21 100%),
-	// 			radial-gradient(100% 188.01% at 76.14% 0%, #00CAF7 0%, #FF00C7 100%),
-	// 			linear-gradient(0deg, #00C2FF 0%, #FFC700 100%),
-	// 			radial-gradient(59.2% 100% at 50% 0%, #8000FF 0%, #0085FF 100%),
-	// 			radial-gradient(100% 148.07% at 0% 0%, #FC8800 0%, #00FF94 100%);
-
-	// background-blend-mode: overlay, multiply, hard-light, color-dodge, color-burn, color-burn, normal;
-
 	// Top curve...
 
 	mask: url(../img/section-curve.svg) center top no-repeat;
@@ -47,19 +35,19 @@ Section: Contact
 
 		.contact__header {
 
-			// position: relative;
-			// top: 1em;
+			position: relative;
+			top: 1em;
 
 			margin: 0 0 4em 0;
 			font-size: 1.5rem;
 			text-align: center;
-			// opacity: 0;
-			// transition: all 0.35s ease-in;
+			opacity: 0;
+			transition: all 0.35s ease-in;
 
 			.section--is-visible & {
 
-				// top: 0;
-				// opacity: 1;
+				top: 0;
+				opacity: 1;
 
 			}
 
@@ -67,8 +55,8 @@ Section: Contact
 
 		.contact__cta {
 
-			// position: relative;
-			// top: 1em;
+			position: relative;
+			top: 1em;
 
 			width: 300px;
 			margin: 0 auto;
@@ -81,15 +69,15 @@ Section: Contact
 			border-radius: 8px;
 			mix-blend-mode: screen;
 			cursor: pointer;
-			// opacity: 0;
-			// transition: all 0.35s ease-in 0.25s;
+			opacity: 0;
+			transition: all 0.35s ease-in 0.25s;
 
 			&:hover {}
 
 			.section--is-visible & {
 
-				// top: 0;
-				// opacity: 1;
+				top: 0;
+				opacity: 1;
 
 			}
 
@@ -218,8 +206,8 @@ Section: Contact
 
 		.contact__contact-information {
 
-			// position: relative;
-			// top: 1em;
+			position: relative;
+			top: 1em;
 
 			display: flex;
 			flex-direction: row;
@@ -229,15 +217,15 @@ Section: Contact
 			align-content: flex-start;
 
 			margin: 1em 0 0 0;
-			// opacity: 0;
-			// transition: all 0.35s ease-in 0.50s;
+			opacity: 0;
+			transition: all 0.35s ease-in 0.50s;
 	
 			// background: darken(pink, 10%);
 
 			.section--is-visible & {
 
-				// top: 0;
-				// opacity: 1;
+				top: 0;
+				opacity: 1;
 
 			}
 
@@ -270,16 +258,16 @@ Section: Contact
 
 		.contact__locations {
 
-			// position: relative;
-			// top: 1em;
+			position: relative;
+			top: 1em;
 			margin: 1em 0 0 0;
-			// opacity: 0;
-			// transition: all 0.35s ease-in 0.75s;
+			opacity: 0;
+			transition: all 0.35s ease-in 0.75s;
 
 			.section--is-visible & {
 
-				// top: 0;
-				// opacity: 1;
+				top: 0;
+				opacity: 1;
 
 			}
 
