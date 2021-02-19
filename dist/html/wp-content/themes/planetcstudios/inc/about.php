@@ -24,7 +24,7 @@
 
 			<div class="about__founded">
 			
-				Creative since <span class=""><?php the_field( 'about_founded', 'option' ); ?></span>
+				Founded <span class=""><?php the_field( 'about_founded', 'option' ); ?></span>
 
 			</div>
 
