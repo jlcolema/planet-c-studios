@@ -92,11 +92,15 @@
 
 								<h5 class="member__role"><?php echo $member_role; ?></h5>
 
-								<div class="member__bio">
+								<?php /*
 
-									<?php echo $member_bio; ?>
+									<div class="member__bio">
 
-								</div>
+										<?php echo $member_bio; ?>
+
+									</div>
+
+								*/ ?>
 
 							</div>						
 
@@ -164,11 +168,15 @@
 
 											<h5 class="member__role"><?php the_field( 'member_role' ); ?></h5>
 
-											<div class="member__bio">
+											<?php /*
 
-												<?php the_field( 'member_bio' ); ?>
+												<div class="member__bio">
 
-											</div>
+													<?php the_field( 'member_bio' ); ?>
+
+												</div>
+
+											*/ ?>
 
 										</li>
 
