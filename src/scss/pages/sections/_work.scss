@@ -10,13 +10,6 @@ Section: Work
 	margin-bottom: -4vw; // Pulls next section up so that curves overlap.
 	padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
 
-	// Gradient to use...
-
-	// background: linear-gradient(rgb(0, 3, 70) 0%, rgba(255, 160, 0, 1) 100%),
-	// 			linear-gradient(60deg, rgb(0, 5, 34) 0%, rgb(0, 255, 229) 100%),
-	// 			radial-gradient(100% 165% at 100% 100%, rgb(255, 0, 168) 0%, rgb(0, 255, 120) 100%),
-	// 			radial-gradient(100% 150% at 0% 0%, rgb(255, 245, 0) 0%, rgb(81, 213, 0) 100%);
-
 	// background-blend-mode: overlay, soft-light, difference, normal;
 
 	// Top curve...
@@ -45,16 +38,16 @@ Section: Work
 
 		.work__header {
 
-			// position: relative;
-			// top: 2em;
+			position: relative;
+			top: 2em;
 
 			margin: 0;
 			padding: 0 0.375em; // This helps match alignment on the left and right sides.
 			font-size: 1.125rem;
 			text-transform: none;
 			text-align: center;
-			// transition: all 0.35s ease-in 0.25s;
-			// opacity: 0;
+			transition: all 0.35s ease-in 0.25s;
+			opacity: 0;
 
 			@media screen and (min-width: 900px) {
 
@@ -64,8 +57,8 @@ Section: Work
 
 			.section--is-visible & {
 
-				// top: 0;
-				// opacity: 1;
+				top: 0;
+				opacity: 1;
 
 			}
 
@@ -73,8 +66,8 @@ Section: Work
 
 		.work__list {
 
-			// position: relative;
-			// top: 2em;
+			position: relative;
+			top: 2em;
 
 			display: flex;
 			flex-direction: row;
@@ -88,9 +81,9 @@ Section: Work
 			margin: 1em auto 0 auto;
 			padding: 0;
 			list-style: none;
-			// transform: scale(0.75);
-			// transition: all 0.35s ease-in;
-			// opacity: 0;
+			transform: scale(0.75);
+			transition: all 0.35s ease-in;
+			opacity: 0;
 
 			// background: darken(pink, 10%);
 
@@ -102,9 +95,9 @@ Section: Work
 
 			.section--is-visible & {
 
-				// top: 0;
-				// transform: scale(1);
-				// opacity: 1;
+				top: 0;
+				transform: scale(1);
+				opacity: 1;
 
 			}
 
@@ -327,19 +320,19 @@ Section: Work
 
 		.work__cta {
 
-			// position: relative;
-			// top: 1em;
+			position: relative;
+			top: 1em;
 			margin: 2.5em 0 0 0;
 			font-size: 1.75rem;
 			text-transform: uppercase;
 			text-align: center;
-			// transition: all 0.35s ease-in 0.50s;
-			// opacity: 0;
+			transition: all 0.35s ease-in 0.50s;
+			opacity: 0;
 
 			.section--is-visible & {
 
-				// top: 0;
-				// opacity: 1;
+				top: 0;
+				opacity: 1;
 
 			}
 
