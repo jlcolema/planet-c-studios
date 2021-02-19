@@ -200,14 +200,6 @@ function planetcstudios_register_scripts() {
 
 	// wp_script_add_data( 'vanta', 'async', true );
 
-	/* Add locomotive */
-
-	// Source: https://github.com/locomotivemtl/locomotive-scroll
-
-	wp_enqueue_script( 'locomotive', get_template_directory_uri() . '/assets/js/libraries/locomotive-scroll.min.js', array(), $theme_version, true );
-
-	wp_script_add_data( 'locomotive', 'async', true );
-
 }
 
 add_action( 'wp_enqueue_scripts', 'planetcstudios_register_scripts' );

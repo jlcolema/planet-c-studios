@@ -95,7 +95,7 @@
 
 		const config = {
 
-			root: document.body,
+			// root: document.body,
 			rootMargin: '0px',
 			threshold: 0.30
 
