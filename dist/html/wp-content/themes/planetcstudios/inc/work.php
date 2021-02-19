@@ -121,7 +121,7 @@
 
 		<div class="work__cta">
 
-			<a href="/work/" title="View all of our work" class="work-cta__link">Projects</a>
+			<a href="/work/" title="View all of our work" class="work-cta__link">More Projects</a>
 
 		</div>
 
