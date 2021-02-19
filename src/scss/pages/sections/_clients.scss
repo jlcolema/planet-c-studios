@@ -10,39 +10,10 @@ Section: Clients
 	margin-bottom: -4vw; // Pulls next section up so that curves overlap.
 	padding: 0 1.25em 4vw 1.25em; // Padding bottom gives space back due to margin-bottom.
 	
-	// Gradient to use...
-
-	// background:
-
-	// 			linear-gradient(115deg, rgb(211, 255, 215) 0%, rgb(0, 0, 0) 100%),
-
-	// 			radial-gradient(90% 100% at 50% 0%, rgb(200, 200, 200) 0%, rgb(22, 0, 45) 100%),
-
-	// 			radial-gradient(100% 100% at 80% 0%, rgb(250, 255, 0) 0%, rgb(36, 0, 0) 100%),
-
-	// 			radial-gradient(150% 210% at 100% 0%, rgb(112, 255, 0) 0%, rgb(20, 175, 125) 0%, rgb(0, 10, 255) 100%),
-
-	// 			radial-gradient(100% 100% at 100% 30%, rgb(255, 77, 0) 0%, rgba(0, 200, 255, 1) 100%),
-
-	// 			linear-gradient(60deg, rgb(255, 0, 0) 0%, rgb(120, 86, 255) 100%);
-	
-	// background-blend-mode: overlay, overlay, difference, difference, difference, normal;
-
-
-	// Colors
-
-	// yellow:
-	// purple:
-	// teal:
-	// red:
-
-
 	// Top curve...
 
 	mask: url(../img/section-curve.svg) center top no-repeat;
 	mask-size: cover;
-
-	// Option 1: Image
 
 	// background: rgba(green, 0.50);
 
@@ -66,8 +37,8 @@ Section: Clients
 
 		.clients__header {
 
-			// position: relative;
-			// top: 1em;
+			position: relative;
+			top: 1em;
 
 			width: 100%;
 			max-width: 560px;
@@ -76,13 +47,13 @@ Section: Clients
 			text-transform: none;
 			text-align: center;
 			// background: pink;
-			// opacity: 0;
-			// transition: all 0.35s ease-in;
+			opacity: 0;
+			transition: all 0.35s ease-in;
 
 			.section--is-visible & {
 
-				// top: 0;
-				// opacity: 1;
+				top: 0;
+				opacity: 1;
 
 			}
 
@@ -90,8 +61,8 @@ Section: Clients
 
 		.featured-clients__list {
 
-			// position: relative;
-			// top: 1em;
+			position: relative;
+			top: 1em;
 
 			display: grid;
 			grid-template-columns: 114px 114px;
@@ -107,9 +78,9 @@ Section: Clients
 			margin: 70px auto 0 auto;
 			padding: 0;
 			list-style: none;
-			// transform: scale(0.75);
-			// opacity: 0;
-			// transition: all 0.35s ease-in 0.25s;
+			transform: scale(0.75);
+			opacity: 0;
+			transition: all 0.35s ease-in 0.25s;
 
 			// background: darken(pink, 15%);
 
@@ -128,9 +99,9 @@ Section: Clients
 
 			.section--is-visible & {
 
-				// top: 0;
-				// transform: scale(1);
-				// opacity: 1;
+				top: 0;
+				transform: scale(1);
+				opacity: 1;
 
 			}
 
