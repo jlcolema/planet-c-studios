@@ -343,12 +343,12 @@ Section: Work
 				position: relative;
 				display: inline-block;
 				height: 50px;
-				padding: 2px 0.75em 0 0.75em;
+				padding: 0 0.25em 0 0.25em;
 				color: $color-base-white;
 				background: transparent;
-				border: 2px solid $color-base-white;
-				border-radius: 25px;
-				mix-blend-mode: screen;
+				// border: 2px solid $color-base-white;
+				// border-radius: 25px;
+				// mix-blend-mode: screen;
 
 				&:after {
 
@@ -360,7 +360,7 @@ Section: Work
 					display: block;
 					width: 60px; // Extra width added to cover empty space between this and the button.
 					height: 50px;
-					margin-top: -25px;
+					margin-top: -29px;
 					padding: 0;
 					background: url(../img/more-arrow.svg) right center no-repeat;
 					background-size: 22px 28px;
