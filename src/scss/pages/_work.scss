@@ -66,16 +66,16 @@ Page: Work
 
 				position: absolute;
 				right: 0;
-				top: 0;
+				top: 4px;
 				width: 230px;
 				height: 40px;
 				margin: 0;
 				padding: 40px 0 0 0;
 				list-style: none;
-				border: 2px solid $color-base-white;
-				background: rgba($color-base-black, 0.90);
+				// border: 2px solid $color-base-white;
+				// background: rgba($color-base-black, 0.90);
 				overflow: hidden;
-				border-radius: 20px;
+				// border-radius: 20px;
 				cursor: pointer;
 				z-index: 999;
 
@@ -118,7 +118,7 @@ Page: Work
 
 						height: 40px;
 						padding: 0.5625em 0 0 0.75em;
-						// background: green;
+						background: rgba($color-base-black, 0.90) !important;
 
 					}
 
