@@ -148,7 +148,7 @@ gulp.task('watch', function() {
 
 	browsersync.init({
 
-		proxy: "https://planetcstudios.local",
+		proxy: "http://planetcstudios.local",
 		host: "planetcstudios.local",
 		open: "external",
 		// browser: 'microsoft edge'
