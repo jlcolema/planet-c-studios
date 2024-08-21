@@ -40,7 +40,8 @@ node_modules/
 
 # Title
 
-# *.code-workspace
+*.code-workspace
+*.nova
 
 # Ignore OS generated files.
 
@@ -49,3 +50,4 @@ node_modules/
 # Miscellaneous
 
 organize/
+package-lock.json
